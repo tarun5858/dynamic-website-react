@@ -11,7 +11,7 @@ function App() {
         <Routes>
          
           <Route path="/" element={<BlogPage />} />
-          <Route path="/blog-details" element={<Blogdetails />} />
+          <Route path="/blog/:id" element={<Blogdetails />} />
         </Routes>
       </Router>
             {/* <BlogCard/> */}
