@@ -1,34 +1,54 @@
 import BlogCard from "../components/Blogcard";
 import BlogData from "../data/BlogData";
+import { useState } from "react";
+import TopicBarCta from "../components/TopicBarCta";
+import topics from "../data/BlogTopicData";
 
+// import LargeBlueCta from "../components/LargeBlueCta";
 const BlogPage = () => {
   const blogs = BlogData;
 
+  const [activeTopic, setActiveTopic] = useState("ALL BLOGS");
+
+  const filteredBlogs =
+    activeTopic && activeTopic !== "ALL BLOGS"
+      ? blogs.filter(
+          (blog) =>
+            Array.isArray(blog.points) && blog.points.includes(activeTopic)
+        )
+      : blogs;
   return (
-    <div className="container blog-container">
-      <h2 className="blog-head">
-        Everything you need to know about home ownership
-      </h2>
+    <>
+      <div className="container blog-container">
+        <h2 className="blog-head">
+          Everything you need to know about home ownership
+        </h2>
 
-      <div className="container cta-container mt-5 mb-4">
-        <div className=" cta-row ">
-          <button className="active">ALL BLOGS</button>
-          <button>Renting VS Buying</button>
-          <button>Down Payment</button>
-          <button>Home Loans</button>
-        </div>
-      </div>
-
-      <div className="container blog-cards-container">
-        <div className="row blog-cards-row">
-          <div className="blog-cards-parent">
-            {blogs.map((blog) => (
-              <BlogCard key={blog.id} blog={blog} />
+{/* <LargeBlueCta text="prehome cta"></LargeBlueCta> */}
+        <div className=" cta-container mt-5 mb-4">
+          <div className=" cta-row">
+            {topics.map((topic, index) => (
+              <TopicBarCta
+                key={index}
+                topic={topic}
+                isActive={activeTopic === topic}
+                onClick={() => setActiveTopic(topic)}
+              ></TopicBarCta>
             ))}
           </div>
         </div>
+
+        <div className=" blog-cards-container">
+          <div className="row blog-cards-row">
+            <div className="blog-cards-parent">
+              {filteredBlogs.map((blog) => (
+                <BlogCard key={blog.id} blog={blog} />
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

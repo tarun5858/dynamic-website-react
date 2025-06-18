@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import "./StepIndicator.css";
 import { href } from "react-router-dom";
 
+import axios from "axios"; 
+import logo2 from "../assets/filter_2.png";
+import logo3 from "../assets/filter_3.png";
+import logo4 from "../assets/more_horiz.png";
+
 const BootstrapModal = () => {
   const [currentTab, setCurrentTab] = useState(1); // State to track the current tab
   const [selectedLayout, setSelectedLayout] = useState(""); // State to track the selected layout
@@ -22,6 +27,8 @@ const BootstrapModal = () => {
   const validate = () => {
     const newErrors = {};
     console.log("Validating form data:", formData);
+
+  // Validate name
     if (!formData.name.trim()) {
       console.log("Name is required");
       newErrors.name = "Name is required";
@@ -30,23 +37,20 @@ const BootstrapModal = () => {
       newErrors.name = "Name should contain only letters and spaces";
    
     }
+
+  // Validate location
     if (!selectedLocation) {
     newErrors.location = "Please select a location";
+  } else if (selectedLocation === "Other" && !formData.otherLocation?.trim()) {
+    newErrors.location = "Please specify the location";
   }
+
+  // Validate layout
  if (!selectedLayout) {
     newErrors.layout = "Please select a layout";
+  } else if (selectedLayout === "Other" && !formData.otherLayout?.trim()) {
+    newErrors.layout = "Please specify the layout";
   }
-    // if (!formData.email.trim()) {
-    //   newErrors.email = "Email is required";
-    // } else if (!/^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/.test(formData.email)) {
-    //   newErrors.email = "Invalid email format";
-    // }
-
-    // if (!formData.phone.trim()) {
-    //   newErrors.phone = "Phone number is required";
-    // } else if (!/^\d{10}$/.test(formData.phone)) {
-    //   newErrors.phone = "Phone number must be 10 digits";
-    // }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -82,11 +86,53 @@ const BootstrapModal = () => {
   const handleLocationSelection = (value) => {
     setSelectedLocation(value); // Update the selected location
   };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validate() && validate1()) {
-      // Form is valid — proceed to submit or process the data
-      console.log("Form submitted:", formData);
+  const handleSubmit = async (e) => {
+   
+    
+  // e.preventDefault(); // Prevent default form submission
+
+  // Validate form data
+  if (!validate() || !validate1()) return;
+
+  try {
+
+    const payload = {
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      selectedLocation: selectedLocation,
+      otherLocation: selectedLocation === "Other" ? formData.otherLocation : "",
+      selectedLayout: selectedLayout,
+      otherLayout: selectedLayout === "Other" ? formData.otherLayout : "",
+    };
+    console.log(payload);
+
+    
+    const response = await axios.post("https://emi-vs-rent-calculator-backend-2vgb.onrender.com/api/waitlist/submit", payload);
+
+    // Handle success response
+    // alert("Form submitted successfully!");
+    window.location.href = "https://www.prehome.in/thank-you";
+    console.log("Response from server:", response.data);
+
+    // Reset form and close modal
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      otherLocation: "",
+      otherLayout: "",
+    });
+    setSelectedLocation("");
+    setSelectedLayout("");
+    setCurrentTab(1);
+
+   
+    document.querySelector("#exampleModal .btn-close").click();
+  } catch (error) {
+   
+    console.error("Error submitting form:", error);
+    alert("Failed to submit form. Please try again.");
     }
   };
 
@@ -99,10 +145,18 @@ const BootstrapModal = () => {
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
     >
-      <div className="modal-dialog">
-        <div className="modal-content">
+      <div className="modal-dialog" style={{marginTop:"2.5px"}}>
+        <div className="modal-content" 
+         style={{
+    maxHeight: "100vh",
+    overflowY: "auto",
+    paddingBottom: "60px",
+    scrollbarWidth: "none",        // For Firefox
+    msOverflowStyle: "none"        // For IE and Edge
+  }}
+        >
           {/* Modal Header */}
-          <div className="modal-header border-0">
+          <div className="modal-header border-0" style={{paddingBottom:"0px",paddingTop:"0px"}}>
   
             <button
               type="button"
@@ -117,7 +171,7 @@ const BootstrapModal = () => {
             id="prehomeForm"
             action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&amp;orgId=00DC40000026yrZ"
             method="POST"
-            onSubmit={handleSubmit}
+           
           >
             <div className="modal-body">
               <div className="popuprow">
@@ -138,7 +192,7 @@ const BootstrapModal = () => {
                       }}
                       id="exampleModalLabel"
                     >
-                      Join Our Waitlist
+                      Join our waitlist
                     </h3>
                     <p
                       style={{
@@ -225,7 +279,7 @@ const BootstrapModal = () => {
             transition: "all 0.3s",
             margin: "5px",
             cursor: "pointer",
-            borderRadius:"25px"
+              borderRadius:"25px"
           }}
         >
           Golf Course Extension Road
@@ -245,7 +299,7 @@ const BootstrapModal = () => {
             transition: "all 0.3s",
             margin: "5px",
             cursor: "pointer",
-            borderRadius:"25px"
+              borderRadius:"25px"
           }}
         >
           Southern Peripheral Road
@@ -265,7 +319,7 @@ const BootstrapModal = () => {
             transition: "all 0.3s",
             margin: "5px",
             cursor: "pointer",
-            borderRadius:"25px"
+              borderRadius:"25px"
           }}
         >
           Dwarka Expressway
@@ -283,7 +337,7 @@ const BootstrapModal = () => {
             transition: "all 0.3s",
             margin: "5px",
             cursor: "pointer",
-            borderRadius:"25px"
+              borderRadius:"25px"
           }}
         >
           Sohna Road
@@ -301,7 +355,7 @@ const BootstrapModal = () => {
             transition: "all 0.3s",
             margin: "5px",
             cursor: "pointer",
-            borderRadius:"25px"
+              borderRadius:"25px"
           }}
         >
           Other
@@ -315,9 +369,14 @@ const BootstrapModal = () => {
         id="otherLocation"
         className="form-control mt-2"
         placeholder="E.g., Golf Course Road"
+          value={formData.otherLocation || ""}
+    onChange={(e) =>
+      setFormData({ ...formData, otherLocation: e.target.value })
+    }
          style={{
       width: "55%", // Adjust the width as needed
       marginLeft: "15px",
+       borderColor: errors.location ? "red" : "#ced4da", 
     }}
       />
     )}
@@ -346,8 +405,8 @@ const BootstrapModal = () => {
           marginBottom: "10px",
         }}
       >
-        <img src="./assets/img/filter_2.png" alt="" />
-        <span>2 BHK</span>
+        <img src={logo2} alt="" />
+        <span> BHK</span>
       </button>
     </div>
     <div className="col-4">
@@ -366,8 +425,8 @@ const BootstrapModal = () => {
           marginBottom: "10px",
         }}
       >
-        <img src="./assets/img/filter_3.png" alt="" />
-        <span>3 BHK</span>
+        <img src={logo3} alt="" />
+        <span> BHK</span>
       </button>
     </div>
     <div className="col-4">
@@ -386,7 +445,7 @@ const BootstrapModal = () => {
           marginBottom: "10px",
         }}
       >
-        <img src="./assets/img/more_horiz.png" alt="" />
+        <img src={logo4} alt="" />
         <span>Other</span>
       </button>
     </div>
@@ -399,11 +458,16 @@ const BootstrapModal = () => {
       id="otherPropertyType"
       className="form-control mt-2"
       placeholder="E.g., 4BHK"
+       value={formData.otherLayout || ""}
+    onChange={(e) =>
+      setFormData({ ...formData, otherLayout: e.target.value })
+    }
       style={{
         fontSize: "14px",
         padding: "10px",
         borderRadius: "10px",
         marginTop: "10px",
+         borderColor: errors.layout ? "red" : "#ced4da",
       }}
     />
   )}
@@ -568,11 +632,13 @@ const BootstrapModal = () => {
   style={{ display: currentTab === 2 ? "inline-block" : "none" }}
   className="theme-btn-form-btn btn-radius"
   onClick={(e) => {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault(); 
+    // Prevent default form submission
     if (validate1()) {
-      // Redirect to the thank-you page
-      window.location.href = "https://www.prehome.in/thank-you";
+      handleSubmit(); 
 
+      window.location.href = "https://www.prehome.in/thank-you";
+console.log("submit")
       // Close the modal after 5 seconds
       setTimeout(() => {
         const modal = document.getElementById("exampleModal");
@@ -588,6 +654,7 @@ const BootstrapModal = () => {
         }
       }, 5000);
     }
+
   }}
 >
   Keep me posted

@@ -1,12 +1,18 @@
-import './App.css'
+// import './App.css'
+// import "./assets/css/App.css"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import BlogPage from "./screens/BlogPage"
 // import BlogCard from './components/Blogcard'
 import Blogdetails from './components/blogdetails'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from './components/Header';
+import Footer from './components/Footer';
+
 function App() {
 
   return (
     <>
+<Header></Header>
       <Router>
         <Routes>
          
@@ -16,6 +22,8 @@ function App() {
       </Router>
             {/* <BlogCard/> */}
             {/* <BlogPage/> */}
+
+            <Footer></Footer>
     </>
   )
 }
