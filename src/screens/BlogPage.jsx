@@ -3,7 +3,7 @@ import BlogData from "../data/BlogData";
 import { useState } from "react";
 import TopicBarCta from "../components/TopicBarCta";
 import topics from "../data/BlogTopicData";
-
+import "../App.css"
 // import LargeBlueCta from "../components/LargeBlueCta";
 const BlogPage = () => {
   const blogs = BlogData;
@@ -25,7 +25,7 @@ const BlogPage = () => {
         </h2>
 
 {/* <LargeBlueCta text="prehome cta"></LargeBlueCta> */}
-        <div className=" cta-container mt-5 mb-4">
+        <div className="topic-cta-container mb-4">
           <div className=" cta-row">
             {topics.map((topic, index) => (
               <TopicBarCta

@@ -159,7 +159,7 @@ const Header = () => {
          }}>
        <li style={{marginBottom: "15px"}}>
     <a href="https://www.prehome.in" className="text-white d-block py-2" style={{textDecoration:"none"}}>
-      Home
+     <b>Home</b> 
     </a>
   </li>
       <li style={{marginBottom: "15px"}}>
