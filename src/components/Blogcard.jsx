@@ -1,7 +1,29 @@
 // import "../App.css";
 import { Link } from "react-router-dom";
+import {
+  blogImage1,
+  blogImage2,
+  blogImage3,
+  blogImage4,
+  blogImage5,
+  blogImage6,
+  blogImage7,
+} from "../components/Imagepath";
+
+
 
 const BlogCard = ({ blog }) => {
+
+  const imageSrc = {
+     blogImage1,
+  blogImage2,
+  blogImage3,
+  blogImage4,
+  blogImage5,
+  blogImage6,
+  blogImage7,}
+
+  const imageUrl = imageSrc[blog.imageKey]
   return (     
     <div className="blog-card col-xs-12 col-sm-12 col-md-6 col-lg-4 mb-5 mt-2">
       <Link to={`/blog/${blog.id}`} className="blog-link">
@@ -10,7 +32,7 @@ const BlogCard = ({ blog }) => {
       </Link>
       <Link to={`/blog/${blog.id}`} className="blog-link">
         {" "}
-        <img src={blog.imageUrl} alt={blog.title} className="blog-image" />
+        <img src={imageUrl} alt={blog.title} className="blog-image" />
       </Link>
 
       <div className="blog-meta">

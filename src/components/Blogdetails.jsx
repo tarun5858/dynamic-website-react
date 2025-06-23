@@ -3,11 +3,47 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import RelatedBlogCards from "./RelatedBlogCards";
+import {
+  blogImage1,
+  blogImage2,
+  blogImage3,
+  blogImage4,
+  blogImage5,
+  blogImage6,
+  blogImage7,
+  blogDetailImage1,
+  blogDetailImage2,
+  blogDetailImage3,
+  blogDetailImage4,
+  blogDetailImage5,
+  blogDetailImage7,
+} from "../components/Imagepath";
 
 const Blogdetails = () => {
+  const imageSrc = {
+    blogImage1,
+    blogImage2,
+    blogImage3,
+    blogImage4,
+    blogImage5,
+    blogImage6,
+    blogImage7,
+
+    blogDetailImage1,
+    blogDetailImage2,
+    blogDetailImage3,
+    blogDetailImage4,
+    blogDetailImage5,
+    blogDetailImage7,
+  };
+
   const { id } = useParams();
   const blogs = BlogData;
   const blog = blogs.find((b) => String(b.id) === String(id));
+
+  const imageUrl = imageSrc[blog.imageKey];
+
+  const detailimageUrl = imageSrc[blog.detailImageKey];
 
   const [isSticky, setIsSticky] = useState(false);
 
@@ -42,7 +78,7 @@ const Blogdetails = () => {
         <div className="row d-flex">
           <div className=" blog-text col-sm-12 col-md-6 col-lg-8">
             <img
-              src={blog.imageUrl}
+              src={imageUrl}
               alt={blog.title}
               className="blog-detail-image img-fluid"
             />
@@ -57,7 +93,7 @@ const Blogdetails = () => {
             <h4>
               <b>{blog.subtitle}</b>{" "}
             </h4>
-            {blog?.schemes?.map((scheme, index) => (
+            {blog?.subttileHead?.map((scheme, index) => (
               <div key={index} className="mx-3">
                 <h4>
                   <b>{scheme.name}</b>
@@ -69,29 +105,27 @@ const Blogdetails = () => {
                 </ul>
               </div>
             ))}
-            <br />
+
+            <h4>
+              <b>{blog.subtitle1}</b>{" "}
+            </h4>
+            {blog?.subttileHead1?.map((scheme, index) => (
+              <div key={index} className="mx-3">
+                <h4>
+                  <b>{scheme.name}</b>
+                </h4>
+                <ul className="blog-text-ul">
+                  {scheme.benefits.map((benefit, i) => (
+                    <li key={i}>{benefit}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+
             <h4>
               <b>{blog.subtitle2}</b>{" "}
             </h4>
-            {blog?.texbenefits?.map((scheme, index) => (
-              <div key={index} className="mx-3">
-                <h4>
-                  <b>{scheme.section}</b>
-                </h4>
-                <ul className="blog-text-ul">
-                  {scheme.benefits.map((benefit, i) => (
-                    <li key={i}>{benefit}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-            <img src={blog.detailImageUrl} alt="" className="img-fluid" />
-
-            <br />
-            <h4>
-              <b> {blog.subtitle3}</b>
-            </h4>
-            {blog?.Strategies?.map((scheme, index) => (
+            {blog?.subttileHead2?.map((scheme, index) => (
               <div key={index} className="mx-3">
                 <h4>
                   <b>{scheme.name}</b>
@@ -104,7 +138,40 @@ const Blogdetails = () => {
               </div>
             ))}
 
-            {blog?.StepByStep?.map((scheme, index) => (
+            <img src={detailimageUrl} alt="" className="img-fluid" />
+            {/* <img src={blog.detailImageUrl} alt="" className="img-fluid" /> */}
+
+            {blog.subheading2 && (
+              <>
+                <li>
+                  <b>{blog.subheading2}</b>
+                </li>
+              </>
+            )}
+            {blog.subheading3 && (
+              <>
+                <li>
+                  <b>{blog.subheading3}</b>
+                </li>
+              </>
+            )}
+            {blog.paragraph1 && (
+              <>
+                <li>
+                  <b>{blog.paragraph1}</b>
+                </li>
+              </>
+            )}
+
+            {blog.subtitle3 && (
+              <>
+                <h4>
+                  <b> {blog.subtitle3}</b>
+                </h4>
+              </>
+            )}
+
+            {blog?.subttileHead3?.map((scheme, index) => (
               <div key={index} className="mx-3">
                 <h4>
                   <b>{scheme.name}</b>
@@ -117,7 +184,16 @@ const Blogdetails = () => {
               </div>
             ))}
 
-            {blog?.loanApproval?.map((scheme, index) => (
+            {/* <img src={blog.detailImageUrlTwo} alt="" className="img-fluid" /> */}
+
+            {blog.subtitle4 && (
+              <>
+                <h4>
+                  <b> {blog.subtitle4}</b>
+                </h4>
+              </>
+            )}
+            {blog?.subttileHead4?.map((scheme, index) => (
               <div key={index} className="mx-3">
                 <h4>
                   <b>{scheme.name}</b>
@@ -129,12 +205,52 @@ const Blogdetails = () => {
                 </ul>
               </div>
             ))}
+            {blog.outcome && (
+              <>
+                <li>
+                  <b>Outcome:</b> {blog.outcome}
+                </li>
+                <br />
+              </>
+            )}
+            {blog.lesson && (
+              <>
+                <li>
+                  <b>Lesson:</b> {blog.lesson}
+                </li>
+                <br />
+              </>
+            )}
 
-            {blog?.keyTerms?.map((scheme, index) => (
-              <div key={index} className="mx-3">
+            {blog.subtitle6 && (
+              <>
+                <li>
+                  <b>{blog.subtitle6}</b>
+                </li>
+              </>
+            )}
+
+            {blog.paragraph3 && (
+              <>
+                <li>{blog.paragraph3}</li>
+              </>
+            )}
+
+            {blog.subtitle5 && (
+              <>
                 <h4>
-                  <b>{scheme.name}</b>
+                  <b> {blog.subtitle5}</b>
                 </h4>
+              </>
+            )}
+
+            {blog?.subttileHead5?.map((scheme, index) => (
+              <div key={index} className="mx-3">
+                {scheme.name && (
+                  <h4>
+                    <b> {scheme.name}</b>
+                  </h4>
+                )}
                 <ul className="blog-text-ul">
                   {scheme.benefits.map((benefit, i) => (
                     <li key={i}>{benefit}</li>
@@ -143,92 +259,35 @@ const Blogdetails = () => {
               </div>
             ))}
 
-            <img src={blog.detailImageUrlTwo} alt="" className="img-fluid" />
-
-            <br />
-            <h4>
-              {" "}
-              <b>{blog.subtitle4}</b>
-            </h4>
-            {blog?.Leveraging?.map((scheme, index) => (
-              <div key={index} className="mx-3">
-                <h4>
-                  <b>{scheme.name}</b>
-                </h4>
-                <ul className="blog-text-ul">
-                  {scheme.benefits.map((benefit, i) => (
-                    <li key={i}>{benefit}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-
-            {blog?.Pitfalls?.map((scheme, index) => (
-              <div key={index} className="mx-3">
-                <h4>
-                  <b>{scheme.name}</b>
-                </h4>
-                <ul className="blog-text-ul">
-                  {scheme.benefits.map((benefit, i) => (
-                    <li key={i}>{benefit}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-
-            {blog?.creditScore?.map((scheme, index) => (
-              <div key={index} className="mx-3">
-                <h4>
-                  <b>{scheme.name}</b>
-                </h4>
-                <ul className="blog-text-ul">
-                  {scheme.benefits.map((benefit, i) => (
-                    <li key={i}>{benefit}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-
-            {blog?.Eligibility?.map((scheme, index) => (
-              <div key={index} className="mx-3">
-                <h4>
-                  <b>{scheme.name}</b>
-                </h4>
-                <ul className="blog-text-ul">
-                  {scheme.benefits.map((benefit, i) => (
-                    <li key={i}>{benefit}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-
-            <br />
-            <h4>
-              <b> {blog.subtitle5}</b>
-            </h4>
-            {blog?.RentToOwn?.map((scheme, index) => (
-              <div key={index} className="mx-3">
-                <h4>
-                  <b>{scheme.name}</b>
-                </h4>
-                <ul className="blog-text-ul">
-                  {scheme.benefits.map((benefit, i) => (
-                    <li key={i}>{benefit}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+            {blog.outcome2 && (
+              <>
+              <li>
+                <b>Outcome:</b> {blog.outcome2}
+              </li>
+              <br />
+              </>
+            )}
+            {blog.lesson2 && (
+              <>
+              <li>
+                <b>Lesson:</b> {blog.lesson2}
+              </li>
+              <br />
+              </>
+            )}
 
             <h4>
               <b>Conclusion:</b>
             </h4>
+            <p> {blog.conclusion}</p>
             <p> {blog.conclusion1}</p>
             <p> {blog.conclusion2}</p>
 
-            <h4>
-              <b>Next in Our Series:</b>
-            </h4>
-            <p> {blog.nextSeries}</p>
+            {blog.nextSeries && (
+              <li>
+                <b>Next in Our Series:</b> {blog.nextSeries}
+              </li>
+            )}
           </div>
           <div className="col-sm-12 col-md-6 col-lg-4 sticky-blogs">
             {/* Sidebar Extras */}
@@ -237,10 +296,6 @@ const Blogdetails = () => {
               className={`sidebar ${isSticky ? "sticky" : ""}`}
             >
               <h4>Related blogs</h4>
-              {/* <RelatedBlogCards
-                currentHeading={blog.heading}
-                time="2 min read"
-              ></RelatedBlogCards> */}
               <RelatedBlogCards
                 currentHeading={blog.heading}
                 currentTags={blog.blogTags}

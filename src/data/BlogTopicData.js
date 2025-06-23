@@ -1,2 +1,2 @@
-const topics = ["ALL BLOGS", "RENTING VS BUYING", "DOWN PAYMENT", "HOME LOANS"];
+const topics = ["ALL BLOGS", "RENTING VS BUYING", "DOWN PAYMENT", "HOME LOANS","UNDER CONSTRUCTION VS READY-TO-MOVE IN"];
 export default topics;

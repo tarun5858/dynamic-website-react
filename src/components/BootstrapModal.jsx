@@ -3,9 +3,9 @@ import "./StepIndicator.css";
 import { href } from "react-router-dom";
 
 import axios from "axios"; 
-import logo2 from "../assets/filter_2.png";
-import logo3 from "../assets/filter_3.png";
-import logo4 from "../assets/more_horiz.png";
+import logo2 from "../assets/img/filter_2.png";
+import logo3 from "../assets/img/filter_3.png";
+import logo4 from "../assets/img/more_horiz.png";
 
 const BootstrapModal = () => {
   const [currentTab, setCurrentTab] = useState(1); // State to track the current tab

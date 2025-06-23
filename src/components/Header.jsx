@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../assets/css/App.css";
-import icon from "../assets/prehomeLogo.png";
+import icon from "../assets/img/prehomeLogo.png";
 import "../assets/css/bootstrap.min.css";
 import BootstrapModal from "./BootstrapModal"; // Adjust path as needed
 import { FaChevronDown } from "react-icons/fa";
