@@ -15,3 +15,29 @@ export { default as blogDetailImage3 } from "../assets/img/How Credit scores are
 export { default as blogDetailImage4 } from "../assets/img/Home Loan Jargon.png";
 export { default as blogDetailImage5 } from "../assets/img/Blog 11 Under Construction vs Ready to move in.png";
 export { default as blogDetailImage7 } from "../assets/img/Mitigating Risks.png";
+
+// homepage img
+export { default as benefitimg1 } from "../assets/img/benefit-icon-1.png";
+export { default as benefitimg2 } from "../assets/img/benefit-icon-3.png";
+export { default as benefitimg3 } from "../assets/img/benefit-icon-2.png";
+
+
+// textImagecard img
+export { default as image1 } from "../assets/img/What-we-offer.png";
+
+
+// prefooter img
+export { default as backgroundImage } from "../assets/img/caltoactionbg.png";
+
+
+// carousel img
+export { default as carouselImage1 } from "../assets/img/Untitled design.zip - 4.png";
+export { default as carouselImage2 } from "../assets/img/Untitled design.zip - 2.png";
+export { default as carouselImage3 } from "../assets/img/Untitled design.zip - 3.png";
+export { default as carouselIcon } from "../assets/img/icon.png";
+
+
+// calculator img
+export { default as calculatorImage1 } from "../assets/img/calc-1.png";
+export { default as calculatorImage2 } from "../assets/img/calc-2.png";
+export { default as calculatorImage3 } from "../assets/img/calc-3.png";

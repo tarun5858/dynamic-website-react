@@ -1,14 +1,14 @@
 import './App.css'
 import "./assets/css/App.css"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import BlogPage from "./screens/BlogPage"
+// import BlogPage from "./screens/BlogPage"
 // import BlogCard from './components/Blogcard'
 import Blogdetails from './components/blogdetails'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import WhatsAppButton from "./components/whatsappButton";
-
+import ComponentsParent from "./screens/ComponentsParent";
 
 function App() {
 
@@ -19,7 +19,8 @@ function App() {
       <Router>
         <Routes>
          
-          <Route path="/" element={<BlogPage />} />
+          <Route path="/" element={<ComponentsParent />} />
+          {/* <Route path="/" element={<BlogPage />} /> */}
           <Route path="/blog/:id" element={<Blogdetails />} />
         </Routes>
       </Router>

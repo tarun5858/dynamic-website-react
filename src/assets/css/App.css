@@ -2452,6 +2452,9 @@ list-style: none;
   padding: 10px 20px!important;
 }
 }
+.carousel{
+  text-align: left;
+}
 
 .mask-outline h2 {
   font-size: 115px;
@@ -10235,7 +10238,7 @@ footer .footer-bottom .social-links a:last-of-type {
 
 .list-style ul li {
   background: url(../img/list.png) no-repeat left top;
-  padding: 0px 0px 20px 30px;
+  /* padding: 0px 0px 20px 30px; */
   text-align: left;
   font-size: 18px;
 }
@@ -10895,7 +10898,7 @@ label {
   box-shadow: 0px 10px 7px -5px rgba(0, 0, 0, 0.20);
   -webkit-box-shadow: 0px 10px 7px -5px rgba(0, 0, 0, 0.20);
   border-radius: 20px;
-  height: 335px;
+  height: 100%;
 }
 
 @media (max-width: 767px) {
@@ -11268,8 +11271,8 @@ flex-direction: column;
   text-align:left;
 }
 .calculator-card {
-  width: 350px!important;
-  height: 246px!important;
+  width: 350px;
+  height: 246px;
 }
 .calculator-text{
 font-size: 16px;
@@ -11294,6 +11297,18 @@ font-weight: bold;
   }
   
 } */
+ .icon{
+  text-align: left;
+ }
+ .calculator-text{
+font-size: 19px;
+font-weight: bold;
+text-align: left;
+}
+.calculator-p{
+  text-align: left;
+}
+
 .mobile-subhead{
   display: none;
 }
@@ -11335,7 +11350,7 @@ justify-content: space-between;
   padding: 15px;
   border-radius: 7%;
   margin: 10px 10px;
-  width: 420px;
+  width: 410px!important;
 }
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
