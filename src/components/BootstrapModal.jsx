@@ -643,9 +643,9 @@ console.log("submit")
       setTimeout(() => {
         const modal = document.getElementById("exampleModal");
         if (modal) {
-          modal.classList.remove("show");
+          modal.classNameList.remove("show");
           modal.style.display = "none";
-          document.body.classList.remove("modal-open");
+          document.body.classNameList.remove("modal-open");
           document.body.style.overflow = "auto";
           const backdrop = document.querySelector(".modal-backdrop");
           if (backdrop) {

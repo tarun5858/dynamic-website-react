@@ -22,9 +22,6 @@ export { default as benefitimg2 } from "../assets/img/benefit-icon-3.png";
 export { default as benefitimg3 } from "../assets/img/benefit-icon-2.png";
 
 
-// textImagecard img
-export { default as image1 } from "../assets/img/What-we-offer.png";
-
 
 // prefooter img
 export { default as backgroundImage } from "../assets/img/caltoactionbg.png";
@@ -41,3 +38,11 @@ export { default as carouselIcon } from "../assets/img/icon.png";
 export { default as calculatorImage1 } from "../assets/img/calc-1.png";
 export { default as calculatorImage2 } from "../assets/img/calc-2.png";
 export { default as calculatorImage3 } from "../assets/img/calc-3.png";
+
+
+// home img
+export { default as bannerImg } from "../assets/img/IMG_5084.PNG";
+export { default as whatweoffer } from "../assets/img/What-we-offer.png";
+export { default as perfectplace } from "../assets/img/Perfect-place.png";
+export { default as worriedabout } from "../assets/img/Financial-security.png";
+export { default as experienceliving } from "../assets/img/Experience-living.png";

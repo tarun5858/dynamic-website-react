@@ -4,7 +4,7 @@ import LargeBlueCta from "./LargeBlueCta";
 const TextImageSection = ({ data, image, reverse = false }) => {
   return (
     <div className="container container-lg">
-      <div  className={`row align-items-center ${reverse ? "flex-row-reverse" : ""}`}>
+      <div  className={`row align-items-center mt-5 mb-5 ${reverse ? "flex-row-reverse" : ""}`}>
         <div
           className="col-xl-6 col-md-5 ps-xl-4 aos-item getpre-cont"
           data-aos="fade-up"

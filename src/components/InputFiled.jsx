@@ -15,7 +15,7 @@ const InputField = () => {
       <div className="col-md-6 col-12">
                         <div className="single-personal-info">
                             <label for="email">Email/Phone Number</label> <br />
-                            <input type="text" name="00NC4000001IArm" id="email3" class="border-only" required />                                         
+                            <input type="text" name="00NC4000001IArm" id="email3" className="border-only" required />                                         
                         </div>
                     </div>
         </div>

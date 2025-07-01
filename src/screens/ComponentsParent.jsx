@@ -9,7 +9,6 @@ import Carousel from "../components/Carousel";
 import InputField from "../components/InputFiled";
 import CalculatorCard from "../components/CalculatorCard";
 import TextImageData from "../data/TextImageData";
-import { image1 } from "../components/Imagepath";
 const ComponentsParent = () => {
     const cardData = componentsData;
      const imageSrc = {
@@ -28,8 +27,7 @@ const ComponentsParent = () => {
             
           <TextImageCard src={imageSrc[data.imageKey]} key={i} subheading={data.subheading} paragraph={data.paragraph}></TextImageCard>
             )}
-          {/* <TextImageCard ></TextImageCard>
-          <TextImageCard ></TextImageCard> */}
+
         </div>
       </div>
 
@@ -38,7 +36,7 @@ const ComponentsParent = () => {
       </div>
 
       <div className="container mt-5 mb-5  d-flex justify-content-center">
-<TextImageSection data={data} image={image1}   />
+<TextImageSection data={data}   />
       </div>
 
 

@@ -9,7 +9,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import WhatsAppButton from "./components/whatsappButton";
 import ComponentsParent from "./screens/ComponentsParent";
-
+import Home from './screens/Home';
 function App() {
 
   return (
@@ -19,7 +19,8 @@ function App() {
       <Router>
         <Routes>
          
-          <Route path="/" element={<ComponentsParent />} />
+          <Route path="/" element={<Home />} />
+          {/* <Route path="/" element={<ComponentsParent />} /> */}
           {/* <Route path="/" element={<BlogPage />} /> */}
           <Route path="/blog/:id" element={<Blogdetails />} />
         </Routes>
