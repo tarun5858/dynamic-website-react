@@ -567,6 +567,10 @@ h1 {
 }
 
 @media (max-width: 991px) {
+  .large-cta{
+    width: 300px!important;
+    font-size: 20px!important;
+  }
   h1 {
     font-size: 36px;
   }
@@ -658,8 +662,13 @@ p {
 
 @media (max-width: 767px) {
   .fs-lg {
-    font-size: 36px;
+            margin-top: 5%;
+        font-size: 32px;
+        text-align: center;
   }
+      .sub-head-home {
+        font-size: 14px !important;
+      }
 }
 
 .coverbg {
@@ -2400,7 +2409,11 @@ nav .breadcrumb li {
   margin-bottom: 0;
   line-height: 1;
 }
+.video-head{
+  color: #000;
+    font-weight: 600;
 
+}
 @media (max-width: 991px) {
   .mask-outline h1 {
     font-size: 150px;
@@ -2408,6 +2421,18 @@ nav .breadcrumb li {
 }
 
 @media (max-width: 576px) {
+  .video-head{
+  color: #000;
+    font-weight: 600;
+    margin-top: 10%!important;
+}
+  .cta-parent {
+    margin-top: 15%!important;
+}
+      .video-container {
+        width: 100% !important;
+        height: 190px !important;
+    }
   .cta-container {
     overflow-x: scroll;
     scrollbar-width: none;
@@ -2440,7 +2465,8 @@ nav .breadcrumb li {
   .carousel-indicators {
     position: absolute;
 left: 0;
-bottom: -80px!important;;
+/* bottom: -80px!important;; */
+bottom: 5px!important;;
 z-index: 2;
 display: flex;
 /* justify-content: center; */
@@ -2454,6 +2480,8 @@ list-style: none;
   width: 215px!important;
   height: 45px!important;
   padding: 10px 20px!important;
+  font-size: 16px!important;
+  align-self: center;
 }
 }
 .carousel{
@@ -2510,6 +2538,11 @@ list-style: none;
 }
 
 @media (max-width: 767px) {
+      .testimonials-text {
+        font-size: 16px !important;
+        line-height: 30px !important;
+        text-align: justify !important;
+    }
   /* br {
     display: none;
   } */
@@ -3302,6 +3335,7 @@ list-style: none;
       height: 45px!important;
       width: 215px!important;
       padding: 10px!important;
+     
       /* margin-left: 20%!important; */
     }
     .footer-section{
@@ -4942,6 +4976,23 @@ header.header-3 .main-menu ul>li>ul ul {
 }
 
 @media (max-width: 1199px) {
+  .benefit-txt img{
+    height: 30%!important;
+  }
+
+  .testimonials-text {
+        font-size: 16px !important;
+        line-height: 30px !important;
+        text-align: justify !important;
+    }
+      .video-container {
+        position: relative;
+        width: 705px;
+        height: max-content;
+        cursor: pointer;
+        box-shadow: 1px 1px 10px 0px rgba(1, 29, 80, 0.6);
+        border-radius: 15px;
+    }
   .hero-1 .single-slide {
     padding-top: 140px;
     padding-bottom: 130px;
@@ -10898,9 +10949,13 @@ label {
   }
 }
 
+
 .desktop-show {
   display: block;
   text-align: left;
+  font-size: 39px;
+    font-weight: 600;
+    margin-bottom: 5%;
 }
 
 .mobile-show {
@@ -10922,6 +10977,11 @@ label {
 }
 
 @media (max-width: 767px) {
+  .home-text-img-container {
+        display: flex
+;
+        flex-direction: column-reverse;
+    }
   .chart-with-whatsapp span {
 
     display: none;
@@ -11245,6 +11305,10 @@ p {
 .hero-1 .single-slide .hero-contents p{
   font-size: 16px;
 }
+    .hero-contents {
+        margin-top: 2%;
+        text-align: center;
+    }
 .modal{
   overflow-y: scroll;
 }
@@ -11985,7 +12049,6 @@ margin-top: 10%;
   transition: all 0.4s ease-in-out;
   -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
-  width: 215px;
   text-align: center;
   width: 435px;
   height: 58px;
@@ -12015,7 +12078,7 @@ margin-top: 10%;
 .video-container {
         position: relative;
         width: 1028px;
-        height: 562px;
+        height: max-content;
         cursor: pointer;
         box-shadow: 1px 1px 10px 0px rgba(1, 29, 80, 0.6);
 border-radius: 15px;

@@ -46,3 +46,7 @@ export { default as whatweoffer } from "../assets/img/What-we-offer.png";
 export { default as perfectplace } from "../assets/img/Perfect-place.png";
 export { default as worriedabout } from "../assets/img/Financial-security.png";
 export { default as experienceliving } from "../assets/img/Experience-living.png";
+
+// footer img
+// export { default as Logo } from "../assets/img/Logo New Monochrome.jpg";
+// export { default as listImage } from "../assets/img/list.png";

@@ -15,8 +15,12 @@ const Home = () => {
     benefitimg1,
     benefitimg2,
     benefitimg3,
+    whatweoffer,perfectplace,worriedabout,experienceliving
   };
+
   const data = TextImageData;
+
+
   return (
     <>
       <section className=" section-padding-home text-md-start">
@@ -57,7 +61,7 @@ const Home = () => {
             className="section-title text-center aos-item"
             data-aos="flip-left"
           >
-            <h2>An alternate path to homeownership</h2>
+            <h2 className="text-center">An alternate path to homeownership</h2>
           </div>
           <div className="row my-5">
             <div className="col-12 d-flex justify-content-center text-center">
@@ -119,17 +123,17 @@ const Home = () => {
                 data-wow-duration="1500ms"
                 data-wow-delay="00ms"
               >
-                <TextImageSection data={data} image={whatweoffer} />
-                <TextImageSection data={data} image={perfectplace} reverse={true}/>
-                <TextImageSection data={data} image={worriedabout}/>
-                <TextImageSection data={data} image={experienceliving} reverse={true}/>
+              {data.map((value,i) => 
+                <TextImageSection src={imageSrc[value.imgkey]} key={i} data={value} reverse={value.reverse === "true"} />
+              )}
+
               </div>
             </div>
           </div>
         </div>
       </section>
 
- <section class="why-choice-us">
+ <section className="why-choice-us">
 
       <PreFooter></PreFooter>
  </section>
