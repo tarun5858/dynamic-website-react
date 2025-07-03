@@ -4,7 +4,6 @@ import LargeBlueCta from "./LargeBlueCta";
 const TextImageSection = ({ data, src, reverse = false }) => {
   return (
     <div className="container container-lg">
-        {/* <div className={`row align-items-center flex-column-reverse flex-md-row mt-5 mb-5 ${reverse === "true" ? "flex-md-row-reverse" : ""}`}> */}
           <div className={`row align-items-center flex-column-reverse flex-md-row mt-5 mb-5 ${reverse ? "flex-md-row-reverse" : ""}`}>
         <div
           className="col-xl-6 col-md-5 ps-xl-4 aos-item getpre-cont"
@@ -21,12 +20,8 @@ const TextImageSection = ({ data, src, reverse = false }) => {
 
             {data.listitems?.map((item, index) => (
               <div key={index} className="mx-3">
-                {/* <h4 className="textimage-h4">
-                 
-                </h4> */}
                 <ul className="blog-text-ul">
-                  {item.point.map((benefit, i) => (
-                    
+                  {item.point.map((benefit, i) => ( 
                   <li key={i}> <b>{item.title}</b> {benefit}</li>
                   ))}
                 </ul>

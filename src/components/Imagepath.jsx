@@ -47,6 +47,10 @@ export { default as perfectplace } from "../assets/img/Perfect-place.png";
 export { default as worriedabout } from "../assets/img/Financial-security.png";
 export { default as experienceliving } from "../assets/img/Experience-living.png";
 
-// footer img
-// export { default as Logo } from "../assets/img/Logo New Monochrome.jpg";
-// export { default as listImage } from "../assets/img/list.png";
+// success stories img
+export { default as familyImageDesktop } from "../assets/img/complete creative.png";
+export { default as familyImageMobile } from "../assets/img/complete.png";
+
+export { default as prefooterDesktop } from "../assets/img/Frame 1000001323.png";
+export { default as prefooterMobile } from "../assets/img/Frame 1000001324.png";
+

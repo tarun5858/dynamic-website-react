@@ -66,12 +66,12 @@ const Home = () => {
           <div className="row my-5">
             <div className="col-12 d-flex justify-content-center text-center">
               <VideoPlayer></VideoPlayer>
-              <div className="cta-parent">
-                <LargeBlueCta text="Learn how"></LargeBlueCta>
-              </div>
             </div>
           </div>
         </div>
+              <div className="cta-parent">
+                <LargeBlueCta text="Learn how"></LargeBlueCta>
+              </div>
       </section>
 
       <section className="about-wrapper1 section-padding container">
@@ -82,7 +82,7 @@ const Home = () => {
           <Carousel></Carousel>
 
           <div className="cta-parent d-flex justify-content-center">
-            <LargeBlueCta text="Learn how"></LargeBlueCta>
+            <LargeBlueCta text="Learn more"></LargeBlueCta>
           </div>
         </div>
       </section>
@@ -115,7 +115,7 @@ const Home = () => {
         <div className="container container-lg">
           <div className="row align-items-center  column-reverse ">
             <div
-              className="col-xl-12 col-md-5 ps-xl-4 aos-item getpre-cont text-left"
+              className="col-xl-12 col-md-12 ps-xl-4 aos-item getpre-cont text-left"
               data-aos="fade-up"
             >
               <div

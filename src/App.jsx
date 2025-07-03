@@ -1,6 +1,6 @@
 import './App.css'
 import "./assets/css/App.css"
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 // import BlogPage from "./screens/BlogPage"
 // import BlogCard from './components/Blogcard'
 import Blogdetails from './components/blogdetails'
@@ -10,21 +10,21 @@ import Footer from './components/Footer';
 import WhatsAppButton from "./components/whatsappButton";
 import ComponentsParent from "./screens/ComponentsParent";
 import Home from './screens/Home';
+import SuccessStories from './screens/SuccessStories';
 function App() {
 
   return (
     <>
 <Header></Header>
 <WhatsAppButton></WhatsAppButton>
-      <Router>
         <Routes>
          
           <Route path="/" element={<Home />} />
+          <Route path="/success-stories" element={<SuccessStories />} />
           {/* <Route path="/" element={<ComponentsParent />} /> */}
           {/* <Route path="/" element={<BlogPage />} /> */}
           <Route path="/blog/:id" element={<Blogdetails />} />
         </Routes>
-      </Router>
             {/* <BlogCard/> */}
             {/* <BlogPage/> */}
 

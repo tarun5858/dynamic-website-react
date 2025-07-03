@@ -5,7 +5,7 @@ import "../assets/css/bootstrap.min.css";
 import BootstrapModal from "./BootstrapModal"; // Adjust path as needed
 import { FaChevronDown } from "react-icons/fa";
 import './Header.css';
-
+import { Link } from "react-router-dom";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   // const isDesktop = useMediaQuery("(min-width:1200px)");
@@ -40,7 +40,10 @@ const Header = () => {
                 <div className="main-menu">
                   <ul>
                     <li><a href="https://www.prehome.in/howitworks">How it works</a></li>
-                    <li><a href="https://prehome-latest-build.vercel.app/success.html">Success Stories</a></li>
+                    {/* <li><a href="https://prehome-latest-build.vercel.app/success.html">Success Stories</a></li> */}
+                    <li>
+                      <Link to="/success-stories">Success Stories</Link>
+                      </li>
                     <li className="mobile-dropdown dropdown">
                       <a href="javascript:void(0);" className="dropdown-toggle">Resources <FaChevronDown /> </a>
                       <ul className="dropdown-menu">
@@ -172,13 +175,8 @@ const Header = () => {
           </a>
         </li>
        <li style={{marginBottom: "15px"}}>
-          <a
-            href="https://prehome-latest-build.vercel.app/success.html"
-            className="text-white d-block py-2"
-            style={{textDecoration:"none"}}
-          >
-            Success Stories
-          </a>
+          <Link to="/success-stories">Success Stories
+            </Link>
         </li>
        <li style={{marginBottom: "15px"}}>
           <details>
