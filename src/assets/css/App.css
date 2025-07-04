@@ -11243,7 +11243,7 @@ label {
   display: block;
   font-size: 24px;
   font-weight: bold;
-  margin-top: 30%;
+  /* margin-top: 30%; */
   padding: 6%;
 }
 .desktop-text{
@@ -11670,6 +11670,8 @@ justify-content: space-between;
 .about-images .circle{
   display: flex;
   justify-content: center;
+  flex-direction: column;
+    justify-content: space-evenly;
 }
 .circle{
   background-color: #FFF6DF;

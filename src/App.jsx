@@ -11,6 +11,7 @@ import WhatsAppButton from "./components/whatsappButton";
 import ComponentsParent from "./screens/ComponentsParent";
 import Home from './screens/Home';
 import SuccessStories from './screens/SuccessStories';
+import HowItWorks from './screens/HowItWorks';
 function App() {
 
   return (
@@ -21,6 +22,7 @@ function App() {
          
           <Route path="/" element={<Home />} />
           <Route path="/success-stories" element={<SuccessStories />} />
+          <Route path="/how-it-works" element={<HowItWorks />} />
           {/* <Route path="/" element={<ComponentsParent />} /> */}
           {/* <Route path="/" element={<BlogPage />} /> */}
           <Route path="/blog/:id" element={<Blogdetails />} />

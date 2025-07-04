@@ -39,7 +39,9 @@ const Header = () => {
               <div className="menu-wrap">
                 <div className="main-menu">
                   <ul>
-                    <li><a href="https://www.prehome.in/howitworks">How it works</a></li>
+                    <li>
+                      <Link to="/how-it-works">How it Works
+            </Link></li>
                     {/* <li><a href="https://prehome-latest-build.vercel.app/success.html">Success Stories</a></li> */}
                     <li>
                       <Link to="/success-stories">Success Stories</Link>
@@ -166,13 +168,15 @@ const Header = () => {
     </a>
   </li>
       <li style={{marginBottom: "15px"}}>
-          <a
+          {/* <a
             href="https://www.prehome.in/howitworks"
             className="text-black d-block py-2"
             style={{textDecoration:"none"}}
           >
             How it works
-          </a>
+          </a> */}
+          <Link to="/how-it-works">How it Works
+            </Link>
         </li>
        <li style={{marginBottom: "15px"}}>
           <Link to="/success-stories">Success Stories

@@ -25,6 +25,7 @@ export { default as benefitimg3 } from "../assets/img/benefit-icon-2.png";
 
 // prefooter img
 export { default as backgroundImage } from "../assets/img/caltoactionbg.png";
+export { default as logo } from "../assets/img/Logo New 3.png";
 
 
 // carousel img
@@ -50,7 +51,29 @@ export { default as experienceliving } from "../assets/img/Experience-living.png
 // success stories img
 export { default as familyImageDesktop } from "../assets/img/complete creative.png";
 export { default as familyImageMobile } from "../assets/img/complete.png";
-
 export { default as prefooterDesktop } from "../assets/img/Frame 1000001323.png";
 export { default as prefooterMobile } from "../assets/img/Frame 1000001324.png";
+
+
+// how it works img
+export { default as containerImg1 } from "../assets/img/Modified Website [DEV]/Group 17865.png";
+export { default as containerImg2 } from "../assets/img/Modified Website [DEV]/Group 17866.png";
+export { default as containerImg1mobile } from "../assets/img/mobilelayers Website [DEV] (3)/Group 17866.png";
+export { default as containerImg2mobile } from "../assets/img/mobilelayers Website [DEV] (3)/Group 17867.png";
+
+
+
+export { default as cardnumber1 } from "../assets/img/how-works-icons-number/Frame 1000001286.png";
+export { default as cardnumber2 } from "../assets/img/how-works-icons-number/Frame 1000001299.png";
+export { default as cardnumber3 } from "../assets/img/how-works-icons-number/Frame 1000001300.png";
+export { default as cardnumber4 } from "../assets/img/how-works-icons-number/Frame 1000001301.png";
+export { default as cardnumber5 } from "../assets/img/how-works-icons-number/Frame 1000001302.png";
+
+// icons 
+export { default as cardicon1 } from "../assets/img/howitworkIcons/assignment_turned_in.png";
+export { default as cardicon2 } from "../assets/img/howitworkIcons/add_home.png";
+export { default as cardicon3 } from "../assets/img/howitworkIcons/encrypted.png";
+export { default as cardicon4 } from "../assets/img/howitworkIcons/event.png";
+export { default as cardicon5 } from "../assets/img/howitworkIcons/family_home.png";
+
 
