@@ -4,9 +4,11 @@ const howitworksTextImg = ({ data, srcNumber, srcIcon, reverse = false }) => {
     <div className="container container-lg">
 
       <div
-        className={`row align-items-center flex-column-reverse flex-md-row ${
-          reverse ? "flex-md-row-reverse" : ""
-        }`}
+       className={`row align-items-center ${
+  reverse ? "flex-row-reverse flex-md-row-reverse" : "flex-row flex-md-row"
+}`}
+
+
       >
 
         <div class="col-4 col-sm-4 col-md-5  col-lg-4 col-xl-4  ">

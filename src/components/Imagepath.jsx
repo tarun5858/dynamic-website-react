@@ -76,4 +76,21 @@ export { default as cardicon3 } from "../assets/img/howitworkIcons/encrypted.png
 export { default as cardicon4 } from "../assets/img/howitworkIcons/event.png";
 export { default as cardicon5 } from "../assets/img/howitworkIcons/family_home.png";
 
+// ourstoryImg
+export { default as ourstoryImg1 } from "../assets/img/OurstoryImages/creative 1_ compressed.png";
+export { default as ourstoryImg2 } from "../assets/img/OurstoryImages/2nd creative_ compressed.png";
+export { default as ourstoryImg3 } from "../assets/img/OurstoryImages/creative 3_compressed.png";
+export { default as benefitImg1 } from "../assets/img/OurstoryImages/IMG_4856.PNG";
+export { default as benefitImg2 } from "../assets/img/OurstoryImages/2nd creative-6.png";
+export { default as benefitImg3 } from "../assets/img/OurstoryImages/IMG_4854.PNG";
+export { default as carouselImg1 } from "../assets/img/OurstoryImages/2.png";
+export { default as carouselImg2 } from "../assets/img/OurstoryImages/3 (1).png";
+export { default as carouselImg3 } from "../assets/img/OurstoryImages/5 (2).png";
+
+export { default as carouselBackImgDesktop } from "../assets/img/OurstoryImages/background-image-1.png";
+export { default as carouselBackImgMobile } from "../assets/img/OurstoryImages/website-landing-300kb-1.jpg";
+export { default as promiseImage1 } from "../assets/img/OurstoryImages/IMG_4857.PNG";
+export { default as promiseImage2 } from "../assets/img/OurstoryImages/IMG_4858.PNG";
+export { default as promiseImage3 } from "../assets/img/OurstoryImages/Untitled_Artwork 16.png";
+
 

@@ -5,9 +5,10 @@ import VideoPlayer from "../components/VideoPlayer";
 import HowitworksTextImg from "../components/HowitworksTextImg";
 import HowitworksData from "../data/HowitworksData";
 import PreFooter from "../components/PreFooter";
+import LargeBlueCta from "../components/LargeBlueCta";
 import {
-    containerImg1,
-    containerImg2,
+  containerImg1,
+  containerImg2,
   cardnumber1,
   cardnumber2,
   cardnumber3,
@@ -20,7 +21,7 @@ import {
   cardicon5,
   logo,
   containerImg1mobile,
-  containerImg2mobile
+  containerImg2mobile,
 } from "../components/Imagepath";
 const HowItWorks = () => {
   const imageSrc = {
@@ -36,10 +37,10 @@ const HowItWorks = () => {
     cardicon3,
     cardicon4,
     cardicon5,
-    logo
+    logo,
   };
 
-    const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -70,46 +71,82 @@ const HowItWorks = () => {
 
       <section className=" about-wrapper container mb-50 how-works-margin">
         <div className="container container-lg">
-{HowitworksData.map((value, i) => {
-    const imgSrc =
-          i % 2 === 0
-            ? isMobile
-              ? containerImg1mobile
-              : containerImg1
-            : isMobile
-            ? containerImg2mobile
-            : containerImg2;
-      return(   
-  <div key={i}>
-    {i % 2 === 0 ? (
-      <div className="row">
-        <div className="col-lg-12 text-center">
-          <img src={imgSrc} alt="Top" />
+          {HowitworksData.map((value, i) => {
+            const imgSrc =
+              i % 2 === 0
+                ? isMobile
+                  ? containerImg1mobile
+                  : containerImg1
+                : isMobile
+                ? containerImg2mobile
+                : containerImg2;
+            return (
+              <div key={i}>
+                {i % 2 === 0 ? (
+                  <div className="row">
+                    <div className="col-lg-12 text-center">
+                      <img src={imgSrc} alt="Top" />
+                    </div>
+                  </div>
+                ) : (
+                  <div className="row">
+                    <div className="col-lg-12 text-center">
+                      <img src={imgSrc} alt="Bottom" />
+                    </div>
+                  </div>
+                )}
+
+                <HowitworksTextImg
+                  data={value}
+                  srcNumber={imageSrc[value.imgkeyNumber]}
+                  srcIcon={imageSrc[value.imgkeyIcon]}
+                  reverse={value.reverse === "true"}
+                />
+              </div>
+            );
+          })}
+          <div className="row">
+            <div className="col-lg-12 d-flex justify-content-center">
+              <img
+                className="desktop-img-howitwork"
+                src={containerImg2}
+                alt="Top"
+              />
+              <img
+                className="mobile-img-howitwork text-center"
+                src={containerImg2mobile}
+                alt="Top"
+              />
+            </div>
+          </div>
+          <div className="row align-items-center">
+            <div class="col-xl-2  col-sm-0"></div>
+
+            <div class="col-8 col-sm-8 col-md-7 col-lg-8 col-xl-6    ps-xl-5">
+              <div
+                class="section-title list-style aos-item "
+                data-aos="zoom-in-left"
+              >
+                <p class="sec-title-p">
+                  Your home ownership story matters to us.
+                </p>
+                <h3 class="footer-h3">Let's write it together.</h3>
+              </div>
+              <LargeBlueCta style={{width: "272px", height: "62px"}} text="Join us" />
+            </div>
+
+            <div class="col-4 col-sm-4 col-md-5  col-lg-4 col-xl-4 justify-content-center">
+              <div
+                class="about-images   mb-sm-0  aos-item section-title d-flex align-items-center"
+                data-aos="zoom-in"
+              >
+                <img src={logo} alt="" style={{ width: "100%" }} />
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    ) : (
-      <div className="row">
-        <div className="col-lg-12 text-center">
-          <img src={imgSrc} alt="Bottom" />
-        </div>
-      </div>
-    )}
-
-    <HowitworksTextImg
-      data={value}
-      srcNumber={imageSrc[value.imgkeyNumber]}
-      srcIcon={imageSrc[value.imgkeyIcon]}
-      reverse={value.reverse === "true"}
-    />
-  </div>
-  )   
-})}
-
-
-  </div>
         {/* </div> */}
       </section>
-
 
       <PreFooter></PreFooter>
     </>

@@ -57,7 +57,8 @@ const Header = () => {
                     <li className="mobile-dropdown dropdown">
                       <a href="" className="dropdown-toggle">Company <FaChevronDown /> </a>
                       <ul className="dropdown-menu">
-                        <li><a href="https://www.prehome.in/ourstory">Our Story</a></li>
+                        <li> <Link to="/our-story">Our Story
+            </Link></li>
                         <li><a href="https://www.prehome.in/contactus">Contact Us</a></li>
                         <li><a href="https://www.prehome.in/termsandconditions">Terms & Conditions</a></li>
                         <li><a href="https://www.prehome.in/privacypolicy">Privacy Policy</a></li>
@@ -265,9 +266,8 @@ const Header = () => {
               }}
             >
              <li style={{marginBottom: "10px"}}>
-                <a href="https://www.prehome.in/ourstory" className="text-white d-block py-1" style={{textDecoration:"none"}}>
-                  Our Story
-                </a>
+                <li> <Link to="/our-story">Our Story
+            </Link></li>
               </li>
              <li style={{marginBottom: "10px"}}>
                 <a href="https://www.prehome.in/contactus" className="text-white d-block py-1" style={{textDecoration:"none"}}>

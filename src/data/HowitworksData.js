@@ -39,13 +39,13 @@ const  HowitworksData = [
     imgkeyIcon:"cardicon5",
      reverse:"false",
 },
-  {
-     id:"6",
-    heading:"Let's write it together.",
-    paragraph:"Your home ownership story matters to us.",
-    imgkeyNumber:"",
-    imgkeyIcon:"logo",
-     reverse:"true",
-},
+//   {
+//      id:"6",
+//     heading:"Let's write it together.",
+//     paragraph:"Your home ownership story matters to us.",
+//     imgkeyNumber:"",
+//     imgkeyIcon:"logo",
+//      reverse:"true",
+// },
 ]
 export default HowitworksData;

@@ -1,15 +1,15 @@
 import React from "react";
 import {
-  carouselImage1,
-  carouselImage2,
-  carouselImage3,
-  carouselIcon
+  carouselImg1,
+  carouselImg2,
+  carouselImg3,
+  //   carouselIcon
 } from "../components/Imagepath";
 import CarouselData from "../data/CarouselData";
 
-const Carousel = () => {
+const OurStoryCarousel = () => {
   const data = CarouselData;
-  const imageSrc = { carouselImage1, carouselImage2, carouselImage3 };
+  const imageSrc = { carouselImg1, carouselImg2, carouselImg3 };
 
   console.log(data);
 
@@ -19,7 +19,7 @@ const Carousel = () => {
       className="carousel slide"
       data-bs-ride="carousel"
     >
-      <div className="carousel-indicators " style={{marginLeft:"4%"}}>
+      <div className="carousel-indicators " style={{marginLeft:"9%"}}>
         <button
           type="button"
           data-bs-target="#carouselExampleIndicators"
@@ -44,7 +44,7 @@ const Carousel = () => {
 
       <div className="carousel-inner">
         {CarouselData.map((item, index) => {
-          const imageUrl = imageSrc[item.imgKey]; // ✅ dynamically fetch the correct image
+          const imageUrl = imageSrc[item.carouselimgKey]; // ✅ dynamically fetch the correct image
 
           return (
             <div
@@ -53,40 +53,22 @@ const Carousel = () => {
             >
               <div className="container container-lg">
                 <div className="row align-items-center">
-                  <div className="col-xl-4 col-md-4">
+                  <div className="col-xl-6 col-md-6 col-sm-12">
                     <div
-                      className="about-images mb-md-5 mb-sm-0 aos-item section-title"
+                      className="transformative-images mb-md-5 mb-sm-0  aos-item "
                       data-aos="zoom-in"
                     >
-                      <img
-                        src={imageUrl}
-                        alt=""
-                        style={{
-                          display: "inline-block",
-                          width: "500px",
-                          borderRadius: "50% 50% 0 0",
-                        }}
-                      />
+                      <img src={imageUrl} alt="" className="img-fluid" />
                     </div>
                   </div>
-                  <div className="col-xl-8 col-md-8 ps-xl-5">
+                  <div className="col-xl-6 col-md-6 col-sm-12 ">
                     <div
-                      className="list-style aos-item text-left"
+                      className="section-title list-style aos-item"
                       data-aos="zoom-in-left"
                     >
-                      <img src={carouselIcon} alt="" />
-                      <p className="pb-3 text-justify testimonials-text">
-                        {item.text}
-                      </p>
-                      <p
-                        style={{
-                          color: "#007fad",
-                          fontWeight: "bold",
-                          textAlign: "left",
-                        }}
-                      >
-                        {item.name}
-                      </p>
+                      {/* <img src={carouselIcon} alt="" /> */}
+                      <h3 className="carousel-h3">{item.subhead}</h3>
+                      <p className="carousel-p">{item.paragraph}</p>
                     </div>
                   </div>
                 </div>
@@ -99,4 +81,4 @@ const Carousel = () => {
   );
 };
 
-export default Carousel;
+export default OurStoryCarousel;

@@ -73,7 +73,7 @@ const SuccessStories = () => {
         <div className="container pre-footer-container text-center" style={{backgroundImage: `url(${bgImage})`, height: "228px",width: "83%",backgroundRepeat:"no-repeat"}}>
             <h1 >Learn how we unlock your path to <br/> homeownership.</h1>
             <div className="header-right-element d-flex align-items-end justify-content-center">
-                <a href="./howitworks.html" className="theme-btn-navbar btn-radius animated" data-animation-in="fadeInRight"
+                <a href="" className="theme-btn-navbar btn-radius animated" data-animation-in="fadeInRight"
                     data-delay-in="0.9" data-bs-toggle="modal" data-bs-target="" style={{width: "272px", height: "62px"}}>Learn more
                     </a>
             </div>

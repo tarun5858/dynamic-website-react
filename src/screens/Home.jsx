@@ -79,7 +79,7 @@ const Home = () => {
           <h2 className="line5 text-center">
             <b>Hear it from the Prehomers</b>
           </h2>
-          <Carousel></Carousel>
+          <Carousel ></Carousel>
 
           <div className="cta-parent d-flex justify-content-center">
             <LargeBlueCta text="Learn more"></LargeBlueCta>
