@@ -142,28 +142,28 @@ const BlogData = [
       "Join us as we dive into the complex world of understanding the power of credit scores for home loans.",
   },
   {
-    id: 2,
-    title: "Navigating the Home Loan Application Process",
-    description: `Applying for a home loan can seem daunting, but with the right knowledge, you can navigate the process with...`,
-    date: "10 NOV,2024",
-    readTime: 6,
-    likes: 280,
-    imageKey: "blogImage2",
+    "id": 2,
+    "title": "Navigating the Home Loan Application Process",
+    "description": `Applying for a home loan can seem daunting, but with the right knowledge, you can navigate the process with...`,
+    "date": "10 NOV,2024",
+    "readTime": 6,
+    "likes": 280,
+    "imageKey": "blogImage2",
     // tags: ["Psuedo Tag 1", "Psuedo Tag Long name 1"],
-    blogTags: ["Home Loan", "Finance", "India"],
-    points: ["RENTING VS BUYING", "DOWN PAYMENT"],
-    heading: "Navigating the Home Loan Application Process",
-    subheading:
+    "blogTags": ["Home Loan", "Finance", "India"],
+    "points": ["RENTING VS BUYING", "DOWN PAYMENT"],
+    "heading": "Navigating the Home Loan Application Process",
+    "subheading":
       "Smooth Sailing: Your Step-by-Step Guide to Home Loan Applications in India",
-    introduction:
+    "introduction":
       "Applying for a home loan can seem daunting, but with the right knowledge, you can navigate the process with confidence. This guide will walk you through each step, helping you avoid common pitfalls and increase your chances of approval.",
     // detailImageUrl:"https://www.prehome.in/assets/img/blogs/Home%20Loan%20Checklist.png",
-    detailImageKey: "blogDetailImage2",
-    subtitle: "Essential Documentation for Home Loan Applications",
-    subttileHead: [
+    "detailImageKey": "blogDetailImage2",
+    "subtitle": "Essential Documentation for Home Loan Applications",
+    "subttileHead": [
       {
-        name: "Identity Proof",
-        benefits: ["Aadhaar Card, PAN Card, Passport, etc."],
+        "name": "Identity Proof",
+        "benefits": ["Aadhaar Card, PAN Card, Passport, etc."],
       },
       {
         name: "Address Proof",
@@ -174,100 +174,100 @@ const BlogData = [
         benefits: ["Salary slips, Form 16, ITR for last 2-3 years"],
       },
       {
-        name: "Bank Statements",
-        benefits: ["Last 6 months of savings account statements"],
+        "name": "Bank Statements",
+        "benefits": ["Last 6 months of savings account statements"],
       },
       {
-        name: "Property Documents",
-        benefits: ["Sale deed, allotment letter, etc."],
+        "name": "Property Documents",
+        "benefits": ["Sale deed, allotment letter, etc."],
       },
       {
-        name: "Passport-sized Photographs",
-        benefits: [],
+        "name": "Passport-sized Photographs",
+        "benefits": [],
       },
     ],
-    subtitle3: "Step-by-Step Home Loan Application Guide",
-    subttileHead3: [
+    "subtitle3": "Step-by-Step Home Loan Application Guide",
+    "subttileHead3": [
       {
-        name: "Research and Compare Lendersf",
-        benefits: ["Look at interest rates, processing fees, and loan terms"],
+        "name": "Research and Compare Lendersf",
+        "benefits": ["Look at interest rates, processing fees, and loan terms"],
       },
       {
-        name: "ICheck Eligibility and Calculate EMI",
-        benefits: ["Use online tools to estimate your loan amount and EMI"],
+        "name": "ICheck Eligibility and Calculate EMI",
+        "benefits": ["Use online tools to estimate your loan amount and EMI"],
       },
       {
-        name: "Gather Required Documents",
-        benefits: ["Refer to the checklist above"],
+        "name": "Gather Required Documents",
+        "benefits": ["Refer to the checklist above"],
       },
       {
-        name: "Submit Loan Application",
-        benefits: ["Online or in-person at the bank branch"],
+        "name": "Submit Loan Application",
+        "benefits": ["Online or in-person at the bank branch"],
       },
       {
-        name: "Property Valuation",
-        benefits: ["Lender will assess the property's value"],
+        "name": "Property Valuation",
+        "benefits": ["Lender will assess the property's value"],
       },
       {
-        name: "Technical and Legal Verification",
-        benefits: ["Lender verifies property documents"],
+        "name": "Technical and Legal Verification",
+        "benefits": ["Lender verifies property documents"],
       },
       {
-        name: "Loan Approval and Offer Letter",
-        benefits: ["Review and accept the loan offer"],
+        "name": "Loan Approval and Offer Letter",
+        "benefits": ["Review and accept the loan offer"],
       },
       {
-        name: "Sign Loan Agreement",
-        benefits: ["Carefully read all terms and conditions"],
+        "name": "Sign Loan Agreement",
+        "benefits": ["Carefully read all terms and conditions"],
       },
       {
-        name: "Loan Disbursement",
-        benefits: ["Funds transferred to the seller"],
+        "name": "Loan Disbursement",
+        "benefits": ["Funds transferred to the seller"],
       },
     ],
-    detailImageUrlTwo:
+    "detailImageUrlTwo":
       "https://www.prehome.in/assets/img/blogs/Home%20Loan.png",
-    subtitle4: "Common Pitfalls and How to Avoid Them",
-    subttileHead4: [
+    "subtitle4": "Common Pitfalls and How to Avoid Them",
+    "subttileHead4": [
       {
-        name: "Incomplete Documentation",
-        benefits: ["Double-check all required documents before submission"],
+        "name": "Incomplete Documentation",
+        "benefits": ["Double-check all required documents before submission"],
       },
       {
-        name: "Applying to Multiple Lenders Simultaneously",
-        benefits: ["Can negatively impact your credit score"],
+        "name": "Applying to Multiple Lenders Simultaneously",
+        "benefits": ["Can negatively impact your credit score"],
       },
       {
-        name: "Ignoring the Fine Print",
-        benefits: ["Carefully review all terms and conditions"],
+        "name": "Ignoring the Fine Print",
+        "benefits": ["Carefully review all terms and conditions"],
       },
       {
-        name: "Overestimating Affordability",
-        benefits: ["Consider all costs, not just EMI"],
+        "name": "Overestimating Affordability",
+        "benefits": ["Consider all costs, not just EMI"],
       },
       {
-        name: "Neglecting Property Verification",
-        benefits: ["Ensure all property documents are in order"],
+        "name": "Neglecting Property Verification",
+        "benefits": ["Ensure all property documents are in order"],
       },
     ],
-    subtitle5: "Alternative Paths: Rent-to-Own Programs",
-    subttileHead5: [
+    "subtitle5": "Alternative Paths: Rent-to-Own Programs",
+    "subttileHead5": [
       {
-        name: "Simplified Process",
-        benefits: ["Often requires less documentation initially"],
+        "name": "Simplified Process",
+        "benefits": ["Often requires less documentation initially"],
       },
       {
-        name: "Build Towards Ownership",
-        benefits: [
+        "name": "Build Towards Ownership",
+        "benefits": [
           "Time to improve financial standing before traditional mortgage",
         ],
       },
       {
-        name: "Flexibility",
-        benefits: ["Option to purchase or walk away at the end of the term"],
+        "name": "Flexibility",
+        "benefits": ["Option to purchase or walk away at the end of the term"],
       },
     ],
-    conclusion1: `While the home loan application process can be complex, being well-prepared and informed can make it significantly smoother. Remember, traditional home loans aren't the only path to homeownership – explore all options, including rent-to-own programs, to find the best fit for your situation.`,
+    "conclusion1": `While the home loan application process can be complex, being well-prepared and informed can make it significantly smoother. Remember, traditional home loans aren't the only path to homeownership – explore all options, including rent-to-own programs, to find the best fit for your situation.`,
   },
   {
     id: 3,

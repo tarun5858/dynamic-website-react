@@ -5,7 +5,21 @@ export { default as blogImage4 } from "../assets/img/understanding home loan bas
 export { default as blogImage5 } from "../assets/img/Blog 11 Under Const.jpg";
 export { default as blogImage6 } from "../assets/img/Blog 12 Financial Under Construction Ready to move in.jpeg";
 export { default as blogImage7 } from "../assets/img/Blog 13 Risk Mitigation.png";
-
+export { default as blogImagestrategies } from "../assets/img/blogsImage/strategies for saving for down payment.png";
+export { default as blogImagelongterm } from "../assets/img/blogsImage/long term benefits of a larger down payments.png";
+export { default as blogImagedownpayments } from "../assets/img/blogsImage/understanding down payments.png";
+export { default as blogImagerentbuy } from "../assets/img/blogsImage/building wealth_ renting vs buying.png";
+export { default as blogImageMitigating } from "../assets/img/blogsImage/Mitigating risks in property purchase.png";
+export { default as blogImageUnderCons } from "../assets/img/blogsImage/Under Construction vs. Ready-to-Move-In_ Pros and Cons.png";
+export { default as blogImageHiddenValue } from "../assets/img/blogsImage/Hidden value in properties.png";
+export { default as blogImageAssessing } from "../assets/img/blogsImage/Assessing Potential for Appreciation.png";
+export { default as blogImageFinancial } from "../assets/img/blogsImage/Financial implications of your choice.png";
+export { default as blogImageFundamentals } from "../assets/img/blogsImage/Fundamentals of renting vs buying.png";
+export { default as blogImageFinancialaspects } from "../assets/img/blogsImage/financial aspects of renting vs buying.png";
+export { default as blogImageHomeownership  } from "../assets/img/blogsImage/17.png";
+export { default as blogImageTruecost  } from "../assets/img/blogsImage/IMG_5159.PNG";
+export { default as blogImageHiddencosts  } from "../assets/img/blogsImage/blog banners-6.png";
+export { default as blogImageBeyond  } from "../assets/img/blogsImage/blog banners-2.png";
 
 
 
@@ -15,6 +29,23 @@ export { default as blogDetailImage3 } from "../assets/img/How Credit scores are
 export { default as blogDetailImage4 } from "../assets/img/Home Loan Jargon.png";
 export { default as blogDetailImage5 } from "../assets/img/Blog 11 Under Construction vs Ready to move in.png";
 export { default as blogDetailImage7 } from "../assets/img/Mitigating Risks.png";
+
+export { default as blogDetailBeyond  } from "../assets/img/blogsImage/IG_B10.jpg";
+export { default as blogDetailNavigating  } from "../assets/img/blogsImage/T3 B3 (a).png";
+export { default as blogDetailNavigating2  } from "../assets/img/blogsImage/IG_B9.PNG";
+export { default as blogDetailThePower  } from "../assets/img/blogsImage/IG_B8.jpg";
+export { default as blogDetailUnderConstruction  } from "../assets/img/blogsImage/IG_B11.jpg";
+export { default as blogDetailFinancialImplications  } from "../assets/img/blogsImage/IG_B12.png";
+export { default as blogDetailMitigating   } from "../assets/img/blogsImage/IG_B13.jpg";
+export { default as blogDetailTheFundamentals   } from "../assets/img/blogsImage/IG_B1.png";
+export { default as blogDetailFinancialAspects   } from "../assets/img/blogsImage/IG_B2.png";
+export { default as blogDetailBuildingWealth   } from "../assets/img/blogsImage/IG_B3.png";
+export { default as blogDetailStrategies    } from "../assets/img/blogsImage/IG-B5.jpg";
+export { default as blogDetailTheHidden    } from "../assets/img/blogsImage/3 (1).png";
+export { default as blogDetailAssessingPotential    } from "../assets/img/blogsImage/4 (2).png";
+export { default as blogDetailTheTrueCost    } from "../assets/img/blogsImage/1.png";
+export { default as blogDetailHiddenCosts    } from "../assets/img/blogsImage/2 (1).png";
+export { default as blogDetailBeyondthe    } from "../assets/img/blogsImage/2.png";
 
 // homepage img
 export { default as benefitimg1 } from "../assets/img/benefit-icon-1.png";

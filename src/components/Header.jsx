@@ -6,6 +6,8 @@ import BootstrapModal from "./BootstrapModal"; // Adjust path as needed
 import { FaChevronDown } from "react-icons/fa";
 import './Header.css';
 import { Link } from "react-router-dom";
+
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   // const isDesktop = useMediaQuery("(min-width:1200px)");
@@ -28,7 +30,7 @@ const Header = () => {
             {/* Logo */}
             <div className="col-lg-1 col-sm-3 col-md-3 col-6 pr-lg-5">
               <div className="logo">
-                <a href="https://www.prehome.in/">
+                <a href="/">
                   <img src={icon} alt="Prehome" />
                 </a>
               </div>
@@ -49,7 +51,7 @@ const Header = () => {
                     <li className="mobile-dropdown dropdown">
                       <a href="javascript:void(0);" className="dropdown-toggle">Resources <FaChevronDown /> </a>
                       <ul className="dropdown-menu">
-                        <li><a href="https://www.prehome.in/blog">Blog</a></li>
+                        <li><Link to="/blog">Blog</Link></li>
                         <li><a href="https://www.prehome.in/contactus">FAQs</a></li>
                         <li><a href="https://prehome-latest-build.vercel.app/calculators.html">Calculators</a></li>
                       </ul>

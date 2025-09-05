@@ -108,7 +108,7 @@ const BootstrapModal = () => {
     console.log(payload);
 
     
-    const response = await axios.post("https://emi-vs-rent-calculator-backend-2vgb.onrender.com/api/waitlist/submit", payload);
+    const response = await axios.post("https://prehome-website-backend-service.onrender.com/submit-waitlist", payload);
 
     // Handle success response
     // alert("Form submitted successfully!");
@@ -675,3 +675,7 @@ console.log("submit")
 };
 
 export default BootstrapModal;
+
+
+
+

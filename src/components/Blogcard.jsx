@@ -8,6 +8,21 @@ import {
   blogImage5,
   blogImage6,
   blogImage7,
+  blogImagestrategies,
+  blogImagelongterm,
+blogImagedownpayments,
+blogImagerentbuy,
+blogImageMitigating,
+blogImageUnderCons,
+blogImageHiddenValue,
+blogImageAssessing,
+blogImageFinancial,
+blogImageFundamentals,
+blogImageFinancialaspects,
+blogImageHomeownership,
+blogImageTruecost,
+blogImageHiddencosts,
+blogImageBeyond
 } from "../components/Imagepath";
 
 
@@ -21,16 +36,33 @@ const BlogCard = ({ blog }) => {
   blogImage4,
   blogImage5,
   blogImage6,
-  blogImage7,}
+  blogImage7,
+  blogImagestrategies,
+  blogImagelongterm,
+blogImagedownpayments,
+blogImagerentbuy,
+blogImageMitigating,
+blogImageUnderCons,
+blogImageHiddenValue,
+blogImageAssessing,
+blogImageFinancial,
+blogImageFundamentals,
+blogImageFinancialaspects,
+blogImageHomeownership,
+blogImageTruecost,
+blogImageHiddencosts,
+blogImageBeyond
+}
 
-  const imageUrl = imageSrc[blog.imageKey]
+  const imageUrl = blog.imageKey && imageSrc[blog.imageKey] ? imageSrc[blog.imageKey] : blogImage1;
+
   return (     
     <div className="blog-card col-xs-12 col-sm-12 col-md-6 col-lg-4 mb-5 mt-2">
-      <Link to={`/blog/${blog.id}`} className="blog-link">
+      <Link to={`/blog/${blog._id}`} className="blog-link">
         {" "}
         <h3 className="blog-title">{blog.title}</h3>
       </Link>
-      <Link to={`/blog/${blog.id}`} className="blog-link">
+      <Link to={`/blog/${blog._id}`} className="blog-link">
         {" "}
         <img src={imageUrl} alt={blog.title} className="blog-image" />
       </Link>
@@ -40,7 +72,7 @@ const BlogCard = ({ blog }) => {
         <span> {blog.readTime} min read</span>
         {/* <span> {blog.likes}</span> */}
       </div>
-      <Link to={`/blog/${blog.id}`} className="blog-link">
+      <Link to={`/blog/${blog._id}`} className="blog-link">
         {" "}
         <p className="blod-desc">{blog.description}</p>
       </Link>

@@ -1,7 +1,8 @@
 import './App.css'
 import "./assets/css/App.css"
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import { Routes, Route } from "react-router-dom";
-// import BlogPage from "./screens/BlogPage"
+import BlogPage from "./screens/BlogPage"
 // import BlogCard from './components/Blogcard'
 import Blogdetails from './components/blogdetails'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -26,11 +27,10 @@ function App() {
           <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/our-story" element={<OurStoryPage />} />
           {/* <Route path="/" element={<ComponentsParent />} /> */}
-          {/* <Route path="/" element={<BlogPage />} /> */}
+          <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:id" element={<Blogdetails />} />
         </Routes>
             {/* <BlogCard/> */}
-            {/* <BlogPage/> */}
 
             <Footer></Footer>
     </>
