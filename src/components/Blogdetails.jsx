@@ -1,141 +1,125 @@
 import { useParams, Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import RelatedBlogCards from "./RelatedBlogCards";
 import {
-  blogImage1,
-  blogImage2,
-  blogImage3,
-  blogImage4,
-  blogImage5,
-  blogImage6,
-  blogImage7,
-  blogDetailImage1,
-  blogDetailImage2,
-  blogDetailImage3,
-  blogDetailImage4,
-  blogDetailImage5,
-  blogDetailImage7,
-  
-blogImagestrategies,
-blogImagelongterm,
-blogImagedownpayments,
-blogImagerentbuy,
-blogImageMitigating,
-blogImageUnderCons,
-blogImageHiddenValue,
-blogImageAssessing,
-blogImageFinancial,
-blogImageFundamentals,
-blogImageFinancialaspects,
-blogImageHomeownership,
-blogImageTruecost,
-blogImageHiddencosts,
-blogImageBeyond,
-blogDetailBeyond,
-blogDetailNavigating,
-blogDetailNavigating2,
-blogDetailThePower,
-blogDetailUnderConstruction,
-blogDetailFinancialImplications,
-blogDetailMitigating,
-blogDetailTheFundamentals,
-blogDetailFinancialAspects,
-blogDetailBuildingWealth,
-blogDetailStrategies,
-blogDetailTheHidden,
-blogDetailAssessingPotential,
-blogDetailTheTrueCost,
-blogDetailHiddenCosts,
-blogDetailBeyondthe,
+  blogImage1, blogImage2, blogImage3, blogImage4, blogImage5, blogImage6, blogImage7,
+  blogDetailImage1, blogDetailImage2, blogDetailImage3, blogDetailImage4, blogDetailImage5, blogDetailImage7,
+  blogImagestrategies, blogImagelongterm, blogImagedownpayments, blogImagerentbuy, blogImageMitigating,
+  blogImageUnderCons, blogImageHiddenValue, blogImageAssessing, blogImageFinancial, blogImageFundamentals,
+  blogImageFinancialaspects, blogImageHomeownership, blogImageTruecost, blogImageHiddencosts,
+  blogImageBeyond, blogDetailBeyond, blogDetailNavigating, blogDetailNavigating2, blogDetailThePower,
+  blogDetailUnderConstruction, blogDetailFinancialImplications, blogDetailMitigating, blogDetailTheFundamentals,
+  blogDetailFinancialAspects, blogDetailBuildingWealth, blogDetailStrategies, blogDetailTheHidden,
+  blogDetailAssessingPotential, blogDetailTheTrueCost, blogDetailHiddenCosts, blogDetailBeyondthe,
 } from "../components/Imagepath";
 
-const Blogdetails = () => {
-  const imageSrc = {
-    blogImage1,
-    blogImage2,
-    blogImage3,
-    blogImage4,
-    blogImage5,
-    blogImage6,
-    blogImage7,
-    blogDetailImage1,
-    blogDetailImage2,
-    blogDetailImage3,
-    blogDetailImage4,
-    blogDetailImage5,
-    blogDetailImage7,
-    
-blogImagestrategies,
-blogImagelongterm,
-blogImagedownpayments,
-blogImagerentbuy,
-blogImageMitigating,
-blogImageUnderCons,
-blogImageHiddenValue,
-blogImageAssessing,
-blogImageFinancial,
-blogImageFundamentals,
-blogImageFinancialaspects,
-blogImageHomeownership,
-blogImageTruecost,
-blogImageHiddencosts,
-blogImageBeyond,
-blogDetailBeyond,
-blogDetailNavigating,
-blogDetailNavigating2,
-blogDetailThePower,
-blogDetailUnderConstruction,
-blogDetailFinancialImplications,
-blogDetailMitigating,
-blogDetailTheFundamentals,
-blogDetailFinancialAspects,
-blogDetailBuildingWealth,
-blogDetailStrategies,
-blogDetailTheHidden,
-blogDetailAssessingPotential,
-blogDetailTheTrueCost,
-blogDetailHiddenCosts,
-blogDetailBeyondthe,
-  };
+const imageSrc = {
+  blogImage1, blogImage2, blogImage3, blogImage4, blogImage5, blogImage6, blogImage7,
+  blogDetailImage1, blogDetailImage2, blogDetailImage3, blogDetailImage4, blogDetailImage5, blogDetailImage7,
+  blogImagestrategies, blogImagelongterm, blogImagedownpayments, blogImagerentbuy, blogImageMitigating,
+  blogImageUnderCons, blogImageHiddenValue, blogImageAssessing, blogImageFinancial, blogImageFundamentals,
+  blogImageFinancialaspects, blogImageHomeownership, blogImageTruecost, blogImageHiddencosts,
+  blogImageBeyond, blogDetailBeyond, blogDetailNavigating, blogDetailNavigating2, blogDetailThePower,
+  blogDetailUnderConstruction, blogDetailFinancialImplications, blogDetailMitigating, blogDetailTheFundamentals,
+  blogDetailFinancialAspects, blogDetailBuildingWealth, blogDetailStrategies, blogDetailTheHidden,
+  blogDetailAssessingPotential, blogDetailTheTrueCost, blogDetailHiddenCosts, blogDetailBeyondthe,
+};
 
+function Blogdetails() {
   const { id } = useParams();
+
   const [blog, setBlog] = useState(null);
   const [isSticky, setIsSticky] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError]   = useState(null);
 
-  // Fetch blog from API
+  // Fetch blog by id
   useEffect(() => {
-    const fetchBlog = async () => {
+    let active = true;
+    (async () => {
       try {
         const res = await fetch(`http://localhost:5000/api/blogs/${id}`);
         if (!res.ok) throw new Error("Failed to fetch blog");
         const data = await res.json();
-        setBlog(data);
-      } catch (err) {
-        setError(err.message);
+        if (active) setBlog(data);
+      } catch (e) {
+        if (active) setError(e.message);
       } finally {
-        setLoading(false);
+        if (active) setLoading(false);
       }
-    };
-    fetchBlog();
+    })();
+    return () => { active = false; };
   }, [id]);
 
-  // Sticky Sidebar
+  // Sticky sidebar
   useEffect(() => {
-    const handleScroll = () => {
-      setIsSticky(window.scrollY > 200);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setIsSticky(window.scrollY > 200);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  if (loading) return <p>Loading blog...</p>;
-  if (error) return <p>Error: {error}</p>;
-  if (!blog) return <p>No blog found.</p>;
+  const placements = useMemo(() => Array.isArray(blog?.imagePositions) ? blog.imagePositions : [], [blog]);
 
-  const imageUrl = imageSrc[blog.imageKey] || blog.imageUrl;
-  const detailimageUrl = imageSrc[blog.detailImageKey] || blog.detailImageUrl;
+  const getImgSrcFromRef = (ref) => {
+    if (!ref) return null;
+    if (ref.imageUrl) return ref.imageUrl;
+    if (ref.imageKey && imageSrc[ref.imageKey]) return imageSrc[ref.imageKey];
+    return null;
+  };
+
+  const renderInjectedImage = (ref, keySuffix = "") => {
+    const src = getImgSrcFromRef(ref);
+    if (!src) return null;
+    return (
+      <img
+        key={`img-${keySuffix}`}
+        src={src}
+        alt=""
+        className="img-fluid my-3"
+        style={{ display: "block", width: "100%" }}
+      />
+    );
+  };
+
+  // For simple fields like "subtitle", "paragraph1", "outcome", "lesson", "conclusion1/2"
+  const renderSimpleFieldWithImages = (fieldKey, content, headingLabel = null) => {
+    if (!content) return null;
+
+    // Collect placements for this field
+    const these = placements.filter(p => p.section === fieldKey);
+    const before = these.filter(p => (p.position || "after") === "before");
+    const after  = these.filter(p => (p.position || "after") === "after");
+
+    return (
+      <div key={fieldKey}>
+        {/* Optional heading label (e.g., "Introduction:", "Conclusion:") */}
+        {headingLabel && (
+          <h4><b>{headingLabel}</b></h4>
+        )}
+
+        {/* Before images */}
+        {before.map((p, i) => renderInjectedImage(p, `${fieldKey}-before-${i}`))}
+
+        {/* Body */}
+        <p>{content}</p>
+
+        {/* After images */}
+        {after.map((p, i) => renderInjectedImage(p, `${fieldKey}-after-${i}`))}
+      </div>
+    );
+  };
+
+  if (loading) return <p>Loading blog...</p>;
+  if (error)   return <p>Error: {error}</p>;
+  if (!blog)   return <p>No blog found.</p>;
+
+  const heroImageUrl   = imageSrc[blog.imageKey] || blog.imageUrl;
+  const detailImageUrl = imageSrc[blog.detailImageKey] || blog.detailImageUrl;
+
+  // Top of page: keep your original hero image placement
+  // Bottom detail image: keep your original placement IF no explicit placement targets detail image
+  const detailImageHasExplicitPlacement =
+    placements.some(p => (p.imageKey && imageSrc[p.imageKey] === detailImageUrl) || p.imageUrl === detailImageUrl);
 
   return (
     <div className="blog-detail">
@@ -151,147 +135,176 @@ blogDetailBeyondthe,
       <div className="container">
         <div className="row d-flex">
           <div className="blog-text col-sm-12 col-md-6 col-lg-8">
-            {imageUrl && (
+            {heroImageUrl && (
               <img
-                src={imageUrl}
+                src={heroImageUrl}
                 alt={blog.title}
                 className="blog-detail-image img-fluid"
               />
             )}
 
-            <h4>
-              <b>{blog.subheading}</b>
-            </h4>
-            <h4>
-              <b>Introduction:</b>
-            </h4>
-            <p>{blog.introduction}</p>
+            {/* Subheading */}
+            {blog.subheading ? (
+              <h4><b>{blog.subheading}</b></h4>
+            ) : null}
 
-            {/* Dynamic Subtitle & Content Rendering */}
+            {/* Introduction (with images via section: "introduction") */}
+            {renderSimpleFieldWithImages("introduction", blog.introduction, "Introduction:")}
+
+            {/* === Dynamic Subtitle + subttileHead blocks with image injection === */}
             {Object.keys(blog)
-  .filter((key) => key.startsWith("subtitle"))
-  .sort((a, b) => {
-    const numA = parseInt(a.replace("subtitle", "")) || 0;
-    const numB = parseInt(b.replace("subtitle", "")) || 0;
-    return numA - numB;
-  })
-  .map((subtitleKey) => {
-    const num = subtitleKey.replace("subtitle", "") || "";
-    const subtitle = blog[subtitleKey];
-    const subttileHead = blog[`subttileHead${num}`];
+              .filter(k => k.startsWith("subtitle")) // subtitle, subtitle1, subtitle2...
+              .sort((a, b) => {
+                const na = parseInt(a.replace("subtitle", "")) || 0;
+                const nb = parseInt(b.replace("subtitle", "")) || 0;
+                return na - nb;
+              })
+              .map((subtitleKey) => {
+                const num = subtitleKey.replace("subtitle", "") || "";
+                const subtitleVal = blog[subtitleKey];
+                const subArrayKey = `subttileHead${num}`;
+                const subArray = blog[subArrayKey];
 
-    if (!subtitle && !subttileHead) return null;
+                if (!subtitleVal && !Array.isArray(subArray)) return null;
 
-    return (
-      <div key={subtitleKey}>
-        {subtitle && (
-          <h4>
-            <b>{subtitle}</b>
-          </h4>
-        )}
-        {Array.isArray(subttileHead) &&
-          subttileHead.map((scheme, index) => (
-            <div key={index} className="mx-3">
-              {scheme.name && (
-                <h4>
-                  <b>{scheme.name}</b>
-                </h4>
-              )}
-              <ul className="blog-text-ul">
-                {scheme.benefits?.map((benefit, idx) => (
-                  <li key={idx}>{benefit}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-      </div>
-    );
-  })}
+                // Images around the subtitle heading itself
+                const subImages = placements.filter(p => p.section === subtitleKey);
+                const subBefore = subImages.filter(p => (p.position || "after") === "before");
+                const subAfter  = subImages.filter(p => (p.position || "after") === "after");
 
+                return (
+                  <div key={subtitleKey}>
+                    {subtitleVal && (
+                      <>
+                        {subBefore.map((p, i) => renderInjectedImage(p, `${subtitleKey}-before-${i}`))}
+                        <h4><b>{subtitleVal}</b></h4>
+                        {subAfter.map((p, i) => renderInjectedImage(p, `${subtitleKey}-after-${i}`))}
+                      </>
+                    )}
 
+                    {/* subttileHead array rendering with per-item/per-benefit image injection */}
+                    {Array.isArray(subArray) && subArray.map((scheme, schemeIndex) => {
+                      if (!scheme) return null;
+                      const nameKey = `${subArrayKey}-name-${schemeIndex}`;
+                      const listKey = `${subArrayKey}-list-${schemeIndex}`;
 
-            {detailimageUrl && (
-              <img src={detailimageUrl} alt="" className="img-fluid" />
+                      // Name-level images (before/after the <h4> of this scheme)
+                      const namePlacements = placements.filter(p =>
+                        p.section === subArrayKey &&
+                        typeof p.schemeIndex === "number" &&
+                        p.schemeIndex === schemeIndex &&
+                        (p.benefitIndex === undefined || p.benefitIndex === null)
+                      );
+                      const nameBefore = namePlacements.filter(p => (p.position || "after") === "before");
+                      const nameAfter  = namePlacements.filter(p => (p.position || "after") === "after");
+
+                      return (
+                        <div key={schemeIndex} className="mx-3">
+                          {scheme.name && (
+                            <>
+                              {nameBefore.map((p, i) => renderInjectedImage(p, `${nameKey}-before-${i}`))}
+                              <h4><b>{scheme.name}</b></h4>
+                              {nameAfter.map((p, i) => renderInjectedImage(p, `${nameKey}-after-${i}`))}
+                            </>
+                          )}
+
+                          <ul className="blog-text-ul">
+                            {Array.isArray(scheme.benefits) && scheme.benefits.map((benefit, benefitIndex) => {
+                              // Images targeted to a specific benefit
+                              const benefitPlacements = placements.filter(p =>
+                                p.section === subArrayKey &&
+                                p.schemeIndex === schemeIndex &&
+                                p.benefitIndex === benefitIndex
+                              );
+                              const bBefore = benefitPlacements.filter(p => (p.position || "after") === "before");
+                              const bAfter  = benefitPlacements.filter(p => (p.position || "after") === "after");
+
+                              return (
+                                <li key={benefitIndex}>
+                                  {bBefore.map((p, i) => renderInjectedImage(p, `${listKey}-b-${benefitIndex}-before-${i}`))}
+                                  {benefit}
+                                  {bAfter.map((p, i) => renderInjectedImage(p, `${listKey}-b-${benefitIndex}-after-${i}`))}
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </div>
+                      );
+                    })}
+                  </div>
+                );
+              })}
+
+            {/* Paragraphs (paragraph, paragraph1, paragraph2, ...) */}
+            {Object.keys(blog)
+              .filter(k => k === "paragraph" || /^paragraph\d+$/.test(k))
+              .sort((a, b) => {
+                const na = parseInt(a.replace("paragraph", "")) || 0;
+                const nb = parseInt(b.replace("paragraph", "")) || 0;
+                return na - nb;
+              })
+              .map((pKey) => renderSimpleFieldWithImages(pKey, blog[pKey]))}
+
+            {/* Detail image fallback (only if not explicitly placed elsewhere) */}
+            {detailImageUrl && !detailImageHasExplicitPlacement && (
+              <img src={detailImageUrl} alt="" className="img-fluid" />
             )}
 
-            {/* Extra Sections */}
-            {blog.outcome && (
-              <>
-                <li>
-                  <b>Outcome:</b> {blog.outcome}
-                </li>
-                <br />
-              </>
+            {/* Outcomes & Lessons (each image-placement eligible) */}
+            {blog.outcome  && (
+              <ul><li>
+                {placements.filter(p => p.section === "outcome" && (p.position || "after") === "before")
+                  .map((p, i) => renderInjectedImage(p, `outcome-before-${i}`))}
+                <b>Outcome:</b> {blog.outcome}
+                {placements.filter(p => p.section === "outcome" && (p.position || "after") === "after")
+                  .map((p, i) => renderInjectedImage(p, `outcome-after-${i}`))}
+              </li></ul>
             )}
-           
-            {blog.lesson && (
-              <>
-                <li>
-                  <b>Lesson:</b> {blog.lesson}
-                </li>
-                <br />
-              </>
+            {blog.lesson  && (
+              <ul><li>
+                {placements.filter(p => p.section === "lesson" && (p.position || "after") === "before")
+                  .map((p, i) => renderInjectedImage(p, `lesson-before-${i}`))}
+                <b>Lesson:</b> {blog.lesson}
+                {placements.filter(p => p.section === "lesson" && (p.position || "after") === "after")
+                  .map((p, i) => renderInjectedImage(p, `lesson-after-${i}`))}
+              </li></ul>
             )}
-             {blog.outcome1 && (
-              <>
-                <li>
-                  <b>Outcome:</b> {blog.outcome1}
-                </li>
-                <br />
-              </>
+            {blog.outcome1 && (
+              <ul><li><b>Outcome:</b> {blog.outcome1}</li></ul>
             )}
-            {blog.lesson1 && (
-              <>
-                <li>
-                  <b>Lesson:</b> {blog.lesson1}
-                </li>
-                <br />
-              </>
+            {blog.lesson1  && (
+              <ul><li><b>Lesson:</b> {blog.lesson1}</li></ul>
             )}
             {blog.outcome2 && (
-              <>
-                <li>
-                  <b>Outcome:</b> {blog.outcome2}
-                </li>
-                <br />
-              </>
+              <ul><li><b>Outcome:</b> {blog.outcome2}</li></ul>
             )}
-            {blog.lesson2 && (
-              <>
-                <li>
-                  <b>Lesson:</b> {blog.lesson2}
-                </li>
-                <br />
-              </>
+            {blog.lesson2  && (
+              <ul><li><b>Lesson:</b> {blog.lesson2}</li></ul>
             )}
 
-            {/* Conclusion */}
-            <h4>
-              <b>Conclusion:</b>
-            </h4>
-            {blog.conclusion && <p>{blog.conclusion}</p>}
-            {blog.conclusion1 && <p>{blog.conclusion1}</p>}
-            {blog.conclusion2 && <p>{blog.conclusion2}</p>}
+            {/* Conclusions (each image-placement eligible) */}
+            {(blog.conclusion || blog.conclusion1 || blog.conclusion2 || blog.conclusion3) && (
+              <h4><b>Conclusion:</b></h4>
+            )}
+            {blog.conclusion && renderSimpleFieldWithImages("conclusion", blog.conclusion)}
+            {blog.conclusion1 && renderSimpleFieldWithImages("conclusion1", blog.conclusion1)}
+            {blog.conclusion2 && renderSimpleFieldWithImages("conclusion2", blog.conclusion2)}
+            {blog.conclusion3 && renderSimpleFieldWithImages("conclusion2", blog.conclusion3)}
 
             {blog.nextSeries && (
-              <li>
-                <b>Next in Our Series:</b> {blog.nextSeries}
-              </li>
+              <ul><li><b>Next in Our Series:</b> {blog.nextSeries}</li></ul>
             )}
           </div>
 
           {/* Sidebar */}
           <div className="col-sm-12 col-md-6 col-lg-4 sticky-blogs">
-            <aside
-              id="sidebar"
-              className={`sidebar ${isSticky ? "sticky" : ""}`}
-            >
+            <aside id="sidebar" className={`sidebar ${isSticky ? "sticky" : ""}`}>
               <h4>Related blogs</h4>
               <RelatedBlogCards
                 currentHeading={blog.heading}
                 currentTags={blog.blogTags}
                 currentId={blog._id}
-                time="3 min read"
+                time={blog.readTime}
               />
             </aside>
           </div>
@@ -299,6 +312,310 @@ blogDetailBeyondthe,
       </div>
     </div>
   );
-};
+}
 
 export default Blogdetails;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import { useParams } from "react-router-dom";
+// import { useEffect, useState } from "react";
+// import RelatedBlogCards from "./RelatedBlogCards";
+// import {
+//   blogImage1, blogImage2, blogImage3, blogImage4, blogImage5, blogImage6, blogImage7,
+//   blogDetailImage1, blogDetailImage2, blogDetailImage3, blogDetailImage4, blogDetailImage5, blogDetailImage7,
+//   blogImagestrategies, blogImagelongterm, blogImagedownpayments, blogImagerentbuy, blogImageMitigating,
+//   blogImageUnderCons, blogImageHiddenValue, blogImageAssessing, blogImageFinancial, blogImageFundamentals,
+//   blogImageFinancialaspects, blogImageHomeownership, blogImageTruecost, blogImageHiddencosts,
+//   blogImageBeyond, blogDetailBeyond, blogDetailNavigating, blogDetailNavigating2, blogDetailThePower,
+//   blogDetailUnderConstruction, blogDetailFinancialImplications, blogDetailMitigating, blogDetailTheFundamentals,
+//   blogDetailFinancialAspects, blogDetailBuildingWealth, blogDetailStrategies, blogDetailTheHidden,
+//   blogDetailAssessingPotential, blogDetailTheTrueCost, blogDetailHiddenCosts, blogDetailBeyondthe,
+// } from "../components/Imagepath";
+
+// const Blogdetails = () => {
+//   const imageSrc = {
+//     blogImage1,
+//     blogImage2,
+//     blogImage3,
+//     blogImage4,
+//     blogImage5,
+//     blogImage6,
+//     blogImage7,
+//     blogDetailImage1,
+//     blogDetailImage2,
+//     blogDetailImage3,
+//     blogDetailImage4,
+//     blogDetailImage5,
+//     blogDetailImage7,
+//     blogImagestrategies,
+//     blogImagelongterm,
+//     blogImagedownpayments,
+//     blogImagerentbuy,
+//     blogImageMitigating,
+//     blogImageUnderCons,
+//     blogImageHiddenValue,
+//     blogImageAssessing,
+//     blogImageFinancial,
+//     blogImageFundamentals,
+//     blogImageFinancialaspects,
+//     blogImageHomeownership,
+//     blogImageTruecost,
+//     blogImageHiddencosts,
+//     blogImageBeyond,
+//     blogDetailBeyond,
+//     blogDetailNavigating,
+//     blogDetailNavigating2,
+//     blogDetailThePower,
+//     blogDetailUnderConstruction,
+//     blogDetailFinancialImplications,
+//     blogDetailMitigating,
+//     blogDetailTheFundamentals,
+//     blogDetailFinancialAspects,
+//     blogDetailBuildingWealth,
+//     blogDetailStrategies,
+//     blogDetailTheHidden,
+//     blogDetailAssessingPotential,
+//     blogDetailTheTrueCost,
+//     blogDetailHiddenCosts,
+//     blogDetailBeyondthe,
+//   };
+
+//   const { id } = useParams();
+//   const [blog, setBlog] = useState(null);
+//   const [isSticky, setIsSticky] = useState(false);
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState(null);
+
+// const getImageForPosition = (section, schemeIndex, benefitIndex) => {
+//   const match = blog.imagePositions?.find(pos =>
+//     pos.section === section &&
+//     (schemeIndex === undefined || pos.schemeIndex === schemeIndex) &&
+//     (benefitIndex === undefined || pos.benefitIndex === benefitIndex)
+//   );
+//   return match ? imageSrc[match.imageKey] : null;
+// };
+
+  
+
+//   // Fetch blog from API
+//   useEffect(() => {
+//     const fetchBlog = async () => {
+//       try {
+//         const res = await fetch(`http://localhost:5000/api/blogs/${id}`);
+//         if (!res.ok) throw new Error("Failed to fetch blog");
+//         const data = await res.json();
+//         setBlog(data);
+//       } catch (err) {
+//         setError(err.message);
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+//     fetchBlog();
+//   }, [id]);
+
+//   // Sticky Sidebar
+//   useEffect(() => {
+//     const handleScroll = () => {
+//       setIsSticky(window.scrollY > 200);
+//     };
+//     window.addEventListener("scroll", handleScroll);
+//     return () => window.removeEventListener("scroll", handleScroll);
+//   }, []);
+
+//   if (loading) return <p>Loading blog...</p>;
+//   if (error) return <p>Error: {error}</p>;
+//   if (!blog) return <p>No blog found.</p>;
+
+//   const imageUrl = imageSrc[blog.imageKey] || blog.imageUrl;
+//   const detailimageUrl = imageSrc[blog.detailImageKey] || blog.detailImageUrl;
+
+//   return (
+//     <div className="blog-detail">
+//       <div className="blogdetail-subhead">
+//         <div className="container">
+//           <h1 className="blog-head">{blog.heading}</h1>
+//           <div className="blog-date">
+//             <b>{blog.date} </b> {blog.readTime} min read
+//           </div>
+//         </div>
+//       </div>
+
+//       <div className="container">
+//         <div className="row d-flex">
+//           <div className="blog-text col-sm-12 col-md-6 col-lg-8">
+//             {imageUrl && (
+//               <img
+//                 src={imageUrl}
+//                 alt={blog.title}
+//                 className="blog-detail-image img-fluid"
+//               />
+//             )}
+
+//             <h4>
+//               <b>{blog.subheading}</b>
+//             </h4>
+//             <h4>
+//               <b>Introduction:</b>
+//             </h4>
+//             <p>{blog.introduction}</p>
+
+//             {/* Dynamic Subtitle & Paragraph Rendering */}
+//             {Object.keys(blog)
+//               .filter((key) => key.startsWith("subtitle"))
+//               .sort((a, b) => {
+//                 const numA = parseInt(a.replace("subtitle", "")) || 0;
+//                 const numB = parseInt(b.replace("subtitle", "")) || 0;
+//                 return numA - numB;
+//               })
+//               .map((subtitleKey) => {
+//                 const num = subtitleKey.replace("subtitle", "") || "";
+//                 const subtitle = blog[subtitleKey];
+//                 const subttileHead = blog[`subttileHead${num}`];
+//                 const paragraph = blog[`paragraph${num}`];
+
+//                 if (!subtitle && !subttileHead && !paragraph) return null;
+
+//                 return (
+//                   <div key={subtitleKey}>
+//                     {subtitle && (
+//                       <h4>
+//                         <b>{subtitle}</b>
+//                       </h4>
+                      
+//                     )}
+//                     {paragraph && <p>{paragraph}</p>}
+                   
+                   
+//                    {Array.isArray(subttileHead) &&
+//   subttileHead.map((scheme, index) => (
+//     <div key={index} className="mx-3">
+//       {scheme.name && (
+//         <h4>
+//           <b>{scheme.name}</b>
+//         </h4>
+//       )}
+         
+//       <ul className="blog-text-ul">
+//         {scheme.benefits?.map((benefit, idx) => {
+//           const imagePos = blog.imagePositions?.find(
+//             pos =>
+//               pos.section === "subttileHead" && // section name for clarity
+//               pos.schemeIndex === index && // which scheme in array
+//               pos.benefitIndex === idx // which benefit inside scheme
+//           );
+
+//           return (
+//             <li key={idx}>
+//               {benefit}
+//               {imagePos && (
+//                 <div className="my-3">
+//                   <img
+//                     src={imageSrc(imagePos.imageKey)}
+//                     alt="Blog detail"
+//                     style={{ maxWidth: "100%", height: "auto" }}
+//                   />
+//                 </div>
+//               )}
+//             </li>
+//           );
+//         })}
+//       </ul>
+//     </div>
+//   ))}
+
+//                   </div>
+//                 );
+//               })}
+
+           
+//  {detailimageUrl && (
+//               <img src={detailimageUrl} alt="" className="img-fluid" />
+//             )}
+//             {/* Extra Sections */}
+//             {[0, 1, 2].map((i) => (
+//               <>
+//                 {blog[`outcome${i || ""}`] && (
+//                   <>
+//                     <li>
+//                       <b>Outcome:</b> {blog[`outcome${i || ""}`]}
+//                     </li>
+//                     <br />
+//                   </>
+//                 )}
+//                 {blog[`lesson${i || ""}`] && (
+//                   <>
+//                     <li>
+//                       <b>Lesson:</b> {blog[`lesson${i || ""}`]}
+//                     </li>
+//                     <br />
+//                   </>
+//                 )}
+//               </>
+//             ))}
+
+//             {/* Conclusion */}
+//             <h4>
+//               <b>Conclusion:</b>
+//             </h4>
+//             {[ "", "1", "2" ].map((i) =>
+//               blog[`conclusion${i}`] ? <p>{blog[`conclusion${i}`]}</p> : null
+//             )}
+
+//             {blog.nextSeries && (
+//               <li>
+//                 <b>Next in Our Series:</b> {blog.nextSeries}
+//               </li>
+//             )}
+//           </div>
+
+//           {/* Sidebar */}
+//           <div className="col-sm-12 col-md-6 col-lg-4 sticky-blogs">
+//             <aside
+//               id="sidebar"
+//               className={`sidebar ${isSticky ? "sticky" : ""}`}
+//             >
+//               <h4>Related blogs</h4>
+//               <RelatedBlogCards
+//                 currentHeading={blog.heading}
+//                 currentTags={blog.blogTags}
+//                 currentId={blog._id}
+//                 time={blog.readTime}
+//                 onlyExisting={true} // ensure only existing blogs are fetched
+//               />
+//             </aside>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Blogdetails;

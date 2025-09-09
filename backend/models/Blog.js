@@ -28,6 +28,14 @@ const blogSchema = new mongoose.Schema({
       benefits: [String]
     }
   ],
+  imagePositions: [
+  {
+    section: String,       // e.g. "subttileHead", "paragraph1", "conclusion"
+    schemeIndex: Number,   // for subttileHead arrays
+    benefitIndex: Number,  // for benefits array (optional)
+    imageKey: String       // key for the image in your imageSrc map
+  }
+],
   subheading2: String,
   subheading3: String,
   paragraph1: String,

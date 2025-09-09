@@ -1,23 +1,48 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import BlogData from "../data/BlogData";
 
 const RelatedBlogCards = ({ currentTags, currentId }) => {
+  const [blogs, setBlogs] = useState([]);
 
-  const formattedBlogData = BlogData.map((blog) => ({
-    ...blog,
-    blogTags: Array.isArray(blog.blogTags)
-      ? blog.blogTags
-      : blog.blogTags?.split(",").map((t) => t.trim()),
-  }));
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const res = await fetch("http://localhost:5000/api/blogs");
+        const data = await res.json();
+        setBlogs(data);
+      } catch (err) {
+        console.error("Failed to fetch blogs", err);
+      }
+    };
+    fetchBlogs();
+  }, []);
 
-  const related = formattedBlogData.filter(
-    (blog) =>
-      blog.id !== currentId &&
-      blog.blogTags?.some((tag) =>
-        currentTags?.some((curr) => curr.toLowerCase() === tag.toLowerCase())
-      )
-  );
+  if (!currentTags || currentTags.length === 0) {
+    return <p>No related blogs found.</p>;
+  }
+
+  const related = [];
+  const usedIds = new Set();
+
+  currentTags.forEach((tag) => {
+    const match = blogs.find((blog) => {
+      // Exclude current blog
+      if (blog._id === currentId || blog.id === currentId) return false;
+
+      // Skip already used blogs
+      if (usedIds.has(blog._id) || usedIds.has(blog.id)) return false;
+
+      // Ensure blogTags array exists & check exact match ignoring case
+      return blog.blogTags?.some(
+        (t) => t.trim().toLowerCase() === tag.trim().toLowerCase()
+      );
+    });
+
+    if (match) {
+      related.push(match);
+      usedIds.add(match._id || match.id);
+    }
+  });
 
   return (
     <>
@@ -25,13 +50,15 @@ const RelatedBlogCards = ({ currentTags, currentId }) => {
         <p>No related blogs found.</p>
       ) : (
         related.map((blog) => (
-          <div key={blog.id} className="row related-blogs">
+          <div key={blog._id || blog.id} className="row related-blogs">
             <div className="col-12 mt-2 mb-2">
-              <h6><b>{blog.heading}</b></h6>
+              <h6>
+                <b>{blog.heading}</b>
+              </h6>
             </div>
             <div className="col-6 pt-2 blog-time">{blog.date}</div>
             <div className="col-6 pt-2 text-end">
-              <Link to={`/blog/${blog.id}`}>Read now</Link>
+              <Link to={`/blog/${blog._id || blog.id}`}>Read now</Link>
             </div>
           </div>
         ))

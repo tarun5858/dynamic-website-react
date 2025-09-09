@@ -12,36 +12,60 @@ const BlogPage = () => {
   const scrollAmount = 150;
 
   // Fetch blogs from backend API
- useEffect(() => {
+// useEffect(() => {
+//   fetch("http://localhost:5000/api/blogs")
+//     .then((res) => res.json())
+//     .then((data) => {
+//       setBlogs(data); // No sorting applied
+
+//       const extractedTopics = [
+//         ...new Set(
+//           data.flatMap((blog) =>
+//             Array.isArray(blog.points) ? blog.points : []
+//           )
+//         ),
+//       ].reverse();
+
+//       setTopics(["ALL BLOGS", ...extractedTopics]);
+//       setLoading(false);
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//       setLoading(false);
+//     });
+// }, []);
+
+
+useEffect(() => {
   fetch("http://localhost:5000/api/blogs")
     .then((res) => res.json())
     .then((data) => {
-      const sortedData = data.sort(
+      // Sort blogs in descending order (for listing only)
+      const sortedData = [...data].sort(
         (a, b) => new Date(b.date) - new Date(a.date)
       );
       setBlogs(sortedData);
 
-      const extractedTopics = [
-        ...new Set(
-          sortedData.flatMap((blog) =>
-            Array.isArray(blog.points) ? blog.points : []
-          )
-        ),
-      ].reverse();
-
+      // Create topic list in the order of first API load
       setTopics((prevTopics) => {
-        // First load → "ALL BLOGS" first, rest in current backend order
-        if (prevTopics.length === 0) {
-          return ["ALL BLOGS", ...extractedTopics];
-        }
+        const currentTopics = new Set(prevTopics);
+        const newTopics = [].reverse();
 
-        // Keep old order, append only new ones
-        const existingWithoutAll = prevTopics.filter((t) => t !== "ALL BLOGS");
-        const newOnes = extractedTopics.filter(
-          (t) => !existingWithoutAll.includes(t)
-        );
+        data.forEach((blog) => {
+          if (Array.isArray(blog.points)) {
+            blog.points.forEach((point) => {
+              if (!currentTopics.has(point)) {
+                currentTopics.add(point);
+                newTopics.push(point); // Append new topic
+              }
+            });
+          }
+        });
 
-        return ["ALL BLOGS", ...existingWithoutAll, ...newOnes];
+        // Always keep "ALL BLOGS" at the start
+        return prevTopics.length === 0
+          ? ["ALL BLOGS", ...newTopics]
+          : [...prevTopics, ...newTopics];
       });
 
       setLoading(false);
@@ -102,20 +126,25 @@ const BlogPage = () => {
               ></i>{" "}
             </div>
             {/* <div className="topic-cta-container mb-4"> */}
-            <div
-              className=" case-cat-filter-scroll-width"
-              ref={scrollContainerRef}
-              id="scrollContainer"
-            >
-              {topics.map((topic, index) => (
-                <TopicBarCta
-                  key={index}
-                  topic={topic}
-                  isActive={activeTopic === topic}
-                  onClick={() => setActiveTopic(topic)}
-                />
-              ))}
-            </div>
+         <div
+  className="case-cat-filter-scroll-width"
+  ref={scrollContainerRef}
+  id="scrollContainer"
+>
+  {[
+    "ALL BLOGS",
+    ...[...topics.filter((t) => t !== "ALL BLOGS")],
+  ].map((topic, index) => (
+    <TopicBarCta
+      key={index}
+      topic={topic}
+      isActive={activeTopic === topic}
+      onClick={() => setActiveTopic(topic)}
+    />
+  ))}
+</div>
+
+
             {/* </div> */}
             <div className="icon-box">
               <i
