@@ -14,6 +14,8 @@ import Home from './screens/Home';
 import SuccessStories from './screens/SuccessStories';
 import HowItWorks from './screens/HowItWorks';
 import OurStoryPage from './screens/OurStoryPage';
+import BlogManager from "./pages/BlogManager"; 
+
 function App() {
 
   return (
@@ -29,6 +31,8 @@ function App() {
           {/* <Route path="/" element={<ComponentsParent />} /> */}
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:id" element={<Blogdetails />} />
+
+          <Route path="/manage-blogs" element={<BlogManager />} /> 
         </Routes>
             {/* <BlogCard/> */}
 

@@ -53,7 +53,7 @@ const RelatedBlogCards = ({ currentTags, currentId }) => {
           <div key={blog._id || blog.id} className="row related-blogs">
             <div className="col-12 mt-2 mb-2">
               <h6>
-                <b>{blog.heading}</b>
+                <b>{blog.title}</b>
               </h6>
             </div>
             <div className="col-6 pt-2 blog-time">{blog.date}</div>

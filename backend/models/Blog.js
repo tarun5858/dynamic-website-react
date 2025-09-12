@@ -72,7 +72,7 @@ const blogSchema = new mongoose.Schema({
   conclusion2: String
 });
 
-const Blog = mongoose.model("Blog", blogSchema);
+const Blog = mongoose.model("Blog", blogSchema,"dynamic_blogs");
 
 export default Blog;
 

@@ -200,13 +200,19 @@ function Blogdetails() {
 
                       return (
                         <div key={schemeIndex} className="mx-3">
-                          {scheme.name && (
-                            <>
-                              {nameBefore.map((p, i) => renderInjectedImage(p, `${nameKey}-before-${i}`))}
-                              <h4><b>{scheme.name}</b></h4>
-                              {nameAfter.map((p, i) => renderInjectedImage(p, `${nameKey}-after-${i}`))}
-                            </>
-                          )}
+                          {(scheme.name || scheme.section) && (
+  <>
+    {nameBefore.map((p, i) =>
+      renderInjectedImage(p, `${nameKey}-before-${i}`)
+    )}
+    <h4>
+      <b>{scheme.name || scheme.section}</b>
+    </h4>
+    {nameAfter.map((p, i) =>
+      renderInjectedImage(p, `${nameKey}-after-${i}`)
+    )}
+  </>
+)}
 
                           <ul className="blog-text-ul">
                             {Array.isArray(scheme.benefits) && scheme.benefits.map((benefit, benefitIndex) => {
