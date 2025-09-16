@@ -12,7 +12,9 @@ const blogSchema = new mongoose.Schema({
   points: [String],
   heading: String,
   subheading: String,
+  subheading1: String,
   introduction: String,
+  introduction1: String,
   detailImageKey: String,
   subtitle: String,
   subttileHead: [

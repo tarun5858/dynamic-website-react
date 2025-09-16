@@ -5,10 +5,14 @@ import multer from "multer";
 import csv from "csvtojson";
 import Blog from "./models/Blog.js";
 import fs from "fs";
+import jwt from "jsonwebtoken";
+
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+const JWT_SECRET = "mySuperSecretKey";
 
 // MongoDB Connection
 const uri = "mongodb+srv://prehome_website_user:1ywa7PfsUW3pPWvt@lead-tracking.jysawuj.mongodb.net/?retryWrites=true&w=majority";
@@ -120,11 +124,45 @@ app.post("/api/blogs/upload-csv", upload.single("file"), async (req, res) => {
 
 
 
+// Login API (dummy example)
+app.post("/api/login", (req, res) => {
+  const { username, password } = req.body;
+
+  // Dummy check (database ke sath replace karna hai)
+  if (username === "admin" && password === "admin123") {
+    const token = jwt.sign({ username }, JWT_SECRET, { expiresIn: "1h" });
+    return res.json({ token });
+  }
+
+  res.status(401).json({ error: "Invalid credentials" });
+});
+
+// Middleware to protect routes
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
+
+  if (!token) return res.sendStatus(401);
+
+  jwt.verify(token, JWT_SECRET, (err, user) => {
+    if (err) return res.sendStatus(403);
+    req.user = user;
+    next();
+  });
+}
+
+// Example protected API
+app.get("/api/secure-blogs", authenticateToken, (req, res) => {
+  res.json({ message: "This is protected data", user: req.user });
+});
+
+
+
 
 // --------------------------------------------
 
 app.listen(5000, () => {
-  console.log("🚀 Server running on port 5000");
+  console.log("Server running on port 5000");
 });
 
 

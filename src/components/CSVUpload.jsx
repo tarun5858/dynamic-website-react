@@ -32,8 +32,11 @@ function CSVUpload() {
   return (
     <div className="text-center"><br />
       <h2>Upload Blogs via CSV</h2><br />
-      <input type="file" accept=".csv" onChange={handleFileChange} /><br /><br />
-      <button onClick={handleUpload}>Upload</button>
+      <input       
+      type="file" accept=".csv" onChange={handleFileChange} /><br /><br />
+      <button
+        style={{border:"1px solid black",padding:"1%",borderRadius:"8px",margin:"1%"}}
+      onClick={handleUpload}>Upload</button>
     </div>
   );
 }

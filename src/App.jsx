@@ -15,6 +15,8 @@ import SuccessStories from './screens/SuccessStories';
 import HowItWorks from './screens/HowItWorks';
 import OurStoryPage from './screens/OurStoryPage';
 import BlogManager from "./pages/BlogManager"; 
+import Login from './screens/Login';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
 
@@ -22,6 +24,20 @@ function App() {
     <>
 <Header></Header>
 <WhatsAppButton></WhatsAppButton>
+
+<Routes>
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/manage-blogs"
+          element={
+            <ProtectedRoute>
+              <BlogManager />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+
+
         <Routes>
          
           <Route path="/" element={<Home />} />
@@ -32,7 +48,7 @@ function App() {
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:id" element={<Blogdetails />} />
 
-          <Route path="/manage-blogs" element={<BlogManager />} /> 
+          {/* <Route path="/manage-blogs" element={<BlogManager />} />  */}
         </Routes>
             {/* <BlogCard/> */}
 
