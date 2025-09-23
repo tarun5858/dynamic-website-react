@@ -10,7 +10,7 @@ import {
   blogImageBeyond, blogDetailBeyond, blogDetailNavigating, blogDetailNavigating2, blogDetailThePower,
   blogDetailUnderConstruction, blogDetailFinancialImplications, blogDetailMitigating, blogDetailTheFundamentals,
   blogDetailFinancialAspects, blogDetailBuildingWealth, blogDetailStrategies, blogDetailTheHidden,
-  blogDetailAssessingPotential, blogDetailTheTrueCost, blogDetailHiddenCosts, blogDetailBeyondthe,
+  blogDetailAssessingPotential, blogDetailTheTrueCost, blogDetailHiddenCosts, blogDetailBeyondthe,blogImage20,blogImage21,blogImage22,blogDetail20,blogDetail21,blogDetail22
 } from "../components/Imagepath";
 
 const imageSrc = {
@@ -22,7 +22,7 @@ const imageSrc = {
   blogImageBeyond, blogDetailBeyond, blogDetailNavigating, blogDetailNavigating2, blogDetailThePower,
   blogDetailUnderConstruction, blogDetailFinancialImplications, blogDetailMitigating, blogDetailTheFundamentals,
   blogDetailFinancialAspects, blogDetailBuildingWealth, blogDetailStrategies, blogDetailTheHidden,
-  blogDetailAssessingPotential, blogDetailTheTrueCost, blogDetailHiddenCosts, blogDetailBeyondthe,
+  blogDetailAssessingPotential, blogDetailTheTrueCost, blogDetailHiddenCosts, blogDetailBeyondthe,blogImage20,blogImage21,blogImage22,blogDetail20,blogDetail21,blogDetail22
 };
 
 function Blogdetails() {
@@ -32,6 +32,10 @@ function Blogdetails() {
   const [isSticky, setIsSticky] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError]   = useState(null);
+
+
+
+
 
   // Fetch blog by id
   useEffect(() => {
@@ -152,6 +156,18 @@ function Blogdetails() {
             {/* Introduction (with images via section: "introduction") */}
             {renderSimpleFieldWithImages("introduction", blog.introduction, "Introduction:")}
 
+<br />
+            {/* Subheading1 */}
+            {blog.subheading1 ? (
+              <h4><b>{blog.subheading1}</b></h4>
+            ) : null}
+           
+
+            {/* Introduction (with images via section: "introduction") */}
+            {renderSimpleFieldWithImages("introduction", blog.introduction1, )}
+<br />
+
+
             {/* === Dynamic Subtitle + subttileHead blocks with image injection === */}
             {Object.keys(blog)
               .filter(k => k.startsWith("subtitle")) // subtitle, subtitle1, subtitle2...
@@ -175,6 +191,7 @@ function Blogdetails() {
 
                 return (
                   <div key={subtitleKey}>
+
                     {subtitleVal && (
                       <>
                         {subBefore.map((p, i) => renderInjectedImage(p, `${subtitleKey}-before-${i}`))}
@@ -215,7 +232,7 @@ function Blogdetails() {
   </>
 )}
 
-                          <ul className="blog-text-ul">
+                          {/* <ul className="blog-text-ul">
                             {Array.isArray(scheme.benefits) && scheme.benefits.map((benefit, benefitIndex) => {
                               // Images targeted to a specific benefit
                               const benefitPlacements = placements.filter(p =>
@@ -234,13 +251,42 @@ function Blogdetails() {
                                 </li>
                               );
                             })}
-                          </ul>
+                          </ul> */}
+                          <ul className="blog-text-ul">
+  {Array.isArray(scheme.benefits) &&
+    scheme.benefits
+      .filter(benefit => benefit && benefit.trim() !== "") // remove blanks
+      .map((benefit, benefitIndex) => {
+        // Images targeted to a specific benefit
+        const benefitPlacements = placements.filter(p =>
+          p.section === subArrayKey &&
+          p.schemeIndex === schemeIndex &&
+          p.benefitIndex === benefitIndex
+        );
+        const bBefore = benefitPlacements.filter(p => (p.position || "after") === "before");
+        const bAfter  = benefitPlacements.filter(p => (p.position || "after") === "after");
+
+        return (
+          <li key={benefitIndex}>
+            {bBefore.map((p, i) => renderInjectedImage(p, `${listKey}-b-${benefitIndex}-before-${i}`))}
+            {benefit}
+            {bAfter.map((p, i) => renderInjectedImage(p, `${listKey}-b-${benefitIndex}-after-${i}`))}
+          </li>
+          
+        );
+      })}
+</ul>
+
                         </div>
                       );
                     })}
                   </div>
                 );
               })}
+
+
+
+              
 
             {/* Paragraphs (paragraph, paragraph1, paragraph2, ...) */}
             {Object.keys(blog)
@@ -299,7 +345,7 @@ function Blogdetails() {
             {blog.conclusion3 && renderSimpleFieldWithImages("conclusion2", blog.conclusion3)}
 
             {blog.nextSeries && (
-              <ul><li><b>Next in Our Series:</b> {blog.nextSeries}</li></ul>
+              <p><b>Next in Our Series:</b> {blog.nextSeries}</p>
             )}
           </div>
 

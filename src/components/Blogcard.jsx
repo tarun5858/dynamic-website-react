@@ -22,7 +22,10 @@ blogImageFinancialaspects,
 blogImageHomeownership,
 blogImageTruecost,
 blogImageHiddencosts,
-blogImageBeyond
+blogImageBeyond,
+blogImage20,
+blogImage21,
+blogImage22
 } from "../components/Imagepath";
 
 
@@ -51,7 +54,10 @@ blogImageFinancialaspects,
 blogImageHomeownership,
 blogImageTruecost,
 blogImageHiddencosts,
-blogImageBeyond
+blogImageBeyond,
+blogImage20,
+blogImage21,
+blogImage22
 }
 
   const imageUrl = blog.imageKey && imageSrc[blog.imageKey] ? imageSrc[blog.imageKey] : blogImage1;

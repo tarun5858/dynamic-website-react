@@ -20,6 +20,9 @@ export { default as blogImageHomeownership  } from "../assets/img/blogsImage/17.
 export { default as blogImageTruecost  } from "../assets/img/blogsImage/IMG_5159.PNG";
 export { default as blogImageHiddencosts  } from "../assets/img/blogsImage/blog banners-6.png";
 export { default as blogImageBeyond  } from "../assets/img/blogsImage/blog banners-2.png";
+export { default as blogImage20 } from "../assets/img/blogsImage/blog20.png";
+export { default as blogImage21  } from "../assets/img/blogsImage/blog21.png";
+export { default as blogImage22 } from "../assets/img/blogsImage/blog22.png";
 
 
 
@@ -46,6 +49,9 @@ export { default as blogDetailAssessingPotential    } from "../assets/img/blogsI
 export { default as blogDetailTheTrueCost    } from "../assets/img/blogsImage/1.png";
 export { default as blogDetailHiddenCosts    } from "../assets/img/blogsImage/2 (1).png";
 export { default as blogDetailBeyondthe    } from "../assets/img/blogsImage/2.png";
+export { default as blogDetail20    } from "../assets/img/blogsImage/blog20-info.png";
+export { default as blogDetail21    } from "../assets/img/blogsImage/blog21-info.png";
+export { default as blogDetail22    } from "../assets/img/blogsImage/blog22-info.png";
 
 // homepage img
 export { default as benefitimg1 } from "../assets/img/benefit-icon-1.png";

@@ -4,7 +4,8 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import { Routes, Route } from "react-router-dom";
 import BlogPage from "./screens/BlogPage"
 // import BlogCard from './components/Blogcard'
-import Blogdetails from './components/blogdetails'
+// s from './components/blogdetails'
+import Blogdetails from './components/Blogdetails';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -14,9 +15,11 @@ import Home from './screens/Home';
 import SuccessStories from './screens/SuccessStories';
 import HowItWorks from './screens/HowItWorks';
 import OurStoryPage from './screens/OurStoryPage';
-import BlogManager from "./pages/BlogManager"; 
-import Login from './screens/Login';
-import ProtectedRoute from './components/ProtectedRoute';
+// import BlogManager from "./pages/BlogManager"; 
+// import Login from './screens/Login';
+// import ProtectedRoute from './components/ProtectedRoute';
+// import { AuthProvider } from "./context/AuthContext";
+
 
 function App() {
 
@@ -25,17 +28,17 @@ function App() {
 <Header></Header>
 <WhatsAppButton></WhatsAppButton>
 
-<Routes>
-        <Route path="/login" element={<Login />} />
-        <Route
-          path="/manage-blogs"
-          element={
-            <ProtectedRoute>
-              <BlogManager />
-            </ProtectedRoute>
-          }
-        />
-      </Routes>
+ {/* <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/manage-blogs"
+            element={
+              <ProtectedRoute>
+                <BlogManager />
+              </ProtectedRoute>
+            }
+          />
+        </Routes> */}
 
 
         <Routes>

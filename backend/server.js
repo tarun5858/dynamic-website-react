@@ -1,18 +1,13 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
-import multer from "multer";
-import csv from "csvtojson";
 import Blog from "./models/Blog.js";
-import fs from "fs";
-import jwt from "jsonwebtoken";
 
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-const JWT_SECRET = "mySuperSecretKey";
 
 // MongoDB Connection
 const uri = "mongodb+srv://prehome_website_user:1ywa7PfsUW3pPWvt@lead-tracking.jysawuj.mongodb.net/?retryWrites=true&w=majority";
@@ -21,9 +16,13 @@ mongoose.connect(uri, {
   dbName: "dynamic-website-blogs",
   useNewUrlParser: true,
   useUnifiedTopology: true,
-})
-.then(() => console.log("✅ MongoDB Connected"))
-.catch(err => console.log(err));
+});
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.once('open', () => {
+  console.log('Connected to MongoDB');
+});
 
 // ------------------- APIs -------------------
 
@@ -60,103 +59,6 @@ app.post("/api/blogs", async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 });
-
-// 4) Upload CSV and insert blogs
-const upload = multer({ dest: "uploads/" });
-
-// Helper: safe JSON parse
-function safeParse(str) {
-  try {
-    return str ? JSON.parse(str) : [];
-  } catch {
-    return [];
-  }
-}
-
-// Upload API
-app.post("/api/blogs/upload-csv", upload.single("file"), async (req, res) => {
-  try {
-    const filePath = req.file.path;
-
-    let jsonArray = await csv().fromFile(filePath);
-
-    const formattedBlogs = jsonArray.map((row) => ({
-      id: Number(row.id),
-      title: row.title,
-      description: row.description,
-      date: row.date,
-      likes: Number(row.likes) || 0,
-      readTime: Number(row.readTime) || 0,
-      imageKey: row.imageKey,
-      tags: row.tags ? row.tags.split("|") : [],
-      blogTags: row.blogTags ? row.blogTags.split("|") : [],
-      points: row.points ? row.points.split("|") : [],
-      heading: row.heading,
-      subheading: row.subheading,
-      introduction: row.introduction,
-      detailImageKey: row.detailImageKey,
-      subtitle: row.subtitle,
-      subttileHead: safeParse(row.subttileHead),
-      subtitle2: row.subtitle2,
-      subttileHead2: safeParse(row.subttileHead2),
-      imagePositions: safeParse(row.imagePositions),
-      subtitle3: row.subtitle3,
-      subttileHead3: safeParse(row.subttileHead3),
-      subtitle4: row.subtitle4,
-      subttileHead4: safeParse(row.subttileHead4),
-      subtitle5: row.subtitle5,
-      subttileHead5: safeParse(row.subttileHead5),
-      conclusion1: row.conclusion1,
-      conclusion2: row.conclusion2,
-      nextSeries: row.nextSeries
-    }));
-
-    await Blog.insertMany(formattedBlogs);
-
-    fs.unlinkSync(filePath); // cleanup
-    res.json({ message: "CSV uploaded and blogs inserted!" });
-  } catch (err) {
-    console.error("Upload error:", err);
-    res.status(500).json({ error: err.message });
-  }
-});
-
-
-
-
-// Login API (dummy example)
-app.post("/api/login", (req, res) => {
-  const { username, password } = req.body;
-
-  // Dummy check (database ke sath replace karna hai)
-  if (username === "admin" && password === "admin123") {
-    const token = jwt.sign({ username }, JWT_SECRET, { expiresIn: "1h" });
-    return res.json({ token });
-  }
-
-  res.status(401).json({ error: "Invalid credentials" });
-});
-
-// Middleware to protect routes
-function authenticateToken(req, res, next) {
-  const authHeader = req.headers["authorization"];
-  const token = authHeader && authHeader.split(" ")[1];
-
-  if (!token) return res.sendStatus(401);
-
-  jwt.verify(token, JWT_SECRET, (err, user) => {
-    if (err) return res.sendStatus(403);
-    req.user = user;
-    next();
-  });
-}
-
-// Example protected API
-app.get("/api/secure-blogs", authenticateToken, (req, res) => {
-  res.json({ message: "This is protected data", user: req.user });
-});
-
-
 
 
 // --------------------------------------------
