@@ -83,7 +83,8 @@ const BlogPage = () => {
 
 // new code
 useEffect(() => {
-  fetch("https://dynamic-blog-server-g5ea.onrender.com/api/blogs?page=1&limit=50")
+  // fetch("https://dynamic-blog-server-g5ea.onrender.com/api/blogs?page=1&limit=50")
+  fetch("https://dynamic-blog-server-g5ea.onrender.com/api/blogs")
     .then((res) => res.json())
     .then((data) => {
       const blogsArray = data.data || [];
