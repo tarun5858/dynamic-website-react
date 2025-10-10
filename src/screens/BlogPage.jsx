@@ -36,33 +36,80 @@ const BlogPage = () => {
 // }, []);
 
 
+// useEffect(() => {
+//   // fetch("http://localhost:5000/api/blogs")
+//   fetch("https://dynamic-blog-server-g5ea.onrender.com/api/blogs?page=1&limit=50")
+//     .then((res) => res.json())
+//     .then((data) => {
+//       // Sort blogs in descending order (for listing only)
+//       // const sortedData = [...data].sort(
+//       //   (a, b) => new Date(b.date) - new Date(a.date)
+//       // );
+//       // setBlogs(sortedData);
+//       const sortedData = [...data.data].sort(
+//   (a, b) => new Date(b.date) - new Date(a.date)
+// );
+// setBlogs(sortedData);
+
+//       // Create topic list in the order of first API load
+//       setTopics((prevTopics) => {
+//         const currentTopics = new Set(prevTopics);
+//         const newTopics = [].reverse();
+
+//         data.forEach((blog) => {
+//           if (Array.isArray(blog.points)) {
+//             blog.points.forEach((point) => {
+//               if (!currentTopics.has(point)) {
+//                 currentTopics.add(point);
+//                 newTopics.push(point); // Append new topic
+//               }
+//             });
+//           }
+//         });
+
+//         // Always keep "ALL BLOGS" at the start
+//         return prevTopics.length === 0
+//           ? ["ALL BLOGS", ...newTopics]
+//           : [...prevTopics, ...newTopics];
+//       });
+
+//       setLoading(false);
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//       setLoading(false);
+//     });
+// }, []);
+
+// new code
 useEffect(() => {
-  fetch("http://localhost:5000/api/blogs")
+  fetch("https://dynamic-blog-server-g5ea.onrender.com/api/blogs?page=1&limit=50")
     .then((res) => res.json())
     .then((data) => {
-      // Sort blogs in descending order (for listing only)
-      const sortedData = [...data].sort(
+      const blogsArray = data.data || [];
+
+      // Sort blogs by date descending
+      const sortedData = [...blogsArray].sort(
         (a, b) => new Date(b.date) - new Date(a.date)
       );
       setBlogs(sortedData);
 
-      // Create topic list in the order of first API load
+      // Build topic list
       setTopics((prevTopics) => {
         const currentTopics = new Set(prevTopics);
-        const newTopics = [].reverse();
+        const newTopics = [];
 
-        data.forEach((blog) => {
+        blogsArray.forEach((blog) => {
           if (Array.isArray(blog.points)) {
             blog.points.forEach((point) => {
               if (!currentTopics.has(point)) {
                 currentTopics.add(point);
-                newTopics.push(point); // Append new topic
+                newTopics.push(point);
               }
             });
           }
         });
 
-        // Always keep "ALL BLOGS" at the start
         return prevTopics.length === 0
           ? ["ALL BLOGS", ...newTopics]
           : [...prevTopics, ...newTopics];
@@ -75,6 +122,7 @@ useEffect(() => {
       setLoading(false);
     });
 }, []);
+
 
 
 

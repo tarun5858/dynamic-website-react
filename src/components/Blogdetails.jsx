@@ -41,12 +41,18 @@ function Blogdetails() {
   useEffect(() => {
     let active = true;
     (async () => {
+      // try {
+      //   const res = await fetch(`http://localhost:5000/api/blogs/${id}`);
+      //   if (!res.ok) throw new Error("Failed to fetch blog");
+      //   const data = await res.json();
+      //   if (active) setBlog(data);
+      // } catch (e) {
       try {
-        const res = await fetch(`http://localhost:5000/api/blogs/${id}`);
-        if (!res.ok) throw new Error("Failed to fetch blog");
-        const data = await res.json();
-        if (active) setBlog(data);
-      } catch (e) {
+  const res = await fetch(`https://dynamic-blog-server-g5ea.onrender.com/api/blogs/${id}`);
+  if (!res.ok) throw new Error("Failed to fetch blog");
+  const data = await res.json(); // data is already the blog object
+  if (active) setBlog(data);
+} catch (e) {
         if (active) setError(e.message);
       } finally {
         if (active) setLoading(false);
@@ -154,7 +160,7 @@ function Blogdetails() {
            
 
             {/* Introduction (with images via section: "introduction") */}
-            {renderSimpleFieldWithImages("introduction", blog.introduction, "Introduction:")}
+            {renderSimpleFieldWithImages("introduction1", blog.introduction, "Introduction:")}
 
 <br />
             {/* Subheading1 */}
@@ -204,7 +210,7 @@ function Blogdetails() {
                     {Array.isArray(subArray) && subArray.map((scheme, schemeIndex) => {
                       if (!scheme) return null;
                       const nameKey = `${subArrayKey}-name-${schemeIndex}`;
-                      const listKey = `${subArrayKey}-list-${schemeIndex}`;
+                      // const listKey = `${subArrayKey}-list-${schemeIndex}`;
 
                       // Name-level images (before/after the <h4> of this scheme)
                       const namePlacements = placements.filter(p =>
@@ -224,7 +230,7 @@ function Blogdetails() {
       renderInjectedImage(p, `${nameKey}-before-${i}`)
     )}
     <h4>
-      <b>{scheme.name || scheme.section}</b>
+      {/* <b>{scheme.name || scheme.section}</b> */}
     </h4>
     {nameAfter.map((p, i) =>
       renderInjectedImage(p, `${nameKey}-after-${i}`)
@@ -252,7 +258,8 @@ function Blogdetails() {
                               );
                             })}
                           </ul> */}
-                          <ul className="blog-text-ul">
+                          {/* <ul className="blog-text-ul">
+                         <p>{blog.beforeContent} </p>  
   {Array.isArray(scheme.benefits) &&
     scheme.benefits
       .filter(benefit => benefit && benefit.trim() !== "") // remove blanks
@@ -275,7 +282,36 @@ function Blogdetails() {
           
         );
       })}
+      <p>{blog.afterContent} </p> 
+</ul> */}
+
+
+<ul className="blog-text-ul">
+  {/* Before Content */}
+  {scheme.beforeContent && scheme.beforeContent.trim() !== "" && (
+    <p>{scheme.beforeContent}</p>
+  )}
+
+  {/* Name-Benefit pairs side by side */}
+  {Array.isArray(scheme.name) &&
+    Array.isArray(scheme.benefits) &&
+    scheme.name.map((n, i) => {
+      const benefit = scheme.benefits[i] || "";
+      if (!n.trim() && !benefit.trim()) return null;
+
+      return (
+        <li key={i} style={{ marginBottom: "0.5rem" }}>
+          <strong>{n}:</strong> {benefit}
+        </li>
+      );
+    })}
+
+  {/* After Content */}
+  {scheme.afterContent && scheme.afterContent.trim() !== "" && (
+    <p>{scheme.afterContent}</p>
+  )}
 </ul>
+
 
                         </div>
                       );
@@ -342,11 +378,20 @@ function Blogdetails() {
             {blog.conclusion && renderSimpleFieldWithImages("conclusion", blog.conclusion)}
             {blog.conclusion1 && renderSimpleFieldWithImages("conclusion1", blog.conclusion1)}
             {blog.conclusion2 && renderSimpleFieldWithImages("conclusion2", blog.conclusion2)}
-            {blog.conclusion3 && renderSimpleFieldWithImages("conclusion2", blog.conclusion3)}
+            {blog.conclusion3 && renderSimpleFieldWithImages("conclusion3", blog.conclusion3)}
 
             {blog.nextSeries && (
               <p><b>Next in Our Series:</b> {blog.nextSeries}</p>
             )}
+
+            {/* finalword (each image-placement eligible) */}
+            {(blog.finalword || blog.finalword1 || blog.finalword2 || blog.finalword3) && (
+              <h4><b>The Final Word:</b></h4>
+            )}
+            {blog.finalword && renderSimpleFieldWithImages("finalword", blog.finalword)}
+            {blog.finalword1 && renderSimpleFieldWithImages("finalword1", blog.finalword1)}
+            {blog.finalword2 && renderSimpleFieldWithImages("finalword2", blog.finalword2)}
+            {blog.finalword3 && renderSimpleFieldWithImages("finalword3", blog.finalword3)}
           </div>
 
           {/* Sidebar */}
