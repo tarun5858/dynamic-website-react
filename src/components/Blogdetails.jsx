@@ -52,7 +52,8 @@ function Blogdetails() {
   if (!res.ok) throw new Error("Failed to fetch blog");
   const data = await res.json(); // data is already the blog object
   if (active) setBlog(data);
-} catch (e) {
+} 
+catch (e) {
         if (active) setError(e.message);
       } finally {
         if (active) setLoading(false);
