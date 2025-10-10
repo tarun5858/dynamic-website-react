@@ -82,20 +82,66 @@ const BlogPage = () => {
 // }, []);
 
 // new code
+// useEffect(() => {
+//   // fetch("https://dynamic-blog-server-g5ea.onrender.com/api/blogs?page=1&limit=50")
+//   fetch("https://dynamic-blog-server-g5ea.onrender.com/api/blogs")
+//     .then((res) => res.json())
+//     .then((data) => {
+//       const blogsArray = data.data || [];
+
+//       // Sort blogs by date descending
+//       const sortedData = [...blogsArray].sort(
+//         (a, b) => new Date(b.date) - new Date(a.date)
+//       );
+//       setBlogs(sortedData);
+
+//       // Build topic list
+//       setTopics((prevTopics) => {
+//         const currentTopics = new Set(prevTopics);
+//         const newTopics = [];
+
+//         blogsArray.forEach((blog) => {
+//           if (Array.isArray(blog.points)) {
+//             blog.points.forEach((point) => {
+//               if (!currentTopics.has(point)) {
+//                 currentTopics.add(point);
+//                 newTopics.push(point);
+//               }
+//             });
+//           }
+//         });
+
+//         return prevTopics.length === 0
+//           ? ["ALL BLOGS", ...newTopics]
+//           : [...prevTopics, ...newTopics];
+//       });
+
+//       setLoading(false);
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//       setLoading(false);
+//     });
+// }, []);
+
+
 useEffect(() => {
-  // fetch("https://dynamic-blog-server-g5ea.onrender.com/api/blogs?page=1&limit=50")
-  fetch("https://dynamic-blog-server-g5ea.onrender.com/api/blogs")
+  fetch("https://dynamic-blog-server-g5ea.onrender.com/api/blogs?page=1&limit=50")
     .then((res) => res.json())
     .then((data) => {
+      console.log("Fetched blogs:", data); // Debugging log
+
+      // ✅ Your API returns blogs inside data.data
       const blogsArray = data.data || [];
 
-      // Sort blogs by date descending
+      // Sort blogs by date (newest first)
       const sortedData = [...blogsArray].sort(
         (a, b) => new Date(b.date) - new Date(a.date)
       );
+
       setBlogs(sortedData);
 
-      // Build topic list
+      // Build topic list dynamically
       setTopics((prevTopics) => {
         const currentTopics = new Set(prevTopics);
         const newTopics = [];
@@ -119,10 +165,11 @@ useEffect(() => {
       setLoading(false);
     })
     .catch((err) => {
-      console.error(err);
+      console.error("Error fetching blogs:", err);
       setLoading(false);
     });
 }, []);
+
 
 
 
