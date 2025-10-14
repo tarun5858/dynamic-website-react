@@ -132,7 +132,7 @@ useEffect(() => {
     .then((data) => {
       console.log("Fetched blogs:", data); // Debugging log
 
-      // ✅ Your API returns blogs inside data.data
+      // Your API returns blogs inside data.data
       const blogsArray = data.data || [];
 
       // Sort blogs by date (newest first)

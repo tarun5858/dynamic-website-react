@@ -53,7 +53,8 @@ const Header = () => {
                       <ul className="dropdown-menu">
                         <li><Link to="/blog">Blog</Link></li>
                         <li><a href="https://www.prehome.in/contactus">FAQs</a></li>
-                        <li><a href="https://prehome-latest-build.vercel.app/calculators.html">Calculators</a></li>
+                        {/* <li><a href="https://prehome-latest-build.vercel.app/calculators.html">Calculators</a></li> */}
+                        <li><a href="https://www.prehome.in/calculators">Calculators</a></li>
                       </ul>
                     </li>
                     <li className="mobile-dropdown dropdown">
