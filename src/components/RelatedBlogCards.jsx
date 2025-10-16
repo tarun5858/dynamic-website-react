@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useParams } from "react-router-dom";
 
 const RelatedBlogCards = ({ currentTags, currentId }) => {
   const [blogs, setBlogs] = useState([]);
+  const { id } = useParams();
 
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/blogs");
+        // const res = await fetch("http://localhost:5000/api/blogs");
+        const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/blogs/${id}`);
         const data = await res.json();
         setBlogs(data);
       } catch (err) {

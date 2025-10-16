@@ -53,7 +53,7 @@ const Header = () => {
                       <a href="javascript:void(0);" className="dropdown-toggle">Resources <FaChevronDown /> </a>
                       <ul className="dropdown-menu">
                         <li><Link to="/blog">Blog</Link></li>
-                        <li><Link href="/faq">FAQs</Link></li>
+                        <li><Link to="/faq">FAQs</Link></li>
                         {/* <li><a href="https://prehome-latest-build.vercel.app/calculators.html">Calculators</a></li> */}
                         <li><a href="https://www.prehome.in/calculators">Calculators</a></li>
                       </ul>
@@ -63,9 +63,9 @@ const Header = () => {
                       <ul className="dropdown-menu">
                         <li> <Link to="/our-story">Our Story
             </Link></li>
-                        <li><Link href="/contact-us">Contact Us</Link></li>
-                        <li><Link href="/terms-conditions">Terms & Conditions</Link></li>
-                        <li><Link href="/privacy-policy">Privacy Policy</Link></li>
+                        <li><Link to="/contact-us">Contact Us</Link></li>
+                        <li><Link to="/terms-conditions">Terms & Conditions</Link></li>
+                        <li><Link to="/privacy-policy">Privacy Policy</Link></li>
                       </ul>
                     </li>
                   </ul>
@@ -220,14 +220,14 @@ const Header = () => {
               }}
             >
             <li style={{marginBottom: "10px"}}>
-                <a href="https://www.prehome.in/blog" className="text-white d-block py-1" style={{textDecoration:"none"}}>
-                  Blog
-                </a>
+              <Link to="/blog" className="text-white d-block py-1" style={{textDecoration:"none"}}>
+                  FAQs
+                </Link>
               </li>
               <li style={{marginBottom: "10px"}}>
-                <a href="https://www.prehome.in/contactus" className="text-white d-block py-1" style={{textDecoration:"none"}}>
+                <Link to="/faq" className="text-white d-block py-1" style={{textDecoration:"none"}}>
                   FAQs
-                </a>
+                </Link>
               </li>
              <li style={{marginBottom: "10px"}}>
                 <a href="https://prehome-latest-build.vercel.app/calculators.html" className="text-white d-block py-1" style={{textDecoration:"none"}}>
@@ -274,19 +274,19 @@ const Header = () => {
             </Link></li>
               </li>
              <li style={{marginBottom: "10px"}}>
-                <a href="https://www.prehome.in/contactus" className="text-white d-block py-1" style={{textDecoration:"none"}}>
+                <Link to="/contact-us"  className="text-white d-block py-1" style={{textDecoration:"none"}}>
                   Contact Us
-                </a>
+                </Link>
               </li>
               <li style={{marginBottom: "10px"}}>
-                <a href="https://www.prehome.in/termsandconditions" className="text-white d-block py-1" style={{textDecoration:"none"}}>
+                <Link to="/terms-conditions" className="text-white d-block py-1" style={{textDecoration:"none"}}>
                   Terms & Conditions
-                </a>
+                </Link>
               </li>
               <li style={{marginBottom: "10px"}}>
-                <a href="https://www.prehome.in/privacypolicy" className="text-white d-block py-1" style={{textDecoration:"none"}}>
+                <Link to="/privacy-policy" className="text-white d-block py-1" style={{textDecoration:"none"}}>
                   Privacy Policy
-                </a>
+                </Link>
               </li>
             </ul>
                     {/* Mobile "Join our waitlist" Button */}
