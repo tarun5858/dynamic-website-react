@@ -38,32 +38,65 @@ function Blogdetails() {
 
 
   // Fetch blog by id
-  useEffect(() => {
+//   useEffect(() => {
+//     let active = true;
+//     (async () => {
+//       // try {
+//       //   const res = await fetch(`http://localhost:5000/api/blogs/${id}`);
+//       //   if (!res.ok) throw new Error("Failed to fetch blog");
+//       //   const data = await res.json();
+//       //   if (active) setBlog(data);
+//       // } catch (e) {
+//       try {
+//   // const res = await fetch(`https://dynamic-blog-server-g5ea.onrender.com/api/blogs/${id}`);
+//   // const res = await fetch(`https://dynamic-website-backend.onrender.com/api/blogs/${id}`);
+//   const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/blogs/${id}`)
+//   if (!res.ok) throw new Error("Failed to fetch blog");
+
+//   const data = await res.json(); // data is already the blog object
+//   if (active) setBlog(data);
+// } 
+// catch (e) {
+//         if (active) setError(e.message);
+//       } finally {
+//         if (active) setLoading(false);
+//       }
+//     })();
+//     return () => { active = false; };
+//   }, [id]);
+
+useEffect(() => {
     let active = true;
     (async () => {
-      // try {
-      //   const res = await fetch(`http://localhost:5000/api/blogs/${id}`);
-      //   if (!res.ok) throw new Error("Failed to fetch blog");
-      //   const data = await res.json();
-      //   if (active) setBlog(data);
-      // } catch (e) {
-      try {
-  // const res = await fetch(`https://dynamic-blog-server-g5ea.onrender.com/api/blogs/${id}`);
-  // const res = await fetch(`https://dynamic-website-backend.onrender.com/api/blogs/${id}`);
-  const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/blogs/${id}`)
-  if (!res.ok) throw new Error("Failed to fetch blog");
+        try {
+            const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/blogs/${id}`);
+            if (!res.ok) throw new Error("Failed to fetch blog");
 
-  const data = await res.json(); // data is already the blog object
-  if (active) setBlog(data);
-} 
-catch (e) {
-        if (active) setError(e.message);
-      } finally {
-        if (active) setLoading(false);
-      }
+            const data = await res.json();
+            
+            // Assuming your API response for a single blog might be wrapped
+            const blogObject = data.data // If the blog is wrapped in a 'data' key
+                             ? data.data
+                             : data; // Otherwise, assume the response object is the blog
+
+            if (active) {
+                // Add a check to see if the object looks like a blog (e.g., has a title)
+                if (blogObject && blogObject.title) {
+                    setBlog(blogObject);
+                } else {
+                    throw new Error("Invalid blog data received.");
+                }
+            }
+        } 
+        catch (e) {
+            console.error("Error fetching blog details:", e); // Log the error for debugging
+            if (active) setError(e.message);
+        } finally {
+            if (active) setLoading(false);
+        }
     })();
     return () => { active = false; };
-  }, [id]);
+}, [id]);
 
   // Sticky sidebar
   useEffect(() => {

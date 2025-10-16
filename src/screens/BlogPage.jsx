@@ -126,24 +126,42 @@ const BlogPage = () => {
 
 
 useEffect(() => {
-  // fetch("https://dynamic-blog-server-g5ea.onrender.com/api/blogs?page=1&limit=50")
-  // fetch("https://dynamic-website-backend.onrender.com/api/blogs?page=1&limit=50")
-  fetch(`${import.meta.env.VITE_API_BASE_URL}/api/blogs`)
-    .then((res) => res.json())
-    .then((data) => {
-      console.log("Fetched blogs:", data); // Debugging log
+  const fetchBlogs = async () => {
+    setLoading(true); // Ensure loading is true before fetch
 
-      // Your API returns blogs inside data.data
-      const blogsArray = data.data || [];
+    try {
+      const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/api/blogs`;
+      const response = await fetch(apiUrl);
 
-      // Sort blogs by date (newest first)
+      // --- CRITICAL CHECK: Handle HTTP Errors ---
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      console.log("Fetched data object:", data); 
+
+      // --- CRITICAL CHANGE: Determine Blog Array ---
+      // 1. Try accessing data.data (if your API wraps the array)
+      // 2. Fall back to data (if your API returns the array directly)
+      const blogsArray = data.data && Array.isArray(data.data) 
+                         ? data.data 
+                         : (Array.isArray(data) ? data : []);
+      
+      console.log("Blogs array for state:", blogsArray); 
+      
+      if (blogsArray.length === 0) {
+          console.warn("API returned successful response but the blog array is empty or misstructured.");
+      }
+
+      // Sort blogs by date (newest first) - Logic is correct
       const sortedData = [...blogsArray].sort(
         (a, b) => new Date(b.date) - new Date(a.date)
       );
 
       setBlogs(sortedData);
-
-      // Build topic list dynamically
+      
+     // Build topic list dynamically
       setTopics((prevTopics) => {
         const currentTopics = new Set(prevTopics);
         const newTopics = [];
@@ -163,15 +181,19 @@ useEffect(() => {
           ? ["ALL BLOGS", ...newTopics]
           : [...prevTopics, ...newTopics];
       });
-
+      
       setLoading(false);
-    })
-    .catch((err) => {
+
+    } catch (err) {
       console.error("Error fetching blogs:", err);
       setLoading(false);
-    });
+    }
+  };
+
+  fetchBlogs();
 }, []);
 
+ 
 
 
 

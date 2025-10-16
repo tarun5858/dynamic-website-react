@@ -53,7 +53,7 @@ const Header = () => {
                       <a href="javascript:void(0);" className="dropdown-toggle">Resources <FaChevronDown /> </a>
                       <ul className="dropdown-menu">
                         <li><Link to="/blog">Blog</Link></li>
-                        <li><a href="/faq">FAQs</a></li>
+                        <li><Link href="/faq">FAQs</Link></li>
                         {/* <li><a href="https://prehome-latest-build.vercel.app/calculators.html">Calculators</a></li> */}
                         <li><a href="https://www.prehome.in/calculators">Calculators</a></li>
                       </ul>
@@ -63,9 +63,9 @@ const Header = () => {
                       <ul className="dropdown-menu">
                         <li> <Link to="/our-story">Our Story
             </Link></li>
-                        <li><a href="/contact-us">Contact Us</a></li>
-                        <li><a href="/terms-conditions">Terms & Conditions</a></li>
-                        <li><a href="/privacy-policy">Privacy Policy</a></li>
+                        <li><Link href="/contact-us">Contact Us</Link></li>
+                        <li><Link href="/terms-conditions">Terms & Conditions</Link></li>
+                        <li><Link href="/privacy-policy">Privacy Policy</Link></li>
                       </ul>
                     </li>
                   </ul>
