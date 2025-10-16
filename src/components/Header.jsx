@@ -4,6 +4,7 @@ import icon from "../assets/img/prehomeLogo.png";
 import "../assets/css/bootstrap.min.css";
 import BootstrapModal from "./BootstrapModal"; // Adjust path as needed
 import { FaChevronDown } from "react-icons/fa";
+
 import './Header.css';
 import { Link } from "react-router-dom";
 
@@ -52,7 +53,7 @@ const Header = () => {
                       <a href="javascript:void(0);" className="dropdown-toggle">Resources <FaChevronDown /> </a>
                       <ul className="dropdown-menu">
                         <li><Link to="/blog">Blog</Link></li>
-                        <li><a href="https://www.prehome.in/contactus">FAQs</a></li>
+                        <li><a href="/faq">FAQs</a></li>
                         {/* <li><a href="https://prehome-latest-build.vercel.app/calculators.html">Calculators</a></li> */}
                         <li><a href="https://www.prehome.in/calculators">Calculators</a></li>
                       </ul>
@@ -62,9 +63,9 @@ const Header = () => {
                       <ul className="dropdown-menu">
                         <li> <Link to="/our-story">Our Story
             </Link></li>
-                        <li><a href="https://www.prehome.in/contactus">Contact Us</a></li>
-                        <li><a href="https://www.prehome.in/termsandconditions">Terms & Conditions</a></li>
-                        <li><a href="https://www.prehome.in/privacypolicy">Privacy Policy</a></li>
+                        <li><a href="/contact-us">Contact Us</a></li>
+                        <li><a href="/terms-conditions">Terms & Conditions</a></li>
+                        <li><a href="/privacy-policy">Privacy Policy</a></li>
                       </ul>
                     </li>
                   </ul>

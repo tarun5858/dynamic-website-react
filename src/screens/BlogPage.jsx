@@ -127,7 +127,8 @@ const BlogPage = () => {
 
 useEffect(() => {
   // fetch("https://dynamic-blog-server-g5ea.onrender.com/api/blogs?page=1&limit=50")
-  fetch("https://dynamic-website-backend.onrender.com/api/blogs?page=1&limit=50")
+  // fetch("https://dynamic-website-backend.onrender.com/api/blogs?page=1&limit=50")
+  fetch(`${import.meta.env.VITE_API_BASE_URL}/api/blogs`)
     .then((res) => res.json())
     .then((data) => {
       console.log("Fetched blogs:", data); // Debugging log

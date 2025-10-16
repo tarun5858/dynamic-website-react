@@ -120,24 +120,24 @@ const HowItWorks = () => {
             </div>
           </div>
           <div className="row align-items-center">
-            <div class="col-xl-2  col-sm-0"></div>
+            <div className="col-xl-2  col-sm-0"></div>
 
-            <div class="col-8 col-sm-8 col-md-7 col-lg-8 col-xl-6    ps-xl-5">
+            <div className="col-8 col-sm-8 col-md-7 col-lg-8 col-xl-6    ps-xl-5">
               <div
-                class="section-title list-style aos-item "
+                className="section-title list-style aos-item "
                 data-aos="zoom-in-left"
               >
-                <p class="sec-title-p">
+                <p className="sec-title-p">
                   Your home ownership story matters to us.
                 </p>
-                <h3 class="footer-h3">Let's write it together.</h3>
+                <h3 className="footer-h3">Let's write it together.</h3>
               </div>
               <LargeBlueCta style={{width: "272px", height: "62px"}} text="Join us" />
             </div>
 
-            <div class="col-4 col-sm-4 col-md-5  col-lg-4 col-xl-4 justify-content-center">
+            <div className="col-4 col-sm-4 col-md-5  col-lg-4 col-xl-4 justify-content-center">
               <div
-                class="about-images   mb-sm-0  aos-item section-title d-flex align-items-center"
+                className="about-images   mb-sm-0  aos-item section-title d-flex align-items-center"
                 data-aos="zoom-in"
               >
                 <img src={logo} alt="" style={{ width: "100%" }} />

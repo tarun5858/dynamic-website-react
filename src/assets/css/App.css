@@ -556,15 +556,29 @@ h6 {
 
   font-family: "Poppins", sans-serif;
   margin: 0px;
-  margin-bottom: 15px;
-  font-weight: 600;
-  color: #0D0D0F;
-  line-height: 130%;
-  padding: 10px 0 0 0;
+  margin-bottom: 15px!important;
+  font-weight: 600!important;
+  color: #0D0D0F!important;
+  line-height: 130%!important;
+  padding: 10px 0 0 0!important;
+
+ 
 }
 
 h1 {
   font-size: 19px;
+}
+
+.termsHeading{
+  font-size: 40px;
+}
+.accordion-body h4 {
+  font-size: 16px;
+  font-weight: 600;
+}
+.privacy-ul li{
+list-style:disc;
+margin-left: 2%;
 }
 
 @media (max-width: 991px) {
@@ -781,7 +795,7 @@ p {
 }
 
 /* ----------------------------------
-    Template Helps classNamees - Styles
+    Template Helps classNameNameNameNamees - Styles
  ------------------------------------ */
 .text-white h1,
 .text-white h2,
@@ -1648,7 +1662,7 @@ p {
   margin-right: -9px;
 }
 
-.lr-9 [className*="col"] {
+.lr-9 [classNameNameNameName*="col"] {
   padding-left: 9px;
   padding-right: 9px;
 }
@@ -1841,7 +1855,7 @@ section.pt-235 {
   flex-wrap: wrap;
 }
 
-.equal>[className*='col-'] {
+.equal>[classNameNameNameName*='col-'] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8197,8 +8211,14 @@ header.header-3 .main-menu ul>li>ul ul {
   line-height: inherit;
   position: relative;
   z-index: 1;
-}
 
+}
+.accordion-header {  border-top: 1px solid #000;}
+.section-title h2 {
+    font-size: 39px;
+    font-weight: 600;
+    margin-bottom: 5%;
+}
 .faq-accordion-2 .accordion .accordion-item .accordion-header:focus {
   outline: 0;
   border: 0;

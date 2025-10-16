@@ -6,7 +6,7 @@ const  OurstoryData = [
     imgkey:"ourstoryImg1",
     reverse:"false",
    cardtext:"12+ years",
-   cardParagraph:"Average time it takes a middle-class family to save enough for a down payment",
+   cardParagraph:"Average time it takes a middle-className family to save enough for a down payment",
    cardImage:"benefitImg1",
    promiseText:"Transparency in every step of the process",
    promiseImage:"promiseImage1"

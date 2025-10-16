@@ -15,6 +15,9 @@ import Home from './screens/Home';
 import SuccessStories from './screens/SuccessStories';
 import HowItWorks from './screens/HowItWorks';
 import OurStoryPage from './screens/OurStoryPage';
+import ContactUs from './screens/ContactUs';
+import TermsConditions from './components/TermsConditions';
+import PrivacyPolicy from './components/PrivacyPolicy';
 // import BlogManager from "./pages/BlogManager"; 
 // import Login from './screens/Login';
 // import ProtectedRoute from './components/ProtectedRoute';
@@ -47,6 +50,10 @@ function App() {
           <Route path="/success-stories" element={<SuccessStories />} />
           <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/our-story" element={<OurStoryPage />} />
+          <Route path="/faq" element={<ContactUs />} />
+          <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/terms-conditions" element={<TermsConditions />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           {/* <Route path="/" element={<ComponentsParent />} /> */}
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:id" element={<Blogdetails />} />

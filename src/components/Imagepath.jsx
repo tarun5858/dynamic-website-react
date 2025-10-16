@@ -131,3 +131,7 @@ export { default as promiseImage2 } from "../assets/img/OurstoryImages/IMG_4858.
 export { default as promiseImage3 } from "../assets/img/OurstoryImages/Untitled_Artwork 16.png";
 
 
+
+export { default as whtspImage } from "../assets/img/chart-whatsapp.png";
+
+
