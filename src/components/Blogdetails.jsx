@@ -36,35 +36,6 @@ function Blogdetails() {
 
 
 
-
-  // Fetch blog by id
-//   useEffect(() => {
-//     let active = true;
-//     (async () => {
-//       // try {
-//       //   const res = await fetch(`http://localhost:5000/api/blogs/${id}`);
-//       //   if (!res.ok) throw new Error("Failed to fetch blog");
-//       //   const data = await res.json();
-//       //   if (active) setBlog(data);
-//       // } catch (e) {
-//       try {
-//   // const res = await fetch(`https://dynamic-blog-server-g5ea.onrender.com/api/blogs/${id}`);
-//   // const res = await fetch(`https://dynamic-website-backend.onrender.com/api/blogs/${id}`);
-//   const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/blogs/${id}`)
-//   if (!res.ok) throw new Error("Failed to fetch blog");
-
-//   const data = await res.json(); // data is already the blog object
-//   if (active) setBlog(data);
-// } 
-// catch (e) {
-//         if (active) setError(e.message);
-//       } finally {
-//         if (active) setLoading(false);
-//       }
-//     })();
-//     return () => { active = false; };
-//   }, [id]);
-
 useEffect(() => {
     let active = true;
     (async () => {
@@ -440,6 +411,7 @@ useEffect(() => {
                 currentTags={blog.blogTags}
                 currentId={blog._id}
                 time={blog.readTime}
+                currentBlog={blog}
               />
             </aside>
           </div>

@@ -1,23 +1,67 @@
 import React, { useEffect, useState } from "react";
-import { Link,useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const RelatedBlogCards = ({ currentTags, currentId }) => {
+const RelatedBlogCards = ({ currentTags, currentId,currentBlog }) => {
   const [blogs, setBlogs] = useState([]);
-  const { id } = useParams();
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   const fetchBlogs = async () => {
+  //     try {
+  //       const res = await fetch("http://localhost:5000/api/blogs");
+        
+  //       const data = await res.json();
+  //       setBlogs(data);
+  //     } catch (err) {
+  //       console.error("Failed to fetch blogs", err);
+  //     }
+  //   };
+  //   fetchBlogs();
+  // }, []);
+
+  // NOTE: This assumes 'currentBlog' is available (via props or context)
+// and has the property you want to use for filtering (e.g., 'topic').
+// If you don't have currentBlog, remove the filtering logic.
+
+useEffect(() => {
     const fetchBlogs = async () => {
-      try {
-        // const res = await fetch("http://localhost:5000/api/blogs");
-        const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/blogs/${id}`);
-        const data = await res.json();
-        setBlogs(data);
-      } catch (err) {
-        console.error("Failed to fetch blogs", err);
-      }
+        try {
+            // 1. FIX: Use the correct deployed URL
+            const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/api/blogs`;
+            const res = await fetch(apiUrl);
+            
+            if (!res.ok) {
+                throw new Error(`HTTP error! Status: ${res.status}`);
+            }
+
+            const data = await res.json();
+            
+            // 2. FIX: Correctly access the blog array
+            const blogsArray = data.data && Array.isArray(data.data) 
+                             ? data.data 
+                             : (Array.isArray(data) ? data : []);
+
+            // 3. LOGIC: Filter for related blogs (Customize this part!)
+            let relatedBlogs = blogsArray;
+            if (currentBlog && currentBlog.topic) { 
+                relatedBlogs = blogsArray
+                    .filter(blog => blog._id !== currentBlog._id && blog.topic === currentBlog.topic)
+                    .slice(0, 4); // Show top 4 related blogs
+            }
+
+            setBlogs(relatedBlogs);
+            
+        } catch (err) {
+            console.error("Failed to fetch related blogs", err);
+        }
     };
-    fetchBlogs();
-  }, []);
+    
+    // Trigger fetch only when the current blog data is available for filtering
+    if (currentBlog) { 
+        fetchBlogs();
+    }
+    
+    // Update dependencies based on when the related blogs should refresh
+}, [currentBlog]); // Fetch again if the main blog details change
 
   if (!currentTags || currentTags.length === 0) {
     return <p>No related blogs found.</p>;
