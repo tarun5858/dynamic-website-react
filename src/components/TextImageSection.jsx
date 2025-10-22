@@ -1,7 +1,14 @@
+import LargeCtaRoutes from "./LargeCtaRoutes";
 import LargeBlueCta from "./LargeBlueCta";
 // import { listImage } from "./Imagepath";
 
 const TextImageSection = ({ data, src, reverse = false }) => {
+
+   const phoneNumber = "918800658299"; // WhatsApp number in international format without "+" or spaces
+  const message = "Thank you for contacting Prehome. How can we help you today?";
+const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+
+
   return (
     <div className="container container-lg">
           <div className={`row align-items-center flex-column-reverse flex-md-row mt-5 mb-5 ${reverse ? "flex-md-row-reverse" : ""}`}>
@@ -28,7 +35,34 @@ const TextImageSection = ({ data, src, reverse = false }) => {
               </div>
             ))}
           </div>
-          <LargeBlueCta text="Get prequalified"></LargeBlueCta>
+
+      
+         <div>
+  
+{data.text && 
+  (data.ctaType === 'page' 
+    ? (
+        <LargeBlueCta 
+          text={data.text}
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        />
+    )
+    : data.ctaType === 'faq' 
+      ? (
+          <LargeCtaRoutes text={data.text} to="/faq" />
+      )
+      : data.ctaType === 'whatsapp' // Action 3: WHATSAPP LINK (If ctaType is 'whatsapp')
+        ? (
+            <LargeCtaRoutes text={data.text} to={whatsappUrl} target="_blank"/> 
+        )
+        : (
+            <LargeBlueCta text={data.text} />
+        )
+  )
+}
+</div>
+     
         </div>
      
       <div className="col-xl-6 col-md-6  aos-item section-title ">

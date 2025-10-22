@@ -5,6 +5,7 @@ const  TextImageData = [
     paragraph:"Our rent to own home ownership program is the first of its kind in the industry, revolutionizing home buying.",
     imgkey:"whatweoffer",
     reverse:"false",
+    text:"Get prequalified",
      listitems: [
       {
         title: "Live in Your Dream Home today:",
@@ -20,7 +21,8 @@ const  TextImageData = [
         title: "Fast track your Ownership:",
         point: ["Build your down payment fund while experiencing your future home."],
       },
-      ],
+    ],
+    ctaType :'page'
 },
   {
      id:"2",
@@ -28,13 +30,19 @@ const  TextImageData = [
     paragraph:"Embrace a space you can truly call your home, with a great sense of security and emotional fulfillment akin to that of a homeowner. Create countless memories while you watch your dream getting fulfilled. It's no longer a house, but your home.",
      imgkey:"perfectplace",
      reverse:"true",
-},
+    text:"Let’s have a conversation",
+    ctaType :'whatsapp'
+    
+  },
   {
-     id:"3",
+    id:"3",
     heading:"Worried about financial security? We got you covered",
     paragraph:"Say goodbye to the uncertainties of renting, and embrace a path to stability. Our program empowers you to accumulate savings for homeownership while you rent,thereby improving your financial confidence and securing you a prosperous future.",
-     imgkey:"worriedabout",
-     reverse:"false",
+    imgkey:"worriedabout",
+    reverse:"false",
+    text:"Get expert advice",
+    ctaType :'faq'
+
 },
   {
      id:"4",

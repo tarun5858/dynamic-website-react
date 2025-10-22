@@ -9,6 +9,8 @@ import { benefitimg1, benefitimg2, benefitimg3,whatweoffer,perfectplace,worrieda
 import TextImageSection from "../components/TextImageSection";
 import TextImageData from "../data/TextImageData";
 import PreFooter from "../components/PreFooter";
+import { Link } from "react-router-dom";
+import LargeCtaRoutes from "../components/LargeCtaRoutes";
 const Home = () => {
   const cardData = componentsData;
   const imageSrc = {
@@ -70,7 +72,8 @@ const Home = () => {
           </div>
         </div>
               <div className="cta-parent">
-                <LargeBlueCta text="Learn how"></LargeBlueCta>
+                {/* <LargeBlueCta text="Learn how"  ><Link  to="/success-stories"></Link></LargeBlueCta> */}
+                <LargeCtaRoutes text="Learn how"  to="/how-it-works"></LargeCtaRoutes>
               </div>
       </section>
 
@@ -82,7 +85,7 @@ const Home = () => {
           <Carousel ></Carousel>
 
           <div className="cta-parent d-flex justify-content-center">
-            <LargeBlueCta text="Learn more"></LargeBlueCta>
+            <LargeCtaRoutes text="Learn more" to="/success-stories"></LargeCtaRoutes>
           </div>
         </div>
       </section>
@@ -124,7 +127,7 @@ const Home = () => {
                 data-wow-delay="00ms"
               >
               {data.map((value,i) => 
-                <TextImageSection src={imageSrc[value.imgkey]} key={i} data={value} reverse={value.reverse === "true"} />
+                <TextImageSection src={imageSrc[value.imgkey]} key={i}  data={value} reverse={value.reverse === "true"} />
               )}
 
               </div>

@@ -1,20 +1,21 @@
 import React from "react";
 import "../App.css";
-
-const LargeBlueCta = ({text}) =>{
+import { Link } from "react-router-dom";
+const LargeCtaRoutes = ({text,to}) =>{
     return(
         
-        <button 
+        <Link 
         className="large-cta theme-btn-navbar btn-radius animated"
                   data-animation-in="fadeInRight"
                   data-delay-in="0.9"
-                  data-bs-toggle="modal"
-                  data-bs-target="#exampleModal"
-               
+                //   data-bs-toggle="modal"
+                //   data-bs-target="#exampleModal"
+                  to={to}
+             
                   >
             {text}
-        </button>
+        </Link>
         
     )
 }
-export default LargeBlueCta;
+export default LargeCtaRoutes;

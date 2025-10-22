@@ -22,9 +22,23 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 // import Login from './screens/Login';
 // import ProtectedRoute from './components/ProtectedRoute';
 // import { AuthProvider } from "./context/AuthContext";
-
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 function App() {
+
+  const ScrollToTop = () => {
+    // Get the current location object (which updates on navigation)
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        // Scroll to the top of the page when the pathname changes
+        window.scrollTo(0, 0);
+    }, [pathname]); // This effect re-runs every time the URL path changes
+
+    // This component renders nothing, it only handles the side effect (scrolling)
+    return null;
+};
 
   return (
     <>
@@ -44,6 +58,7 @@ function App() {
         </Routes> */}
 
 
+<ScrollToTop />
         <Routes>
          
           <Route path="/" element={<Home />} />
@@ -60,6 +75,7 @@ function App() {
 
           {/* <Route path="/manage-blogs" element={<BlogManager />} />  */}
         </Routes>
+
             {/* <BlogCard/> */}
 
             <Footer></Footer>

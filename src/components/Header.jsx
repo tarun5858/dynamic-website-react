@@ -221,7 +221,7 @@ const Header = () => {
             >
             <li style={{marginBottom: "10px"}}>
               <Link to="/blog" className="text-white d-block py-1" style={{textDecoration:"none"}}>
-                  FAQs
+                  Blog
                 </Link>
               </li>
               <li style={{marginBottom: "10px"}}>
@@ -230,7 +230,7 @@ const Header = () => {
                 </Link>
               </li>
              <li style={{marginBottom: "10px"}}>
-                <a href="https://prehome-latest-build.vercel.app/calculators.html" className="text-white d-block py-1" style={{textDecoration:"none"}}>
+                <a href="https://www.prehome.in/calculators" className="text-white d-block py-1" style={{textDecoration:"none"}}>
                   Calculators
                 </a>
               </li>
