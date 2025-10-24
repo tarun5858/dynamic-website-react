@@ -11,6 +11,7 @@ import TextImageData from "../data/TextImageData";
 import PreFooter from "../components/PreFooter";
 import { Link } from "react-router-dom";
 import LargeCtaRoutes from "../components/LargeCtaRoutes";
+
 const Home = () => {
   const cardData = componentsData;
   const imageSrc = {
@@ -73,7 +74,7 @@ const Home = () => {
         </div>
               <div className="cta-parent">
                 {/* <LargeBlueCta text="Learn how"  ><Link  to="/success-stories"></Link></LargeBlueCta> */}
-                <LargeCtaRoutes text="Learn how"  to="/how-it-works"></LargeCtaRoutes>
+                <LargeCtaRoutes text="Learn how"  to="/howitworks"></LargeCtaRoutes>
               </div>
       </section>
 
@@ -96,7 +97,7 @@ const Home = () => {
             <div className="row">
               <div className="col-12 mb-md-3 mb-sm-0  ">
                 <div className=" text-center aos-item" data-aos="fade-down">
-                  <h2 className="sec-title-h2">The Prehome Benefit</h2>
+                  <h2 className="sec-title-h2 mb-5">The Prehome Benefit</h2>
                   <div className="row d-flex">
                     {cardData.map((data, i) => (
                       <TextImageCard

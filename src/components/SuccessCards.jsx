@@ -26,7 +26,7 @@ const SuccessCards = ({data,src,reverse}) => {
                       />
                     </div>
                   </div>
-                  <div className="col-xl-8 col-md-8 ps-xl-5">
+                  <div className="col-xl-8 col-md-8 ps-xl-3">
                     <div
                       className="section-title list-style aos-item"
                       data-aos="zoom-in-left"

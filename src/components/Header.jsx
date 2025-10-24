@@ -43,7 +43,7 @@ const Header = () => {
                 <div className="main-menu">
                   <ul>
                     <li>
-                      <Link to="/how-it-works">How it Works
+                      <Link to="/howitworks">How it Works
             </Link></li>
                     {/* <li><a href="https://prehome-latest-build.vercel.app/success.html">Success Stories</a></li> */}
                     <li>
@@ -63,9 +63,9 @@ const Header = () => {
                       <ul className="dropdown-menu">
                         <li> <Link to="/our-story">Our Story
             </Link></li>
-                        <li><Link to="/contact-us">Contact Us</Link></li>
-                        <li><Link to="/terms-conditions">Terms & Conditions</Link></li>
-                        <li><Link to="/privacy-policy">Privacy Policy</Link></li>
+                        <li><Link to="/contactus">Contact Us</Link></li>
+                        <li><Link to="/termsandconditions">Terms & Conditions</Link></li>
+                        <li><Link to="/privacypolicy">Privacy Policy</Link></li>
                       </ul>
                     </li>
                   </ul>
@@ -180,7 +180,7 @@ const Header = () => {
           >
             How it works
           </a> */}
-          <Link to="/how-it-works">How it Works
+          <Link to="/howitworks">How it Works
             </Link>
         </li>
        <li style={{marginBottom: "15px"}}>
@@ -274,17 +274,17 @@ const Header = () => {
             </Link></li>
               </li>
              <li style={{marginBottom: "10px"}}>
-                <Link to="/contact-us"  className="text-white d-block py-1" style={{textDecoration:"none"}}>
+                <Link to="/contactus"  className="text-white d-block py-1" style={{textDecoration:"none"}}>
                   Contact Us
                 </Link>
               </li>
               <li style={{marginBottom: "10px"}}>
-                <Link to="/terms-conditions" className="text-white d-block py-1" style={{textDecoration:"none"}}>
+                <Link to="/termsandconditions" className="text-white d-block py-1" style={{textDecoration:"none"}}>
                   Terms & Conditions
                 </Link>
               </li>
               <li style={{marginBottom: "10px"}}>
-                <Link to="/privacy-policy" className="text-white d-block py-1" style={{textDecoration:"none"}}>
+                <Link to="/privacypolicy" className="text-white d-block py-1" style={{textDecoration:"none"}}>
                   Privacy Policy
                 </Link>
               </li>

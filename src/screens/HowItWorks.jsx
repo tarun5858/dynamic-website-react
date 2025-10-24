@@ -69,7 +69,7 @@ const HowItWorks = () => {
         </div>
       </section>
 
-      <section className=" about-wrapper container mb-50 how-works-margin">
+      <section className="  container mb-50 how-works-margin">
         <div className="container container-lg">
           {HowitworksData.map((value, i) => {
             const imgSrc =

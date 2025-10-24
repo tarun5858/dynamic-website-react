@@ -1,7 +1,7 @@
 import React from "react";
 import "../App.css";
 import { Link } from "react-router-dom";
-const LargeCtaRoutes = ({text,to}) =>{
+const LargeCtaRoutes = ({text,to,style}) =>{
     return(
         
         <Link 
@@ -11,7 +11,7 @@ const LargeCtaRoutes = ({text,to}) =>{
                 //   data-bs-toggle="modal"
                 //   data-bs-target="#exampleModal"
                   to={to}
-             
+                  style={style}
                   >
             {text}
         </Link>

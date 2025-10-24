@@ -69,7 +69,7 @@ const Carousel = () => {
                       />
                     </div>
                   </div>
-                  <div className="col-xl-8 col-md-8 ps-xl-5">
+                  <div className="col-xl-8 col-md-8 ps-xl-2">
                     <div
                       className="list-style aos-item text-left"
                       data-aos="zoom-in-left"

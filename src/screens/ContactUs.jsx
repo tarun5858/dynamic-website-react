@@ -2,6 +2,9 @@ import { FaChevronDown } from "react-icons/fa";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { whtspImage } from "../components/Imagepath";
+import DateTimeDropdowns from "../components/DateTimeDropdowns";
+
+
 const ContactUs = () => {
     return (
         <>
@@ -210,7 +213,7 @@ const ContactUs = () => {
                             </div>
                             
                             
-                            <div className="col-md-6  ">
+                            {/* <div className="col-md-6  ">
                                 <div className="single-personal-info">
                                     <label for="next7Days">Date:</label>
                                     <div className="dropdown-date" id="next7DaysDropdown">
@@ -242,7 +245,11 @@ const ContactUs = () => {
                                         </div>
                                     </div>
                                 </div>
+                            </div> */}
+                            <div className="col-md-12  ">
+                                 <DateTimeDropdowns></DateTimeDropdowns>
                             </div>
+                           
                             
                             <div className="col-md-12 col-12 mb-3">
                                 <button type="submit" className="submit-btn">SCHEDULE</button>

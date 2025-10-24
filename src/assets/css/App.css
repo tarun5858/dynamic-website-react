@@ -363,7 +363,8 @@ html {
 }
 
 .font-bold {
-  font-weight: bold;
+  font-weight: bold!important;
+  font-size: 32px;
 }
 
 .f-32 {
@@ -425,15 +426,15 @@ text-align: left!important;
   /* color: #0086AD; */
   font-size: 18px;
   /* color: #616161; */
-  color: #000;
+  color: #000!important;
   text-align: center;
   
 }
 .desktop-text{
-  font-weight: bold;
+  font-weight: bold!important;
   text-align: center;
    font-size: 48px;
-   margin: 5% 0 0 0;
+   margin: 4% 0 0 0;
   
 }
 .mobile-text{
@@ -589,7 +590,7 @@ margin-left: 2%;
 }
   .large-cta{
     width: 70%;
-    font-size: 20px!important;
+    font-size: 20px;
   }
   h1 {
     font-size: 36px;
@@ -601,7 +602,10 @@ h2 {
 }
 
 h3 {
-  font-size: 32px;
+  font-size: 32px!important;
+}
+p{
+  margin-bottom: 0!important;
 }
 
 @media (max-width: 991px) {
@@ -666,8 +670,8 @@ p {
 .fs-lg {
   font-size: 80px;
   /* line-height: 96; */
-  font-weight: bold;
-  color: #000;
+  font-weight: bold!important;
+  color: #000!important;
 }
 .sub-head-home {
     font-size: 24px;
@@ -2527,7 +2531,7 @@ list-style: none;
 .theme-btn-navbar{
   width: 215px!important;
   height: 45px!important;
-  padding: 10px 20px!important;
+  padding: 10px 15px!important;
   font-size: 16px!important;
   align-self: center;
 }
@@ -3500,6 +3504,10 @@ list-style: none;
     height: 60px;
     line-height: 60px;
   }
+  .large-cta{
+
+    font-size: 14px!important;
+  }
 }
 
 .video-play-btn .play-video:hover {
@@ -4090,7 +4098,7 @@ header.header-3 {
 }
 .page-banner-text h1{
   font-size: 36px;
-  font-weight: bold;
+  font-weight: bold!important;
 }
 .page-banner-text-1 h2{
   margin-top: 30px;
@@ -5071,10 +5079,10 @@ header.header-3 .main-menu ul>li>ul ul {
   }
   .large-cta{
     width: 70%;
-    font-size: 20px!important;
+    font-size: 20px;
   }
   .benefit-txt img{
-    height: 30%!important;
+    height: 40%!important;
   }
 
   .testimonials-text {
@@ -5773,7 +5781,7 @@ header.header-3 .main-menu ul>li>ul ul {
 .sec-title-h3 {
   text-align: left;
   font-size: 32px;
-  font-weight: bold;
+  font-weight: bold!important;
 }
 .section-title p {
   font-size: 20px;
@@ -8216,8 +8224,8 @@ header.header-3 .main-menu ul>li>ul ul {
 .accordion-header {  border-top: 1px solid #000;}
 .section-title h2 {
     font-size: 39px;
-    font-weight: 600;
-    margin-bottom: 5%;
+    font-weight: 600!important;
+    margin-bottom: 5%!important;
 }
 .faq-accordion-2 .accordion .accordion-item .accordion-header:focus {
   outline: 0;
@@ -10424,7 +10432,7 @@ footer .footer-bottom .social-links a:last-of-type {
 }
 
 .list-style ul {
-  padding: 10px 0;
+  padding: 2px 0;
 }
 
 .list-style ul li {
@@ -10436,7 +10444,7 @@ footer .footer-bottom .social-links a:last-of-type {
 
 .benefit-txt h3 {
 
-  font-weight: 700;
+  font-weight: 700!important;
 font-size: 32px;
   height: 75px;
 }
@@ -10897,6 +10905,7 @@ label {
   border-radius: 15px;
   width: 100%;
   cursor: pointer;
+ 
 }
 
 /* Custom styles for the dropdown content */
@@ -11249,7 +11258,7 @@ label {
     }
     .section-title p{
       font-size: 14px;
-      text-align: center;
+      text-align: left;
 
     }
     .section-title{
@@ -11309,10 +11318,10 @@ label {
 }
 .mobile-text {
   display: block;
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 24px!important;
+  font-weight: bold!important;
   /* margin-top: 30%; */
-  padding: 6%;
+  padding: 6%!important;
 }
 .desktop-text{
  display: none;
@@ -11343,7 +11352,8 @@ label {
 /* font-size: 12px; */
 padding: 0;
 line-height: 2;
-text-align: left;
+/* text-align: left; */
+text-align: center;
 }
 .circle img{
   height: 32px!important;
@@ -11425,6 +11435,8 @@ p {
     .hero-contents {
         margin-top: 2%;
         text-align: center;
+        display: flex;
+        flex-direction: column;
     }
 .modal{
   overflow-y: scroll;
@@ -11441,11 +11453,11 @@ p {
 .getpre-cont{
 display: flex;
 flex-direction: column;
-/* justify-content: center; */
-/* align-items: center; */
+ justify-content: center; 
+ align-items: center; 
 }
 .success-subhead{
-  font-size: 24px!important;
+  font-size: 22px!important;
   font-weight: bold;
   margin-top:10%!important;
   /* margin-bottom:0px!important; */
@@ -11690,6 +11702,7 @@ justify-content: space-between;
     font-size: 24px;
     color: #000929!important;
     text-align: left;
+    padding: 0 15%;
   }
   .carousel-indicators {
       position: absolute;
@@ -11914,14 +11927,18 @@ align-items: center;
   display: block;
 }
 .success-subhead{
-font-weight: bold;text-align: center; font-size: 48px; margin: 50px 0 50px 0;    color: #000;
+font-weight: bold!important;
+text-align: center;
+ font-size: 48px;
+  margin: 50px 0 50px 0!important;
+      color: #000;
 }
 .pre-footer{
   padding:0 0 80px 0;
 }
 .pre-footer h1{
   font-size: 32px;
-  font-weight: bold;
+  font-weight: bold!important;
 }
 .success-names{
   color: #000; font-weight: bold;
@@ -11942,15 +11959,16 @@ font-weight: bold;text-align: center; font-size: 48px; margin: 50px 0 50px 0;   
   text-align: justify!important;
 }
 .line5 {
-  font-size: 40px;
+  font-size: 36px;
   text-align: center;
   /* word-spacing: -2px; */
   margin-bottom: 5%;
   font-family: "Poppins", sans-serif;
     margin: 0px;
     margin-bottom: 15px;
-    font-weight: bolder;
+    font-weight: 800!important;
     color: #0D0D0F;
+    word-spacing: -2px;
     line-height: 130%;
     padding: 10px 0 0 0;
 }
@@ -12334,3 +12352,14 @@ border-radius: 15px;
     margin: 7% 0;
   }
 }
+
+
+
+
+
+/* .about-images {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
