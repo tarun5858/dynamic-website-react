@@ -1,12 +1,12 @@
 const PrivacyPolicy = () =>{
     return (
         <>
-        <section class="">
-        <div class="container container-lg">
-            <div class="row align-items-center">
-                <div class="col-12 col-md-10">
-                    <div class=" list-style ">
-                        <h2 class="termsHeading">Privacy Policy</h2>
+        <section className="">
+        <div className="container container-lg">
+            <div className="row align-items-center">
+                <div className="col-12 col-md-10">
+                    <div className=" list-style ">
+                        <h2 className="termsHeading">Privacy Policy</h2>
                         <p>This Privacy Policy outlines Prehome Solutions’ approach to data protection and privacy to
                             fulfill its obligations under the applicable laws and regulations and shall be read in
                             conjunction with our Terms and Conditions document. This Privacy Policy applies to your data

@@ -1,5 +1,6 @@
 import React from "react";
 import CalculatorData from "../data/CalculatorData";
+import { Link } from "react-router-dom";
 import {
   calculatorImage1,
   calculatorImage2,
@@ -29,15 +30,15 @@ const CalculatorCard = () => {
 
                   <div className=" calculator-p">
                     <p>{data.details}</p>
-                    <a
-                      href="https://prehome.in/monthly-budget-calculator"
+                    <Link
+                      to={data.to}
                       style={{
                         textDecoration: "underline",
                         color: "#0086AD",
                       }}
                     >
                       {data.ctatext}
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </>

@@ -56,7 +56,7 @@ const DateTimeDropdowns = () => {
 
 
     const handleClickOutside = useCallback((event) => {
-        // Find the nearest parent with the ID or class to check if the click was inside
+        // Find the nearest parent with the ID or className to check if the click was inside
         if (event.target.closest('#next7DaysDropdown') === null) {
             setIsDateDropdownOpen(false);
         }

@@ -54,8 +54,8 @@ const Header = () => {
                       <ul className="dropdown-menu">
                         <li><Link to="/blog">Blog</Link></li>
                         <li><Link to="/faq">FAQs</Link></li>
-                        {/* <li><a href="https://prehome-latest-build.vercel.app/calculators.html">Calculators</a></li> */}
-                        <li><a href="https://www.prehome.in/calculators">Calculators</a></li>
+                        {/* <li><a href="www.prehome.in/calculators">Calculators</a></li> */}
+                        <li><Link to="/calculators" >Calculators</Link></li>
                       </ul>
                     </li>
                     <li className="mobile-dropdown dropdown">
@@ -230,9 +230,9 @@ const Header = () => {
                 </Link>
               </li>
              <li style={{marginBottom: "10px"}}>
-                <a href="https://www.prehome.in/calculators" className="text-white d-block py-1" style={{textDecoration:"none"}}>
+                <Link to="/calculators" className="text-white d-block py-1" style={{textDecoration:"none"}}>
                   Calculators
-                </a>
+                </Link>
               </li>
             </ul>
           </details>
