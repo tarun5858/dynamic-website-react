@@ -5,7 +5,7 @@ const LargeCtaRoutes = ({text,to,style}) =>{
     return(
         
         <Link 
-        className="large-cta theme-btn-navbar btn-radius animated"
+        className="large-cta theme-btn btn-radius animated"
                   data-animation-in="fadeInRight"
                   data-delay-in="0.9"
                 //   data-bs-toggle="modal"

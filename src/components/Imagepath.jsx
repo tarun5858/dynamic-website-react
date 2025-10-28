@@ -73,8 +73,8 @@ export { default as carouselIcon } from "../assets/img/icon.png";
 
 
 // calculator img
-export { default as calculatorImage1 } from "../assets/img/calc-1.png";
-export { default as calculatorImage2 } from "../assets/img/calc-2.png";
+export { default as calculatorImage1 } from "../assets/img/calc-2.png";
+export { default as calculatorImage2 } from "../assets/img/calc-1.png";
 export { default as calculatorImage3 } from "../assets/img/calc-3.png";
 export { default as calculatorImage4 } from "../assets/img/calc-3.png";
 

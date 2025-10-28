@@ -434,7 +434,7 @@ text-align: left!important;
   font-weight: bold!important;
   text-align: center;
    font-size: 48px;
-   margin: 4% 0 0 0;
+   margin: 3% 0 0 0!important;
   
 }
 .mobile-text{
@@ -557,11 +557,11 @@ h6 {
 
   font-family: "Poppins", sans-serif;
   margin: 0px;
-  margin-bottom: 15px!important;
-  font-weight: 600!important;
-  color: #0D0D0F!important;
-  line-height: 130%!important;
-  padding: 10px 0 0 0!important;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #0D0D0F;
+  line-height: 130%;
+  padding: 10px 0 0 0;
 
  
 }
@@ -578,8 +578,8 @@ h1 {
   font-weight: 600;
 }
 .privacy-ul li{
-list-style:disc;
-margin-left: 2%;
+/* list-style:disc; */
+margin-left: 1%;
 }
 
 @media (max-width: 991px) {
@@ -601,9 +601,9 @@ h2 {
   font-size: 40px;
 }
 
-h3 {
+/* h3 {
   font-size: 32px!important;
-}
+} */
 p{
   margin-bottom: 0!important;
 }
@@ -2479,7 +2479,7 @@ display: none;
     margin-top: 10%!important;
 }
   .cta-parent {
-    margin-top: 15%!important;
+    margin-top: 1%!important;
 }
       .video-container {
         width: 100% !important;
@@ -2516,7 +2516,7 @@ display: none;
   }
   .carousel-indicators {
     position: absolute;
-left: 0;
+left: 0px!important;
 /* bottom: -80px!important;; */
 bottom: 5px!important;;
 z-index: 2;
@@ -3825,7 +3825,7 @@ header {
   background-color: #ffffff;
   height: 85px!important;
   top: 0;
-  /* padding: 5px; */
+  padding: 0!important;
   /* box-shadow: 0 13px 35px -12px rgba(35, 35, 35, 0.15); */
 }
 
@@ -11170,7 +11170,7 @@ label {
   }
 
   .benefit-txt h3 {
-    font-size: 20px;
+    font-size: 20px!important;
   }
 
   .benefit-txt {
@@ -11435,7 +11435,7 @@ p {
     .hero-contents {
         margin-top: 2%;
         text-align: center;
-        display: flex;
+        /* display: flex; */
         flex-direction: column;
     }
 .modal{
@@ -11787,7 +11787,7 @@ justify-content: space-between;
   width: 400px;
 height: auto;
 padding: 10px 5px;
-border-radius: 10px;
+border-radius: 10px!important;
 }
 .dropdown-menu li p{
  font-size: 14px;
@@ -12218,7 +12218,7 @@ z-index: 999; */
 .blog-text-ul li {
   font-family: "Poppins", sans-serif;
   font-size: 16px;
-  list-style-type: circle !important;
+  /* list-style-type: circle !important; */
 }
 .large-cta {
   padding: 16px 20px;
@@ -12237,6 +12237,8 @@ z-index: 999; */
   height: 58px;
   border-radius: 40px;
   display: block;
+      margin-top: 3%;
+
 }
 .large-cta:hover {
     background: #ef9c00;
@@ -12353,9 +12355,18 @@ border-radius: 15px;
   }
 }
 
+.calculator-sub-title {
+    color: #505050 !important;
+    font-size: 18px;
+}
 
-
-
+.css-mdw22z {
+      margin-top: 16px;
+      margin-bottom: 16px;
+      padding-left: 0px;
+      padding-right: 0px;
+      width: 22%!important;
+  }
 
 /* .about-images {
     display: flex;

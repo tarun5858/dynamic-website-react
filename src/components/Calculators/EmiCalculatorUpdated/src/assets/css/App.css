@@ -2427,7 +2427,7 @@ nav .breadcrumb li {
   }
   .carousel-indicators {
     position: absolute;
-right: 0;
+/* right: 0; */
 bottom: -80px!important;;
 left: 0;
 z-index: 2;
@@ -11039,7 +11039,7 @@ label {
     }
     .carousel-indicators {
       position: absolute;
-      right: 0;
+      /* right: 0; */
       bottom: -50px;
       left: 0;
      
@@ -11452,7 +11452,7 @@ justify-content: space-between;
   }
   .carousel-indicators {
       position: absolute;
-  right: 0;
+  /* right: 0; */
   bottom:-50px;
   left: 0;
   z-index: 2;

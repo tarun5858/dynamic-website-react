@@ -9,7 +9,7 @@ const CalculatorData = [
     },
     {
         id:"2",
-        imgKey:"calculatorImage3",
+        imgKey:"calculatorImage2",
         heading:"EMI Calculator",
         details:"Our EMI calculator instantly shows your monthly installments, total interest payable, and principal breakdown - helping you budget smarter for your future home.",
         ctatext:"Explore",

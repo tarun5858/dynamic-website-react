@@ -123,6 +123,8 @@ const EmiVsRentCalculator = () => {
         paddingY: { xs: 3, md: 2 },
         marginTop: { xs: -4 }, // Top margin
         // marginBottom: { xs: 2 }, // Bottom margin
+        fontFamily: '"poppins", sans-serif !important'
+
       }}
     >
       <h2 class="calculator-subhead">Explore our calculators designed to simplify your journey to ownership</h2>
@@ -139,12 +141,16 @@ const EmiVsRentCalculator = () => {
                 fontSize={32}
                 gutterBottom
                 sx={{ color: { sx: "white", md: "black" } }}
+                    fontFamily= '"poppins", sans-serif !important'
+
               >
                 EMI Calculator
               </Typography>
               <Typography
                 variant="body1"
                 sx={{ color: { sx: "white", md: "black" } }}
+                    fontFamily= '"poppins", sans-serif !important'
+
               >
                 Our EMI calculator instantly shows your monthly installments,
                 total interest payable, and principal breakdown - helping you
@@ -275,6 +281,8 @@ const EmiVsRentCalculator = () => {
       fontWeight="bold"
       gutterBottom
       align="center"
+      fontFamily= '"poppins", sans-serif !important'
+
     >
       Monthly EMI
     </Typography>
@@ -283,6 +291,8 @@ const EmiVsRentCalculator = () => {
       fontWeight="bold"
       color="#0086AD"
       align="center"
+      fontFamily= '"poppins", sans-serif !important'
+
     >
       {"INR "}
       {Monthly_emi}
@@ -307,6 +317,8 @@ const EmiVsRentCalculator = () => {
       fontWeight="bold"
       gutterBottom
       align="center"
+                    fontFamily= '"poppins", sans-serif !important'
+
     >
       
       Total Interest  
@@ -317,6 +329,8 @@ const EmiVsRentCalculator = () => {
       fontWeight="bold"
       color="#0086AD"
       align="center"
+                    fontFamily= '"poppins", sans-serif !important'
+
     >
       {"INR "} {totalCumulativeInterest}
     </Typography>
@@ -339,6 +353,8 @@ const EmiVsRentCalculator = () => {
       fontWeight="bold"
       gutterBottom
       align="center"
+                    fontFamily= '"poppins", sans-serif !important'
+
     >
       
       Total Principal
@@ -348,6 +364,8 @@ const EmiVsRentCalculator = () => {
       fontWeight="bold"
       color="#0086AD"
       align="center"
+                    fontFamily= '"poppins", sans-serif !important'
+
     >
       {"INR "}
       {total_principal}
@@ -416,9 +434,10 @@ const EmiVsRentCalculator = () => {
                   <Box  
                   sx={{
                     padding: "4px",
-                    gridColumn: isDesktop ? "1 / -1" : "auto", // Span across entire width for desktop mode
+                    gridColumn: isDesktop ? "2 / -1" : "auto", // Span across entire width for desktop mode
                   display:"flex",
                   justifyContent:"space-between",
+                    fontFamily: '"poppins", sans-serif !important'
                  
                   }}>
                   <CustomSlider
@@ -428,7 +447,7 @@ const EmiVsRentCalculator = () => {
                     thumbColor="#595959"
                     railColor="#DEDEDE"
                     valueLabelColor="#DEDEDE"
-                    
+                    fontFamily= '"poppins", sans-serif !important'
                     onChange={handleDownPaymentChange}
                     onChangeCommitted={handleSliderChangeCommitted(
                       handlEmiVsRentApi
@@ -456,6 +475,7 @@ const EmiVsRentCalculator = () => {
                     max={10}
                     step={0.25}
                     percent={true}
+                    fontFamily= '"poppins", sans-serif !important'
                   />
 
                   <CustomSlider

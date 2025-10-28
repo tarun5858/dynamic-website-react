@@ -22,7 +22,7 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import Calculators from './screens/Calculators';
 import MonthlyBudgetCalculator from "./components/Calculators/monthly-budget-calculator-main/src/MonthlyBudgetCalculator";
 import InterestVsPrincipal from "./components/Calculators/interest-vs-principal-calc-main/src/InterestVsPrincipal";
-import Calculator from "./components/Calculators/rent-vs-buy-calculator-main/src/Calculator";
+import Calculator from "./components/Calculators/Rent-and-buy-calculator/src/Calculator";
 import EmiVsRentCalculator from "./components/Calculators/EmiCalculatorUpdated/src/EmiVsRentCalculator";
 // import BlogManager from "./pages/BlogManager"; 
 // import Login from './screens/Login';
@@ -76,16 +76,18 @@ function App() {
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/termsandconditions" element={<TermsConditions />} />
           <Route path="/privacypolicy" element={<PrivacyPolicy />} />
-          {/* <Route path="/" element={<ComponentsParent />} /> */}
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:id" element={<Blogdetails />} />
 
-          {/* <Route path="/manage-blogs" element={<BlogManager />} />  */}
 
           <Route path="/monthly-budget-calculator" element={<MonthlyBudgetCalculator />} />
           <Route path="/interest-principal-calculator" element={<InterestVsPrincipal />} />
           <Route path="/rent-vs-buy" element={<Calculator />} />
           <Route path="/emi-calculator" element={<EmiVsRentCalculator />} />
+
+
+          {/* <Route path="/" element={<ComponentsParent />} /> */}
+          {/* <Route path="/manage-blogs" element={<BlogManager />} />  */}
         </Routes>
 
             {/* <BlogCard/> */}

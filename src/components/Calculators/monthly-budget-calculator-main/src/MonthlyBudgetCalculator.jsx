@@ -97,6 +97,7 @@ const MonthlyBudgetCalculator = () => {
           backgroundColor: { xs: "#11202E", md: "white" },
           paddingX: { xs: 0 },
           paddingY: { xs: 0, md: 2 },
+         fontFamily: '"poppins", sans-serif !important',
         }}
       >
 
@@ -115,9 +116,11 @@ const MonthlyBudgetCalculator = () => {
                 <Typography
                   variant="h4"
                   fontWeight="bold"
-                  fontSize={32}
+                  fontSize={26}
                   gutterBottom
                   sx={{ color: { sx: "white", md: "black" } }}
+                    fontFamily= '"poppins", sans-serif !important'
+
                 >
                   Monthly budget Calculator
                 </Typography>
@@ -198,6 +201,8 @@ const MonthlyBudgetCalculator = () => {
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-evenly",
+                    fontFamily: '"poppins", sans-serif !important'
+
                   }}
                 >
                   <Typography
@@ -205,6 +210,8 @@ const MonthlyBudgetCalculator = () => {
                     fontWeight="bold"
                     gutterBottom
                     align="center"
+                    fontFamily= '"poppins", sans-serif !important'
+
                   >
                     Needs(50%)
                   </Typography>
@@ -214,6 +221,8 @@ const MonthlyBudgetCalculator = () => {
                     color="#0086AD"
                     align="center"
                     mb={1}
+                    fontFamily= '"poppins", sans-serif !important'
+
                   >
                     {"INR "}
                     {breakdown.needs}
@@ -245,6 +254,8 @@ const MonthlyBudgetCalculator = () => {
                     fontWeight="bold"
                     gutterBottom
                     align="center"
+                    fontFamily= '"poppins", sans-serif !important'
+
                   >
                     Wants(30%)
                   </Typography>
@@ -254,6 +265,8 @@ const MonthlyBudgetCalculator = () => {
                     color="#0086AD"
                     align="center"
                     mb={1}
+                    fontFamily= '"poppins", sans-serif !important'
+
                   >
                     {"INR "}
                     {breakdown.wants}
@@ -286,6 +299,8 @@ const MonthlyBudgetCalculator = () => {
                     fontWeight="bold"
                     gutterBottom
                     align="center"
+                    fontFamily= '"poppins", sans-serif !important'
+
                   >
                     Savings(20%)
                   </Typography>
@@ -295,6 +310,8 @@ const MonthlyBudgetCalculator = () => {
                     color="#0086AD"
                     align="center"
                     mb={1}
+                    fontFamily= '"poppins", sans-serif !important'
+
                   >
                     {"INR "}
                     {breakdown.savings}

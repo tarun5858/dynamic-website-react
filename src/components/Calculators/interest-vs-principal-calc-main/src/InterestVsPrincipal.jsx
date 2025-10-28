@@ -113,6 +113,8 @@ const InterestVsPrincipal = () => {
         backgroundColor: { xs: "#11202E", md: "white" },
         paddingX: { xs: 0 },
         paddingY: { xs: 0, md: 2 },
+        fontFamily: '"poppins", sans-serif !important'
+
       }}
     >
 
@@ -129,12 +131,16 @@ const InterestVsPrincipal = () => {
                 fontSize={32}
                 gutterBottom
                 sx={{ color: { sx: "white", md: "black" } }}
+                    fontFamily= '"poppins", sans-serif !important'
+
               >
                 Interest vs Principal
               </Typography>
               <Typography
                 variant="body1"
                 sx={{ color: { sx: "white", md: "black" } }}
+                    fontFamily= '"poppins", sans-serif !important'
+
               >
                 This calculator reveals how much of your EMI goes towards interest and principal each year, helping you strategize prepayments and save on interest.
               </Typography>
@@ -277,6 +283,8 @@ const InterestVsPrincipal = () => {
                   fontWeight="bold"
                   gutterBottom
                   align="center"
+                    fontFamily= '"poppins", sans-serif !important'
+
                 >
                   Total Interest
                 </Typography>
@@ -286,6 +294,8 @@ const InterestVsPrincipal = () => {
                   color="#0086AD"
                   align="center"
                   mb={1}
+                    fontFamily= '"poppins", sans-serif !important'
+
                 >
                   {"INR "}
                   {cumulative_interest}
@@ -319,6 +329,8 @@ const InterestVsPrincipal = () => {
                   fontWeight="bold"
                   gutterBottom
                   align="center"
+                    fontFamily= '"poppins", sans-serif !important'
+
                 >
                   Total Principal
                 </Typography>
@@ -328,6 +340,8 @@ const InterestVsPrincipal = () => {
                   color="#0086AD"
                   align="center"
                   mb={1}
+                    fontFamily= '"poppins", sans-serif !important'
+
                 >
                   {"INR "}
                   {total_principal}
