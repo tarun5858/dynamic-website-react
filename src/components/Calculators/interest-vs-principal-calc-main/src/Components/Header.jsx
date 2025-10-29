@@ -3,7 +3,7 @@ import "../assets/css/App.css";
 import icon from "../assets/24/prehomeLogo.png";
 import "../assets/css/bootstrap.min.css";
 import BootstrapModal from "./BootstrapModal"; // Adjust path as needed
-import zIndex from "@mui/material/styles/zIndex";
+// import zIndex from "@mui/material/styles/zIndex";
 import { FaChevronDown } from "react-icons/fa";
 import './Header.css';
 
