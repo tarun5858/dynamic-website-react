@@ -22,7 +22,7 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import Calculators from './screens/Calculators';
 import MonthlyBudgetCalculator from "./components/Calculators/monthly-budget-calculator-main/src/MonthlyBudgetCalculator";
 import InterestVsPrincipal from "./components/Calculators/interest-vs-principal-calc-main/src/InterestVsPrincipal";
-import Calculator from "./components/Calculators/Rent-and-buy-calculator/src/Calculator";
+import Calculator from "./components/Calculators/rent-vs-buy-calculator-main/src/Calculator";
 import EmiVsRentCalculator from "./components/Calculators/EmiCalculatorUpdated/src/EmiVsRentCalculator";
 // import BlogManager from "./pages/BlogManager"; 
 // import Login from './screens/Login';
