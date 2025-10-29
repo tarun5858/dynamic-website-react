@@ -16,7 +16,7 @@ Version: 1.2.0
 
 
 
-@font-face {
+/* @font-face {
   font-family: 'robotobold';
   src: url('/fonts/roboto-bold.woff2') format('woff2'),
     url('/fonts/roboto-bold.woff') format('woff');
@@ -59,7 +59,7 @@ Version: 1.2.0
   font-weight: normal;
   font-style: normal;
 
-}
+} */
 
 .poppins-thin {
   font-family: "Poppins", sans-serif;
@@ -5292,7 +5292,7 @@ header.header-3 .main-menu ul>li>ul ul {
   height: 100%;
   content: "";
   z-index: -1;
-  /* background-image: url("../img/home3/square-shape.png"); */
+  background-image: url("/img/home3/square-shape.png");
   background-size: cover;
   background-repeat: no-repeat;
   opacity: .2;
@@ -5353,7 +5353,7 @@ header.header-3 .main-menu ul>li>ul ul {
   bottom: 0;
   content: '';
   width: 100%;
-  /* background-image: url("../img/home3/wave-shape.png"); */
+  background-image: url("/img/home3/wave-shape.png");
   height: 155px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -8625,7 +8625,7 @@ header.header-3 .main-menu ul>li>ul ul {
 .blog-wrapper .single-blog-post.format-quote .post-content {
   position: relative;
   background-color: #0086ad;
-  background-image: url("../img/quotepost.png");
+  background-image: url("/img/quotepost.png");
   border: none;
 }
 
@@ -10178,7 +10178,7 @@ footer .footer-bottom .social-links a:last-of-type {
 }
 
 .list-style ul li {
-  background: url(../img/list.png) no-repeat left top;
+  background: url(/img/list.png) no-repeat left top;
   padding: 0px 0px 20px 30px;
   text-align: left;
   font-size: 18px;
