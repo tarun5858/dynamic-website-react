@@ -127,7 +127,7 @@ const MonthlyBudgetCalculator = () => {
                 <Typography
                   variant="body1"
                   marginBottom="10px"
-                  sx={{ color: { sx: "white", md: "black" } }}
+                  sx={{ color: { sx: "white", md: "black" } , marginBottom:"10px" }}
                 >
                   This simple calculator helps you split your monthly income
                   into three easy-to-manage categories:
@@ -529,6 +529,7 @@ const MonthlyBudgetCalculator = () => {
                   fontWeight="bold"
                   gutterBottom
                   align="center"
+                  fontFamily= '"poppins", sans-serif !important'
                 >
                   Needs(50%)
                 </Typography>
@@ -538,6 +539,7 @@ const MonthlyBudgetCalculator = () => {
                   color="#0086AD"
                   align="center"
                   mb={1}
+                  fontFamily= '"poppins", sans-serif !important'
                 >
                   {"INR "}
                   {breakdown.needs}
@@ -549,6 +551,7 @@ const MonthlyBudgetCalculator = () => {
                   fontWeight="bold"
                   gutterBottom
                   align="center"
+                  fontFamily= '"poppins", sans-serif !important'
                 >
                   Wants(30%)
                 </Typography>
@@ -558,6 +561,7 @@ const MonthlyBudgetCalculator = () => {
                   color="#0086AD"
                   align="center"
                   mb={1}
+                  fontFamily= '"poppins", sans-serif !important'
                 >
                   {"INR "}
                   {breakdown.wants}
@@ -574,6 +578,7 @@ const MonthlyBudgetCalculator = () => {
                   fontWeight="bold"
                   gutterBottom
                   align="center"
+                  fontFamily= '"poppins", sans-serif !important'
                 >
                   Savings(20%)
                 </Typography>
@@ -583,6 +588,7 @@ const MonthlyBudgetCalculator = () => {
                   color="#0086AD"
                   align="center"
                   mb={1}
+                  fontFamily= '"poppins", sans-serif !important'
                 >
                   {"INR "}
                   {breakdown.savings}
@@ -706,7 +712,7 @@ const MonthlyBudgetCalculator = () => {
           open={openModal}
           onClose={handleCloseModal}
         >
-          <DialogActions sx={{ position: "fixed", right: 10 }}>
+          <DialogActions sx={{ position: "fixed", right:{ xs:"4%",md:"30%"} }}>
             <Button
               sx={{ fontWeight: "bold", color: "black" }}
               onClick={handleCloseModal}

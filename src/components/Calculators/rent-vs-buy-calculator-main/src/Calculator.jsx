@@ -865,8 +865,8 @@ useEffect(() => {
 
   return (
     <>
-    <Header/>
-    <Container className="calculator-container" maxWidth="lg" sx={{ padding: "16px", backgroundColor: "white",textAlign:"left",marginTop:"7%" }}>
+    {/* <Header/> */}
+    <Container className="calculator-container" maxWidth="lg" sx={{ padding: "16px", backgroundColor: "white",textAlign:"left",marginTop:"1%",fontFamily: '"poppins", sans-serif !important' }}>
   <Typography
     variant="h1"
     mb={1}
@@ -875,6 +875,7 @@ useEffect(() => {
       color: "black",
       fontSize: { xs: 20, md: 32 }
     }}
+    fontFamily= '"poppins", sans-serif !important'
   >
     Rent vs Buy Calculator
   </Typography>
@@ -883,7 +884,8 @@ useEffect(() => {
     sx={{ 
       fontSize: { xs: 12, md: "16px" }, 
       color: "black",
-      lineHeight: 1.5  // Added for better readability
+      lineHeight: 1.5 , // Added for better readability
+      fontFamily:'"poppins", sans-serif !important'
     }}
   >
     Should you rent or buy a home? Our simple rent vs buy calculator compares the long-term costs of renting versus purchasing a property, helping you make an informed financial decision.
@@ -1334,6 +1336,7 @@ useEffect(() => {
                 max={75}
                 step={5}
                 percent={true}
+                width={100}
               />
 
               <CustomSlider
@@ -1906,7 +1909,7 @@ sx={{  fontSize:{xs:"12px", md:"16px",color:"#000"} }}
       </Grid>
     </Container>
 
-    <Footer/>
+    {/* <Footer/> */}
     </>
   );
 };

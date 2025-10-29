@@ -604,9 +604,9 @@ h2 {
 /* h3 {
   font-size: 32px!important;
 } */
-p{
+/* p{
   margin-bottom: 0!important;
-}
+} */
 
 @media (max-width: 991px) {
   h3 {
@@ -3499,6 +3499,13 @@ list-style: none;
 }
 
 @media (max-width: 767px) {
+  .css-mdw22z {
+      margin-top: 16px;
+      margin-bottom: 16px;
+      padding-left: 0px;
+      padding-right: 0px;
+      width: 100%!important;
+  }
   .video-play-btn .play-video {
     width: 60px;
     height: 60px;
@@ -12365,9 +12372,17 @@ border-radius: 15px;
       margin-bottom: 16px;
       padding-left: 0px;
       padding-right: 0px;
-      width: 22%!important;
+      width: 23%;
   }
-
+@media (min-width: 900px){
+  .css-mdw22z {
+      margin-top: 16px;
+      margin-bottom: 16px;
+      padding-left: 0px;
+      padding-right: 0px;
+      width: 100%;
+  }
+}
 /* .about-images {
     display: flex;
     flex-direction: column;

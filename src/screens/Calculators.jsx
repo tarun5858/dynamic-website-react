@@ -1,7 +1,8 @@
 import CalculatorCard from "../components/CalculatorCard";
 import LargeCtaRoutes from "../components/LargeCtaRoutes";
 import { useState,useEffect } from "react";
-
+import useFetchLatestBlogs from "../components/useFetchLatestBlogs";
+import BlogCard from "../components/Blogcard";
 import {
   prefooterDesktop,
   prefooterMobile
@@ -10,7 +11,7 @@ import {
 
 const Calculators = () => {
 
-
+const { blogs, loading, error } = useFetchLatestBlogs();
 
        const [bgImage, setBgImage] = useState(prefooterDesktop);
     
@@ -47,6 +48,36 @@ const Calculators = () => {
         <div className="container">
                 <CalculatorCard></CalculatorCard>
         </div>
+       </section>
+
+
+
+       <section >
+        {/* -------------------- Latest Blogs Section -------------------- */}
+      <h1 className="text-center mb-4" style={{ fontSize: "36px",fontWeight: "bold",textAlign:"left",alignSelf:"left"}}>Latest blogs</h1>
+
+      <div className="row">
+        {loading && <p className="text-center">Loading latest blogs...</p>}
+        {error && <p className="text-danger text-center">Error loading blogs: {error}</p>}
+        
+        {!loading && blogs.length === 0 && (
+            <p className="text-muted text-center">No blogs found.</p>
+        )}
+        
+        {/* Map and render the latest 3 blogs */}
+        {blogs.map((blog) => (
+          <BlogCard 
+            key={blog.id} 
+            title={blog.title} 
+            excerpt={blog.excerpt} 
+            date={blog.date} 
+            slug={blog.slug} 
+            // Pass any other necessary props from your API response
+          />
+        ))}
+      </div>
+
+
        </section>
 
        <section className="pre-footer" >

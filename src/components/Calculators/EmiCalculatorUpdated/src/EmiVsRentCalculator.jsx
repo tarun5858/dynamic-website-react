@@ -389,7 +389,8 @@ const EmiVsRentCalculator = () => {
                   )
                 }
                 onClick={toggleAssumptions}
-                sx={{ fontWeight: "bold" }}
+                fontFamily = '"poppins", sans-serif !important'
+                sx={{ fontWeight: "bold", }}
               >
                 <Typography
                   color="black"
@@ -434,11 +435,11 @@ const EmiVsRentCalculator = () => {
                   <Box  
                   sx={{
                     padding: "4px",
-                    gridColumn: isDesktop ? "2 / -1" : "auto", // Span across entire width for desktop mode
+                    gridColumn: isDesktop ? "4 / -1" : "auto", // Span across entire width for desktop mode
                   display:"flex",
                   justifyContent:"space-between",
-                    fontFamily: '"poppins", sans-serif !important'
-                 
+                    fontFamily: '"poppins", sans-serif !important',
+                   width:"100%"
                   }}>
                   <CustomSlider
                     title="Down Payment"
@@ -457,6 +458,7 @@ const EmiVsRentCalculator = () => {
                     max={75}
                     step={5}
                     percent={true}
+                    width={100}
                   />
 
                   <CustomSlider
@@ -538,17 +540,18 @@ const EmiVsRentCalculator = () => {
       ) : (
         <>
           {/* Mobile View */}
-          <Box textAlign="center" my={4} sx={{ padding: { xs: "16px" },marginTop:"35%" }}>
+          <Box textAlign="center" my={4} sx={{ padding: { xs: "16px" },marginTop:"10%" }}>
             <Typography
               variant="h6"
               fontWeight="bold"
               gutterBottom
               color="white"
               fontSize={24}
+              fontFamily= '"poppins", sans-serif !important'
             >
               EMI Calculator
             </Typography>
-            <Typography variant="body1" color="white">
+            <Typography variant="body1" color="white" fontFamily= '"poppins", sans-serif !important'>
             Our EMI calculator instantly shows your monthly installments,
                 total interest payable, and principal breakdown - helping you
                 budget smarter for your future home.
@@ -618,7 +621,7 @@ const EmiVsRentCalculator = () => {
                 onChangeCommitted={handleSliderChangeCommitted(
                   handlEmiVsRentApi
                 )}
-                min={2}
+                min={1}
                 max={3}
                 step={0.25}
                 valueLabelDisplay="on"
@@ -666,10 +669,12 @@ const EmiVsRentCalculator = () => {
             <Grid
               container
               justifyContent="space-between"
-              sx={{ mt: "-8px", mb: "16px" }}
+              sx={{ mt: "-8px", mb: "16px", }}
+              fontFamily= '"poppins", sans-serif !important'
+              
             >
               <Grid item>
-                <Typography>2 Cr</Typography>
+                <Typography>1 Cr</Typography>
               </Grid>
               <Grid item>
                 <Typography>3 Cr</Typography>
@@ -688,6 +693,7 @@ const EmiVsRentCalculator = () => {
                 fontWeight="bold"
                 gutterBottom
                 align="center"
+                fontFamily= '"poppins", sans-serif !important'
               >
                  Monthly EMI
       
@@ -698,6 +704,8 @@ const EmiVsRentCalculator = () => {
                 color="#0086AD"
                 align="center"
                 mb={1}
+                fontFamily= '"poppins", sans-serif !important'
+
               >
                 {"INR "} {Monthly_emi}
               </Typography>
@@ -713,6 +721,8 @@ const EmiVsRentCalculator = () => {
                 fontWeight="bold"
                 gutterBottom
                 align="center"
+                fontFamily= '"poppins", sans-serif !important'
+
               >
                Total Interest
                
@@ -723,6 +733,8 @@ const EmiVsRentCalculator = () => {
                 color="#0086AD"
                 align="center"
                 mb={1}
+                fontFamily= '"poppins", sans-serif !important'
+
               >
                 {"INR "}
                 {totalCumulativeInterest}
@@ -739,6 +751,8 @@ const EmiVsRentCalculator = () => {
                 fontWeight="bold"
                 gutterBottom
                 align="center"
+                fontFamily= '"poppins", sans-serif !important'
+
               >
                 Total Principal
               </Typography>
@@ -748,6 +762,8 @@ const EmiVsRentCalculator = () => {
                 color="#0086AD"
                 align="center"
                 mb={1}
+                fontFamily= '"poppins", sans-serif !important'
+
               >
                 {"INR "} {total_principal}
               </Typography>
@@ -761,6 +777,8 @@ const EmiVsRentCalculator = () => {
               <Button
                 variant="text"
                 color="inherit"
+                fontFamily= '"poppins", sans-serif !important'
+
                 endIcon={
                   showAssumptions ? (
                     <MdOutlineExpandLess />
@@ -769,9 +787,17 @@ const EmiVsRentCalculator = () => {
                   )
                 }
                 onClick={toggleAssumptions}
-                sx={{ fontWeight: "bold", textDecoration: "underline" }}
+                sx={{ fontWeight: "bold", textDecoration: "underline"}}
               >
-             <b className="calculator-sub-title">View Assumed Values</b>   
+                
+             <Typography
+                  color="black"
+                  fontWeight="normal"
+                  textAlign="left"
+                  textTransform="none" // This will prevent uppercase transformation
+                >
+                 <b className="calculator-sub-title"> View Assumed Values</b>
+                </Typography>
               </Button>
             </Box>
 
@@ -779,7 +805,7 @@ const EmiVsRentCalculator = () => {
               <Box mt={2} sx={{ padding: "4px" }}>
                 <Typography variant="body2" sx={{ marginBottom: "16px" }}>
                   <Typography variant="body1">
-      <b className="calculator-sub-title">Assumptions</b>
+      <b className="calculator-sub-title" >Assumptions</b>
       <br />
       &nbsp;• Interest calculated on reducing balance
       <br />

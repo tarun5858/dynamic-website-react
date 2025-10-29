@@ -511,7 +511,7 @@ const InterestVsPrincipal = () => {
       ) : (
         <>
           {/* Mobile View */}
-          <Box textAlign="center" my={4}  sx={{ padding: { xs: "16px" } ,marginTop:"22%"}}>
+          <Box textAlign="center" my={4}  sx={{ padding: { xs: "16px" } ,marginTop:"1%"}}>
             <Typography
               variant="h6"
               fontWeight="bold"
@@ -519,10 +519,11 @@ const InterestVsPrincipal = () => {
               color="white"
                 fontSize={24}
                 marginTop={5}
+                fontFamily= '"poppins", sans-serif !important'
             >
               Interest vs Principal
             </Typography>
-            <Typography variant="body1" color="white">
+            <Typography variant="body1" color="white" fontFamily= '"poppins", sans-serif !important'>
             This calculator reveals how much of your EMI goes towards interest and principal each year, helping you strategize prepayments and save on interest.
             </Typography>
           </Box>
@@ -656,6 +657,7 @@ const InterestVsPrincipal = () => {
                 fontWeight="bold"
                 gutterBottom
                 align="center"
+                fontFamily= '"poppins", sans-serif !important'
               >
                 Total Interest
               </Typography>
@@ -665,6 +667,7 @@ const InterestVsPrincipal = () => {
                 color="#0086AD"
                 align="center"
                 mb={1}
+                fontFamily= '"poppins", sans-serif !important'
               >
                 {"INR "}
                 {cumulative_interest}
@@ -681,6 +684,7 @@ const InterestVsPrincipal = () => {
                 fontWeight="bold"
                 gutterBottom
                 align="center"
+                fontFamily= '"poppins", sans-serif !important'
               >
                 Total Principal
               </Typography>
@@ -690,6 +694,7 @@ const InterestVsPrincipal = () => {
                 color="#0086AD"
                 align="center"
                 mb={1}
+                fontFamily= '"poppins", sans-serif !important'
               >
                 {"INR "}
                 {total_principal}
@@ -714,8 +719,14 @@ const InterestVsPrincipal = () => {
                 onClick={toggleAssumptions}
                 sx={{ fontWeight: "bold" }}
               >
-               <b className="calculator-sub-title">View Assumed Values</b> 
-              </Button>
+<Typography
+                color="black"
+                fontWeight="normal"
+                textAlign="left"
+                textTransform="none" // This will prevent uppercase transformation
+              >
+               <b className="calculator-sub-title"> View Assumed Values</b>
+              </Typography>              </Button>
             </Box>
 
             {showAssumptions && (
@@ -752,6 +763,7 @@ const InterestVsPrincipal = () => {
                   step={5}
                   percent={true}
                    width="100%"
+                   fontFamily= '"poppins", sans-serif !important'
                 />
 
                 <CustomSlider
@@ -770,6 +782,7 @@ const InterestVsPrincipal = () => {
                   step={0.25}
                   percent={true}
                    width="100%"
+                   fontFamily= '"poppins", sans-serif !important'
                 />
 
                 <CustomSlider
