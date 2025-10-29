@@ -17,8 +17,8 @@ Version: 1.2.0
 
 @font-face {
   font-family: 'Inter-medium';
-  src: url('fonts/Inter-Medium.woff2') format('woff2'),
-    url('fonts/Inter-Medium.woff') format('woff');
+  src: url('/fonts/Inter-Medium.woff2') format('woff2'),
+    url('/fonts/Inter-Medium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -26,8 +26,8 @@ Version: 1.2.0
 
 @font-face {
   font-family: 'Inter-block';
-  src: url('fonts/Inter-Black.woff2') format('woff2'),
-    url('fonts/Inter-Black.woff') format('woff');
+  src: url('/fonts/Inter-Black.woff2') format('woff2'),
+    url('/fonts/Inter-Black.woff') format('woff');
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -35,8 +35,8 @@ Version: 1.2.0
 
 @font-face {
   font-family: 'Inter-light';
-  src: url('fonts/Inter-Light.woff2') format('woff2'),
-    url('fonts/Inter-Light.woff') format('woff');
+  src: url('/fonts/Inter-Light.woff2') format('woff2'),
+    url('/fonts/Inter-Light.woff') format('woff');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -44,8 +44,8 @@ Version: 1.2.0
 
 @font-face {
   font-family: 'Inter';
-  src: url('fonts/Inter-Regular.woff2') format('woff2'),
-    url('fonts/Inter-Regular.woff') format('woff');
+  src: url('/fonts/Inter-Regular.woff2') format('woff2'),
+    url('/fonts/Inter-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -53,8 +53,8 @@ Version: 1.2.0
 
 @font-face {
   font-family: 'robotoblack';
-  src: url('fonts/roboto-black.woff2') format('woff2'),
-    url('fonts/roboto-black.woff') format('woff');
+  src: url('/fonts/roboto-black.woff2') format('woff2'),
+    url('/fonts/roboto-black.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 
@@ -65,8 +65,8 @@ Version: 1.2.0
 
 @font-face {
   font-family: 'robotobold';
-  src: url('fonts/roboto-bold.woff2') format('woff2'),
-    url('fonts/roboto-bold.woff') format('woff');
+  src: url('/fonts/roboto-bold.woff2') format('woff2'),
+    url('/fonts/roboto-bold.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 
@@ -77,8 +77,8 @@ Version: 1.2.0
 
 @font-face {
   font-family: 'robotolight';
-  src: url('fonts/fonts/roboto-light.woff2') format('woff2'),
-    url('fonts/fonts/roboto-light.woff') format('woff');
+  src: url('/fonts//fonts/roboto-light.woff2') format('woff2'),
+    url('/fonts//fonts/roboto-light.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 
@@ -89,8 +89,8 @@ Version: 1.2.0
 
 @font-face {
   font-family: 'robotomedium';
-  src: url('fonts/roboto-medium.woff2') format('woff2'),
-    url('fonts/roboto-medium.woff') format('woff');
+  src: url('/fonts/roboto-medium.woff2') format('woff2'),
+    url('/fonts/roboto-medium.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 
@@ -101,8 +101,8 @@ Version: 1.2.0
 
 @font-face {
   font-family: 'robotoregular';
-  src: url('fonts/roboto-regular.woff2') format('woff2'),
-    url('fonts/roboto-regular.woff') format('woff');
+  src: url('/fonts/roboto-regular.woff2') format('woff2'),
+    url('/fonts/roboto-regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 
@@ -5337,7 +5337,7 @@ header.header-3 .main-menu ul>li>ul ul {
   height: 100%;
   content: "";
   z-index: -1;
-  background-image: url("../img/home3/square-shape.png");
+  background-image: url("/img/home3/square-shape.png");
   background-size: cover;
   background-repeat: no-repeat;
   opacity: .2;
@@ -5398,7 +5398,7 @@ header.header-3 .main-menu ul>li>ul ul {
   bottom: 0;
   content: '';
   width: 100%;
-  background-image: url("../img/home3/wave-shape.png");
+  background-image: url("/img/home3/wave-shape.png");
   height: 155px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -8670,7 +8670,7 @@ header.header-3 .main-menu ul>li>ul ul {
 .blog-wrapper .single-blog-post.format-quote .post-content {
   position: relative;
   background-color: #0086ad;
-  background-image: url("../img/quotepost.png");
+  background-image: url("/img/quotepost.png");
   border: none;
 }
 
@@ -10222,7 +10222,7 @@ footer .footer-bottom .social-links a:last-of-type {
 }
 
 .list-style ul li {
-  background: url(../img/list.png) no-repeat left top;
+  background: url(/img/list.png) no-repeat left top;
   padding: 0px 0px 20px 30px;
   text-align: left;
   font-size: 18px;
