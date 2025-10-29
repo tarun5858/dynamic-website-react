@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../assets/img/logo-footer.svg";
+// import Logo from "../assets/img/logo-footer.svg";
 
 const Footer = () => {
   const footerStyles = {
@@ -42,7 +42,7 @@ const Footer = () => {
             <div className="col-sm-12 col-md-4 col-xl-4">
               <div className="about-quantech pe-md-5 pe-xl-0">
                 <a href="https://www.prehome.in/">
-                  <img src={Logo} alt="Prehome" />
+                  {/* <img src={Logo} alt="Prehome" /> */}
                 </a>
                 <p
                   className="pt-md-4 pt-sm-4 mt-4 pb-md-3 pb-sm-1 f-24"
