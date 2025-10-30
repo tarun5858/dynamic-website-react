@@ -9,6 +9,8 @@ import {
 } from "../components/Imagepath";
 
 
+
+
 const Calculators = () => {
 
 const { blogs, loading, error } = useFetchLatestBlogs();
@@ -52,7 +54,7 @@ const { blogs, loading, error } = useFetchLatestBlogs();
 
 
 
-       <section >
+       <section className="about-wrapper pt-2">
         {/* -------------------- Latest Blogs Section -------------------- */}
       <h1 className="text-center mb-4" style={{ fontSize: "36px",fontWeight: "bold",textAlign:"left",alignSelf:"left"}}>Latest blogs</h1>
 

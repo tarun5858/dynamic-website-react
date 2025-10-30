@@ -127,7 +127,7 @@ const EmiVsRentCalculator = () => {
 
       }}
     >
-      <h2 class="calculator-subhead">Explore our calculators designed to simplify your journey to ownership</h2>
+      <h2 className="calculator-subhead">Explore our calculators designed to simplify your journey to ownership</h2>
       {isDesktop ? (
         <Grid container spacing={4} sx={{ padding: "0px" }}>
           {/* Left Side: Title, Description, Location Selector, Cost of House Slider */}
@@ -459,6 +459,7 @@ const EmiVsRentCalculator = () => {
                     step={5}
                     percent={true}
                     width={100}
+                    // sx={{margin:"0px 20px"}}
                   />
 
                   <CustomSlider

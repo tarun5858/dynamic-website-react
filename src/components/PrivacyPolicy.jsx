@@ -25,7 +25,7 @@ const PrivacyPolicy = () =>{
                                     <li>Contact details such as name, email address, contact number, country, date of
                                         birth.</li>
                                 </ul>
-                            </li><br /><br />
+                            </li>
                             <li><strong>Background Data:</strong>
                                 <ul className="privacy-ul">
                                     <li>Communications details such as the Metadata and other data we get from
@@ -34,7 +34,7 @@ const PrivacyPolicy = () =>{
                                         web-based properties, pages viewed, etc.</li>
                                 </ul>
                             </li>
-                        </ul><br />
+                        </ul>
 
                         <p>By using or continuing to use our digital property, you give us unconditional consent to
                             collect, use, store and process your information (including your personal information) and
