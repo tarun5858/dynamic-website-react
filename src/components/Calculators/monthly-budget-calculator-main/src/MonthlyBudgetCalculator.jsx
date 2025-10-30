@@ -127,7 +127,7 @@ const MonthlyBudgetCalculator = () => {
                 <Typography
                   variant="body1"
                   marginBottom="10px"
-                  sx={{ color: { sx: "white", md: "black" } , marginBottom:"10px" }}
+                  sx={{ color: { sx: "white", md: "black" }, marginBottom:"10px",fontFamily:'"poppins", sans-serif !important' }}
                 >
                   This simple calculator helps you split your monthly income
                   into three easy-to-manage categories:
@@ -135,7 +135,7 @@ const MonthlyBudgetCalculator = () => {
                 <Typography
                   variant="body1"
                   marginBottom="10px"
-                  sx={{ color: { sx: "white", md: "black" } }}
+                  sx={{ color: { sx: "white", md: "black",fontFamily:'"poppins", sans-serif !important' } }}
                 >
                   It’s an effective budgeting method for anyone looking to take
                   control of their finances without overcomplicating things.
@@ -143,7 +143,7 @@ const MonthlyBudgetCalculator = () => {
                 <Typography
                   variant="body1"
                   marginBottom="10px"
-                  sx={{ color: { sx: "white", md: "black" } }}
+                  sx={{ color: { sx: "white", md: "black",fontFamily:'"poppins", sans-serif !important' } }}
                 >
                   Before you start, you’ll just need one number-Your monthly
                   take-home income — the amount that gets credited to your bank
@@ -338,7 +338,7 @@ const MonthlyBudgetCalculator = () => {
               <Grid maxWidth="lg" xs={12} md={12} lg={12} marginTop={"5%"}>
                 <Typography
                   variant="body1"
-                  sx={{ fontSize: "16px", fontWeight: "bold" }}
+                  sx={{ fontSize: "16px", fontWeight: "bold" ,fontFamily:'"poppins", sans-serif !important'}}
                 >
                   Plan better. Spend smarter. Save consistently.
                 </Typography>
@@ -347,7 +347,7 @@ const MonthlyBudgetCalculator = () => {
                   variant="body1"
             
                   marginBottom="10px"
-                  sx={{ color: { sx: "white", md: "black" , fontSize: "16px", marginTop: "10px"} }}
+                  sx={{ color: { sx: "white", md: "black" , fontSize: "16px", marginTop: "10px",fontFamily: '"poppins", sans-serif !important'} }}
                 >
                   Think of it as a healthy balance — one that lets you cover
                   your essentials, enjoy life, stay on top of your dues, and
@@ -361,7 +361,7 @@ const MonthlyBudgetCalculator = () => {
                 variant="body1"
             
                   marginBottom="10px"
-                  sx={{ color: { sx: "white", md: "black" , fontSize: "16px", marginTop: "10px"} }}
+                  sx={{ color: { sx: "white", md: "black" , fontSize: "16px", marginTop: "10px",fontFamily: '"poppins", sans-serif !important'} }}
                 >
                   This structure is simple but powerful — it ensures your basics
                   are covered, your lifestyle is enjoyable, and your future is
@@ -458,10 +458,11 @@ const MonthlyBudgetCalculator = () => {
                 fontWeight="bold"
                 gutterBottom
                 color="white"
+                fontFamily='"poppins", sans-serif !important'
               >
                 Monthly Budget Calculator
               </Typography>
-              <Typography variant="body1" color="white" marginTop={"5%"}>
+              <Typography variant="body1" color="white" marginTop={"5%"} sx={{fontFamily:'"poppins", sans-serif !important'}}>
                 Before you start, you’ll just need one number-Your monthly
                 take-home income — the amount that gets credited to your bank
                 account after taxes, EPF, and other deductions.
@@ -492,7 +493,7 @@ const MonthlyBudgetCalculator = () => {
               }}
             >
               {/* input Section */}
-              <Typography variant="subtitle1" gutterBottom>
+              <Typography variant="subtitle1" sx={{fontFamily:'"poppins", sans-serif !important'}} gutterBottom>
                 Your Monthly Income
               </Typography>
               <TextField
@@ -612,14 +613,14 @@ const MonthlyBudgetCalculator = () => {
               <Grid maxWidth="lg" xs={12} md={12} lg={12} marginTop={"10%"}>
                 <Typography
                   variant="body1"
-                  sx={{ fontSize: "16px", fontWeight: "bold",marginTop: "10%" }}
+                  sx={{ fontSize: "16px", fontWeight: "bold",marginTop: "10%",fontFamily:'"poppins", sans-serif !important' }}
                 >
                   Plan better. Spend smarter. Save consistently.
                 </Typography>
 
                 <Typography
                   variant="body1"
-                  sx={{ fontSize: "16px", marginTop: "10%" }}
+                  sx={{ fontSize: "16px", marginTop: "10%",fontFamily:'"poppins", sans-serif !important' }}
                 >
                   Think of it as a healthy balance — one that lets you cover
                   your essentials, enjoy life, stay on top of your dues, and
@@ -631,7 +632,7 @@ const MonthlyBudgetCalculator = () => {
 
                 <Typography
                   variant="body1"
-                  sx={{ fontSize: "16px", marginTop: "10%" }}
+                  sx={{ fontSize: "16px", marginTop: "10%" ,fontFamily:'"poppins", sans-serif !important'}}
                 >
                   This structure is simple but powerful — it ensures your basics
                   are covered, your lifestyle is enjoyable, and your future is
@@ -646,6 +647,7 @@ const MonthlyBudgetCalculator = () => {
                       borderCollapse: "collapse",
                       width: "100%",
                       border: "1px solid black",
+                      fontFamily:'"poppins", sans-serif !important'
                     }}
                   >
                     <thead>

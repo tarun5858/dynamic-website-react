@@ -416,8 +416,8 @@ const EmiVsRentCalculator = () => {
                   }}
                 >
                   
-                  <Typography variant="body2" sx={{ marginBottom: "16px" }}>
-                  <Typography variant="body1">
+                  <Typography variant="body2" sx={{ marginBottom: "16px",fontFamily:'"poppins", sans-serif !important' }}>
+                  <Typography variant="body1" sx={{fontFamily:'"poppins", sans-serif !important'}}>
       <b className="calculator-sub-title">Assumptions</b>
       <br />
       &nbsp;• Interest calculated on reducing balance
@@ -459,7 +459,7 @@ const EmiVsRentCalculator = () => {
                     step={5}
                     percent={true}
                     width={100}
-                    // sx={{margin:"0px 20px"}}
+
                   />
 
                   <CustomSlider
@@ -827,7 +827,7 @@ const EmiVsRentCalculator = () => {
                   thumbColor="#595959"
                   railColor="#DEDEDE"
                   valueLabelColor="#DEDEDE"
-                  
+                  fontFamily='"poppins", sans-serif !important'
                   onChange={handleDownPaymentChange}
                   onChangeCommitted={handleSliderChangeCommitted(
                     handlEmiVsRentApi
@@ -845,6 +845,7 @@ const EmiVsRentCalculator = () => {
                   thumbColor="#595959"
                   railColor="#DEDEDE"
                   valueLabelColor="#DEDEDE"
+                  fontFamily='"poppins", sans-serif !important'
                   value={loan_rate}
                   onChange={handleLoanRatePerYearChange}
                   onChangeCommitted={handleSliderChangeCommitted(

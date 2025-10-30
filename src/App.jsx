@@ -1,4 +1,4 @@
-// import './App.css'
+import './App.css'
 import "./assets/css/App.css"
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { Routes, Route } from "react-router-dom";
@@ -50,20 +50,6 @@ function App() {
     <>
 <Header></Header>
 <WhatsAppButton></WhatsAppButton>
-
- {/* <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route
-            path="/manage-blogs"
-            element={
-              <ProtectedRoute>
-                <BlogManager />
-              </ProtectedRoute>
-            }
-          />
-        </Routes> */}
-
-
 <ScrollToTop />
         <Routes>
          
@@ -84,13 +70,7 @@ function App() {
           <Route path="/interest-principal-calculator" element={<InterestVsPrincipal />} />
           <Route path="/rent-vs-buy" element={<Calculator />} />
           <Route path="/emi-calculator" element={<EmiVsRentCalculator />} />
-
-
-          {/* <Route path="/" element={<ComponentsParent />} /> */}
-          {/* <Route path="/manage-blogs" element={<BlogManager />} />  */}
         </Routes>
-
-            {/* <BlogCard/> */}
 
             <Footer></Footer>
     </>

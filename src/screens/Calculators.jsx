@@ -35,15 +35,15 @@ const { blogs, loading, error } = useFetchLatestBlogs();
 
          <section className="about-wrapper pt-2 ">
         <div className="container container-lg">
-            <div className="row align-items-center">
+                        <h2 className="calculator-subhead">Explore our calculators designed to simplify your journey to ownership</h2>
+            {/* <div className="row align-items-center">
                 <div className="col-12 col-md-12">
                     <div className=" list-style wow">
-                        <h2 className="calculator-subhead">Explore our calculators designed to simplify your journey to ownership</h2>
 
                     </div>
 
                 </div>
-            </div>
+            </div> */}
         </div>
     </section>
     <section className="">
@@ -54,9 +54,9 @@ const { blogs, loading, error } = useFetchLatestBlogs();
 
 
 
-       <section className="about-wrapper pt-2">
-        {/* -------------------- Latest Blogs Section -------------------- */}
-      <h1 className="text-center mb-4" style={{ fontSize: "36px",fontWeight: "bold",textAlign:"left",alignSelf:"left"}}>Latest blogs</h1>
+       <section className=" pt-5 ">
+        <div className="container blog-container ">
+      <h1 className=" mb-4" style={{ fontSize: "36px",fontWeight: "bold",textAlign:"left",alignSelf:"left"}}>Latest blogs</h1>
 
       <div className="row">
         {loading && <p className="text-center">Loading latest blogs...</p>}
@@ -66,20 +66,29 @@ const { blogs, loading, error } = useFetchLatestBlogs();
             <p className="text-muted text-center">No blogs found.</p>
         )}
         
-        {/* Map and render the latest 3 blogs */}
-        {blogs.map((blog) => (
+
+         {/* Blog Cards */}
+      <div className="blog-cards-container">
+        <div className="row blog-cards-row">
+          <div className="blog-cards-parent">
+            {blogs.map((blog) => (
           <BlogCard 
             key={blog.id} 
             title={blog.title} 
             excerpt={blog.excerpt} 
             date={blog.date} 
             slug={blog.slug} 
-            // Pass any other necessary props from your API response
+            // imageKey={blog.imageKey}
+            blog={blog}
           />
         ))}
+          </div>
+        </div>
+      </div>
+        
       </div>
 
-
+</div>
        </section>
 
        <section className="pre-footer" >

@@ -26,7 +26,7 @@ blogImageBeyond,
 blogImage20,
 blogImage21,
 blogImage22
-} from "../components/Imagepath";
+} from "./Imagepath";
 
 
 

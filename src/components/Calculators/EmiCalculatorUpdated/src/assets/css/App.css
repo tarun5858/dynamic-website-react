@@ -2429,6 +2429,7 @@ nav .breadcrumb li {
   .carousel-indicators {
     position: absolute;
 /* right: 0; */
+left: 0;
 bottom: -80px!important;;
 left: 0;
 z-index: 2;
@@ -11705,3 +11706,10 @@ margin-top: 10%;
 .dropdown-toggle::after{
   display: none!important;
 }
+.css-mdw22z {
+      margin-top: 16px;
+      margin-bottom: 16px;
+      padding-left: 0px;
+      padding-right: 0px;
+      width: 22%;
+  }

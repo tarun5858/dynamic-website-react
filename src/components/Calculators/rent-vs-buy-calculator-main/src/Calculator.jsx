@@ -941,9 +941,11 @@ useEffect(() => {
           borderRadius:"7px",
           backgroundColor: "#f5a623",
           marginRight: "8px",
+      fontFamily:'"poppins", sans-serif !important'
+
         }}
       />
-      <Typography variant="h6" className="sub-headings">Renting</Typography>
+      <Typography variant="h6" className="sub-headings" sx={{ fontFamily:'"poppins", sans-serif !important' }}>Renting</Typography>
     </Box>
   </Grid>
   <Grid item xs={6}>
@@ -959,9 +961,10 @@ useEffect(() => {
           borderRadius:"7px",
           backgroundColor: "#00a0df",
           marginRight: "8px",
+          fontFamily:'"poppins", sans-serif !important'
         }}
       />
-      <Typography variant="h6" className="sub-headings">Buying</Typography>
+      <Typography variant="h6" className="sub-headings" sx={{ fontFamily:'"poppins", sans-serif !important' }}>Buying</Typography>
     </Box>
   </Grid>
 </Grid>
@@ -1050,7 +1053,7 @@ useEffect(() => {
             variant="body1"
             textAlign="left"
             fontWeight="bold"
-            sx={{ mb: "16px", color: "#505050", textDecoration: "underline",cursor: "pointer",textAlign:{xs:'center',md:'left'} }}
+            sx={{ mb: "16px",fontFamily: '"poppins", sans-serif !important', color: "#505050", textDecoration: "underline",cursor: "pointer",textAlign:{xs:'center',md:'left'} }}
             onClick={handleOpenModal}
           >
             Learn How We Calculate
@@ -1058,7 +1061,7 @@ useEffect(() => {
 
 
           {/* Cost Of House Today */}
-          <Typography gutterBottom textAlign="left" sx={{ fontWeight: "bold",fontSize:{xs:'16px',md:'16px'} }}>
+          <Typography gutterBottom textAlign="left" sx={{ fontWeight: "bold",fontFamily: '"poppins", sans-serif !important',fontSize:{xs:'16px',md:'16px'} }}>
             Cost Of House Today
           </Typography>
           <Slider
@@ -1116,7 +1119,7 @@ useEffect(() => {
           <Grid
             container
             justifyContent="space-between"
-            sx={{ mt: "-8px", mb: "16px" }}
+            sx={{ mt: "-8px", mb: "16px" ,fontFamily: '"poppins", sans-serif !important'}}
           >
             <Grid item>
               <Typography>1 Cr</Typography>
@@ -1127,7 +1130,7 @@ useEffect(() => {
           </Grid>
 
           {/* Monthly Rent */}
-          <Typography gutterBottom textAlign="left" sx={{ fontWeight: "bold",fontSize:{xs:'16px',md:'16px'} }}>
+          <Typography gutterBottom textAlign="left" sx={{ fontWeight: "bold",fontFamily: '"poppins", sans-serif !important',fontSize:{xs:'16px',md:'16px'} }}>
             Monthly Rent
           </Typography>
           <Slider
@@ -1209,10 +1212,9 @@ useEffect(() => {
                     variant="h6"
                     textAlign="center"
                     sx={{
-                      fontFamily: "Poppins",
                       fontWeight: "bold",
                       fontSize: 16, // Set font size to 20px
-                     
+                     fontFamily: '"poppins", sans-serif !important'
                     }}
                   >
                     {loan_tenure}
@@ -1229,7 +1231,7 @@ useEffect(() => {
                     variant="h6"
                     textAlign="center"
                     sx={{
-                      fontFamily: "Poppins",
+                      fontFamily: '"poppins", sans-serif !important',
                       fontWeight: "bold",
                       fontSize: 16,
                     }}
@@ -1253,7 +1255,7 @@ useEffect(() => {
                   <Typography
                     variant="h6"
                     sx={{
-                      fontFamily: "Poppins",
+                      fontFamily: '"poppins", sans-serif !important',
                       fontWeight: "bold",
                       fontSize: 16,
                       textAlign: "inherit", // Inherits from CardContent
@@ -1277,6 +1279,7 @@ useEffect(() => {
                 textAlign="left"
                 textTransform="none" 
                 fontSize="16px"// This will prevent uppercase transformation
+                fontFamily= '"poppins", sans-serif !important'
               >
                 View Assumed Values
               </Typography>
@@ -1305,6 +1308,7 @@ useEffect(() => {
                textAlign="left"
                fontWeight="bold"
                 className="sub-headings"
+                fontFamily= '"poppins", sans-serif !important'
               >
                 Assumptions
               </Typography>
@@ -1320,10 +1324,12 @@ useEffect(() => {
                 textAlign="left"
                 fontWeight="bold"
                 className="sub-headings"
+                fontFamily= '"poppins", sans-serif !important'
               >
                 Mortgage
               </Typography>
               <CustomSlider
+              className="rent-buy-slider"
                 title="Down Payment"
                 trackColor="#595959"
                 thumbColor="#595959"
@@ -1340,6 +1346,7 @@ useEffect(() => {
               />
 
               <CustomSlider
+              className="rent-buy-slider"
                 title="Loan to Value"
                 trackColor="#595959"
                 thumbColor="#595959"
@@ -1355,6 +1362,7 @@ useEffect(() => {
               />
 
               <CustomSlider
+              className="rent-buy-slider"
                 title="Loan Rate (per year)"
                 trackColor="#595959"
                 thumbColor="#595959"
@@ -1369,6 +1377,7 @@ useEffect(() => {
                 percent={true}
               />
               <CustomSlider
+              className="rent-buy-slider"
                 title="Loan Tenure"
                 trackColor="#595959"
                 thumbColor="#595959"
@@ -1669,17 +1678,18 @@ useEffect(() => {
       </Grid>
 
       <Grid container>
-        <Grid item xs={12} md={8} marginTop={"8%"}>
+        <Grid item xs={12} md={8} marginTop={"8%"} sx={{ fontFamily: '"poppins", sans-serif !important'  }}>
                     {/* Text Below the Chart */}
           <Box sx={{ display: { xs: "block", md: "block",textAlign:'left'}, mt: 1, mr: 1,ml:1 }}>
-            <Typography variant="h6" mb={2} textAlign={"left"} sx={{  fontSize:{xs:"14px", md:"20px",color:"#000"} }}>
+        
+            <Typography variant="h6" mb={2} textAlign={"left"} sx={{  fontSize:{xs:"14px", md:"20px",color:"#000", fontFamily: '"poppins", sans-serif !important' } }}>
               How to Use This Rent vs. Buy Calculator
             </Typography>
             <>
               <Typography
                 mb={2}
                 variant="body1"
-                sx={{  fontSize:{xs:"12px", md:"16px",color:"#000"} }}
+                sx={{  fontSize:{xs:"12px", md:"16px",color:"#000", fontFamily: '"poppins", sans-serif !important' } }}
               >
                 Deciding whether to rent or buy a home in India isn't just about
                 comparing monthly costs—it's about long-term wealth, opportunity
@@ -1690,7 +1700,7 @@ useEffect(() => {
               <Typography
                 mb={2}
                 variant="body1"
-                sx={{  fontSize:{xs:"12px", md:"16px",color:"#000"} }}
+                sx={{  fontSize:{xs:"12px", md:"16px",color:"#000",fontFamily: '"poppins", sans-serif !important'  } }}
               >
                 • Hidden ownership costs (stamp duty, maintenance, shifting
                 charges)
@@ -1707,7 +1717,7 @@ useEffect(() => {
                 mb={2}
                 variant="body1"
                 fontWeight="bold"
-                sx={{  fontSize:{xs:"12px", md:"16px",color:"#000"} }}
+                sx={{  fontSize:{xs:"12px", md:"16px",color:"#000",fontFamily: '"poppins", sans-serif !important'} }}
               >
                 General Assumptions
               </Typography>
@@ -1715,7 +1725,7 @@ useEffect(() => {
               <Typography
                 mb={2}
                 variant="body1"
-                sx={{  fontSize:{xs:"12px", md:"16px",color:"#000"} }}
+                sx={{  fontSize:{xs:"12px", md:"16px",color:"#000",fontFamily: '"poppins", sans-serif !important'} }}
               >
                 The analysis uses these baseline parameters which you can
                 customize:
@@ -1739,7 +1749,7 @@ useEffect(() => {
               <Typography
                 mb={2}
                 variant="body1"
-                sx={{  fontSize:{xs:"12px", md:"16px",color:"#000"} }}
+                sx={{  fontSize:{xs:"12px", md:"16px",color:"#000", fontFamily: '"poppins", sans-serif !important' } }}
               >
                 All currency values are inflation-adjusted to present-day terms.
                 The break-even point identifies when cumulative buying costs
@@ -1751,7 +1761,7 @@ useEffect(() => {
                 mb={2}
                 variant="body1"
                 fontWeight="bold"
-                sx={{  fontSize:{xs:"12px", md:"16px",color:"#000"} }}
+                sx={{  fontSize:{xs:"12px", md:"16px",color:"#000",fontFamily: '"poppins", sans-serif !important'} }}
               >
                 Beyond the Numbers: Key Lifestyle Factors to Consider
               </Typography>
@@ -1759,7 +1769,7 @@ useEffect(() => {
               <Typography
                 mb={2}
                 variant="body1"
-                sx={{  fontSize:{xs:"12px", md:"16px",color:"#000"} }}
+                sx={{  fontSize:{xs:"12px", md:"16px",color:"#000",fontFamily: '"poppins", sans-serif !important'} }}
               >
                 While financial calculations are crucial, your personal
                 circumstances play an equally important role in the rent vs. buy
@@ -1770,7 +1780,7 @@ useEffect(() => {
                 mb={2}
                 variant="body1"
                 fontWeight="bold"
-                sx={{  fontSize:{xs:"12px", md:"16px",color:"#000"} }}
+                sx={{  fontSize:{xs:"12px", md:"16px",color:"#000", fontFamily: '"poppins", sans-serif !important'} }}
               >
                 1. Stability vs. Flexibility
               </Typography>
@@ -1778,7 +1788,7 @@ useEffect(() => {
               <Typography
                 mb={2}
                 variant="body1"
-                sx={{  fontSize:{xs:"12px", md:"16px",color:"#000"} }}
+                sx={{  fontSize:{xs:"12px", md:"16px",color:"#000", fontFamily: '"poppins", sans-serif !important'} }}
               >
                 <strong>• Buying makes sense if:</strong>
                 <br />
@@ -1792,7 +1802,7 @@ useEffect(() => {
               <Typography
                 mb={2}
                 variant="body1"
-                sx={{  fontSize:{xs:"12px", md:"16px",color:"#000"} }}
+                sx={{  fontSize:{xs:"12px", md:"16px",color:"#000", fontFamily: '"poppins", sans-serif !important'} }}
               >
                 <strong>• Renting works better if:</strong>
                 <br />
@@ -1812,7 +1822,7 @@ useEffect(() => {
                 mb={2}
                 variant="body1"
                 fontWeight="bold"
-                sx={{  fontSize:{xs:"12px", md:"16px",color:"#000"} }}
+                sx={{  fontSize:{xs:"12px", md:"16px",color:"#000", fontFamily: '"poppins", sans-serif !important'} }}
               >
                 2. Emotional Value
               </Typography>
@@ -1820,7 +1830,7 @@ useEffect(() => {
               <Typography
                 mb={2}
                 variant="body1"
-                sx={{  fontSize:{xs:"12px", md:"16px",color:"#000"} }}
+                sx={{  fontSize:{xs:"12px", md:"16px",color:"#000", fontFamily: '"poppins", sans-serif !important'} }}
               >
                 <strong>Owning </strong>provides:
                 <br />
@@ -1832,7 +1842,7 @@ useEffect(() => {
               <Typography
                 mb={2}
                 variant="body1"
-                sx={{  fontSize:{xs:"12px", md:"16px",color:"#000"} }}
+                sx={{  fontSize:{xs:"12px", md:"16px",color:"#000", fontFamily: '"poppins", sans-serif !important'} }}
               >
                 <strong>• Renting </strong>offers:
                 <br />
@@ -1848,7 +1858,7 @@ useEffect(() => {
                 mb={2}
                 variant="body1"
                 fontWeight="bold"
-                sx={{  fontSize:{xs:"12px", md:"16px",color:"#000"} }}
+                sx={{  fontSize:{xs:"12px", md:"16px",color:"#000", fontFamily: '"poppins", sans-serif !important'} }}
               >
                 3. Hidden Efforts
               </Typography>
@@ -1856,7 +1866,7 @@ useEffect(() => {
               <Typography
                 mb={2}
                 variant="body1"
-               sx={{  fontSize:{xs:"12px", md:"16px",color:"#000"} }}
+               sx={{  fontSize:{xs:"12px", md:"16px",color:"#000", fontFamily: '"poppins", sans-serif !important'} }}
               >
                 <strong>• Homeownership </strong>means:
                 <br />
@@ -1868,7 +1878,7 @@ useEffect(() => {
               <Typography
                 mb={2}
                 variant="body1"
-sx={{  fontSize:{xs:"12px", md:"16px",color:"#000"} }}
+sx={{  fontSize:{xs:"12px", md:"16px",color:"#000", fontFamily: '"poppins", sans-serif !important'} }}
               >
                 <strong>• Renting </strong>involves:
                 <br />
@@ -1881,7 +1891,7 @@ sx={{  fontSize:{xs:"12px", md:"16px",color:"#000"} }}
                 mb={2}
                 variant="body1"
                 fontWeight="bold"
-                sx={{  fontSize:{xs:"12px", md:"16px",color:"#000"} }}
+                sx={{  fontSize:{xs:"12px", md:"16px",color:"#000", fontFamily: '"poppins", sans-serif !important'} }}
               >
                 4. Future Life Plans
               </Typography>
@@ -1889,7 +1899,7 @@ sx={{  fontSize:{xs:"12px", md:"16px",color:"#000"} }}
               <Typography
                 mb={2}
                 variant="body1"
-sx={{  fontSize:{xs:"12px", md:"16px",color:"#000"} }}
+sx={{  fontSize:{xs:"12px", md:"16px",color:"#000", fontFamily: '"poppins", sans-serif !important'} }}
               >
                 Consider:
                 <br />
