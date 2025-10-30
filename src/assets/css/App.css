@@ -12,9 +12,13 @@ Version: 1.2.0
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+   /* font-family: "Poppins", sans-serif!important; */
   /* color: #000; */
 }
+body, h1, h2, h3, p, span, div, a{
+  font-family: "Poppins", sans-serif!important;
 
+}
 
 @font-face {
   font-family: 'Inter-medium';
@@ -12317,7 +12321,7 @@ border-radius: 15px;
     color: #fff;
   }
   .calculator-subhead {
-    display: block;
+    /* display: none; */
   }
   .modal-dialog {
     max-width: 600px !important;
