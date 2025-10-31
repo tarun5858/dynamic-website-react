@@ -10786,7 +10786,7 @@ background:#fff;
   }
 
   .speak-to-expert {
-    padding: 100px 0 100px 0;
+    padding: 50px 0 50px 0!important;
   }
 
   .body-wrapper {
@@ -11718,7 +11718,7 @@ justify-content: space-between;
   }
   .carousel-indicators {
       position: absolute;
-  left: 0;
+  left: 0!important;
   bottom:-50px;
   left: 0;
   z-index: 2;
