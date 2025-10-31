@@ -71,3 +71,10 @@ button:focus-visible {
 body {
   font-family: 'Poppins', sans-serif;
 }
+.css-mdw22z {
+      margin-top: 16px;
+      margin-bottom: 16px;
+      padding-left: 0px;
+      padding-right: 0px;
+      width: 100%!important;
+  }
