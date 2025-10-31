@@ -23,12 +23,21 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Poppins", sans-serif;
     margin: 0px;
     margin-bottom: 15px;
-    font-weight: 600!important;
-    color: #0D0D0F!important;
+    font-weight: 600;
+    color: #0D0D0F;
     line-height: 130%;
     padding: 10px 0 0 0;
 }
-
+ .list-style h1,h2,h3 {
+font-weight: 600!important;
+    color: #0D0D0F!important;
+ }
+ .list-style p {
+    color: #0D0D0F!important;
+ }
+ .list-style h3 {
+    font-size: 32px!important;
+ }
 @font-face {
   font-family: 'Inter-medium';
   src: url('/fonts/Inter-Medium.woff2') format('woff2'),
