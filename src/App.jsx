@@ -24,6 +24,7 @@ import MonthlyBudgetCalculator from "./components/Calculators/monthly-budget-cal
 import InterestVsPrincipal from "./components/Calculators/interest-vs-principal-calc-main/src/InterestVsPrincipal";
 import Calculator from "./components/Calculators/rent-vs-buy-calculator-main/src/Calculator";
 import EmiVsRentCalculator from "./components/Calculators/EmiCalculatorUpdated/src/EmiVsRentCalculator";
+import CalculatorRouteWrapper from './components/Calculators/CalculatorRouteWrapper';
 // import BlogManager from "./pages/BlogManager"; 
 // import Login from './screens/Login';
 // import ProtectedRoute from './components/ProtectedRoute';
@@ -65,11 +66,12 @@ function App() {
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:id" element={<Blogdetails />} />
 
-
+       <CalculatorRouteWrapper>
           <Route path="/monthly-budget-calculator" element={<MonthlyBudgetCalculator />} />
           <Route path="/interest-principal-calculator" element={<InterestVsPrincipal />} />
           <Route path="/rent-vs-buy" element={<Calculator />} />
           <Route path="/emi-calculator" element={<EmiVsRentCalculator />} />
+       </CalculatorRouteWrapper>
         </Routes>
 
             <Footer></Footer>
