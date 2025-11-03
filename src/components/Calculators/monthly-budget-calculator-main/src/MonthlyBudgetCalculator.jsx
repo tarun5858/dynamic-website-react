@@ -105,7 +105,7 @@ const MonthlyBudgetCalculator = () => {
           <Grid container spacing={4} sx={{ padding: "16px" }}>
             <h2 class="calculator-subhead">Explore our calculators designed to simplify your journey to ownership</h2>
             {/* Left Side: Title, Description, Location Selector, Cost of House Slider */}
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} md={6} lg={6}>
               {/* Title and Description */}
               <Box
                 textAlign="left"
@@ -167,7 +167,7 @@ const MonthlyBudgetCalculator = () => {
             </Grid>
 
             {/* Right Side: Cost Display, Assumptions, Learn More, etc. */}
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} md={6} lg={6}>
               <Box mt={3} textAlign="center" onClick={handleOpenModal}>
                 <Typography
                   variant="body1"

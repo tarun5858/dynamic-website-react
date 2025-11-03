@@ -131,7 +131,7 @@ const EmiVsRentCalculator = () => {
       {isDesktop ? (
         <Grid container spacing={4} sx={{ padding: "0px" }}>
           {/* Left Side: Title, Description, Location Selector, Cost of House Slider */}
-          <Grid item xs={12} md={5}>
+          <Grid item xs={12} md={5} lg={5}>
             {/* Title and Description */}
 
             <Box textAlign="left" my={4} padding="0px 57px 0px 0px" className="Emi-calc-box">
@@ -234,7 +234,7 @@ const EmiVsRentCalculator = () => {
           </Grid>
 
           {/* Right Side: Cost Display, Assumptions, Learn More, etc. */}
-          <Grid item xs={12} md={7} >
+          <Grid item xs={12} md={7} lg={7}>
             <Box mt={3} textAlign="center" onClick={handleOpenModal}>
               <Typography
                 variant="body1"
@@ -795,9 +795,10 @@ const EmiVsRentCalculator = () => {
                   color="black"
                   fontWeight="normal"
                   textAlign="left"
-                  textTransform="none" // This will prevent uppercase transformation
+                  textTransform="none"
+                  fontFamily= '"poppins", sans-serif !important' // This will prevent uppercase transformation
                 >
-                 <b className="calculator-sub-title"> View Assumed Values</b>
+                 <b className="calculator-sub-title" sx={{fontFamily: '"poppins", sans-serif !important'}}> View Assumed Values</b>
                 </Typography>
               </Button>
             </Box>

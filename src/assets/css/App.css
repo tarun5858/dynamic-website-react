@@ -12339,7 +12339,7 @@ border-radius: 15px;
     color: #fff;
   }
   .calculator-subhead {
-    /* display: none; */
+    display: none;
   }
   .modal-dialog {
     max-width: 600px !important;
