@@ -31,6 +31,8 @@ import CalculatorRouteWrapper from './components/Calculators/CalculatorRouteWrap
 // import { AuthProvider } from "./context/AuthContext";
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import ThankYou from './components/ThankYou';
+
 
 function App() {
 
@@ -71,7 +73,9 @@ function App() {
           <Route path="/interest-principal-calculator" element={<InterestVsPrincipal />} />
           <Route path="/rent-vs-buy" element={<Calculator />} />
           <Route path="/emi-calculator" element={<EmiVsRentCalculator />} />
+          <Route path="/thank-you" element={<ThankYou />} />
        </Route>
+       
         </Routes>
 
             <Footer></Footer>

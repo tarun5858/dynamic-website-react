@@ -1,14 +1,17 @@
 import { FaChevronDown } from "react-icons/fa";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import { whtspImage } from "../components/Imagepath";
+// import { whtspImage } from "../components/Imagepath";
 import DateTimeDropdowns from "../components/DateTimeDropdowns";
-
-
+import GetInTouch from "../components/GetInTouch";
+import SpeakWithExpertForm from "../components/SpeakWithExpertForm";
 const ContactUs = () => {
+
+    
     return (
         <>
-        <section className="speak-to-expert  headertop-border ">
+
+        {/* <section className="speak-to-expert  headertop-border ">
     <div className="container container-lg">
         <div className="row">   
             <div className="col-md-4 col-sm-6 col-12">
@@ -29,7 +32,7 @@ const ContactUs = () => {
                     <input type="hidden" name="oid" value="00DC40000026yrZ"/>
                     <input type="hidden" id="company" name="company" value="Default company"/>
                     <input type="hidden" name="lead_source" value="Contact Us"/>
-                    <input type="hidden" name="retURL" value="https://www.prehome.in/thank-you"/>
+                    <input type="hidden" name="retURL" value="/thank-you"/>
                     <div className="col-md-6 col-12">
                         <div className="single-personal-info">
                             <label for="fname">Name</label>
@@ -62,7 +65,8 @@ const ContactUs = () => {
             </div> 
         </div>
     </div>
-</section>
+</section> */}
+<GetInTouch></GetInTouch>
 
 <section className="speak-to-expert section-padding " id="faq-sec">
     <div className="container container-lg">
@@ -182,7 +186,7 @@ const ContactUs = () => {
             </div>
         </section>
 
-<section className="speak-to-expert  pt-20" id="speak">
+<section className="speak-to-expert  pt-20 d-none" id="speak">
             <div className="container container-lg">
                 <div className="row">   
                     <div className="col-md-4 col-sm-6 col-12">
@@ -256,7 +260,7 @@ const ContactUs = () => {
                                 
                             </div>
                             
-                            <div className="modal fade" id="exampleModal55" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div className="modal fade" id="exampleModal55" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div className="container  modal-dialog ">
                                     <div className="modal-content">
                                         <div className=" d-flex justify-content-center pt-5">
@@ -280,7 +284,7 @@ const ContactUs = () => {
                 </div>
             </div>
         </section>
-
+<SpeakWithExpertForm></SpeakWithExpertForm>
         </>
     )
 }

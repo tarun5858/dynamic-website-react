@@ -11015,7 +11015,7 @@ label {
   border: 1px solid #ccc;
   border-radius: 20px;
   overflow-y: auto;
-  width: 100%;
+  width: 47%!important;
   z-index: 1;
   padding: 8px;
 }
@@ -12416,3 +12416,110 @@ border-radius: 15px;
     justify-content: center;
     align-items: center;
 } */
+
+
+.content-modal{
+        margin: 100px 0;
+        height: 250px;
+        text-align: center!important;
+    }
+.content-body{   
+        text-align: center;
+    }
+    .modal-title1{
+        color: #ef9c00;
+    font-size: 32px;
+    font-weight: 700;
+    }
+	.tab {
+	  display: none;
+	}
+	.step {
+	  height: 15px;
+	  width: 15px;
+	  margin: 0 2px;
+	  background-color: #bbbbbb;
+	  border: none;  
+	  border-radius: 50%;
+	  display: inline-block;
+	  opacity: 0.5;
+	}
+	
+	.step.active {
+	  opacity: 1;
+	}
+	
+	/* Mark the steps that are finished and valid: */
+	.step.finish {
+	  background-color: #04AA6D;
+	}
+	.location-btn {
+		/* padding: 10px 20px; */
+		border: 1px solid #ccc;
+		background: #f3f3f3;
+		color: #333;
+		transition: all 0.3s;
+		margin: 5px;
+		cursor: pointer;
+	}
+	
+	.location-btn:hover {
+		background: #e0e0e0;
+	}
+	
+	.location-btn.selected {
+		border: 2px solid #007bff;
+		background: #0086AD !important;
+		color: #fff;
+	}
+	
+	
+		.location-btnTab1 {
+				/* padding: 10px 20px; */
+				border: 1px solid #ccc;
+				background: #f3f3f3;
+				color: #333;
+				transition: all 0.3s;
+				margin: 5px;
+				cursor: pointer;
+			}
+			
+			.location-btnTab1:hover {
+				background: #e0e0e0;
+			}
+			
+		   
+			.location-btnTab1.active {
+		  background-color: #ef9c00 !important;
+		}
+		
+		.mobile-nav .dropdown-menu {
+		  display: none;
+		}
+		
+		.mobile-nav .dropdown.open > .dropdown-menu {
+		  display: block;
+		}
+		
+		.invalid {
+			border: 1px solid red !important;
+		}
+		
+		.selected.invalid {
+			box-shadow: 0 0 5px red;
+		}
+        .dropdown-content {
+  transition: max-height 0.3s ease!important;
+  overflow: hidden;
+  max-height: 0;
+}
+
+.dropdown.open .dropdown-content {
+  max-height: 500px;
+}
+
+		@media (max-width: 576px) {
+			.ourstory-wrapper {
+			background-image: url('./assets/img/website\ landing\ 300Kb\ \(1\).jpg')!important;
+		  }
+		}
