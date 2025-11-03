@@ -105,7 +105,21 @@ const MonthlyBudgetCalculator = () => {
           <Grid container spacing={4} sx={{ padding: "16px" }}>
             <h2 class="calculator-subhead">Explore our calculators designed to simplify your journey to ownership</h2>
             {/* Left Side: Title, Description, Location Selector, Cost of House Slider */}
-            <Grid item xs={12} md={6} lg={6}>
+            <Grid 
+            // item xs={12} md={6} lg={6}
+            xs={12} 
+              // Removed md={6} and lg={6} and replaced with explicit SX style
+              sx={{
+                width: '100%',
+                // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint starts at 900px)
+                '@media (min-width: 900px)': {
+                  width: '50%',
+                  // Ensure padding/margins are also respected in the grid layout
+                  paddingLeft: '16px', 
+                },
+              }}
+            
+            >
               {/* Title and Description */}
               <Box
                 textAlign="left"
@@ -167,7 +181,17 @@ const MonthlyBudgetCalculator = () => {
             </Grid>
 
             {/* Right Side: Cost Display, Assumptions, Learn More, etc. */}
-            <Grid item xs={12} md={6} lg={6}>
+            <Grid item
+             xs={12}
+//  md={6} lg={6}
+             sx={{
+                width: '100%',
+                // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint is 900px)
+                '@media (min-width: 900px)': {
+                  width: '50%',
+                },
+              }}
+              >
               <Box mt={3} textAlign="center" onClick={handleOpenModal}>
                 <Typography
                   variant="body1"
