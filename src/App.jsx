@@ -66,12 +66,12 @@ function App() {
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:id" element={<Blogdetails />} />
 
-       <CalculatorRouteWrapper>
+       <Route element={<CalculatorRouteWrapper />}>
           <Route path="/monthly-budget-calculator" element={<MonthlyBudgetCalculator />} />
           <Route path="/interest-principal-calculator" element={<InterestVsPrincipal />} />
           <Route path="/rent-vs-buy" element={<Calculator />} />
           <Route path="/emi-calculator" element={<EmiVsRentCalculator />} />
-       </CalculatorRouteWrapper>
+       </Route>
         </Routes>
 
             <Footer></Footer>
