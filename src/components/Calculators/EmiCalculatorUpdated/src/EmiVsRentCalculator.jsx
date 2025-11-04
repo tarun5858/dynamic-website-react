@@ -252,7 +252,7 @@ const EmiVsRentCalculator = () => {
                 width: '100%',
                 // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint starts at 900px)
                 '@media (min-width: 900px)': {
-                  width: '46%',
+                  width: '58%',
                   // Ensure padding/margins are also respected in the grid layout
                   paddingLeft: '16px', 
                 },
@@ -400,12 +400,12 @@ const EmiVsRentCalculator = () => {
        
             {/* Assumptions Toggle Button */}
 
-         <Grid container 
+         <Grid container items
          xs={12} md={12} lg={12} 
          sx={{
-          display:"flex",
+          // display:"flex",
           justifyContent:"flex-end",
-        width: '100%',
+          width: '100%',
                 // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint starts at 900px)
                 '@media (min-width: 900px)': {
                   width: '100%',
@@ -448,8 +448,13 @@ const EmiVsRentCalculator = () => {
                   mt={2}
                   sx={{
                     padding: "4px",
-                    gridColumn: isDesktop ? "1 / -1" : "auto", // Span across entire width for desktop mode
+                    // gridColumn: isDesktop ? "1 / -1" : "auto", // Span across entire width for desktop mode
+                  width: '100%',
+                // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint starts at 900px)
+                '@media (min-width: 900px)': {
+                  width: '100%',
                   
+                },
                   }}
                 >
                   
