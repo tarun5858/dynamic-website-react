@@ -100,13 +100,12 @@ const MonthlyBudgetCalculator = () => {
          fontFamily: '"poppins", sans-serif !important',
         }}
       >
-
+{/* spacing={4} */}
         {isDesktop ? (
-          <Grid container spacing={4} sx={{ padding: "16px" }}>
-            <h2 class="calculator-subhead">Explore our calculators designed to simplify your journey to ownership</h2>
+          <Grid container  sx={{ padding: "10px" }}>
+            <h2 className="calculator-subhead mb-3 mt-0">Explore our calculators designed to simplify your journey to ownership</h2>
             {/* Left Side: Title, Description, Location Selector, Cost of House Slider */}
-            <Grid 
-            item xs={12} md={6} lg={6} xl={6}
+            <Grid  item xs={12} md={6} lg={6} xl={6}
             // xs={12} 
               // Removed md={6} and lg={6} and replaced with explicit SX style
               sx={{
@@ -181,8 +180,7 @@ const MonthlyBudgetCalculator = () => {
             </Grid>
 
             {/* Right Side: Cost Display, Assumptions, Learn More, etc. */}
-            <Grid item
-             xs={12} md={6} lg={6} xl={6}
+            <Grid item xs={12} md={6} lg={6} xl={6}
              sx={{
                 width: '100%',
                 // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint is 900px)

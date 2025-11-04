@@ -115,7 +115,7 @@ const EmiVsRentCalculator = () => {
    
     {/* <Header /> */}
     <Container
-    className="calculator-container"
+    // className="calculator-container"
       maxWidth="lg"
       sx={{
         backgroundColor: { xs: "#11202E", md: "white" },
@@ -127,11 +127,23 @@ const EmiVsRentCalculator = () => {
 
       }}
     >
+      {/* spacing={4} */}
       <h2 className="calculator-subhead">Explore our calculators designed to simplify your journey to ownership</h2>
       {isDesktop ? (
-        <Grid container spacing={4} sx={{ padding: "0px" }}>
+        <Grid container  sx={{ padding: "0px" }}>
           {/* Left Side: Title, Description, Location Selector, Cost of House Slider */}
-          <Grid item xs={12} md={5} lg={5}>
+          <Grid item 
+          xs={12} md={5} lg={5} xl={5}
+          sx={{
+                width: '100%',
+                // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint starts at 900px)
+                '@media (min-width: 900px)': {
+                  width: '50%',
+                  // Ensure padding/margins are also respected in the grid layout
+                  paddingLeft: '16px', 
+                },
+              }}
+          >
             {/* Title and Description */}
 
             <Box textAlign="left" my={4} padding="0px 57px 0px 0px" className="Emi-calc-box">
@@ -234,7 +246,19 @@ const EmiVsRentCalculator = () => {
           </Grid>
 
           {/* Right Side: Cost Display, Assumptions, Learn More, etc. */}
-          <Grid item xs={12} md={7} lg={7}>
+          <Grid item 
+          xs={12} md={7} lg={7} xl={7}
+          sx={{
+                width: '100%',
+                // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint starts at 900px)
+                '@media (min-width: 900px)': {
+                  width: '50%',
+                  // Ensure padding/margins are also respected in the grid layout
+                  paddingLeft: '16px', 
+                },
+              }}
+          
+          >
             <Box mt={3} textAlign="center" onClick={handleOpenModal}>
               <Typography
                 variant="body1"
