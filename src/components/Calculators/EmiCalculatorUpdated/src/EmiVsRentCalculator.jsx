@@ -138,7 +138,7 @@ const EmiVsRentCalculator = () => {
                 width: '100%',
                 // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint starts at 900px)
                 '@media (min-width: 900px)': {
-                  width: '50%',
+                  width: '42%',
                   // Ensure padding/margins are also respected in the grid layout
                   paddingLeft: '16px', 
                 },
@@ -252,7 +252,7 @@ const EmiVsRentCalculator = () => {
                 width: '100%',
                 // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint starts at 900px)
                 '@media (min-width: 900px)': {
-                  width: '50%',
+                  width: '46%',
                   // Ensure padding/margins are also respected in the grid layout
                   paddingLeft: '16px', 
                 },
@@ -400,7 +400,20 @@ const EmiVsRentCalculator = () => {
        
             {/* Assumptions Toggle Button */}
 
-         <Grid container xs={12} md={12} lg={12} sx={{display:"flex",justifyContent:"flex-end"}}> 
+         <Grid container 
+         xs={12} md={12} lg={12} 
+         sx={{
+          display:"flex",
+          justifyContent:"flex-end",
+        width: '100%',
+                // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint starts at 900px)
+                '@media (min-width: 900px)': {
+                  width: '100%',
+                  
+                },
+        }}
+      
+         > 
             <Box mt={3} textAlign="right" className="assumed-val">
               <Button
                 variant="text"
