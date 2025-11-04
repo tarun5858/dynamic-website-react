@@ -132,7 +132,7 @@ font-weight: 600!important;
 }
 
 .container{
-  padding: 1%;
+  padding: 10px;
 }
 .poppins-thin {
   font-family: "Poppins", sans-serif;
@@ -3860,12 +3860,12 @@ list-style: none;
  ------------------------------------*/
 header {
   z-index: 99;
-  width: 100%;
-  background-color: #ffffff;
-  height: 85px!important;
-  top: 0;
-  padding: 0!important;
-  /* box-shadow: 0 13px 35px -12px rgba(35, 35, 35, 0.15); */
+    width: 100%;
+    background-color: #ffffff;
+    height: 75px;
+    padding: 5px;
+    top: 0;
+  box-shadow: 0 13px 35px -12px rgba(35, 35, 35, 0.15)!important;
 }
 
 header ul {
@@ -3880,8 +3880,8 @@ header.header-1.sticky {
   background: #fff;
   -webkit-animation: sticky .8s ease-in-out;
   animation: sticky .8s ease-in-out;
-  -webkit-box-shadow: 0 13px 35px -12px rgba(35, 35, 35, 0.15);
-  box-shadow: 0 13px 35px -12px rgba(35, 35, 35, 0.15);
+  -webkit-box-shadow: 0 13px 35px -12px rgba(35, 35, 35, 0.15)!important;
+  box-shadow: 0 13px 35px -12px rgba(35, 35, 35, 0.15)!important;
 }
 
 @media (max-width: 767px) {
@@ -3903,6 +3903,58 @@ header.header-1.sticky .main-menu ul li>a {
 header.header-1.sticky .main-menu ul ul li a {
   padding: 15px 5px;
 }
+
+
+@keyframes sticky {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(0); }
+}
+
+/* 1. Base Header Styles for Transitions */
+/* .header-1 {
+    width: 100%;
+    z-index: 1000; 
+    transition: transform 0.4s ease-in-out, box-shadow 0.3s ease-in-out; 
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+} */
+
+/* 2. Sticky State: Fixed Position, Background, Shadow, and Reappearance */
+.header-1.sticky {
+    top: 0 !important;
+    position: fixed !important;
+    background: #fff;
+    
+    /* Apply animation for visual entrance when scrolling up */
+    -webkit-animation: sticky .8s ease-in-out;
+    animation: sticky .8s ease-in-out; 
+    
+    /* Apply the required box-shadow when sticky/visible */
+    -webkit-box-shadow: 0 13px 35px -12px rgba(35, 35, 35, 0.15)!important;
+    box-shadow: 0 13px 35px -12px rgba(35, 35, 35, 0.15)!important;
+}
+
+/* 3. Hiding State: Overrides sticky position by pushing it off-screen */
+.header-1.hide-header {
+    /* Translate the header off-screen using the transform transition */
+    transform: translateY(-100%);
+    
+    /* Crucial: Ensure the shadow is removed when the header is hidden */
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+}
+
+
+/* --- Preserve Original Media Query (if necessary for other styles) --- */
+@media (max-width: 767px) {
+    header.header-1.sticky {
+        /* This line is generally redundant due to the main .sticky block, 
+           but kept in case it fixes an issue in your environment. */
+        position: fixed !important;
+    }
+}
+
+
 
 @media (max-width: 991px) {
     .mobile-img-howitwork{
@@ -10829,7 +10881,7 @@ background:#fff;
   header {
     position: fixed;
     top: 0px;
-    height: auto;
+    height: 85px!important;
   }
   
   
