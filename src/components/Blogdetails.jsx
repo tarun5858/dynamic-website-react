@@ -10,7 +10,7 @@ import {
   blogImageBeyond, blogDetailBeyond, blogDetailNavigating, blogDetailNavigating2, blogDetailThePower,
   blogDetailUnderConstruction, blogDetailFinancialImplications, blogDetailMitigating, blogDetailTheFundamentals,
   blogDetailFinancialAspects, blogDetailBuildingWealth, blogDetailStrategies, blogDetailTheHidden,
-  blogDetailAssessingPotential, blogDetailTheTrueCost, blogDetailHiddenCosts, blogDetailBeyondthe,blogImage20,blogImage21,blogImage22,blogDetail20,blogDetail21,blogDetail22
+  blogDetailAssessingPotential, blogDetailTheTrueCost, blogDetailHiddenCosts, blogDetailBeyondthe,blogImage20,blogImage21,blogImage22,blogDetail20,blogDetail21,blogDetail22,blogImage23,blogImage24,blogImage25,blogDetail23,blogDetail24,blogDetail25
 } from "../components/Imagepath";
 
 const imageSrc = {
@@ -22,7 +22,7 @@ const imageSrc = {
   blogImageBeyond, blogDetailBeyond, blogDetailNavigating, blogDetailNavigating2, blogDetailThePower,
   blogDetailUnderConstruction, blogDetailFinancialImplications, blogDetailMitigating, blogDetailTheFundamentals,
   blogDetailFinancialAspects, blogDetailBuildingWealth, blogDetailStrategies, blogDetailTheHidden,
-  blogDetailAssessingPotential, blogDetailTheTrueCost, blogDetailHiddenCosts, blogDetailBeyondthe,blogImage20,blogImage21,blogImage22,blogDetail20,blogDetail21,blogDetail22
+  blogDetailAssessingPotential, blogDetailTheTrueCost, blogDetailHiddenCosts, blogDetailBeyondthe,blogImage20,blogImage21,blogImage22,blogDetail20,blogDetail21,blogDetail22,blogImage23,blogImage24,blogImage25,blogDetail23,blogDetail24,blogDetail25
 };
 
 function Blogdetails() {

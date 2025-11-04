@@ -23,6 +23,9 @@ export { default as blogImageBeyond  } from "../assets/img/blogsImage/blog banne
 export { default as blogImage20 } from "../assets/img/blogsImage/blog20.png";
 export { default as blogImage21  } from "../assets/img/blogsImage/blog21.png";
 export { default as blogImage22 } from "../assets/img/blogsImage/blog22.png";
+export { default as blogImage23 } from "../assets/img/blogsImage/blog 22.png";
+export { default as blogImage24 } from "../assets/img/blogsImage/23.png";
+export { default as blogImage25 } from "../assets/img/blogsImage/24.png";
 
 
 
@@ -52,6 +55,9 @@ export { default as blogDetailBeyondthe    } from "../assets/img/blogsImage/2.pn
 export { default as blogDetail20    } from "../assets/img/blogsImage/blog20-info.png";
 export { default as blogDetail21    } from "../assets/img/blogsImage/blog21-info.png";
 export { default as blogDetail22    } from "../assets/img/blogsImage/blog22-info.png";
+export { default as blogDetail23    } from "../assets/img/blogsImage/info22.png";
+export { default as blogDetail24    } from "../assets/img/blogsImage/info23.png";
+export { default as blogDetail25    } from "../assets/img/blogsImage/info24.png";
 
 // homepage img
 export { default as benefitimg1 } from "../assets/img/benefit-icon-1.png";
