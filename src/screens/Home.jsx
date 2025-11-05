@@ -26,7 +26,7 @@ const Home = () => {
 
   return (
     <>
-      <section className=" section-padding-home text-md-start">
+      <section className=" section-padding-home text-md-start" style={{paddingTop: "1%",backgroundColor: "#F7F7F7"}}>
         <div className="single-slide">
           <div className="container container-lg">
             <div className="row home-text-img-container">

@@ -3862,7 +3862,7 @@ header {
   z-index: 99;
     width: 100%;
     background-color: #ffffff;
-    height: 75px;
+    height: 75px!important;
     padding: 5px;
     top: 0;
   box-shadow: 0 13px 35px -12px rgba(35, 35, 35, 0.15)!important;
@@ -10881,7 +10881,7 @@ background:#fff;
   header {
     position: fixed;
     top: 0px;
-    height: 85px!important;
+    height: 85px;
   }
   
   
