@@ -891,8 +891,8 @@ useEffect(() => {
     Should you rent or buy a home? Our simple rent vs buy calculator compares the long-term costs of renting versus purchasing a property, helping you make an informed financial decision.
   </Typography>
       <Grid container>
-      <Grid item md={12} sx={{ display: { xs: "block", md: "block" }, textAlign: "left", px: { md: 3 },ml:3,marginTop:"5%" }}>
-</Grid>
+      {/* <Grid item md={12} sx={{ display: { xs: "block", md: "block" }, textAlign: "left", px: { md: 3 },ml:3,marginTop:"5%" }}>
+</Grid> */}
         {/* Chart Section */}
         <Grid item
          xs={12} md={8} lg={8} xl={8}
@@ -937,11 +937,18 @@ useEffect(() => {
     justifyContent: "center",
     alignItems: "center",
     maxWidth: '800px', // Optional: constrain max width for better centering
-    margin: '0 auto' // This centers the entire container
-  }}
+    margin: '0 auto', // This centers the entire container
+                width: '100%',
+                // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint starts at 900px)
+                '@media (min-width: 900px)': {
+                  width: '100%',
+                  // Ensure padding/margins are also respected in the grid layout
+                  // paddingLeft: '16px', 
+                },
+              }}
+  
 >
-  <Grid item
-   xs={6}
+  <Grid item xs={6}
    sx={{
                 width: '100%',
                 // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint starts at 900px)
@@ -1042,22 +1049,24 @@ useEffect(() => {
         {/* Right-Side Content Section */}
         <Grid item 
         xs={12} md={4} lg={4} xl={4}
-        sx={{
-                width: '100%',
+        // sx={{
+                
+        //       }}
+        
+        className="mobile-screen-container"
+         sx={{
+          width: '100%',
                 // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint starts at 900px)
                 '@media (min-width: 900px)': {
                   width: '35%',
                   // Ensure padding/margins are also respected in the grid layout
                   // paddingLeft: '16px', 
                 },
-              }}
-        
-        className="mobile-screen-container" sx={{
     border: { xs: "none", md: "1px solid black" },
     borderRadius: { xs: "none", md: "25px" },
     position:{xs:"none",md:"absolute"},
     right: "8%",
-    width: "28%",
+    // width: "28%",
     top: "35%",
     paddingRight: { md: "24px" },
     // marginTop: { md: "24px" },
