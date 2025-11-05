@@ -898,6 +898,7 @@ useEffect(() => {
          xs={12} md={8} lg={8} xl={8}
         sx={{
                 width: '100%',
+                
                 // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint starts at 900px)
                 '@media (min-width: 900px)': {
                   width: '65%',
@@ -1058,7 +1059,7 @@ useEffect(() => {
           width: '100%',
                 // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint starts at 900px)
                 '@media (min-width: 900px)': {
-                  width: '35%',
+                  width: '28%',
                   // Ensure padding/margins are also respected in the grid layout
                   // paddingLeft: '16px', 
                 },
@@ -1263,7 +1264,7 @@ useEffect(() => {
             <Grid item 
             sx={{
               p: "8px",
-                width: '100%',
+                width: '50%',
                 // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint starts at 900px)
                 '@media (min-width: 900px)': {
                   width: '50%',
@@ -1296,7 +1297,7 @@ useEffect(() => {
             xs={6}
             sx={{
               p: "8px",
-                width: '100%',
+                width: '50%',
                 // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint starts at 900px)
                 '@media (min-width: 900px)': {
                   width: '50%',
