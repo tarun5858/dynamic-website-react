@@ -119,10 +119,22 @@ const InterestVsPrincipal = () => {
     >
 
       {isDesktop ? (
-        <Grid container spacing={4} sx={{ padding: "16px" }}>
+        <Grid container sx={{ padding: "16px" }}>
           <h2 class="calculator-subhead">Explore our calculators designed to simplify your journey to ownership</h2>
           {/* Left Side: Title, Description, Location Selector, Cost of House Slider */}
-          <Grid item xs={12} md={6}>
+          <Grid item 
+          xs={12} md={6} lg={6} xl={6}
+          sx={{
+                width: '100%',
+                // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint starts at 900px)
+                '@media (min-width: 900px)': {
+                  width: '50%',
+                  // Ensure padding/margins are also respected in the grid layout
+                  paddingLeft: '16px', 
+                },
+              }}
+          
+          >
             {/* Title and Description */}
             <Box textAlign="left" my={4} padding="0px 15% 0px 0px" className="Emi-calc-box">
               <Typography
@@ -245,7 +257,18 @@ const InterestVsPrincipal = () => {
           </Grid>
 
           {/* Right Side: Cost Display, Assumptions, Learn More, etc. */}
-          <Grid item xs={12} md={6}>
+          <Grid item
+           xs={12} md={6} lg={6} xl={6}
+          sx={{
+                width: '100%',
+                // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint starts at 900px)
+                '@media (min-width: 900px)': {
+                  width: '50%',
+                  // Ensure padding/margins are also respected in the grid layout
+                  paddingLeft: '16px', 
+                },
+              }}
+           >
             <Box mt={3} textAlign="center" onClick={handleOpenModal}>
               <Typography
                 variant="body1"
@@ -358,7 +381,22 @@ const InterestVsPrincipal = () => {
             </Grid>
 
             {/* Assumptions Toggle Button */}
-            <Grid container xs={12} md={12} lg={12} sx={{display:"flex",justifyContent:"flex-end"}}>
+            <Grid item
+             xs={12} md={12} lg={12} xl={12}
+         sx={{
+          // display:"flex",
+          // justifyContent:"flex-end",
+          width: '100%',
+                // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint starts at 900px)
+                '@media (min-width: 900px)': {
+                  width: '100%',
+                  
+                },
+        }}
+            //  sx={{display:"flex",justifyContent:"flex-end"}}
+             
+             
+             >
             <Box mt={3} textAlign="right"  className="assumed-val">
               <Button
                 variant="text"
@@ -384,14 +422,32 @@ const InterestVsPrincipal = () => {
               </Button>
             </Box>
 
-            <Grid maxWidth="lg" xs={12} md={12} lg={12}>
+            <Grid 
+            // maxWidth="lg" xs={12} md={12} lg={12}
+            xs={12} md={12} lg={12} xl={12}
+         sx={{
+          // display:"flex",
+          // justifyContent:"flex-end",
+          width: '100%',
+                // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint starts at 900px)
+                '@media (min-width: 900px)': {
+                  width: '100%',
+                  
+                }
+              }}
+            >
               {showAssumptions && (
                 <Box
                   mt={2}
                   sx={{
                     padding: "4px",
-                    gridColumn: isDesktop ? "1 / -1" : "auto", // Span across entire width for desktop mode
+                    // gridColumn: isDesktop ? "1 / -1" : "auto", // Span across entire width for desktop mode
+                  width: '100%',
+                // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint starts at 900px)
+                '@media (min-width: 900px)': {
+                  width: '100%',
                   
+                },
                   }}
                 >
 

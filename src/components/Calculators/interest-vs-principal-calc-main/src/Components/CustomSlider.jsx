@@ -21,7 +21,7 @@ const CustomSlider = ({
   percent = false,
 }) => {
   return (
-    <Box my={2} px={0}>
+    <Box my={2} px={0} sx={{width:{xs:"100%",md:"22%",lg:"22%"}}}>
       <Typography sx={{ marginBottom: "-8px" }} gutterBottom>
         {title}
       </Typography>
