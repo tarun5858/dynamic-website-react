@@ -399,12 +399,12 @@ const EmiVsRentCalculator = () => {
 </Grid>
        
             {/* Assumptions Toggle Button */}
-
-         <Grid container items
-         xs={12} md={12} lg={12} 
+{/* container */}
+         <Grid  item
+         xs={12} md={12} lg={12} xl={12}
          sx={{
           // display:"flex",
-          justifyContent:"flex-end",
+          // justifyContent:"flex-end",
           width: '100%',
                 // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint starts at 900px)
                 '@media (min-width: 900px)': {
@@ -442,7 +442,20 @@ const EmiVsRentCalculator = () => {
 
 
 
-            <Grid maxWidth="lg" xs={12} md={12} lg={12}>
+            <Grid 
+            // maxWidth="lg" xs={12} md={12} lg={12}
+            xs={12} md={12} lg={12} xl={12}
+         sx={{
+          // display:"flex",
+          // justifyContent:"flex-end",
+          width: '100%',
+                // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint starts at 900px)
+                '@media (min-width: 900px)': {
+                  width: '100%',
+                  
+                }
+              }}
+            >
               {showAssumptions && (
                 <Box
                   mt={2}
