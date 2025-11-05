@@ -120,7 +120,7 @@ const InterestVsPrincipal = () => {
 
       {isDesktop ? (
         <Grid container sx={{ padding: "16px" }}>
-          <h2 class="calculator-subhead">Explore our calculators designed to simplify your journey to ownership</h2>
+          <h2 class="calculator-subhead mt-2">Explore our calculators designed to simplify your journey to ownership</h2>
           {/* Left Side: Title, Description, Location Selector, Cost of House Slider */}
           <Grid item 
           xs={12} md={6} lg={6} xl={6}
@@ -130,7 +130,7 @@ const InterestVsPrincipal = () => {
                 '@media (min-width: 900px)': {
                   width: '50%',
                   // Ensure padding/margins are also respected in the grid layout
-                  paddingLeft: '16px', 
+                  // paddingLeft: '16px', 
                 },
               }}
           

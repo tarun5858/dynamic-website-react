@@ -103,7 +103,7 @@ const MonthlyBudgetCalculator = () => {
 {/* spacing={4} */}
         {isDesktop ? (
           <Grid container  sx={{ padding: "10px" }}>
-            <h2 className="calculator-subhead mb-3 mt-0">Explore our calculators designed to simplify your journey to ownership</h2>
+            <h2 className="calculator-subhead mb-3 mt-2">Explore our calculators designed to simplify your journey to ownership</h2>
             {/* Left Side: Title, Description, Location Selector, Cost of House Slider */}
             <Grid  item xs={12} md={6} lg={6} xl={6}
             // xs={12} 
@@ -114,7 +114,7 @@ const MonthlyBudgetCalculator = () => {
                 '@media (min-width: 900px)': {
                   width: '50%',
                   // Ensure padding/margins are also respected in the grid layout
-                  paddingLeft: '16px', 
+                  // paddingLeft: '16px', 
                 },
               }}
             

@@ -128,7 +128,7 @@ const EmiVsRentCalculator = () => {
       }}
     >
       {/* spacing={4} */}
-      <h2 className="calculator-subhead">Explore our calculators designed to simplify your journey to ownership</h2>
+      <h2 className="calculator-subhead mt-5">Explore our calculators designed to simplify your journey to ownership</h2>
       {isDesktop ? (
         <Grid container  sx={{ padding: "0px" }}>
           {/* Left Side: Title, Description, Location Selector, Cost of House Slider */}
@@ -140,7 +140,7 @@ const EmiVsRentCalculator = () => {
                 '@media (min-width: 900px)': {
                   width: '42%',
                   // Ensure padding/margins are also respected in the grid layout
-                  paddingLeft: '16px', 
+                  // paddingLeft: '16px', 
                 },
               }}
           >

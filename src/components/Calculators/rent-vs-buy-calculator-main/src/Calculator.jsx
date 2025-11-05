@@ -894,7 +894,19 @@ useEffect(() => {
       <Grid item md={12} sx={{ display: { xs: "block", md: "block" }, textAlign: "left", px: { md: 3 },ml:3,marginTop:"5%" }}>
 </Grid>
         {/* Chart Section */}
-        <Grid item xs={12} md={8}>
+        <Grid item
+         xs={12} md={8} lg={8} xl={8}
+        sx={{
+                width: '100%',
+                // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint starts at 900px)
+                '@media (min-width: 900px)': {
+                  width: '65%',
+                  marginTop:"4%"
+                  // Ensure padding/margins are also respected in the grid layout
+                  // paddingLeft: '16px', 
+                },
+              }}
+        >
           <Box
             height={{ xs: 280, md: 400 }}
             mb={2}
@@ -928,7 +940,18 @@ useEffect(() => {
     margin: '0 auto' // This centers the entire container
   }}
 >
-  <Grid item xs={6}>
+  <Grid item
+   xs={6}
+   sx={{
+                width: '100%',
+                // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint starts at 900px)
+                '@media (min-width: 900px)': {
+                  width: '50%',
+                  // Ensure padding/margins are also respected in the grid layout
+                  // paddingLeft: '16px', 
+                },
+              }}
+  >
     <Box 
       display="flex" 
       alignItems="center"
@@ -948,7 +971,17 @@ useEffect(() => {
       <Typography variant="h6" className="sub-headings" sx={{ fontFamily:'"poppins", sans-serif !important' }}>Renting</Typography>
     </Box>
   </Grid>
-  <Grid item xs={6}>
+  <Grid item xs={6}
+  sx={{
+                width: '100%',
+                // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint starts at 900px)
+                '@media (min-width: 900px)': {
+                  width: '50%',
+                  // Ensure padding/margins are also respected in the grid layout
+                  // paddingLeft: '16px', 
+                },
+              }}
+              >
     <Box 
       display="flex" 
       alignItems="center"
@@ -1007,7 +1040,19 @@ useEffect(() => {
         </Grid>
 
         {/* Right-Side Content Section */}
-        <Grid item xs={12} md={4} className="mobile-screen-container" sx={{
+        <Grid item 
+        xs={12} md={4} lg={4} xl={4}
+        sx={{
+                width: '100%',
+                // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint starts at 900px)
+                '@media (min-width: 900px)': {
+                  width: '35%',
+                  // Ensure padding/margins are also respected in the grid layout
+                  // paddingLeft: '16px', 
+                },
+              }}
+        
+        className="mobile-screen-container" sx={{
     border: { xs: "none", md: "1px solid black" },
     borderRadius: { xs: "none", md: "25px" },
     position:{xs:"none",md:"absolute"},
@@ -1204,8 +1249,22 @@ useEffect(() => {
           </Grid>
 
           {/* Stats */}
-          <Grid container spacing={2} mb={2} >
-            <Grid item xs={6} sx={{ p: "8px", }}>
+           {/* spacing={2} */}
+          <Grid container mb={2} >
+            <Grid item 
+            sx={{
+              p: "8px",
+                width: '100%',
+                // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint starts at 900px)
+                '@media (min-width: 900px)': {
+                  width: '50%',
+                  // Ensure padding/margins are also respected in the grid layout
+                  // paddingLeft: '16px', 
+                },
+              }}
+            xs={6} 
+          
+            >
               <Card>
                 <CardContent sx={{ paddingX: "8px", background:"#ececec" }}>
                   <Typography
@@ -1224,7 +1283,20 @@ useEffect(() => {
               </Card>
             </Grid>
 
-            <Grid item xs={6} sx={{ p: "8px" }}>
+            <Grid item 
+            xs={6}
+            sx={{
+              p: "8px",
+                width: '100%',
+                // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint starts at 900px)
+                '@media (min-width: 900px)': {
+                  width: '50%',
+                  // Ensure padding/margins are also respected in the grid layout
+                  // paddingLeft: '16px', 
+                },
+              }}
+            // sx={{ p: "8px" }}
+            >
               <Card sx={{ backgroundColor: "#FFF5D7" }}>
                 <CardContent sx={{ paddingX: "8px" }}>
                   <Typography
@@ -1244,7 +1316,19 @@ useEffect(() => {
               </Card>
             </Grid>
 
-            <Grid item xs={12} sx={{ p: "8px" }}>
+            <Grid item 
+            xs={12}
+            sx={{
+              p: "8px",
+                width: '100%',
+                // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint starts at 900px)
+                '@media (min-width: 900px)': {
+                  width: '100%',
+                  // Ensure padding/margins are also respected in the grid layout
+                  // paddingLeft: '16px', 
+                },
+              }}
+             >
               <Card sx={{ backgroundColor: "#D7EFFF" }}>
                 <CardContent
                   sx={{
@@ -1678,7 +1762,20 @@ useEffect(() => {
       </Grid>
 
       <Grid container>
-        <Grid item xs={12} md={8} marginTop={"8%"} sx={{ fontFamily: '"poppins", sans-serif !important'  }}>
+        <Grid item 
+        xs={12} md={8} 
+        sx={{
+          fontFamily: '"poppins", sans-serif !important'  ,
+                width: '100%',
+                // Force 50% width explicitly for desktop sizes (MUI 'md' breakpoint starts at 900px)
+                '@media (min-width: 900px)': {
+                  width: '65%',
+                  // Ensure padding/margins are also respected in the grid layout
+                  // paddingLeft: '16px', 
+                },
+              }}
+
+        marginTop={"8%"} >
                     {/* Text Below the Chart */}
           <Box sx={{ display: { xs: "block", md: "block",textAlign:'left'}, mt: 1, mr: 1,ml:1 }}>
         
