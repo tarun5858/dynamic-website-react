@@ -931,7 +931,6 @@ useEffect(() => {
           <Grid
   container
   px={5}
-  spacing={2}
   mb={2}
   sx={{
     display: { xs: "none", md: "flex" },

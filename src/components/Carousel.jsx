@@ -19,7 +19,7 @@ const Carousel = () => {
       className="carousel slide"
       data-bs-ride="carousel"
     >
-      <div className="carousel-indicators " style={{marginLeft:"4%"}}>
+      <div className="carousel-indicators " style={{marginLeft:"4%",position:"absolute",left:"0"}}>
         <button
           type="button"
           data-bs-target="#carouselExampleIndicators"
