@@ -29,6 +29,7 @@ const CustomSlider = ({
       </Typography>
       <Box sx={{ paddingLeft: "8px", paddingRight: "8px" }}>
         <Slider
+          sx={{ width:{xs:"100%", md:"22%", lg:"22%"} }}
           value={value}
           onChange={onChange}
           onChangeCommitted={onChangeCommitted}

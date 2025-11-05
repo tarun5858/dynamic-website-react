@@ -132,7 +132,7 @@ font-weight: 600!important;
 }
 
 .container{
-  padding: 10px;
+  /* padding: 10px; */
 }
 .poppins-thin {
   font-family: "Poppins", sans-serif;
@@ -12403,7 +12403,7 @@ border-radius: 15px;
   z-index: 9999999;
 }
   .container {
-    padding: 3% !important;
+    /* padding: 3% !important; */
   }
   .calculator-subhead {
     /* margin-top: 35%; */

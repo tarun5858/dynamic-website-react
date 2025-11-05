@@ -123,7 +123,7 @@ const MonthlyBudgetCalculator = () => {
               <Box
                 textAlign="left"
                 my={4}
-                padding="0px 15% 0px 0px"
+                padding="0px 16% 0px 0px"
                 className="Emi-calc-box"
               >
                 <Typography
@@ -473,7 +473,7 @@ const MonthlyBudgetCalculator = () => {
         ) : (
           <>
             {/* Mobile View */}
-            <Box textAlign="center" my={4} sx={{ padding: { xs: "16px" } }}>
+            <Box textAlign="center" my={1} sx={{ padding: { xs: "20px" } }}>
               <Typography
                 variant="h6"
                 fontWeight="bold"

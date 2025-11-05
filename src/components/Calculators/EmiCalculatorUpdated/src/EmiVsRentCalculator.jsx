@@ -500,7 +500,7 @@ const EmiVsRentCalculator = () => {
                     max={75}
                     step={5}
                     percent={true}
-                    width={100}
+                
 
                   />
 
