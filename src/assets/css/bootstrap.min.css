@@ -5862,6 +5862,7 @@ fieldset:disabled .btn {
 @media (max-width:800px) {
   .carousel-indicators {
     margin-bottom: -2rem;
+    
   }
 }
 .carousel-indicators [data-bs-target] {

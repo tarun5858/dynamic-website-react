@@ -11364,7 +11364,7 @@ label {
     }
     .carousel-indicators {
       position: absolute;
-      /* right: 0; */
+      left: 0!important;
       bottom: -50px;
       left: 0;
      
