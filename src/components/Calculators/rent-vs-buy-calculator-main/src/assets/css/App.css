@@ -11043,9 +11043,9 @@ label {
     }
     .carousel-indicators {
       position: absolute;
-      right: 0;
+      /* right: 0; */
       bottom: -50px;
-      left: 0;
+      left: 0!important;
      
   }
    
@@ -11456,7 +11456,7 @@ justify-content: space-between;
   }
   .carousel-indicators {
       position: absolute;
-  /* right: 0; */
+  left: 0!important;
   bottom:-50px;
   left: 0;
   z-index: 2;

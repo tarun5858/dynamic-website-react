@@ -1,7 +1,7 @@
 import React from "react";
 import "../App.css";
 
-const LargeBlueCta = ({text}) =>{
+const LargeBlueCta = ({text,onClick}) =>{
     return(
         
         <button 
@@ -10,7 +10,7 @@ const LargeBlueCta = ({text}) =>{
                   data-delay-in="0.9"
                   data-bs-toggle="modal"
                   data-bs-target="#exampleModal"
-               
+               onClick={onClick}
                   >
             {text}
         </button>

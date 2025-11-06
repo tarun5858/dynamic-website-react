@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import "./StepIndicator.css";
-import { href } from "react-router-dom";
+// import { href } from "react-router-dom";
 
 import axios from "axios";
 import logo2 from "../assets/img/filter_2.png";
 import logo3 from "../assets/img/filter_3.png";
 import logo4 from "../assets/img/more_horiz.png";
+
+const GA_MEASUREMENT_ID = 'G-J6QTGHD4CX';
 
 const BootstrapModal = () => {
   const [currentTab, setCurrentTab] = useState(1); // State to track the current tab
@@ -184,6 +186,32 @@ const BootstrapModal = () => {
  // setErrorMessage("Failed to submit form. Please try again.");
  }
 };
+
+// --- NEW Tracking Logic ---
+    
+    // 1. This new function wraps the form's normal submit flow
+    const handleFormSubmitAndTrack = (e) => {
+        e.preventDefault(); 
+        
+        if (validate1()) {
+            // Run the actual submission logic
+            handleSubmit(e);
+            
+            // 2. Fire the Google Analytics Event for successful submission
+            if (typeof window.gtag === 'function') {
+                window.gtag('event', 'lead_generation', {
+                    'event_category': 'form_submission',
+                    'event_label': 'waitlist_signup_complete', // Specific conversion event
+                    'send_to': GA_MEASUREMENT_ID
+                });
+                console.log('GA: Form submission tracked successfully!');
+            } else {
+                console.warn('GA: Tracking failed. window.gtag is not defined.');
+            }
+        }
+    };
+
+
   return (
     <div
       className="modal fade"
@@ -809,13 +837,14 @@ const BootstrapModal = () => {
  type="submit"
  style={{ display: currentTab === 2 ? "inline-block" : "none" }}
  className="theme-btn-form-btn btn-radius"
- onClick={(e) => {
-  e.preventDefault(); 
-  // Prevent default form submission
-  if (validate1()) { // Use validate1() for final tab check
-  handleSubmit(e); 
- }
- }}
+//  onClick={(e) => {
+//   e.preventDefault(); 
+//   // Prevent default form submission
+//   if (validate1()) { // Use validate1() for final tab check
+//   handleSubmit(e); 
+//  }
+//  }}
+onClick={ handleFormSubmitAndTrack }
 >
  Keep me posted
 </button>

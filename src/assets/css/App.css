@@ -12361,6 +12361,7 @@ z-index: 999; */
 .benefit-txt img {
     height: 40%;
     width: 40%;
+    object-fit: contain;
 }
 
 .video-container {

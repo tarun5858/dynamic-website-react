@@ -24,6 +24,30 @@ const Home = () => {
   const data = TextImageData;
 
 
+  const GA_MEASUREMENT_ID = 'G-J6QTGHD4CX'; // Your GA ID
+
+    // This function handles both the tracking AND the action (opening modal)
+    const handleWaitlistClick = () => {
+        
+        // 1. Check if gtag exists and fire the GA event
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'cta_click', {
+                'event_category': 'lead_generation',
+                'event_label': 'homepage_waitlist_cta', // Specific, descriptive label
+                'send_to': GA_MEASUREMENT_ID
+            });
+            console.log('GA: Waitlist CTA Click tracked successfully.');
+        } else {
+            console.warn('GA: Tracking failed. window.gtag is not defined.');
+        }
+
+        // 2. Execute the primary action (e.g., open the modal)
+        // In a real app, you would call your state setter or ref to open the modal here.
+        // For demonstration, we'll use a console message.
+        console.log('Action: Opening the waitlist modal now...');
+    };
+
+
   return (
     <>
       <section className=" section-padding-home text-md-start" style={{paddingTop: "1%",backgroundColor: "#F7F7F7"}}>
@@ -48,7 +72,7 @@ const Home = () => {
               >
                 Join our waitlist
               </a> */}
-                  <LargeBlueCta text="Join our waitlist"></LargeBlueCta>
+                  <LargeBlueCta text="Join our waitlist" onClick={handleWaitlistClick}></LargeBlueCta>
                 </div>
               </div>
               <div className="col-12 col-sm-12 col-md-6 col-lg-6">
