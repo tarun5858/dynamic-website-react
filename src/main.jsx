@@ -2,18 +2,18 @@ import { createRoot } from 'react-dom/client'
 import React from 'react';
 import { BrowserRouter } from "react-router-dom";
 
-// 🛑 STEP 1: MUI/EMOTION PROVIDER IMPORTS (Must be first)
+//  STEP 1: MUI/EMOTION PROVIDER IMPORTS (Must be first)
 import MuiRootProvider from './components/MuiRootProvider.jsx';
 
-// 🛑 STEP 2: APPLICATION IMPORTS 
+// STEP 2: APPLICATION IMPORTS 
 import App from './App.jsx'
 import AnalyticsTracker from './components/AnalyticsTracker.jsx';
 
-// 🛑 STEP 3: GLOBAL STYLES (LOAD LAST)
+// STEP 3: GLOBAL STYLES (LOAD LAST)
 import './index.css'
 
 // --------------------------------------------------------------------------
-// 🔴 CRITICAL TEST: COMMENT OUT BOOTSTRAP CSS 
+// CRITICAL TEST: COMMENT OUT BOOTSTRAP CSS 
 // This line often interferes with Material-UI's CSS-in-JS build process.
 // We are leaving the JS bundle to ensure components function, but removing 
 // the CSS to see if the responsive styles (MuiGrid-grid-md-6) return.
