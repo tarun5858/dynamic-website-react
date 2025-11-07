@@ -16,10 +16,27 @@ const Carousel = () => {
   return (
     <div
       id="carouselExampleIndicators"
-      className="carousel slide"
+      className="carousel slide "
       data-bs-ride="carousel"
+      style={{ position: 'relative' ,minHeight: '410px' }}
     >
-      <div className="carousel-indicators " style={{marginLeft:"4%",position:"absolute",left:"0"}}>
+      <div className="carousel-indicators " 
+      // style={{marginLeft:"4%",position:"absolute",left:"0"}}
+      style={{
+                    position: "absolute",
+                    
+                    // FIX: Locks vertical position 1.5rem from the bottom of the main container
+                    bottom: '1.5rem', 
+                    
+                    // FIX: Overrides Bootstrap's default centering transform
+                    marginLeft: "2%",
+                    // right: "auto", 
+                    transform: "none", 
+                    margin: 0, 
+                    justifyContent: "flex-start",
+                    zIndex: 10,
+                }}
+      >
         <button
           type="button"
           data-bs-target="#carouselExampleIndicators"

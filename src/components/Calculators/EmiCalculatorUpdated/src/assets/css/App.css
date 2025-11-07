@@ -2426,10 +2426,10 @@ nav .breadcrumb li {
     width: 135px!important;
       height: 40px!important;
   }
+  /* right: 0; */
   .carousel-indicators {
     position: absolute;
-/* right: 0; */
-left: 0;
+left: 0!important;
 bottom: -80px!important;;
 left: 0;
 z-index: 2;
@@ -10886,6 +10886,32 @@ label {
 }
 
 @media (max-width: 767px) {
+    .carousel-indicators .active {
+    opacity: 1;
+    width: 38px!important;
+    border-radius: 100px;
+}
+
+.carousel-indicators [data-bs-target] {
+    box-sizing: content-box;
+    flex: 0 1 auto;
+    background-color: #0086AD;
+    height: 25px!important;
+    width: 25px;
+    border-radius: 50%;
+    padding: 0;
+    margin-right: 3px;
+    margin-left: 3px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-clip: padding-box;
+    border: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    opacity: 0.5;
+    transition: opacity 0.6s ease;
+}
+
   .chart-with-whatsapp span {
 
     display: none;
@@ -11161,9 +11187,12 @@ text-align: left;
   }
   .carousel-p{
     font-size: 14px!important;
-    line-height: 1.2;
+    line-height: 1.4;
   }
-
+.carousel-parent{
+  position: 'relative';
+   min-height: '335px';
+}
   .carousel-h3{
     text-align: center!important;
     font-size: 16px!important;
@@ -11452,11 +11481,12 @@ justify-content: space-between;
     color: #000929!important;
     text-align: left;
   }
+  /* right: 0; */
   .carousel-indicators {
       position: absolute;
-  /* right: 0; */
   bottom:-50px;
-  left: 0!important;
+  /* left: 0!important; */
+  margin-left: 9%!important;
   z-index: 2;
   display: flex;
   padding: 0;
@@ -11469,12 +11499,12 @@ justify-content: space-between;
 
 
   .carousel-indicators .active {
-    /* opacity: 1!important; */
-    /* width: 45px!important;
-    border-radius: 100px!important; */
+    opacity: 1;
+    width: 40px;
+    border-radius: 100px;
 }
 
-/* .carousel-indicators [data-bs-target] {
+.carousel-indicators [data-bs-target] {
     box-sizing: content-box;
     flex: 0 1 auto;
     background-color: #0086AD;
@@ -11492,7 +11522,7 @@ justify-content: space-between;
     border-bottom: 10px solid transparent;
     opacity: 0.5;
     transition: opacity 0.6s ease;
-} */
+}
 /* .video-container{
   margin: 5% 0;
 }
