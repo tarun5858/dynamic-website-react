@@ -7,7 +7,7 @@ import logo2 from "../assets/img/filter_2.png";
 import logo3 from "../assets/img/filter_3.png";
 import logo4 from "../assets/img/more_horiz.png";
 
-// const GA_MEASUREMENT_ID = 'G-J6QTGHD4CX';
+const GA_MEASUREMENT_ID = 'G-J2LQXQ630G';
 
 const BootstrapModal = () => {
   const [currentTab, setCurrentTab] = useState(1); // State to track the current tab
@@ -190,54 +190,54 @@ const BootstrapModal = () => {
 // --- NEW Tracking Logic ---
     
     // 1. This new function wraps the form's normal submit flow
-    // const handleFormSubmitAndTrack = (e) => {
-    //     e.preventDefault(); 
-        
-    //     if (validate1()) {
-    //         // Run the actual submission logic
-    //         handleSubmit(e);
-            
-    //         // 2. Fire the Google Analytics Event for successful submission
-    //         if (typeof window.gtag === 'function') {
-    //             window.gtag('event', 'lead_generation', {
-    //                 'event_category': 'form_submission',
-    //                 'event_label': 'waitlist_signup_complete', // Specific conversion event
-    //                 'send_to': GA_MEASUREMENT_ID
-    //             });
-    //             console.log('GA: Form submission tracked successfully!');
-    //         } else {
-    //             console.warn('GA: Tracking failed. window.gtag is not defined.');
-    //         }
-    //     }
-    // };
-
     const handleFormSubmitAndTrack = (e) => {
-    e.preventDefault(); 
-    
-    if (validate1()) {
-        // 1. Run the actual submission logic (must happen first)
-        handleSubmit(e);
+        e.preventDefault(); 
         
-        // 2. Fire the Google Tag Manager Event for successful submission
-        if (typeof window.dataLayer !== 'undefined') {
+        if (validate1()) {
+            // Run the actual submission logic
+            handleSubmit(e);
             
-            // Push an 'event' object to the dataLayer.
-            window.dataLayer.push({
-                event: 'lead_generation', // Event name used in GTM Trigger
-                
-                // Event Parameters
-                event_category: 'form_submission',
-                event_label: 'waitlist_signup_complete', // Specific conversion event
-                
-                // You can include dynamic data here if needed (e.g., plan_selected)
-            });
-            
-            console.log('GTM: Form submission tracked successfully via dataLayer!');
-        } else {
-            console.warn('GTM: Tracking failed. window.dataLayer is not defined.');
+            // 2. Fire the Google Analytics Event for successful submission
+            if (typeof window.gtag === 'function') {
+                window.gtag('event', 'lead_generation', {
+                    'event_category': 'form_submission',
+                    'event_label': 'waitlist_signup_complete', // Specific conversion event
+                    'send_to': GA_MEASUREMENT_ID
+                });
+                console.log('GA: Form submission tracked successfully!');
+            } else {
+                console.warn('GA: Tracking failed. window.gtag is not defined.');
+            }
         }
-    }
-};
+    };
+
+//     const handleFormSubmitAndTrack = (e) => {
+//     e.preventDefault(); 
+    
+//     if (validate1()) {
+//         // 1. Run the actual submission logic (must happen first)
+//         handleSubmit(e);
+        
+//         // 2. Fire the Google Tag Manager Event for successful submission
+//         if (typeof window.dataLayer !== 'undefined') {
+            
+//             // Push an 'event' object to the dataLayer.
+//             window.dataLayer.push({
+//                 event: 'lead_generation', // Event name used in GTM Trigger
+                
+//                 // Event Parameters
+//                 event_category: 'form_submission',
+//                 event_label: 'waitlist_signup_complete', // Specific conversion event
+                
+//                 // You can include dynamic data here if needed (e.g., plan_selected)
+//             });
+            
+//             console.log('GTM: Form submission tracked successfully via dataLayer!');
+//         } else {
+//             console.warn('GTM: Tracking failed. window.dataLayer is not defined.');
+//         }
+//     }
+// };
 
   return (
     <div

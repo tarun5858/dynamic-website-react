@@ -24,55 +24,55 @@ const Home = () => {
   const data = TextImageData;
 
 
-  // const GA_MEASUREMENT_ID = 'G-J6QTGHD4CX'; // Your GA ID
+  const GA_MEASUREMENT_ID = 'G-J2LQXQ630G'; // Your GA ID
 
   //   // This function handles both the tracking AND the action (opening modal)
-  //   const handleWaitlistClick = () => {
+    const handleWaitlistClick = () => {
         
-  //       // 1. Check if gtag exists and fire the GA event
-  //       if (typeof window.gtag === 'function') {
-  //           window.gtag('event', 'cta_click', {
-  //               'event_category': 'lead_generation',
-  //               'event_label': 'homepage_waitlist_cta', // Specific, descriptive label
-  //               'send_to': GA_MEASUREMENT_ID
-  //           });
-  //           console.log('GA: Waitlist CTA Click tracked successfully.');
-  //       } else {
-  //           console.warn('GA: Tracking failed. window.gtag is not defined.');
-  //       }
+        // 1. Check if gtag exists and fire the GA event
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'cta_click', {
+                'event_category': 'lead_generation',
+                'event_label': 'homepage_waitlist_cta', // Specific, descriptive label
+                'send_to': GA_MEASUREMENT_ID
+            });
+            console.log('GA: Waitlist CTA Click tracked successfully.');
+        } else {
+            console.warn('GA: Tracking failed. window.gtag is not defined.');
+        }
 
-  //       // 2. Execute the primary action (e.g., open the modal)
-  //       // In a real app, you would call your state setter or ref to open the modal here.
-  //       // For demonstration, we'll use a console message.
-  //       console.log('Action: Opening the waitlist modal now...');
-  //   };
+        // 2. Execute the primary action (e.g., open the modal)
+        // In a real app, you would call your state setter or ref to open the modal here.
+        // For demonstration, we'll use a console message.
+        console.log('Action: Opening the waitlist modal now...');
+    };
 
-  const handleWaitlistClick = () => {
+//   const handleWaitlistClick = () => {
     
-    // 1. Check if dataLayer exists (initialized by the GTM script)
-    if (typeof window.dataLayer !== 'undefined') {
+//     // 1. Check if dataLayer exists (initialized by the GTM script)
+//     if (typeof window.dataLayer !== 'undefined') {
         
-        // Push an 'event' object to the dataLayer.
-        // The event name ('cta_click') will be used in GTM to trigger the GA tag.
-        window.dataLayer.push({
-            event: 'cta_click', 
+//         // Push an 'event' object to the dataLayer.
+//         // The event name ('cta_click') will be used in GTM to trigger the GA tag.
+//         window.dataLayer.push({
+//             event: 'cta_click', 
             
-            // Send the contextual parameters (no 'send_to' needed)
-            event_category: 'lead_generation',
-            event_label: 'homepage_waitlist_cta', 
+//             // Send the contextual parameters (no 'send_to' needed)
+//             event_category: 'lead_generation',
+//             event_label: 'homepage_waitlist_cta', 
             
-            // You can also add non-standard variables for custom dimensions/metrics
-            // page_location: window.location.href 
-        });
+//             // You can also add non-standard variables for custom dimensions/metrics
+//             // page_location: window.location.href 
+//         });
         
-        console.log('GTM: Waitlist CTA Click tracked successfully via dataLayer.');
-    } else {
-        console.warn('GTM: Tracking failed. window.dataLayer is not defined.');
-    }
+//         console.log('GTM: Waitlist CTA Click tracked successfully via dataLayer.');
+//     } else {
+//         console.warn('GTM: Tracking failed. window.dataLayer is not defined.');
+//     }
 
-    // 2. Execute the primary action (e.g., open the modal)
-    console.log('Action: Opening the waitlist modal now...');
-};
+//     // 2. Execute the primary action (e.g., open the modal)
+//     console.log('Action: Opening the waitlist modal now...');
+// };
 
   return (
     <>
