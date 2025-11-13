@@ -4,24 +4,6 @@ import { Link } from "react-router-dom";
 const RelatedBlogCards = ({ currentTags, currentId,currentBlog }) => {
   const [blogs, setBlogs] = useState([]);
 
-  // useEffect(() => {
-  //   const fetchBlogs = async () => {
-  //     try {
-  //       const res = await fetch("http://localhost:5000/api/blogs");
-        
-  //       const data = await res.json();
-  //       setBlogs(data);
-  //     } catch (err) {
-  //       console.error("Failed to fetch blogs", err);
-  //     }
-  //   };
-  //   fetchBlogs();
-  // }, []);
-
-  // NOTE: This assumes 'currentBlog' is available (via props or context)
-// and has the property you want to use for filtering (e.g., 'topic').
-// If you don't have currentBlog, remove the filtering logic.
-
 useEffect(() => {
     const fetchBlogs = async () => {
         try {

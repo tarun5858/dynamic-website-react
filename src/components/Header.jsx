@@ -31,9 +31,9 @@ const Header = () => {
             {/* Logo */}
             <div className="col-lg-1 col-sm-3 col-md-3 col-6 pr-lg-5">
               <div className="logo">
-                <a href="/">
+                <Link to="/">
                   <img src={icon} alt="Prehome" />
-                </a>
+                </Link>
               </div>
             </div>
 

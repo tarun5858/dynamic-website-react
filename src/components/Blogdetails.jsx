@@ -246,53 +246,6 @@ useEffect(() => {
   </>
 )}
 
-                          {/* <ul className="blog-text-ul">
-                            {Array.isArray(scheme.benefits) && scheme.benefits.map((benefit, benefitIndex) => {
-                              // Images targeted to a specific benefit
-                              const benefitPlacements = placements.filter(p =>
-                                p.section === subArrayKey &&
-                                p.schemeIndex === schemeIndex &&
-                                p.benefitIndex === benefitIndex
-                              );
-                              const bBefore = benefitPlacements.filter(p => (p.position || "after") === "before");
-                              const bAfter  = benefitPlacements.filter(p => (p.position || "after") === "after");
-
-                              return (
-                                <li key={benefitIndex}>
-                                  {bBefore.map((p, i) => renderInjectedImage(p, `${listKey}-b-${benefitIndex}-before-${i}`))}
-                                  {benefit}
-                                  {bAfter.map((p, i) => renderInjectedImage(p, `${listKey}-b-${benefitIndex}-after-${i}`))}
-                                </li>
-                              );
-                            })}
-                          </ul> */}
-                          {/* <ul className="blog-text-ul">
-                         <p>{blog.beforeContent} </p>  
-  {Array.isArray(scheme.benefits) &&
-    scheme.benefits
-      .filter(benefit => benefit && benefit.trim() !== "") // remove blanks
-      .map((benefit, benefitIndex) => {
-        // Images targeted to a specific benefit
-        const benefitPlacements = placements.filter(p =>
-          p.section === subArrayKey &&
-          p.schemeIndex === schemeIndex &&
-          p.benefitIndex === benefitIndex
-        );
-        const bBefore = benefitPlacements.filter(p => (p.position || "after") === "before");
-        const bAfter  = benefitPlacements.filter(p => (p.position || "after") === "after");
-
-        return (
-          <li key={benefitIndex}>
-            {bBefore.map((p, i) => renderInjectedImage(p, `${listKey}-b-${benefitIndex}-before-${i}`))}
-            {benefit}
-            {bAfter.map((p, i) => renderInjectedImage(p, `${listKey}-b-${benefitIndex}-after-${i}`))}
-          </li>
-          
-        );
-      })}
-      <p>{blog.afterContent} </p> 
-</ul> */}
-
 
 <ul className="blog-text-ul">
   {/* Before Content */}

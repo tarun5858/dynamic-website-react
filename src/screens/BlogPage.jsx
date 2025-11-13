@@ -11,192 +11,77 @@ const BlogPage = () => {
   const scrollContainerRef = useRef(null);
   const scrollAmount = 150;
 
-  // Fetch blogs from backend API
-// useEffect(() => {
-//   fetch("http://localhost:5000/api/blogs")
-//     .then((res) => res.json())
-//     .then((data) => {
-//       setBlogs(data); // No sorting applied
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      setLoading(true); // Ensure loading is true before fetch
 
-//       const extractedTopics = [
-//         ...new Set(
-//           data.flatMap((blog) =>
-//             Array.isArray(blog.points) ? blog.points : []
-//           )
-//         ),
-//       ].reverse();
+      try {
+        const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/api/blogs`;
+        const response = await fetch(apiUrl);
 
-//       setTopics(["ALL BLOGS", ...extractedTopics]);
-//       setLoading(false);
-//     })
-//     .catch((err) => {
-//       console.error(err);
-//       setLoading(false);
-//     });
-// }, []);
+        // --- CRITICAL CHECK: Handle HTTP Errors ---
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
 
+        const data = await response.json();
+        console.log("Fetched data object:", data);
 
-// useEffect(() => {
-//   // fetch("http://localhost:5000/api/blogs")
-//   fetch("https://dynamic-blog-server-g5ea.onrender.com/api/blogs?page=1&limit=50")
-//     .then((res) => res.json())
-//     .then((data) => {
-//       // Sort blogs in descending order (for listing only)
-//       // const sortedData = [...data].sort(
-//       //   (a, b) => new Date(b.date) - new Date(a.date)
-//       // );
-//       // setBlogs(sortedData);
-//       const sortedData = [...data.data].sort(
-//   (a, b) => new Date(b.date) - new Date(a.date)
-// );
-// setBlogs(sortedData);
+        // --- CRITICAL CHANGE: Determine Blog Array ---
+        // 1. Try accessing data.data (if your API wraps the array)
+        // 2. Fall back to data (if your API returns the array directly)
+        const blogsArray =
+          data.data && Array.isArray(data.data)
+            ? data.data
+            : Array.isArray(data)
+            ? data
+            : [];
 
-//       // Create topic list in the order of first API load
-//       setTopics((prevTopics) => {
-//         const currentTopics = new Set(prevTopics);
-//         const newTopics = [].reverse();
+        console.log("Blogs array for state:", blogsArray);
 
-//         data.forEach((blog) => {
-//           if (Array.isArray(blog.points)) {
-//             blog.points.forEach((point) => {
-//               if (!currentTopics.has(point)) {
-//                 currentTopics.add(point);
-//                 newTopics.push(point); // Append new topic
-//               }
-//             });
-//           }
-//         });
+        if (blogsArray.length === 0) {
+          console.warn(
+            "API returned successful response but the blog array is empty or misstructured."
+          );
+        }
 
-//         // Always keep "ALL BLOGS" at the start
-//         return prevTopics.length === 0
-//           ? ["ALL BLOGS", ...newTopics]
-//           : [...prevTopics, ...newTopics];
-//       });
+        // Sort blogs by date (newest first) - Logic is correct
+        const sortedData = [...blogsArray].sort(
+          (a, b) => new Date(b.date) - new Date(a.date)
+        );
 
-//       setLoading(false);
-//     })
-//     .catch((err) => {
-//       console.error(err);
-//       setLoading(false);
-//     });
-// }, []);
+        setBlogs(sortedData);
 
-// new code
-// useEffect(() => {
-//   // fetch("https://dynamic-blog-server-g5ea.onrender.com/api/blogs?page=1&limit=50")
-//   fetch("https://dynamic-blog-server-g5ea.onrender.com/api/blogs")
-//     .then((res) => res.json())
-//     .then((data) => {
-//       const blogsArray = data.data || [];
+        // Build topic list dynamically
+        setTopics((prevTopics) => {
+          const currentTopics = new Set(prevTopics);
+          const newTopics = [];
 
-//       // Sort blogs by date descending
-//       const sortedData = [...blogsArray].sort(
-//         (a, b) => new Date(b.date) - new Date(a.date)
-//       );
-//       setBlogs(sortedData);
+          blogsArray.forEach((blog) => {
+            if (Array.isArray(blog.points)) {
+              blog.points.forEach((point) => {
+                if (!currentTopics.has(point)) {
+                  currentTopics.add(point);
+                  newTopics.push(point);
+                }
+              });
+            }
+          });
 
-//       // Build topic list
-//       setTopics((prevTopics) => {
-//         const currentTopics = new Set(prevTopics);
-//         const newTopics = [];
-
-//         blogsArray.forEach((blog) => {
-//           if (Array.isArray(blog.points)) {
-//             blog.points.forEach((point) => {
-//               if (!currentTopics.has(point)) {
-//                 currentTopics.add(point);
-//                 newTopics.push(point);
-//               }
-//             });
-//           }
-//         });
-
-//         return prevTopics.length === 0
-//           ? ["ALL BLOGS", ...newTopics]
-//           : [...prevTopics, ...newTopics];
-//       });
-
-//       setLoading(false);
-//     })
-//     .catch((err) => {
-//       console.error(err);
-//       setLoading(false);
-//     });
-// }, []);
-
-
-useEffect(() => {
-  const fetchBlogs = async () => {
-    setLoading(true); // Ensure loading is true before fetch
-
-    try {
-      const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/api/blogs`;
-      const response = await fetch(apiUrl);
-
-      // --- CRITICAL CHECK: Handle HTTP Errors ---
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      
-      const data = await response.json();
-      console.log("Fetched data object:", data); 
-
-      // --- CRITICAL CHANGE: Determine Blog Array ---
-      // 1. Try accessing data.data (if your API wraps the array)
-      // 2. Fall back to data (if your API returns the array directly)
-      const blogsArray = data.data && Array.isArray(data.data) 
-                         ? data.data 
-                         : (Array.isArray(data) ? data : []);
-      
-      console.log("Blogs array for state:", blogsArray); 
-      
-      if (blogsArray.length === 0) {
-          console.warn("API returned successful response but the blog array is empty or misstructured.");
-      }
-
-      // Sort blogs by date (newest first) - Logic is correct
-      const sortedData = [...blogsArray].sort(
-        (a, b) => new Date(b.date) - new Date(a.date)
-      );
-
-      setBlogs(sortedData);
-      
-     // Build topic list dynamically
-      setTopics((prevTopics) => {
-        const currentTopics = new Set(prevTopics);
-        const newTopics = [];
-
-        blogsArray.forEach((blog) => {
-          if (Array.isArray(blog.points)) {
-            blog.points.forEach((point) => {
-              if (!currentTopics.has(point)) {
-                currentTopics.add(point);
-                newTopics.push(point);
-              }
-            });
-          }
+          return prevTopics.length === 0
+            ? ["ALL BLOGS", ...newTopics]
+            : [...prevTopics, ...newTopics];
         });
 
-        return prevTopics.length === 0
-          ? ["ALL BLOGS", ...newTopics]
-          : [...prevTopics, ...newTopics];
-      });
-      
-      setLoading(false);
+        setLoading(false);
+      } catch (err) {
+        console.error("Error fetching blogs:", err);
+        setLoading(false);
+      }
+    };
 
-    } catch (err) {
-      console.error("Error fetching blogs:", err);
-      setLoading(false);
-    }
-  };
-
-  fetchBlogs();
-}, []);
-
- 
-
-
-
+    fetchBlogs();
+  }, []);
 
   const filteredBlogs =
     activeTopic && activeTopic !== "ALL BLOGS"
@@ -246,24 +131,23 @@ useEffect(() => {
               ></i>{" "}
             </div>
             {/* <div className="topic-cta-container mb-4"> */}
-         <div
-  className="case-cat-filter-scroll-width"
-  ref={scrollContainerRef}
-  id="scrollContainer"
->
-  {[
-    "ALL BLOGS",
-    ...[...topics.filter((t) => t !== "ALL BLOGS")],
-  ].map((topic, index) => (
-    <TopicBarCta
-      key={index}
-      topic={topic}
-      isActive={activeTopic === topic}
-      onClick={() => setActiveTopic(topic)}
-    />
-  ))}
-</div>
-
+            <div
+              className="case-cat-filter-scroll-width"
+              ref={scrollContainerRef}
+              id="scrollContainer"
+            >
+              {[
+                "ALL BLOGS",
+                ...[...topics.filter((t) => t !== "ALL BLOGS")],
+              ].map((topic, index) => (
+                <TopicBarCta
+                  key={index}
+                  topic={topic}
+                  isActive={activeTopic === topic}
+                  onClick={() => setActiveTopic(topic)}
+                />
+              ))}
+            </div>
 
             {/* </div> */}
             <div className="icon-box">

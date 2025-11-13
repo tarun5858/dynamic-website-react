@@ -82,20 +82,13 @@ blogImage25
       <div className="blog-meta">
         <span>{blog.date}</span>
         <span> {blog.readTime} min read</span>
-        {/* <span> {blog.likes}</span> */}
       </div>
       <Link to={`/blog/${blog._id}`} className="blog-link">
         {" "}
         <p className="blod-desc">{blog.description}</p>
       </Link>
 
-      <div className="tags">
-        {/* {blog.tags.map((tag, index) => (
-          <button key={index} className="outline-cta">
-            {tag}
-          </button>
-        ))} */}
-      </div>
+     
     </div>
   );
 };

@@ -132,7 +132,10 @@ const HowItWorks = () => {
                 </p>
                 <h3 className="footer-h3">Let's write it together.</h3>
               </div>
-              <LargeBlueCta style={{width: "70%", height: "62px"}} text="Join us" />
+              <LargeBlueCta
+                style={{ width: "70%", height: "62px" }}
+                text="Join us"
+              />
             </div>
 
             <div className="col-4 col-sm-4 col-md-5  col-lg-4 col-xl-4 justify-content-center">

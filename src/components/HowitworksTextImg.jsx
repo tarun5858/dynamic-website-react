@@ -1,23 +1,24 @@
-import LargeBlueCta from "./LargeBlueCta";
 const howitworksTextImg = ({ data, srcNumber, srcIcon, reverse = false }) => {
   return (
     <div className="container container-lg">
-
       <div
-       className={`row align-items-center ${
-  reverse ? "flex-row-reverse flex-md-row-reverse" : "flex-row flex-md-row"
-}`}
-
-
+        className={`row align-items-center ${
+          reverse
+            ? "flex-row-reverse flex-md-row-reverse"
+            : "flex-row flex-md-row"
+        }`}
       >
-
         <div className="col-4 col-sm-4 col-md-5  col-lg-4 col-xl-4  ">
           <div
             className="about-images   mb-sm-0  aos-item section-title d-flex align-items-center"
             data-aos="zoom-in"
           >
             <div className="circle p-0 m-0">
-              <img src={srcNumber} alt="" style={{height:"50px", width:"50px"}} />
+              <img
+                src={srcNumber}
+                alt=""
+                style={{ height: "50px", width: "50px" }}
+              />
               <img src={srcIcon} alt="" />
             </div>
           </div>
@@ -33,7 +34,6 @@ const howitworksTextImg = ({ data, srcNumber, srcIcon, reverse = false }) => {
         </div>
         <div className="col-xl-2 col-lg-2 col-md-2 col-sm-0"></div>
       </div>
-
     </div>
   );
 };

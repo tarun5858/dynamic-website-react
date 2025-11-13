@@ -3,7 +3,7 @@ import {
   carouselImage1,
   carouselImage2,
   carouselImage3,
-  carouselIcon
+  carouselIcon,
 } from "../components/Imagepath";
 import CarouselData from "../data/CarouselData";
 
@@ -18,24 +18,24 @@ const Carousel = () => {
       id="carouselExampleIndicators"
       className="carousel slide "
       data-bs-ride="carousel"
-      style={{ position: 'relative' ,minHeight: '410px' }}
+      style={{ position: "relative", minHeight: "410px" }}
     >
-      <div className="carousel-indicators " 
-      // style={{marginLeft:"4%",position:"absolute",left:"0"}}
-      style={{
-                    position: "absolute",
-                    
-                    // FIX: Locks vertical position 1.5rem from the bottom of the main container
-                    bottom: '1.5rem', 
-                    
-                    // FIX: Overrides Bootstrap's default centering transform
-                    marginLeft: "2%",
-                    // right: "auto", 
-                    transform: "none", 
-                    margin: 0, 
-                    justifyContent: "flex-start",
-                    zIndex: 10,
-                }}
+      <div
+        className="carousel-indicators "
+        style={{
+          position: "absolute",
+
+          // FIX: Locks vertical position 1.5rem from the bottom of the main container
+          bottom: "1.5rem",
+
+          // FIX: Overrides Bootstrap's default centering transform
+          marginLeft: "2%",
+          // right: "auto",
+          transform: "none",
+          margin: 0,
+          justifyContent: "flex-start",
+          zIndex: 10,
+        }}
       >
         <button
           type="button"
@@ -61,7 +61,7 @@ const Carousel = () => {
 
       <div className="carousel-inner">
         {CarouselData.map((item, index) => {
-          const imageUrl = imageSrc[item.imgKey]; // ✅ dynamically fetch the correct image
+          const imageUrl = imageSrc[item.imgKey]; // dynamically fetch the correct image
 
           return (
             <div

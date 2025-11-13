@@ -7,7 +7,7 @@ import logo2 from "../assets/img/filter_2.png";
 import logo3 from "../assets/img/filter_3.png";
 import logo4 from "../assets/img/more_horiz.png";
 
-const GA_MEASUREMENT_ID = 'G-J2LQXQ630G';
+const GA_MEASUREMENT_ID = "G-J2LQXQ630G";
 
 const BootstrapModal = () => {
   const [currentTab, setCurrentTab] = useState(1); // State to track the current tab
@@ -85,160 +85,90 @@ const BootstrapModal = () => {
   const handleLocationSelection = (value) => {
     setSelectedLocation(value); // Update the selected location
   };
-  // const handleSubmit = async (e) => {
-  //   // e.preventDefault(); // Prevent default form submission
-
-  //   // Validate form data
-  //   if (!validate() || !validate1()) return;
-
-  //   try {
-  //     const payload = {
-  //       name: formData.name,
-  //       email: formData.email,
-  //       phone: formData.phone,
-  //       selectedLocation: selectedLocation,
-  //       otherLocation:
-  //         selectedLocation === "Other" ? formData.otherLocation : "",
-  //       selectedLayout: selectedLayout,
-  //       otherLayout: selectedLayout === "Other" ? formData.otherLayout : "",
-  //     };
-  //     console.log(payload);
-
-  //     const response = await axios.post(
-  //       "https://prehome-website-backend-service.onrender.com/submit-waitlist",
-  //       payload
-  //     );
-
-  //     // Handle success response
-  //     // alert("Form submitted successfully!");
-  //     window.location.href = "/";
-  //     console.log("Response from server:", response.data);
-
-  //     // Reset form and close modal
-  //     setFormData({
-  //       name: "",
-  //       email: "",
-  //       phone: "",
-  //       otherLocation: "",
-  //       otherLayout: "",
-  //     });
-  //     setSelectedLocation("");
-  //     setSelectedLayout("");
-  //     setCurrentTab(1);
-
-  //     document.querySelector("#exampleModal .btn-close").click();
-  //   } catch (error) {
-  //     console.error("Error submitting form:", error);
-  //     alert("Failed to submit form. Please try again.");
-  //   }
-  // };
-
 
   const handleSubmit = async (e) => {
-// If an event is passed (from button click), prevent default action
- if (e) {
-        e.preventDefault();
-    } 
-
- // Validate form data (Assuming validate() and validate1() exist in scope)
- if (!validate() || !validate1()) {
-        console.error("Form validation failed.");
-        return;
+    // If an event is passed (from button click), prevent default action
+    if (e) {
+      e.preventDefault();
     }
 
- try {
- const payload = {
- name: formData.name,
- email: formData.email,
- phone: formData.phone,
- selectedLocation: selectedLocation,
- otherLocation: selectedLocation === "Other" ? formData.otherLocation : "",
- selectedLayout: selectedLayout,
- otherLayout: selectedLayout === "Other" ? formData.otherLayout : "",
- };
- console.log("Submitting payload:", payload);
+    // Validate form data (Assuming validate() and validate1() exist in scope)
+    if (!validate() || !validate1()) {
+      console.error("Form validation failed.");
+      return;
+    }
 
- // 1. WAIT for the API call to complete successfully
- const response = await axios.post("https://prehome-website-backend-service.onrender.com/submit-waitlist", payload);
- console.log("Response from server:", response.data);
+    try {
+      const payload = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        selectedLocation: selectedLocation,
+        otherLocation:
+          selectedLocation === "Other" ? formData.otherLocation : "",
+        selectedLayout: selectedLayout,
+        otherLayout: selectedLayout === "Other" ? formData.otherLayout : "",
+      };
+      console.log("Submitting payload:", payload);
 
-        // 2. Clear state and close modal before redirecting (for good practice)
-        setFormData({
-            name: "", email: "", phone: "", otherLocation: "", otherLayout: "",
+      // 1. WAIT for the API call to complete successfully
+      const response = await axios.post(
+        "https://prehome-website-backend-service.onrender.com/submit-waitlist",
+        payload
+      );
+      console.log("Response from server:", response.data);
+
+      // 2. Clear state and close modal before redirecting (for good practice)
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        otherLocation: "",
+        otherLayout: "",
+      });
+      setSelectedLocation("");
+      setSelectedLayout("");
+      setCurrentTab(1);
+
+      // Safely close the modal if it's open (use a safer method than .click())
+      const closeButton = document.querySelector("#exampleModal .btn-close");
+      if (closeButton && typeof closeButton.click === "function") {
+        closeButton.click();
+      }
+
+      // 3. Redirect to the thank-you page
+      // NOTE: The redirect back to the home page MUST be handled by the /thank-you page itself.
+      window.location.href = "/thank-you";
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      // Use a custom message box or state to show the user the error, do NOT use alert()
+      // setErrorMessage("Failed to submit form. Please try again.");
+    }
+  };
+
+  // --- NEW Tracking Logic ---
+
+  // 1. This new function wraps the form's normal submit flow
+  const handleFormSubmitAndTrack = (e) => {
+    e.preventDefault();
+
+    if (validate1()) {
+      // Run the actual submission logic
+      handleSubmit(e);
+
+      // 2. Fire the Google Analytics Event for successful submission
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "lead_generation", {
+          event_category: "form_submission",
+          event_label: "waitlist_signup_complete", // Specific conversion event
+          send_to: GA_MEASUREMENT_ID,
         });
-        setSelectedLocation("");
-        setSelectedLayout("");
-        setCurrentTab(1);
-
-        // Safely close the modal if it's open (use a safer method than .click())
-        const closeButton = document.querySelector("#exampleModal .btn-close");
-        if (closeButton && typeof closeButton.click === 'function') {
-            closeButton.click();
-        }
-
- // 3. Redirect to the thank-you page
- // NOTE: The redirect back to the home page MUST be handled by the /thank-you page itself.
- window.location.href = "/thank-you"; 
-
- } catch (error) {
- console.error("Error submitting form:", error);
- // Use a custom message box or state to show the user the error, do NOT use alert()
- // setErrorMessage("Failed to submit form. Please try again.");
- }
-};
-
-// --- NEW Tracking Logic ---
-    
-    // 1. This new function wraps the form's normal submit flow
-    const handleFormSubmitAndTrack = (e) => {
-        e.preventDefault(); 
-        
-        if (validate1()) {
-            // Run the actual submission logic
-            handleSubmit(e);
-            
-            // 2. Fire the Google Analytics Event for successful submission
-            if (typeof window.gtag === 'function') {
-                window.gtag('event', 'lead_generation', {
-                    'event_category': 'form_submission',
-                    'event_label': 'waitlist_signup_complete', // Specific conversion event
-                    'send_to': GA_MEASUREMENT_ID
-                });
-                console.log('GA: Form submission tracked successfully!');
-            } else {
-                console.warn('GA: Tracking failed. window.gtag is not defined.');
-            }
-        }
-    };
-
-//     const handleFormSubmitAndTrack = (e) => {
-//     e.preventDefault(); 
-    
-//     if (validate1()) {
-//         // 1. Run the actual submission logic (must happen first)
-//         handleSubmit(e);
-        
-//         // 2. Fire the Google Tag Manager Event for successful submission
-//         if (typeof window.dataLayer !== 'undefined') {
-            
-//             // Push an 'event' object to the dataLayer.
-//             window.dataLayer.push({
-//                 event: 'lead_generation', // Event name used in GTM Trigger
-                
-//                 // Event Parameters
-//                 event_category: 'form_submission',
-//                 event_label: 'waitlist_signup_complete', // Specific conversion event
-                
-//                 // You can include dynamic data here if needed (e.g., plan_selected)
-//             });
-            
-//             console.log('GTM: Form submission tracked successfully via dataLayer!');
-//         } else {
-//             console.warn('GTM: Tracking failed. window.dataLayer is not defined.');
-//         }
-//     }
-// };
-
+        console.log("GA: Form submission tracked successfully!");
+      } else {
+        console.warn("GA: Tracking failed. window.gtag is not defined.");
+      }
+    }
+  };
   return (
     <div
       className="modal fade"
@@ -827,57 +757,16 @@ const BootstrapModal = () => {
               >
                 Add me to the waitlist
               </button>
-              
-              {/* <button
+              <button
                 type="submit"
                 style={{ display: currentTab === 2 ? "inline-block" : "none" }}
                 className="theme-btn-form-btn btn-radius"
-                onClick={(e) => {
-                  e.preventDefault();
-                  // Prevent default form submission
-                  if (validate1()) {
-                    handleSubmit();
-                    window.location.href = "/thank-you";
-                    console.log("submit");
-                    // Close the modal after 5 seconds
-                    setTimeout(() => {
-                      const modal = document.getElementById("exampleModal");
-
-                      if (modal) {
-                        modal.classNameList.remove("show");
-                        modal.style.display = "none";
-                        document.body.classNameList.remove("modal-open");
-                        document.body.style.overflow = "auto";
-                        const backdrop =
-                          document.querySelector(".modal-backdrop");
-                        if (backdrop) {
-                          backdrop.remove();
-                        }
-                      }
-                    }, 5000);
-                  }
-                }}
+                onClick={handleFormSubmitAndTrack}
               >
                 Keep me posted
-              </button> */}
-               <button
- type="submit"
- style={{ display: currentTab === 2 ? "inline-block" : "none" }}
- className="theme-btn-form-btn btn-radius"
-//  onClick={(e) => {
-//   e.preventDefault(); 
-//   // Prevent default form submission
-//   if (validate1()) { // Use validate1() for final tab check
-//   handleSubmit(e); 
-//  }
-//  }}
-onClick={ handleFormSubmitAndTrack }
->
- Keep me posted
-</button>
+              </button>
             </div>
 
-            {/* Step Indicators */}
             {/* Step Indicators */}
             <div style={{ textAlign: "center", marginTop: "20px" }}>
               <span
@@ -887,6 +776,8 @@ onClick={ handleFormSubmitAndTrack }
                 className={`step ${currentTab === 2 ? "active" : ""}`}
               ></span>
             </div>
+            {/* Step Indicators */}
+
           </form>
         </div>
       </div>

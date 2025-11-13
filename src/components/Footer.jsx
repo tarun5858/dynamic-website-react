@@ -1,7 +1,8 @@
 import React from "react";
-// import Logo from "../assets/img/Logo-footer.svg";
 import Logo from "../assets/img/logo-footer.svg";
 import "../assets/css/App.css";
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   const footerStyles = {
     footer : {
@@ -42,9 +43,9 @@ const Footer = () => {
           <div className="row">
             <div className="col-sm-12 col-md-4 col-xl-4">
               <div className="about-quantech pe-md-5 pe-xl-0">
-                <a href="https://www.prehome.in/">
+                <Link to="/">
                   <img src={Logo} alt="Prehome" />
-                </a>
+                </Link>
                 <p
                   className="pt-md-4 pt-sm-4 mt-4 pb-md-3 pb-sm-1 f-24"
                   style={footerStyles.textWhite}
@@ -59,18 +60,19 @@ const Footer = () => {
                 <div className="col-sm-4 col-xl-6 pt-md-4 pt-sm-0">
                   <div className="single-footer-wid ps-xl-5">
                     <ul>
-                      <li><a href="https://www.prehome.in/">Home</a></li>
-                      <li><a href="https://www.prehome.in/ourstory">Our Story</a></li>
-                      <li><a href="https://www.prehome.in/blog">Blog</a></li>
-                      <li><a href="https://www.prehome.in/contactus">Contact us</a></li>
+                      <li>
+                        <Link to="/">Home </Link></li>
+                      <li><Link to="/our-story">Our Story</Link></li>
+                      <li><Link to="/blog">Blog</Link></li>
+                      <li><Link to="/contactus">Contact Us</Link></li>
                     </ul>
                   </div>
                 </div>
                 <div className="col-sm-12 col-md-8 col-xl-6 pt-md-4 pt-sm-0">
                   <div className="single-footer-wid ps-xl-2">
                     <ul>
-                      <li><a href="https://www.prehome.in/termsandconditions">Terms and Conditions</a></li>
-                      <li><a href="https://www.prehome.in/privacypolicy">Privacy Policy</a></li>
+                      <li><Link to="/termsandconditions">Terms & Conditions</Link></li>
+                        <li><Link to="/privacypolicy">Privacy Policy</Link></li>
                     </ul>
                   </div>
                 </div>

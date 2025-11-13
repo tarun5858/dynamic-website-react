@@ -10,16 +10,14 @@ import {
   carouselBackImgMobile,
   promiseImage1,
   promiseImage2,
-  promiseImage3
+  promiseImage3,
 } from "../components/Imagepath";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import OurstoryImgTextCard from "../components/OurstoryImgTextCard";
 import OurstoryData from "../data/OursotryData";
 import OurStoryCarousel from "../components/OurStoryCarousel";
 import OurPromiseCards from "../components/OurPromiseCards";
 import PreFooter from "../components/PreFooter";
-
-
 
 const OurStoryPage = () => {
   const imgSrc = {
@@ -30,24 +28,24 @@ const OurStoryPage = () => {
     benefitImg2,
     benefitImg3,
     promiseImage1,
-  promiseImage2,
-  promiseImage3
+    promiseImage2,
+    promiseImage3,
   };
 
-   const [bgImage, setBgImage] = useState(carouselBackImgDesktop);
-  
-     useEffect(() => {
-      const handleResize = () => {
-        if (window.innerWidth <= 768) {
-          setBgImage(carouselBackImgMobile);
-        } else {
-          setBgImage(carouselBackImgDesktop);
-        }
-      };
-         handleResize(); // initial check
-      window.addEventListener('resize', handleResize);
-      return () => window.removeEventListener('resize', handleResize);
-    }, []);
+  const [bgImage, setBgImage] = useState(carouselBackImgDesktop);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setBgImage(carouselBackImgMobile);
+      } else {
+        setBgImage(carouselBackImgDesktop);
+      }
+    };
+    handleResize(); // initial check
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <>
@@ -83,14 +81,12 @@ const OurStoryPage = () => {
 
       <section
         className=" section-padding bg-cover Transformative-section"
-        // style="background-image: url('assets/img/background\ image\ \(1\).png') ;"
         style={{
-           backgroundImage: `url(${bgImage})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-  }}
-        
+          backgroundImage: `url(${bgImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
       >
         <div className="container">
           <div className="row align-items-center section-title bg-cover">
@@ -106,11 +102,10 @@ const OurStoryPage = () => {
         </div>
       </section>
 
- <section className="about-wrapper  section-padding ">
-
+      <section className="about-wrapper  section-padding ">
         <div className="container container-lg mb-5">
           <div className="row align-items-center section-title mt-5">
-        <h2 className="sec-title-h2 text-center mb-5">Our Promise</h2>
+            <h2 className="sec-title-h2 text-center mb-5">Our Promise</h2>
             {OurstoryData.map((value, i) => (
               <OurPromiseCards
                 data={value}

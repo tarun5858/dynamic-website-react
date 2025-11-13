@@ -5,11 +5,18 @@ import VideoPlayer from "../components/VideoPlayer";
 import Carousel from "../components/Carousel";
 import TextImageCard from "../components/TextImageCard";
 import componentsData from "../data/componentsData";
-import { benefitimg1, benefitimg2, benefitimg3,whatweoffer,perfectplace,worriedabout,experienceliving } from "../components/Imagepath";
+import {
+  benefitimg1,
+  benefitimg2,
+  benefitimg3,
+  whatweoffer,
+  perfectplace,
+  worriedabout,
+  experienceliving,
+} from "../components/Imagepath";
 import TextImageSection from "../components/TextImageSection";
 import TextImageData from "../data/TextImageData";
 import PreFooter from "../components/PreFooter";
-import { Link } from "react-router-dom";
 import LargeCtaRoutes from "../components/LargeCtaRoutes";
 
 const Home = () => {
@@ -18,65 +25,69 @@ const Home = () => {
     benefitimg1,
     benefitimg2,
     benefitimg3,
-    whatweoffer,perfectplace,worriedabout,experienceliving
+    whatweoffer,
+    perfectplace,
+    worriedabout,
+    experienceliving,
   };
 
   const data = TextImageData;
 
-
-  const GA_MEASUREMENT_ID = 'G-J2LQXQ630G'; // Your GA ID
+  const GA_MEASUREMENT_ID = "G-J2LQXQ630G"; // Your GA ID
 
   //   // This function handles both the tracking AND the action (opening modal)
-    const handleWaitlistClick = () => {
-        
-        // 1. Check if gtag exists and fire the GA event
-        if (typeof window.gtag === 'function') {
-            window.gtag('event', 'cta_click', {
-                'event_category': 'lead_generation',
-                'event_label': 'homepage_waitlist_cta', // Specific, descriptive label
-                'send_to': GA_MEASUREMENT_ID
-            });
-            console.log('GA: Waitlist CTA Click tracked successfully.');
-        } else {
-            console.warn('GA: Tracking failed. window.gtag is not defined.');
-        }
+  const handleWaitlistClick = () => {
+    // 1. Check if gtag exists and fire the GA event
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "cta_click", {
+        event_category: "lead_generation",
+        event_label: "homepage_waitlist_cta", // Specific, descriptive label
+        send_to: GA_MEASUREMENT_ID,
+      });
+      console.log("GA: Waitlist CTA Click tracked successfully.");
+    } else {
+      console.warn("GA: Tracking failed. window.gtag is not defined.");
+    }
 
-        // 2. Execute the primary action (e.g., open the modal)
-        // In a real app, you would call your state setter or ref to open the modal here.
-        // For demonstration, we'll use a console message.
-        console.log('Action: Opening the waitlist modal now...');
-    };
+    // 2. Execute the primary action (e.g., open the modal)
+    // In a real app, you would call your state setter or ref to open the modal here.
+    // For demonstration, we'll use a console message.
+    console.log("Action: Opening the waitlist modal now...");
+  };
 
-//   const handleWaitlistClick = () => {
-    
-//     // 1. Check if dataLayer exists (initialized by the GTM script)
-//     if (typeof window.dataLayer !== 'undefined') {
-        
-//         // Push an 'event' object to the dataLayer.
-//         // The event name ('cta_click') will be used in GTM to trigger the GA tag.
-//         window.dataLayer.push({
-//             event: 'cta_click', 
-            
-//             // Send the contextual parameters (no 'send_to' needed)
-//             event_category: 'lead_generation',
-//             event_label: 'homepage_waitlist_cta', 
-            
-//             // You can also add non-standard variables for custom dimensions/metrics
-//             // page_location: window.location.href 
-//         });
-        
-//         console.log('GTM: Waitlist CTA Click tracked successfully via dataLayer.');
-//     } else {
-//         console.warn('GTM: Tracking failed. window.dataLayer is not defined.');
-//     }
+  //   const handleWaitlistClick = () => {
 
-//     // 2. Execute the primary action (e.g., open the modal)
-//     console.log('Action: Opening the waitlist modal now...');
-// };
+  //     // 1. Check if dataLayer exists (initialized by the GTM script)
+  //     if (typeof window.dataLayer !== 'undefined') {
+
+  //         // Push an 'event' object to the dataLayer.
+  //         // The event name ('cta_click') will be used in GTM to trigger the GA tag.
+  //         window.dataLayer.push({
+  //             event: 'cta_click',
+
+  //             // Send the contextual parameters (no 'send_to' needed)
+  //             event_category: 'lead_generation',
+  //             event_label: 'homepage_waitlist_cta',
+
+  //             // You can also add non-standard variables for custom dimensions/metrics
+  //             // page_location: window.location.href
+  //         });
+
+  //         console.log('GTM: Waitlist CTA Click tracked successfully via dataLayer.');
+  //     } else {
+  //         console.warn('GTM: Tracking failed. window.dataLayer is not defined.');
+  //     }
+
+  //     // 2. Execute the primary action (e.g., open the modal)
+  //     console.log('Action: Opening the waitlist modal now...');
+  // };
 
   return (
     <>
-      <section className=" section-padding-home text-md-start" style={{paddingTop: "1%",backgroundColor: "#F7F7F7"}}>
+      <section
+        className=" section-padding-home text-md-start"
+        style={{ paddingTop: "1%", backgroundColor: "#F7F7F7" }}
+      >
         <div className="single-slide">
           <div className="container container-lg">
             <div className="row home-text-img-container">
@@ -87,18 +98,10 @@ const Home = () => {
                   <p className="sub-head-home">
                     A smarter way to rent, a simpler way to own.
                   </p>
-
-                  {/* <a
-                href="#"
-                className="theme-btn btn-radius join-our-waitlist me-sm-4 mt-4 speak-to-expert-btn"
-                data-animation-in=""
-                data-delay-in=""
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-              >
-                Join our waitlist
-              </a> */}
-                  <LargeBlueCta text="Join our waitlist" onClick={handleWaitlistClick}></LargeBlueCta>
+                  <LargeBlueCta
+                    text="Join our waitlist"
+                    onClick={handleWaitlistClick}
+                  ></LargeBlueCta>
                 </div>
               </div>
               <div className="col-12 col-sm-12 col-md-6 col-lg-6">
@@ -122,10 +125,9 @@ const Home = () => {
             </div>
           </div>
         </div>
-              <div className="cta-parent">
-                {/* <LargeBlueCta text="Learn how"  ><Link  to="/success-stories"></Link></LargeBlueCta> */}
-                <LargeCtaRoutes text="Learn how"  to="/howitworks"></LargeCtaRoutes>
-              </div>
+        <div className="cta-parent">
+          <LargeCtaRoutes text="Learn how" to="/howitworks"></LargeCtaRoutes>
+        </div>
       </section>
 
       <section className="about-wrapper1 section-padding container">
@@ -133,10 +135,13 @@ const Home = () => {
           <h2 className="line5 text-center">
             <b>Hear it from the Prehomers</b>
           </h2>
-          <Carousel ></Carousel>
+          <Carousel></Carousel>
 
           <div className="cta-parent d-flex justify-content-center">
-            <LargeCtaRoutes text="Learn more" to="/success-stories"></LargeCtaRoutes>
+            <LargeCtaRoutes
+              text="Learn more"
+              to="/success-stories"
+            ></LargeCtaRoutes>
           </div>
         </div>
       </section>
@@ -177,20 +182,23 @@ const Home = () => {
                 data-wow-duration="1500ms"
                 data-wow-delay="00ms"
               >
-              {data.map((value,i) => 
-                <TextImageSection src={imageSrc[value.imgkey]} key={i}  data={value} reverse={value.reverse === "true"} />
-              )}
-
+                {data.map((value, i) => (
+                  <TextImageSection
+                    src={imageSrc[value.imgkey]}
+                    key={i}
+                    data={value}
+                    reverse={value.reverse === "true"}
+                  />
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
 
- <section className="why-choice-us">
-
-      <PreFooter></PreFooter>
- </section>
+      <section className="why-choice-us">
+        <PreFooter></PreFooter>
+      </section>
     </>
   );
 };
