@@ -209,40 +209,77 @@ function Blogdetails() {
   };
 
   // For simple fields like "subtitle", "paragraph1", "outcome", "lesson", "conclusion1/2"
+  // const renderSimpleFieldWithImages = (
+  //   fieldKey,
+  //   content,
+  //   headingLabel = null
+  // ) => {
+  //   if (!content) return null;
+
+  //   // Collect placements for this field
+  //   const these = placements.filter((p) => p.section === fieldKey);
+  //   const before = these.filter((p) => (p.position || "after") === "before");
+  //   const after = these.filter((p) => (p.position || "after") === "after");
+
+  //   return (
+  //     <div key={fieldKey}>
+  //       {/* Optional heading label (e.g., "Introduction:", "Conclusion:") */}
+  //       {headingLabel && (
+  //         <h4>
+  //           <b>{headingLabel}</b>
+  //         </h4>
+  //       )}
+
+  //       {/* Before images */}
+  //       {before.map((p, i) =>
+  //         renderInjectedImage(p, `${fieldKey}-before-${i}`)
+  //       )}
+
+  //       {/* Body */}
+  //       <p>{content}</p>
+
+  //       {/* After images */}
+  //       {after.map((p, i) => renderInjectedImage(p, `${fieldKey}-after-${i}`))}
+  //     </div>
+  //   );
+  // };
   const renderSimpleFieldWithImages = (
-    fieldKey,
-    content,
-    headingLabel = null
-  ) => {
-    if (!content) return null;
+  fieldKey,
+  content,
+  headingLabel = null
+) => {
+  if (!content) return null;
 
-    // Collect placements for this field
-    const these = placements.filter((p) => p.section === fieldKey);
-    const before = these.filter((p) => (p.position || "after") === "before");
-    const after = these.filter((p) => (p.position || "after") === "after");
+  // Collect placements for this field
+  const these = placements.filter((p) => p.section === fieldKey);
+  const before = these.filter((p) => (p.position || "after") === "before");
+  const after = these.filter((p) => (p.position || "after") === "after");
 
-    return (
-      <div key={fieldKey}>
-        {/* Optional heading label (e.g., "Introduction:", "Conclusion:") */}
-        {headingLabel && (
-          <h4>
-            <b>{headingLabel}</b>
-          </h4>
-        )}
+  return (
+    <div key={fieldKey} className="blog-text-block">
+      {/* Optional heading */}
+      {headingLabel && (
+        <h4>
+          <b>{headingLabel}</b>
+        </h4>
+      )}
 
-        {/* Before images */}
-        {before.map((p, i) =>
-          renderInjectedImage(p, `${fieldKey}-before-${i}`)
-        )}
+      {/* Before images */}
+      {before.map((p, i) =>
+        renderInjectedImage(p, `${fieldKey}-before-${i}`)
+      )}
 
-        {/* Body */}
-        <p>{content}</p>
+      {/* Body => now supports HTML like <a>, <br>, <strong>, etc. */}
+      <div dangerouslySetInnerHTML={{ __html: content }} />
 
-        {/* After images */}
-        {after.map((p, i) => renderInjectedImage(p, `${fieldKey}-after-${i}`))}
-      </div>
-    );
-  };
+      {/* After images */}
+      {after.map((p, i) =>
+        renderInjectedImage(p, `${fieldKey}-after-${i}`)
+      )}
+    </div>
+  );
+};
+
 
   if (loading) return <p>Loading blog...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -258,6 +295,8 @@ function Blogdetails() {
       (p.imageKey && imageSrc[p.imageKey] === detailImageUrl) ||
       p.imageUrl === detailImageUrl
   );
+
+
 
   return (
     <div className="blog-detail">
@@ -565,6 +604,7 @@ function Blogdetails() {
             {blog.finalword &&
               renderSimpleFieldWithImages("finalword", blog.finalword)}
             {blog.finalword1 &&
+            
               renderSimpleFieldWithImages("finalword1", blog.finalword1)}
             {blog.finalword2 &&
               renderSimpleFieldWithImages("finalword2", blog.finalword2)}
