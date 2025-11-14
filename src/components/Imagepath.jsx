@@ -27,6 +27,9 @@ export { default as blogImage22 } from "../assets/img/blogsImage/blog22.png";
 export { default as blogImage23 } from "../assets/img/blogsImage/blog 22.png";
 export { default as blogImage24 } from "../assets/img/blogsImage/23.png";
 export { default as blogImage25 } from "../assets/img/blogsImage/24.png";
+export { default as blogImage26 } from "../assets/img/blogsImage/25.png";
+export { default as blogImage27 } from "../assets/img/blogsImage/26.png";
+export { default as blogImage28 } from "../assets/img/blogsImage/27.png";
 
 
 // blogDetail img
@@ -58,6 +61,9 @@ export { default as blogDetail22    } from "../assets/img/blogsImage/blog22-info
 export { default as blogDetail23    } from "../assets/img/blogsImage/info22.png";
 export { default as blogDetail24    } from "../assets/img/blogsImage/info23.png";
 export { default as blogDetail25    } from "../assets/img/blogsImage/info24.png";
+export { default as blogDetail26    } from "../assets/img/blogsImage/info25.png";
+export { default as blogDetail27    } from "../assets/img/blogsImage/info26.png";
+export { default as blogDetail28    } from "../assets/img/blogsImage/info27.png";
 
 // homepage img
 export { default as benefitimg1 } from "../assets/img/benefit-icon-1.png";

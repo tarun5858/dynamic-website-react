@@ -116,7 +116,7 @@ const BlogPage = () => {
   return (
     <div className="container blog-container">
       <h2 className="blog-head">
-        Everything you need to know about home ownership
+        Everything you need to know about homeownership
       </h2>
 
       {/* Topic Filter Buttons */}
