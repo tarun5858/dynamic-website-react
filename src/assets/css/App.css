@@ -12273,7 +12273,7 @@ z-index: 999; */
 
 .sidebar.sticky {
   /* position: fixed; */
-  top: 25%;
+  top: 20%;
   transform: translateY(-50%); /* Vertically center */
   z-index: 9999999;
   /* width: 500px; optional, to keep the same layout */
