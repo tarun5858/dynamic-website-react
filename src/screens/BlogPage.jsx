@@ -182,8 +182,8 @@ const BlogPage = () => {
         });
 
         // Convert set to array and update
-        setTopics([...topicSet].reverse());
-
+        setTopics([...topicSet]);
+// .reverse()
         // -----------------------------------------
 
         setLoading(false);
