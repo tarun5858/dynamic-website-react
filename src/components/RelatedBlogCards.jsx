@@ -19,7 +19,8 @@ const RelatedBlogCards = ({ currentBlog }) => {
         // This ensures the component can find related blogs regardless of their position.
         const apiUrl = `${
           import.meta.env.VITE_API_BASE_URL
-        }/api/blogs?limit=500`;
+        }/api/blogs`;
+        // ?limit=500
         const res = await fetch(apiUrl);
 
         if (!res.ok) throw new Error("Failed to fetch blogs");
