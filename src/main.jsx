@@ -11,12 +11,7 @@ import App from './App.jsx'
 
 import 'bootstrap/dist/js/bootstrap.bundle.min'; // Keep the JS bundle
 
-import ReactGA from "react-ga4";
 
-
-ReactGA.initialize("G-J2LQXQ630G");
-
-ReactGA.send({ hitType: "pageview", page: window.location.pathname });
 
 // createRoot(document.getElementById('root')).render(
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -24,7 +24,6 @@ import CalculatorRouteWrapper from "./components/Calculators/CalculatorRouteWrap
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import ThankYou from "./components/ThankYou";
-import RouteChangeTracker from "./components/RouteChangeTracker";
 
 
 function App() {
@@ -46,7 +45,6 @@ function App() {
       <Header></Header>
       <WhatsAppButton></WhatsAppButton>
       <ScrollToTop />
-      <RouteChangeTracker />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/success-stories" element={<SuccessStories />} />
