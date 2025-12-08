@@ -33,27 +33,39 @@ const Home = () => {
 
   const data = TextImageData;
 
-  const GA_MEASUREMENT_ID = "G-J2LQXQ630G"; // Your GA ID
+  // 1. Create a function to push the event
+const trackButtonClick = (buttonName) => {
+  // Check if the dataLayer exists before pushing (safety check)
+  if (window.dataLayer) {
+    window.dataLayer.push({
+      event: 'custom_button_click', // <-- 🚨 This is the Custom Event name GTM must listen for
+      button_name: buttonName,      // Optional: Pass context like the button name
+      page_path: window.location.pathname
+    });
+    console.log(`DataLayer push: custom_button_click - ${buttonName}`); // For debugging
+  }
+};
+  // const GA_MEASUREMENT_ID = "G-J2LQXQ630G"; // Your GA ID
 
-  //   // This function handles both the tracking AND the action (opening modal)
-  const handleWaitlistClick = () => {
-    // 1. Check if gtag exists and fire the GA event
-    if (typeof window.gtag === "function") {
-      window.gtag("event", "cta_click", {
-        event_category: "lead_generation",
-        event_label: "homepage_waitlist_cta", // Specific, descriptive label
-        send_to: GA_MEASUREMENT_ID,
-      });
-      console.log("GA: Waitlist CTA Click tracked successfully.");
-    } else {
-      console.warn("GA: Tracking failed. window.gtag is not defined.");
-    }
+  // //   // This function handles both the tracking AND the action (opening modal)
+  // const handleWaitlistClick = () => {
+  //   // 1. Check if gtag exists and fire the GA event
+  //   if (typeof window.gtag === "function") {
+  //     window.gtag("event", "cta_click", {
+  //       event_category: "lead_generation",
+  //       event_label: "homepage_waitlist_cta", // Specific, descriptive label
+  //       send_to: GA_MEASUREMENT_ID,
+  //     });
+  //     console.log("GA: Waitlist CTA Click tracked successfully.");
+  //   } else {
+  //     console.warn("GA: Tracking failed. window.gtag is not defined.");
+  //   }
 
-    // 2. Execute the primary action (e.g., open the modal)
-    // In a real app, you would call your state setter or ref to open the modal here.
-    // For demonstration, we'll use a console message.
-    console.log("Action: Opening the waitlist modal now...");
-  };
+  //   // 2. Execute the primary action (e.g., open the modal)
+  //   // In a real app, you would call your state setter or ref to open the modal here.
+  //   // For demonstration, we'll use a console message.
+  //   console.log("Action: Opening the waitlist modal now...");
+  // };
 
   //   const handleWaitlistClick = () => {
 
@@ -100,7 +112,8 @@ const Home = () => {
                   </p>
                   <LargeBlueCta
                     text="Join our waitlist"
-                    onClick={handleWaitlistClick}
+                    // onClick={handleWaitlistClick}
+                    onClick={() => trackButtonClick('Submit Lead Form')}
                   ></LargeBlueCta>
                 </div>
               </div>
@@ -126,7 +139,7 @@ const Home = () => {
           </div>
         </div>
         <div className="cta-parent">
-          <LargeCtaRoutes text="Learn how" to="/howitworks"></LargeCtaRoutes>
+          <LargeCtaRoutes text="Learn how" to="/howitworks" onClick={() => trackButtonClick('Learn How CTA')}></LargeCtaRoutes>
         </div>
       </section>
 
@@ -141,6 +154,7 @@ const Home = () => {
             <LargeCtaRoutes
               text="Learn more"
               to="/success-stories"
+              onClick={() => trackButtonClick('Learn More CTA')}
             ></LargeCtaRoutes>
           </div>
         </div>

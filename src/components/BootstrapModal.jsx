@@ -149,26 +149,41 @@ const BootstrapModal = () => {
   // --- NEW Tracking Logic ---
 
   // 1. This new function wraps the form's normal submit flow
-  const handleFormSubmitAndTrack = (e) => {
-    e.preventDefault();
+  // const handleFormSubmitAndTrack = (e) => {
+  //   e.preventDefault();
 
-    if (validate1()) {
-      // Run the actual submission logic
-      handleSubmit(e);
+  //   if (validate1()) {
+  //     // Run the actual submission logic
+  //     handleSubmit(e);
 
-      // 2. Fire the Google Analytics Event for successful submission
-      if (typeof window.gtag === "function") {
-        window.gtag("event", "lead_generation", {
-          event_category: "form_submission",
-          event_label: "waitlist_signup_complete", // Specific conversion event
-          send_to: GA_MEASUREMENT_ID,
-        });
-        console.log("GA: Form submission tracked successfully!");
-      } else {
-        console.warn("GA: Tracking failed. window.gtag is not defined.");
-      }
-    }
-  };
+  //     // 2. Fire the Google Analytics Event for successful submission
+  //     if (typeof window.gtag === "function") {
+  //       window.gtag("event", "lead_generation", {
+  //         event_category: "form_submission",
+  //         event_label: "waitlist_signup_complete", // Specific conversion event
+  //         send_to: GA_MEASUREMENT_ID,
+  //       });
+  //       console.log("GA: Form submission tracked successfully!");
+  //     } else {
+  //       console.warn("GA: Tracking failed. window.gtag is not defined.");
+  //     }
+  //   }
+  // };
+
+  // 1. Create a function to push the event
+const trackButtonClick = (buttonName,e) => {
+  // Check if the dataLayer exists before pushing (safety check)
+  if (window.dataLayer) {
+    handleSubmit(e);
+    window.dataLayer.push({
+      event: 'custom_button_click', // <--  This is the Custom Event name GTM must listen for
+      button_name: buttonName,      // Optional: Pass context like the button name
+      page_path: window.location.pathname
+    });
+    console.log(`DataLayer push: custom_button_click - ${buttonName}`); // For debugging
+  }
+};
+
   return (
     <div
       className="modal fade"
@@ -761,7 +776,8 @@ const BootstrapModal = () => {
                 type="submit"
                 style={{ display: currentTab === 2 ? "inline-block" : "none" }}
                 className="theme-btn-form-btn btn-radius"
-                onClick={handleFormSubmitAndTrack}
+                // onClick={handleFormSubmitAndTrack}
+                onClick={() => trackButtonClick('Submit Lead Form')}
               >
                 Keep me posted
               </button>

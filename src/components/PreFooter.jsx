@@ -2,6 +2,19 @@ import React from "react";
 import { backgroundImage } from "./Imagepath";
 import LargeBlueCta from "./LargeBlueCta";
 const PreFooter = () => {
+    // 1. Create a function to push the event
+const trackButtonClick = (buttonName) => {
+  // Check if the dataLayer exists before pushing (safety check)
+  if (window.dataLayer) {
+    window.dataLayer.push({
+      event: 'custom_button_click', // <-- 🚨 This is the Custom Event name GTM must listen for
+      button_name: buttonName,      // Optional: Pass context like the button name
+      page_path: window.location.pathname
+    });
+    console.log(`DataLayer push: custom_button_click - ${buttonName}`); // For debugging
+  }
+};
+
   return (
     <section
       className="why-choice-us section-padding bg-cover "
@@ -18,7 +31,7 @@ const PreFooter = () => {
               Be the first to know about our upcoming homes near you!!
             </p>
 
-            <LargeBlueCta text="Join our waitlist"></LargeBlueCta>
+            <LargeBlueCta text="Join our waitlist" onClick={() => trackButtonClick('Submit Lead Form')}></LargeBlueCta>
           </div>
         </div>
       </div>

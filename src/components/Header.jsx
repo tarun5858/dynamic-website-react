@@ -23,6 +23,18 @@ const Header = () => {
     setOpenModal(false);
   };
 
+    // 1. Create a function to push the event
+const trackButtonClick = (buttonName) => {
+  // Check if the dataLayer exists before pushing (safety check)
+  if (window.dataLayer) {
+    window.dataLayer.push({
+      event: 'custom_button_click', // <-- 🚨 This is the Custom Event name GTM must listen for
+      button_name: buttonName,      // Optional: Pass context like the button name
+      page_path: window.location.pathname
+    });
+    console.log(`DataLayer push: custom_button_click - ${buttonName}`); // For debugging
+  }
+};
   return (
     <>
       <header className="header-1">
@@ -79,6 +91,7 @@ const Header = () => {
                   data-delay-in="0.9"
                   data-bs-toggle="modal"
                   data-bs-target="#exampleModal"
+                  onClick={() => trackButtonClick('Submit Lead Form')}
                 >
                   Join our waitlist
                 </a>
@@ -298,6 +311,7 @@ const Header = () => {
     onClick={handleOpenModal}
     data-bs-toggle="modal"
     data-bs-target="#exampleModal"
+    
   >
     Join our waitlist
   </div>

@@ -53,6 +53,18 @@ const HowItWorks = () => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  const trackButtonClick = (buttonName) => {
+  // Check if the dataLayer exists before pushing (safety check)
+  if (window.dataLayer) {
+    window.dataLayer.push({
+      event: 'custom_button_click', // <-- 🚨 This is the Custom Event name GTM must listen for
+      button_name: buttonName,      // Optional: Pass context like the button name
+      page_path: window.location.pathname
+    });
+    console.log(`DataLayer push: custom_button_click - ${buttonName}`); // For debugging
+  }
+};
+
   return (
     <>
       <section className="about-wrapper ">
@@ -135,6 +147,7 @@ const HowItWorks = () => {
               <LargeBlueCta
                 style={{ width: "70%", height: "62px" }}
                 text="Join us"
+                onClick={() => trackButtonClick('Submit Lead Form')}
               />
             </div>
 

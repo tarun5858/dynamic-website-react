@@ -9,6 +9,19 @@ const TextImageSection = ({ data, src, reverse = false }) => {
     message
   )}`;
 
+    // 1. Create a function to push the event
+const trackButtonClick = (buttonName) => {
+  // Check if the dataLayer exists before pushing (safety check)
+  if (window.dataLayer) {
+    window.dataLayer.push({
+      event: 'custom_button_click', // <-- 🚨 This is the Custom Event name GTM must listen for
+      button_name: buttonName,      // Optional: Pass context like the button name
+      page_path: window.location.pathname
+    });
+    console.log(`DataLayer push: custom_button_click - ${buttonName}`); // For debugging
+  }
+};
+
   return (
     <div className="container container-lg">
       <div
@@ -50,14 +63,16 @@ const TextImageSection = ({ data, src, reverse = false }) => {
                   text={data.text}
                   data-bs-toggle="modal"
                   data-bs-target="#exampleModal"
+                  onClick={() => trackButtonClick('Submit Lead Form')}
                 />
               ) : data.ctaType === "faq" ? (
-                <LargeCtaRoutes text={data.text} to="/faq" />
+                <LargeCtaRoutes text={data.text} to="/faq" onClick={() => trackButtonClick('Navigation Click')} />
               ) : data.ctaType === "whatsapp" ? ( // Action 3: WHATSAPP LINK (If ctaType is 'whatsapp')
                 <LargeCtaRoutes
                   text={data.text}
                   to={whatsappUrl}
                   target="_blank"
+                  onClick={() => trackButtonClick('Navigate To Whatsapp')}
                 />
               ) : (
                 <LargeBlueCta text={data.text} />
