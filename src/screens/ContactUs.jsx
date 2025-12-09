@@ -5,6 +5,20 @@ import DateTimeDropdowns from "../components/DateTimeDropdowns";
 import GetInTouch from "../components/GetInTouch";
 import SpeakWithExpertForm from "../components/SpeakWithExpertForm";
 const ContactUs = () => {
+
+        // 1. Create a function to push the event
+const trackButtonClick = (buttonName) => {
+  // Check if the dataLayer exists before pushing (safety check)
+  if (window.dataLayer) {
+    window.dataLayer.push({
+      event: 'custom_button_click', // <-- 🚨 This is the Custom Event name GTM must listen for
+      button_name: buttonName,      // Optional: Pass context like the button name
+      page_path: window.location.pathname
+    });
+    console.log(`DataLayer push: custom_button_click - ${buttonName}`); // For debugging
+  }
+};
+
   return (
     <>
       <GetInTouch></GetInTouch>
@@ -455,7 +469,7 @@ const ContactUs = () => {
                 </div>
 
                 <div className="col-md-12 col-12 mb-3">
-                  <button type="submit" className="submit-btn">
+                  <button type="submit" className="submit-btn" onClick={() => trackButtonClick('Submit expert_session Form')}>
                     SCHEDULE
                   </button>
                 </div>

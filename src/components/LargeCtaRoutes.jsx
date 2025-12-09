@@ -1,8 +1,9 @@
 // import React from "react";
 import "../App.css";
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 // import ReactGA from "react-ga4";
-const LargeCtaRoutes = ({ text, to, style }) => {
+const LargeCtaRoutes = ({ text, to, style, onClick }) => {
 
   //   const handleCtaRoutes = () => {
   //   // 1. Send the data to Google Analytics
@@ -17,6 +18,26 @@ const LargeCtaRoutes = ({ text, to, style }) => {
   //   console.log("User Clicked CtaRoutes");
   // };
 
+  const navigate = useNavigate();
+
+    const handleNavigationAndTracking = (event) => {
+        // 1. Call the tracking function provided by the parent
+        if (onClick) {
+            onClick(event); // The parent component passes the trackButtonClick function here
+        }
+        
+        // 2. Prevent the default Link/Anchor behavior (stopping the immediate redirect)
+        event.preventDefault(); 
+        
+        // 3. Wait a very short moment for GTM to process the dataLayer push
+        //    A 50ms delay is usually sufficient for synchronous dataLayer calls.
+        setTimeout(() => {
+            // 4. Manually trigger the navigation after tracking is done
+            navigate(to);
+        }, 50); // Delay execution by 50 milliseconds
+
+        // Note: For simple synchronous dataLayer push, the preventDefault + setTimeout combo is reliable.
+    };
 
   return (
     <Link
@@ -25,7 +46,7 @@ const LargeCtaRoutes = ({ text, to, style }) => {
       data-delay-in="0.9"
       to={to}
       style={style}
-      // onClick={handleCtaRoutes}
+      onClick={handleNavigationAndTracking}
     >
       {text}
     </Link>

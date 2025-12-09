@@ -28,7 +28,7 @@ const trackButtonClick = (buttonName) => {
   // Check if the dataLayer exists before pushing (safety check)
   if (window.dataLayer) {
     window.dataLayer.push({
-      event: 'custom_button_click', // <-- 🚨 This is the Custom Event name GTM must listen for
+      event: 'custom_button_click', // <-- This is the Custom Event name GTM must listen for
       button_name: buttonName,      // Optional: Pass context like the button name
       page_path: window.location.pathname
     });
@@ -308,10 +308,15 @@ const trackButtonClick = (buttonName) => {
         </li>
 <div
     className="mobile-waitlist-btn"
-    onClick={handleOpenModal}
+    // onClick={handleOpenModal}
     data-bs-toggle="modal"
     data-bs-target="#exampleModal"
-    
+    onClick={() => {
+    // 1. Call the function that handles the modal state logic
+    handleOpenModal();
+    // 2. Call the function that tracks the Google Analytics event
+    trackButtonClick('Submit Lead Form');
+  }}
   >
     Join our waitlist
   </div>

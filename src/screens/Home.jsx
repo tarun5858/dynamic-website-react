@@ -45,6 +45,7 @@ const trackButtonClick = (buttonName) => {
     console.log(`DataLayer push: custom_button_click - ${buttonName}`); // For debugging
   }
 };
+
   // const GA_MEASUREMENT_ID = "G-J2LQXQ630G"; // Your GA ID
 
   // //   // This function handles both the tracking AND the action (opening modal)

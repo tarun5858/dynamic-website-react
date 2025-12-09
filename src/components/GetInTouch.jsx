@@ -88,6 +88,19 @@ const GetInTouchForm = () => {
         }
     };
 
+      // 1. Create a function to push the event
+const trackButtonClick = (buttonName) => {
+  // Check if the dataLayer exists before pushing (safety check)
+  if (window.dataLayer) {
+    window.dataLayer.push({
+      event: 'custom_button_click', // <-- 🚨 This is the Custom Event name GTM must listen for
+      button_name: buttonName,      // Optional: Pass context like the button name
+      page_path: window.location.pathname
+    });
+    console.log(`DataLayer push: custom_button_click - ${buttonName}`); // For debugging
+  }
+};
+
     return (
         <section className="speak-to-expert headertop-border">
             <div className="container container-lg">
@@ -179,6 +192,7 @@ const GetInTouchForm = () => {
                                     type="submit" 
                                     className="submit-btn"
                                     disabled={isSubmitting} 
+                                    onClick={() => trackButtonClick('Submit general_inquiries Form')}
                                 >
                                     {isSubmitting ? 'Sending...' : 'Go !'}
                                 </button>
