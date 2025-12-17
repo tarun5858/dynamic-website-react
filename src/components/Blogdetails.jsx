@@ -173,6 +173,7 @@ const ContentBlockRenderer = ({ block }) => {
       return (
         <ul
           style={{ ...baseStyle, marginLeft: "20px", listStyleType: "circle" }}
+          dangerouslySetInnerHTML={{ __html: block.list }} 
         >
           {block.listItems.map((item, i) => (
             <li
@@ -227,20 +228,22 @@ const ContentBlockRenderer = ({ block }) => {
             {block.itemPairs.map((pair, i) => (
               <React.Fragment key={i}>
                 <li style={{ listStyle: "circle" }}>
-                  <dt
-                    style={{
-                      fontWeight: "bold",
-                      marginTop: "10px",
-                      color: "#000",
-                    }}
-                  >
-                    {pair.name}
-                  </dt>
-                  <dd
-                    style={{ marginLeft: "10px", paddingBottom: "0px" }}
-                    dangerouslySetInnerHTML={{ __html: pair.benefit }} // UPDATED
-                  />
-                </li>
+  <dt
+    style={{
+      fontWeight: "bold",
+      marginTop: "10px",
+      color: "#000",
+    }}
+    // Content is injected here...
+    dangerouslySetInnerHTML={{ __html: pair.name }} 
+  /> 
+  {/* ...so we leave the inside of the tag empty */}
+  
+  <dd
+    style={{ marginLeft: "10px", paddingBottom: "0px" }}
+    dangerouslySetInnerHTML={{ __html: pair.benefit }}
+  />
+</li>
                 {/* <li style={{ listStyle: "circle", marginBottom: '5px' }}>
                             <div style={{ display: 'flex' }}>
                                 

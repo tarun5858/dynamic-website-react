@@ -24,6 +24,8 @@ const BootstrapModal = () => {
     name: "",
     email: "",
     phone: "",
+    otherLocation: "", // Added to state for cleaner handling
+    otherLayout: "", // Added to state for cleaner handling
   });
   const [errors, setErrors] = useState({});
   const validate = () => {
@@ -86,65 +88,65 @@ const BootstrapModal = () => {
     setSelectedLocation(value); // Update the selected location
   };
 
-  const handleSubmit = async (e) => {
-    // If an event is passed (from button click), prevent default action
-    if (e) {
-      e.preventDefault();
-    }
+  // const handleSubmit = async (e) => {
+  //   // If an event is passed (from button click), prevent default action
+  //   if (e) {
+  //     e.preventDefault();
+  //   }
 
-    // Validate form data (Assuming validate() and validate1() exist in scope)
-    if (!validate() || !validate1()) {
-      console.error("Form validation failed.");
-      return;
-    }
+  //   // Validate form data (Assuming validate() and validate1() exist in scope)
+  //   if (!validate() || !validate1()) {
+  //     console.error("Form validation failed.");
+  //     return;
+  //   }
 
-    try {
-      const payload = {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        selectedLocation: selectedLocation,
-        otherLocation:
-          selectedLocation === "Other" ? formData.otherLocation : "",
-        selectedLayout: selectedLayout,
-        otherLayout: selectedLayout === "Other" ? formData.otherLayout : "",
-      };
-      console.log("Submitting payload:", payload);
+  //   try {
+  //     const payload = {
+  //       name: formData.name,
+  //       email: formData.email,
+  //       phone: formData.phone,
+  //       selectedLocation: selectedLocation,
+  //       otherLocation:
+  //         selectedLocation === "Other" ? formData.otherLocation : "",
+  //       selectedLayout: selectedLayout,
+  //       otherLayout: selectedLayout === "Other" ? formData.otherLayout : "",
+  //     };
+  //     console.log("Submitting payload:", payload);
 
-      // 1. WAIT for the API call to complete successfully
-      const response = await axios.post(
-        "https://prehome-website-backend-service.onrender.com/submit-waitlist",
-        payload
-      );
-      console.log("Response from server:", response.data);
+  //     // 1. WAIT for the API call to complete successfully
+  //     const response = await axios.post(
+  //       "https://prehome-website-backend-service.onrender.com/submit-waitlist",
+  //       payload
+  //     );
+  //     console.log("Response from server:", response.data);
 
-      // 2. Clear state and close modal before redirecting (for good practice)
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        otherLocation: "",
-        otherLayout: "",
-      });
-      setSelectedLocation("");
-      setSelectedLayout("");
-      setCurrentTab(1);
+  //     // 2. Clear state and close modal before redirecting (for good practice)
+  //     setFormData({
+  //       name: "",
+  //       email: "",
+  //       phone: "",
+  //       otherLocation: "",
+  //       otherLayout: "",
+  //     });
+  //     setSelectedLocation("");
+  //     setSelectedLayout("");
+  //     setCurrentTab(1);
 
-      // Safely close the modal if it's open (use a safer method than .click())
-      const closeButton = document.querySelector("#exampleModal .btn-close");
-      if (closeButton && typeof closeButton.click === "function") {
-        closeButton.click();
-      }
+  //     // Safely close the modal if it's open (use a safer method than .click())
+  //     const closeButton = document.querySelector("#exampleModal .btn-close");
+  //     if (closeButton && typeof closeButton.click === "function") {
+  //       closeButton.click();
+  //     }
 
-      // 3. Redirect to the thank-you page
-      // NOTE: The redirect back to the home page MUST be handled by the /thank-you page itself.
-      window.location.href = "/thank-you";
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      // Use a custom message box or state to show the user the error, do NOT use alert()
-      // setErrorMessage("Failed to submit form. Please try again.");
-    }
-  };
+  //     // 3. Redirect to the thank-you page
+  //     // NOTE: The redirect back to the home page MUST be handled by the /thank-you page itself.
+  //     window.location.href = "/thank-you";
+  //   } catch (error) {
+  //     console.error("Error submitting form:", error);
+  //     // Use a custom message box or state to show the user the error, do NOT use alert()
+  //     // setErrorMessage("Failed to submit form. Please try again.");
+  //   }
+  // };
 
   // --- NEW Tracking Logic ---
 
@@ -171,10 +173,76 @@ const BootstrapModal = () => {
   // };
 
   // 1. Create a function to push the event
-const trackButtonClick = (buttonName,e) => {
+
+const handleSubmit = async (e) => {
+  if (e) e.preventDefault();
+
+  if (!validate() || !validate1()) {
+    console.error("Validation failed");
+    return;
+  }
+
+  try {
+    const payload = {
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      selectedLocation: selectedLocation,
+      otherLocation: selectedLocation === "Other" ? formData.otherLocation : "",
+      selectedLayout: selectedLayout,
+      otherLayout: selectedLayout === "Other" ? formData.otherLayout : "",
+    };
+
+    // 1. API Call
+    const response = await axios.post(
+      "https://prehome-website-backend-service.onrender.com/submit-waitlist",
+      payload
+    );
+
+    if (response.status === 200 || response.status === 201) {
+      console.log("Success! Closing modal and redirecting...");
+
+      // 2. FORCE HIDE MODAL
+      const modalElement = document.getElementById('exampleModal');
+      
+      // Remove Bootstrap classes manually to ensure it disappears instantly
+      modalElement.classList.remove('show');
+      modalElement.style.display = 'none';
+      
+      // Remove the dark backdrop that stays on the screen
+      const backdrop = document.querySelector('.modal-backdrop');
+      if (backdrop) {
+        backdrop.remove();
+      }
+      
+      // Restore scrolling to the body
+      document.body.classList.remove('modal-open');
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+
+      // 3. REDIRECT
+      // Use a small timeout to ensure state updates don't block the browser redirect
+      setTimeout(() => {
+        window.location.href = "/thank-you";
+      }, 100);
+    }
+  } catch (error) {
+    console.error("Submission error:", error);
+    // Add a simple user alert here if the API fails
+    alert("Something went wrong. Please try again.");
+  }
+};
+
+  const handleFormSubmissionAndTracking = (e) => {
+
   // Check if the dataLayer exists before pushing (safety check)
+  e.preventDefault();
+
+
+  handleSubmit(e);
+
+  const buttonName = 'Keep Me Posted/Submit Lead Form';
   if (window.dataLayer) {
-    handleSubmit(e);
     window.dataLayer.push({
       event: 'custom_button_click', // <--  This is the Custom Event name GTM must listen for
       button_name: buttonName,      // Optional: Pass context like the button name
@@ -219,8 +287,8 @@ const trackButtonClick = (buttonName,e) => {
           {/* Modal Form */}
           <form
             id="prehomeForm"
-            action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&amp;orgId=00DC40000026yrZ"
-            method="POST"
+            // method="POST"
+            onSubmit={handleFormSubmissionAndTracking}
           >
             <div className="modal-body">
               <div className="popuprow">
@@ -264,7 +332,7 @@ const trackButtonClick = (buttonName,e) => {
                       <input
                         type="text"
                         id="last_name"
-                        name="last_name"
+                        name="name"
                         className="form-control form-box"
                         placeholder="Full Name"
                         value={formData.name}
@@ -479,6 +547,7 @@ const trackButtonClick = (buttonName,e) => {
                         <input
                           type="text"
                           id="otherLocation"
+                          name="otherLocation"
                           className="form-control mt-2"
                           placeholder="E.g., Golf Course Road"
                           value={formData.otherLocation || ""}
@@ -590,6 +659,7 @@ const trackButtonClick = (buttonName,e) => {
                       <input
                         type="text"
                         id="otherPropertyType"
+                        name="otherLayout"
                         className="form-control mt-2"
                         placeholder="E.g., 4BHK"
                         value={formData.otherLayout || ""}
@@ -777,7 +847,7 @@ const trackButtonClick = (buttonName,e) => {
                 style={{ display: currentTab === 2 ? "inline-block" : "none" }}
                 className="theme-btn-form-btn btn-radius"
                 // onClick={handleFormSubmitAndTrack}
-                onClick={() => trackButtonClick('Submit Lead Form')}
+                // onClick={() => handleFormSubmissionAndTracking('Submit Lead Form')}
               >
                 Keep me posted
               </button>
