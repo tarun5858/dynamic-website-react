@@ -54,7 +54,8 @@ const GetInTouchForm = () => {
 
             // API Call: Using the specific /submit-form endpoint
             const response = await axios.post(
-                "https://prehome-website-backend-service.onrender.com/submit-form", 
+                // "https://prehome-website-backend-service.onrender.com/submit-form", 
+                "/submit-appointment", 
                 payload
             );
             

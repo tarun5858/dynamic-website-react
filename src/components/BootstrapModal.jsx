@@ -20,6 +20,9 @@ const BootstrapModal = () => {
       return newTab < 1 ? 1 : newTab > 2 ? 2 : newTab; // Ensure the tab stays between 1 and 2
     });
   };
+
+  const [source] = useState("Main Website");
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -88,91 +91,6 @@ const BootstrapModal = () => {
     setSelectedLocation(value); // Update the selected location
   };
 
-  // const handleSubmit = async (e) => {
-  //   // If an event is passed (from button click), prevent default action
-  //   if (e) {
-  //     e.preventDefault();
-  //   }
-
-  //   // Validate form data (Assuming validate() and validate1() exist in scope)
-  //   if (!validate() || !validate1()) {
-  //     console.error("Form validation failed.");
-  //     return;
-  //   }
-
-  //   try {
-  //     const payload = {
-  //       name: formData.name,
-  //       email: formData.email,
-  //       phone: formData.phone,
-  //       selectedLocation: selectedLocation,
-  //       otherLocation:
-  //         selectedLocation === "Other" ? formData.otherLocation : "",
-  //       selectedLayout: selectedLayout,
-  //       otherLayout: selectedLayout === "Other" ? formData.otherLayout : "",
-  //     };
-  //     console.log("Submitting payload:", payload);
-
-  //     // 1. WAIT for the API call to complete successfully
-  //     const response = await axios.post(
-  //       "https://prehome-website-backend-service.onrender.com/submit-waitlist",
-  //       payload
-  //     );
-  //     console.log("Response from server:", response.data);
-
-  //     // 2. Clear state and close modal before redirecting (for good practice)
-  //     setFormData({
-  //       name: "",
-  //       email: "",
-  //       phone: "",
-  //       otherLocation: "",
-  //       otherLayout: "",
-  //     });
-  //     setSelectedLocation("");
-  //     setSelectedLayout("");
-  //     setCurrentTab(1);
-
-  //     // Safely close the modal if it's open (use a safer method than .click())
-  //     const closeButton = document.querySelector("#exampleModal .btn-close");
-  //     if (closeButton && typeof closeButton.click === "function") {
-  //       closeButton.click();
-  //     }
-
-  //     // 3. Redirect to the thank-you page
-  //     // NOTE: The redirect back to the home page MUST be handled by the /thank-you page itself.
-  //     window.location.href = "/thank-you";
-  //   } catch (error) {
-  //     console.error("Error submitting form:", error);
-  //     // Use a custom message box or state to show the user the error, do NOT use alert()
-  //     // setErrorMessage("Failed to submit form. Please try again.");
-  //   }
-  // };
-
-  // --- NEW Tracking Logic ---
-
-  // 1. This new function wraps the form's normal submit flow
-  // const handleFormSubmitAndTrack = (e) => {
-  //   e.preventDefault();
-
-  //   if (validate1()) {
-  //     // Run the actual submission logic
-  //     handleSubmit(e);
-
-  //     // 2. Fire the Google Analytics Event for successful submission
-  //     if (typeof window.gtag === "function") {
-  //       window.gtag("event", "lead_generation", {
-  //         event_category: "form_submission",
-  //         event_label: "waitlist_signup_complete", // Specific conversion event
-  //         send_to: GA_MEASUREMENT_ID,
-  //       });
-  //       console.log("GA: Form submission tracked successfully!");
-  //     } else {
-  //       console.warn("GA: Tracking failed. window.gtag is not defined.");
-  //     }
-  //   }
-  // };
-
-  // 1. Create a function to push the event
 
 const handleSubmit = async (e) => {
   if (e) e.preventDefault();
@@ -191,11 +109,13 @@ const handleSubmit = async (e) => {
       otherLocation: selectedLocation === "Other" ? formData.otherLocation : "",
       selectedLayout: selectedLayout,
       otherLayout: selectedLayout === "Other" ? formData.otherLayout : "",
+      source: source, // ADDED: Include source in payload
     };
 
     // 1. API Call
     const response = await axios.post(
-      "https://prehome-website-backend-service.onrender.com/submit-waitlist",
+      // "https://prehome-website-backend-service.onrender.com/submit-waitlist",
+      "/submit-waitlist",
       payload
     );
 
