@@ -113,11 +113,12 @@ const handleSubmit = async (e) => {
     };
 
     // 1. API Call
-    const response = await axios.post(
-      // "https://prehome-website-backend-service.onrender.com/submit-waitlist",
-      "/submit-waitlist",
-      payload
-    );
+    // const response = await axios.post(
+    //   // "https://prehome-website-backend-service.onrender.com/submit-waitlist",
+    //   "/submit-waitlist",
+    //   payload
+    // );
+    const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/submit-waitlist`, payload);
 
     if (response.status === 200 || response.status === 201) {
       console.log("Success! Closing modal and redirecting...");

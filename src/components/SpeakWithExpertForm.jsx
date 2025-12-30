@@ -60,11 +60,12 @@ const SpeakWithExpertForm = () => {
             console.log("Submitting payload to /submit-appointment:", payload);
 
             // API Call: Using the specific /submit-appointment endpoint
-            const response = await axios.post(
-                // "https://prehome-website-backend-service.onrender.com/submit-appointment", 
-                "/submit-form", 
-                payload
-            );
+            // const response = await axios.post(
+            //     // "https://prehome-website-backend-service.onrender.com/submit-appointment", 
+            //     "/submit-form", 
+            //     payload
+            // );
+            const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/submit-appointment`, payload);
             
             // Check for success status (200, 201)
             if (response.status >= 200 && response.status < 300) {
