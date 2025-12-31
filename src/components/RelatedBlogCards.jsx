@@ -12,81 +12,13 @@ const RelatedBlogCards = ({ currentBlog }) => {
       return;
     }
 
-//     const fetchRelatedBlogs = async () => {
-//       setIsLoading(true);
-//       try {
-//         // FIX 1: Override the backend limit to fetch ALL blogs (e.g., limit=500)
-//         // This ensures the component can find related blogs regardless of their position.
-//         const apiUrl = `${
-//           import.meta.env.VITE_API_BASE_URL
-//         }/api/blogs`;
-//         // ?limit=500
-//         const res = await fetch(apiUrl);
-
-//         if (!res.ok) throw new Error("Failed to fetch blogs");
-
-//         const data = await res.json();
-//         const blogsArray = Array.isArray(data.data) ? data.data : [];
-
-//         // Get the current blog's topic, ensuring it's lowercase for comparison
-//         const currentTopic = currentBlog.topic.toLowerCase();
-
-//         // 🌟 DEBUG LOGS 🌟
-// console.log("Current Blog ID:", currentBlog._id);
-// console.log("Current Blog Topic (Target):", currentTopic);
-// console.log("Total Blogs Fetched:", blogsArray.length);
-// // 🌟 DEBUG LOGS 🌟
-
-
-//         // FIX 2: Filter blogs using the new singular 'topic' field
-//         // const related = blogsArray
-//         //   .filter(
-//         //     (blog) =>
-//         //       // 1. Exclude the current blog
-//         //       blog._id !== currentBlog._id &&
-//         //       // 2. Ensure the related blog has a topic
-//         //       blog.topic &&
-//         //       // 3. Compare topics case-insensitively
-//         //       blog.topic.toLowerCase() === currentTopic
-//         //   )
-//         //   // Limit to 4 related blogs for the sidebar
-//         //   .slice(0, 4);
-
-//         const related = blogsArray
-//   .filter(
-//     (blog) => {
-//         // Log the topic being compared
-//         if (blog.topic && blog.topic.toLowerCase() === currentTopic) {
-//             console.log("✅ MATCH FOUND:", blog.title, "Topic:", blog.topic);
-//         }
-
-//         return (
-//           // 1. Exclude the current blog
-//           blog._id !== currentBlog._id &&
-//           // 2. Ensure the related blog has a topic
-//           blog.topic &&
-//           // 3. Compare topics case-insensitively
-//           blog.topic.toLowerCase() === currentTopic
-//         )
-//     }
-//   )
-//   .slice(0, 4);
-
-//         setRelatedBlogs(related);
-//       } catch (err) {
-//         console.error("Error fetching related blogs", err);
-//       } finally {
-//         setIsLoading(false);
-//       }
-//     };
-
 const fetchRelatedBlogs = async () => {
     setIsLoading(true);
     
     // Use the URL confirmed to work for fetching all blogs
     const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/api/blogs?limit=500`;
 
-    // 🌟 ROBUST FETCH IMPLEMENTATION 🌟
+    //  ROBUST FETCH IMPLEMENTATION
     try {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 10000); // 10-second timeout

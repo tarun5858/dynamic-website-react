@@ -52,12 +52,7 @@ const GetInTouchForm = () => {
             
             console.log("Submitting payload to /submit-form:", payload);
 
-            // API Call: Using the specific /submit-form endpoint
-            // const response = await axios.post(
-            //     // "https://prehome-website-backend-service.onrender.com/submit-form", 
-            //     "/submit-appointment", 
-            //     payload
-            // );
+            
             const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/submit-form`, payload);
             
             // Check if response status is successful (e.g., 200, 201)

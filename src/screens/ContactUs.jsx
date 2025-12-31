@@ -431,39 +431,7 @@ const trackButtonClick = (buttonName) => {
                   </div>
                 </div>
 
-                {/* <div className="col-md-6  ">
-                                <div className="single-personal-info">
-                                    <label for="next7Days">Date:</label>
-                                    <div className="dropdown-date" id="next7DaysDropdown">
-                                        <div className="dropdown-button-1" id="msg_date" onclick="toggleDropdowndate()">Block a date </div>
-                                        <div className="dropdown-content-1 text-center p-2" id="next7DaysDropdownContent">
-                                        </div>
-                                    </div> 
-                                </div>
-                            </div>
-                            <div className="col-md-6   d-flex align-items-center ">
-                                <div className="single-personal-info">
-                                    <div className="dropdown" id="customDropdown" style={{width: "100%"}}>
-                                        <label for="time" className="ml-3">Time:</label>
-                                        <div className="dropdown-button-2"  id="msg_time" onclick="toggleDropdown()">Block a timeslot</div>
-                                        <div className="dropdown-content-2 text-justify p-4 " id="dropdownContents">                                  
-                                            <div className="dropdown-option-1 mt-1 mb-2" onclick="selectOption('10:00 am')">10:00 am</div>
-                                            <div className="dropdown-option-1 mt-1 mb-2" onclick="selectOption('10:30 am')">10:30 am</div>
-                                            <div className="dropdown-option-1 mt-1 mb-2" onclick="selectOption('11:00 am')">11:00 am</div>
-                                            <div className="dropdown-option-1 mt-1 mb-2" onclick="selectOption('11:30 am')">11:30 am</div>
-                                            <div className="dropdown-option-1 mt-1 mb-2" onclick="selectOption('12:00 pm')">12:00 pm</div>
-                                            <div className="dropdown-option-1 mt-1 mb-2" onclick="selectOption('12:30 pm')">12:30 pm</div>
-                                            <div className="dropdown-option-1 mt-1 mb-2" onclick="selectOption('01:00 pm')">01:00 pm</div>
-                                            <div className="dropdown-option-1 mt-1 mb-2" onclick="selectOption('01:30 pm')">01:30 pm</div>
-                                            <div className="dropdown-option-1 mt-1 mb-2" onclick="selectOption('02:00 pm')">02:00 pm</div>
-                                            <div className="dropdown-option-1 mt-1 mb-2" onclick="selectOption('02:30 pm')">02:30 pm</div>
-                                            <div className="dropdown-option-1 mt-1 mb-2" onclick="selectOption('12:00 pm')">03:00 pm</div>
-                                            <div className="dropdown-option-1 mt-1 mb-2" onclick="selectOption('03:30 pm')">03:30 pm</div>
-                                            <div className="dropdown-option-1 mt-1 mb-2" onclick="selectOption('04:00 pm')">04:00 pm</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> */}
+               
                 <div className="col-md-12  ">
                   <DateTimeDropdowns></DateTimeDropdowns>
                 </div>

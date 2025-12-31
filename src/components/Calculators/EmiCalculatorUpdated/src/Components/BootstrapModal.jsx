@@ -89,7 +89,7 @@ const BootstrapModal = () => {
   const handleSubmit = async (e) => {
    
     
-  // e.preventDefault(); // Prevent default form submission
+  e.preventDefault(); // Prevent default form submission
 
   // Validate form data
   if (!validate() || !validate1()) return;
