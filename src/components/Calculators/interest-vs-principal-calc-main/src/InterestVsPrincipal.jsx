@@ -17,15 +17,14 @@ import {
 import { MdOutlineExpandLess, MdOutlineExpandMore } from "react-icons/md";
 import CustomSlider from "./Components/CustomSlider";
 import { interestVsPrincipal } from "./Api/calculatorApi";
-import "../src/App.css"
-// import Header from "./Components/Header";
-import Triangle from "./assets/rt.jpg";
-import Footer from "./Components/Footer";
-import closeBar from "./assets/close_small.png"
+// import "../src/App.css"
+import "../../../Calculators/src/common.css"
+import Triangle from "./assets/img/rt.jpg";
+import closeBar from "./assets/img/close_small.png"
 
 
 const InterestVsPrincipal = () => {
-  const [location, setLocation] = useState("");
+  // const [location, setLocation] = useState("");
   const [house_cost, setCostOfHouse] = useState(2);
   const [showAssumptions, setShowAssumptions] = useState(false);
   const [loan_tenure, setLoanTenure] = useState(10);
@@ -51,6 +50,7 @@ const InterestVsPrincipal = () => {
 
   const handleSliderChangeCommitted = (apiTriggerFunc) => (event, newValue) => {
     apiTriggerFunc(); // Trigger API after slider is done
+    console.log(event, newValue)
   };
 
   const handleLoanTenureChange = handleSliderChange(setLoanTenure);

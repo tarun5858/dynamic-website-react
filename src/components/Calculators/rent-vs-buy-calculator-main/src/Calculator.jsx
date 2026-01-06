@@ -1,4 +1,4 @@
-import React, { useEffect, useState ,useMemo} from "react";
+import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 import {
   Box,
@@ -30,10 +30,9 @@ import {
 import CustomSlider from "./Components/CustomSlider";
 import { MdOutlineExpandLess, MdOutlineExpandMore } from "react-icons/md";
 // import { rentvsbuy } from "./Api/calculatorApi";
-import Header from "./Components/Header";
-import "./assets/css/App.css"
-import Footer from "./Components/Footer";
-import closeBar from "./assets/close_small.png"
+// import "./assets/css/App.css"
+import "../../../Calculators/src/common.css"
+import closeBar from "./assets/img/close_small.png"
 
 
 // Register the necessary components with Chart.js
@@ -177,65 +176,6 @@ const [chartRenderKey, setChartRenderKey] = useState(0);
     setOpenModal(false);
   };
 
-
-//     try {
-//       setError(null);
-//       setLoading(true);
-
-//       // Convert house_cost from crores to actual value (1 crore = 10,000,000)
-//       const actualHouseCost = house_cost * 10000000;
-
-//       // Convert monthly_rent from thousands to actual value
-//       const actualMonthlyRent = monthly_rent * 1000; // Convert to rupees
-
-//       let loan_ratio = 100 - down_payment;
-//       let LTCG = 12.5;
-
-
-//       const response = await rentvsbuy(
-//         tax_Bracket,
-//         reinvestment,
-//         property_inflation,
-//         opportunity_cost_interest,
-//         buy_closing_cost,
-//         maintenance_cost,
-//         home_insurance,
-//         rent_inflation,
-//         security_deposit,
-//         rent_closing_cost,
-//         average_shifting_home,
-//         shifting_cost,
-//         actualHouseCost, // Send converted house cost
-//         actualMonthlyRent, // Send converted monthly rent
-//         loan_tenure,
-//         loan_ratio,
-//         loan_rate,
-//         STCG,
-//         LTCG,
-//         down_payment
-//       );
-
-      
-//   const rentArr = yearly.cumulativeRentCosts;
-//   const buyArr = yearly.cumulativeBuyCosts;
-//   let saturation = buyArr.length - 1;
-//   for (let i = 0; i < rentArr.length; i++) {
-//     const diff = rentArr[i] - buyArr[i];
-//     if (diff < 0) {
-//       saturation = i+1;
-//       break;
-//     }
-//   }
-//   setSaturationYear(saturation);
-// setRentArray([0, ...response.cumulative_array]);
-//       setBuyArray([0, ...response.rent_comulative_array]);
-      
-//     } catch (error) {
-//       setError("An error occurred. Please try again.");
-//     } finally {
-//       setLoading(false); // Set loading to false after the API call is done
-//     }
-//   };
 const rentData = rentArray;
     const buyData = buyArray;
 
@@ -246,45 +186,6 @@ const rentData = rentArray;
      
     })
 
-// function to calculate intersection point of two lines
-//     const prevDiff = rentArr[i - 1] - buyArr[i - 1];
-//     const currentDiff = rentArr[i] - buyArr[i];
-
-//     // Check for actual line crossing
-//     if ((prevDiff < 0 && currentDiff > 0) || (prevDiff > 0 && currentDiff < 0)) {
-//       const slopeRent = rentArr[i] - rentArr[i - 1];
-//       const slopeBuy = buyArr[i] - buyArr[i - 1];
-//       const slopeDifference = slopeRent - slopeBuy;
-//       const t = (buyArr[i - 1] - rentArr[i - 1]) / slopeDifference;
-//       const x = i - 1 + t;
-//       const y = rentArr[i - 1] + slopeRent * t;
-//       return { x, y };
-//     }
-
-//     // If no crossover but divergence starts
-//     if (currentDiff > 0 && prevDiff <= 0) {
-//       // Apply your formula: i + (Buy - Rent) / Rent
-//       const mappedX = i + (buyArr[i] - rentArr[i]) / rentArr[i];
-//       return {
-//         x: mappedX,
-//         y: rentArr[i],
-//       };
-//     }
-//   }
-
-//   // No crossover or divergence
-//   return null;
-// };
-// const getIntersection = (rentArr, buyArr) => {
-//   for (let i = 1; i < rentArr.length; i++) {
-//     if (rentArr[i] > 0 && buyArr[i] > rentArr[i]) {
-//       const x = i + (buyArr[i] - rentArr[i]) / rentArr[i];
-//       const y = rentArr[i];
-//       return { x, y };
-//     }
-//   }
-//   return null;
-// };
 const getIntersection = (rentArr, buyArr) => {
   if (!rentArr || !buyArr || rentArr.length !== buyArr.length || rentArr.length < 2) {
     console.warn("Invalid or insufficient data for intersection calculation", { rentArr, buyArr });
@@ -865,7 +766,7 @@ useEffect(() => {
 
   return (
     <>
-    {/* <Header/> */}
+   
     <Container className="calculator-container" maxWidth="lg" sx={{ padding: "16px", backgroundColor: "white",textAlign:"left",marginTop:"1%",fontFamily: '"poppins", sans-serif !important' }}>
   <Typography
     variant="h1"
@@ -2025,7 +1926,6 @@ sx={{  fontSize:{xs:"12px", md:"16px",color:"#000", fontFamily: '"poppins", sans
       </Grid>
     </Container>
 
-    {/* <Footer/> */}
     </>
   );
 };

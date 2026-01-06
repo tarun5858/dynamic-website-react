@@ -14,14 +14,10 @@ import {
   useMediaQuery,
   Divider,
 } from "@mui/material";
-import { MdOutlineExpandLess, MdOutlineExpandMore } from "react-icons/md";
-import CustomSlider from "./Components/CustomSlider";
-import "../src/App.css";
-import Header from "./Components/Header";
-import Triangle from "./assets/rt.jpg";
-import Footer from "./Components/Footer";
-import closeBar from "./assets/close_small.png";
-import { BiFontFamily } from "react-icons/bi";
+// import "../src/App.css";  
+import "../../../Calculators/src/common.css"
+import Triangle from "./assets/img/rt.jpg";
+import closeBar from "./assets/img/close_small.png";
 
 const MonthlyBudgetCalculator = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -32,9 +28,9 @@ const MonthlyBudgetCalculator = () => {
   const handleOpenModal = () => {
     setOpenModal(true);
   };
-  const handleOpenModal1 = () => {
-    setOpenModal(true);
-  };
+  // const handleOpenModal1 = () => {
+  //   setOpenModal(true);
+  // };
 
   const handleCloseModal = () => {
     setOpenModal(false);

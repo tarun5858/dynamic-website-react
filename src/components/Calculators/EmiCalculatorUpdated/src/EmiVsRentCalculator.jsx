@@ -16,12 +16,10 @@ import {
 import { MdOutlineExpandLess, MdOutlineExpandMore } from "react-icons/md";
 import CustomSlider from "./Components/CustomSlider";
 import { emiCalculator } from "./Api/calculatorApi";
-import "./assets/css/App.css"
-import Header from "./Components/Header"
-import Triangle from "./assets/rt.jpg";
-import closeBar from "./assets/close_small.png"
-import Footer from "./Components/Footer";
-import "./EmiVsRentCalculator.css";
+// import "./assets/css/App.css"
+import "../../../Calculators/src/common.css"
+import Triangle from "./assets/img/rt.jpg";
+import closeBar from "./assets/img/close_small.png"
 
 
 
@@ -55,6 +53,7 @@ const EmiVsRentCalculator = () => {
 
   const handleSliderChangeCommitted = (apiTriggerFunc) => (event, newValue) => {
     apiTriggerFunc(); // Trigger API after slider is done
+    console.log(event, newValue)
   };
 
   const handleLoanTenureChange = handleSliderChange(setLoanTenure);

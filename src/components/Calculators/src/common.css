@@ -6,16 +6,6 @@ Description: IT Solution & Technology HTML  Template
 Version: 1.2.0
 */
 @import url("https:/fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600&amp;family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap");
-body {
-  font-family: 'Poppins', sans-serif;
-}
-.css-mdw22z {
-      margin-top: 16px;
-      margin-bottom: 16px;
-      padding-left: 0px;
-      padding-right: 0px;
-      width: 100%!important;
-  }
 
 * {
   -webkit-box-sizing: border-box;
@@ -23,6 +13,8 @@ body {
   margin: 0;
   padding: 0;
 }
+
+
 
 
 @font-face {
@@ -117,7 +109,6 @@ body {
   font-style: normal;
 
 }
-
 .poppins-thin {
   font-family: "Poppins", sans-serif;
   font-weight: 100;
@@ -2435,9 +2426,9 @@ nav .breadcrumb li {
     width: 135px!important;
       height: 40px!important;
   }
+  /* right: 0; */
   .carousel-indicators {
     position: absolute;
-/* right: 0; */
 left: 0!important;
 bottom: -80px!important;;
 left: 0;
@@ -3239,7 +3230,7 @@ list-style: none;
 
 .theme-btn-form-btn {
   padding: 14px 20px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   line-height: 24px;
   color: #FFFFFF;
@@ -3250,7 +3241,7 @@ list-style: none;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
   width: 215px;
   text-align: center;
-  width: 200px;
+  width: 230px;
   height: 50px;
 }
 .theme-btn-form-btn.btn-radius {
@@ -4669,10 +4660,7 @@ header.header-3 .main-menu ul>li>ul ul {
   color: #fff;
   border-radius: 30px;
   font-size: 20px;
-  position: absolute;
-  /* left: 20px;
-  top: 10px; */
-  position: absolute;
+ position: absolute;
   top: 15px!important;
   right: 30px!important;
 }
@@ -7592,7 +7580,7 @@ header.header-3 .main-menu ul>li>ul ul {
 .case-cat-filter {
   background: #FFF3DF;
   border-radius: 10px;
-  padding: 5px 10px 0 10px;
+  padding: 0px 0px 0px 0px!important;
 }
 
 .case-cat-filter button {
@@ -10898,6 +10886,32 @@ label {
 }
 
 @media (max-width: 767px) {
+    .carousel-indicators .active {
+    opacity: 1;
+    width: 38px!important;
+    border-radius: 100px;
+}
+
+.carousel-indicators [data-bs-target] {
+    box-sizing: content-box;
+    flex: 0 1 auto;
+    background-color: #0086AD;
+    height: 25px!important;
+    width: 25px;
+    border-radius: 50%;
+    padding: 0;
+    margin-right: 3px;
+    margin-left: 3px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-clip: padding-box;
+    border: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    opacity: 0.5;
+    transition: opacity 0.6s ease;
+}
+
   .chart-with-whatsapp span {
 
     display: none;
@@ -11055,7 +11069,7 @@ label {
       position: absolute;
       /* right: 0; */
       bottom: -50px;
-      left: 0!important;
+      left: 0;
      
   }
    
@@ -11173,9 +11187,12 @@ text-align: left;
   }
   .carousel-p{
     font-size: 14px!important;
-    line-height: 1.2;
+    line-height: 1.4;
   }
-
+.carousel-parent{
+  position: 'relative';
+   min-height: '335px';
+}
   .carousel-h3{
     text-align: center!important;
     font-size: 16px!important;
@@ -11464,11 +11481,12 @@ justify-content: space-between;
     color: #000929!important;
     text-align: left;
   }
+  /* right: 0; */
   .carousel-indicators {
       position: absolute;
-  left: 0!important;
   bottom:-50px;
-  left: 0;
+  /* left: 0!important; */
+  margin-left: 9%!important;
   z-index: 2;
   display: flex;
   padding: 0;
@@ -11481,12 +11499,12 @@ justify-content: space-between;
 
 
   .carousel-indicators .active {
-    /* opacity: 1!important; */
-    /* width: 45px!important;
-    border-radius: 100px!important; */
+    opacity: 1;
+    width: 40px;
+    border-radius: 100px;
 }
 
-/* .carousel-indicators [data-bs-target] {
+.carousel-indicators [data-bs-target] {
     box-sizing: content-box;
     flex: 0 1 auto;
     background-color: #0086AD;
@@ -11504,7 +11522,7 @@ justify-content: space-between;
     border-bottom: 10px solid transparent;
     opacity: 0.5;
     transition: opacity 0.6s ease;
-} */
+}
 /* .video-container{
   margin: 5% 0;
 }
@@ -11723,5 +11741,638 @@ margin-top: 10%;
       margin-bottom: 16px;
       padding-left: 0px;
       padding-right: 0px;
-      width: 100%;
+      width: 22%;
   }
+
+
+
+  @media (max-width: 575px) {
+  .calculator-subhead {
+    margin-top: 35%;
+    margin-left: 2%;
+    color: #fff;
+}
+.calculator-subhead{
+  display: none;
+}
+    .modal-dialog {
+        max-width: 600px!important;
+        margin: 1.75rem auto;
+    }
+  }
+
+
+
+
+
+/* monthly budget calc app.css  */
+  @media (min-width: 1200px) {
+    .css-15e01qk-MuiContainer-root {
+        max-width: 1230px!important;
+        margin-top: 5%;
+    }
+}
+
+.css-1vc8oil {
+    margin-top: 24px;
+    padding: 16px;
+    background-color: #ffeed2!important;
+    border-radius: 16px;
+  }
+  .css-1ll44ll-MuiOutlinedInput-notchedOutline{
+    border: none!important;
+  }
+
+  .table-container {
+  width: 100%;
+  overflow-x: auto;
+
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table-head{
+  background-color: grey;
+}
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #000;
+}
+
+thead {
+  background-color: #f2f2f2;
+}
+
+/* Different styles for the columns */
+td:nth-child(1),
+th:nth-child(1) {
+  background-color: #f9c2c2;
+  color: #000;
+  /* font-weight: bold; */
+  font-size: 16px;
+}
+
+td:nth-child(2),
+th:nth-child(2) {
+  background-color: #c2f9c2;
+  color: #000;
+  font-size: 16px;
+}
+
+td:nth-child(3),
+th:nth-child(3) {
+  background-color: #c2d1f9;
+  color: #000;
+  font-size: 16px;
+}
+
+th {
+  background-color: #333333;
+  color: white;
+}
+
+tfoot {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}
+
+/* monthly budget calc app.css  */
+
+
+/* MobileWaitlistButton.css */
+.mobile-waitlist-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background-color: #007FAD;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.mobile-waitlist-btn:hover {
+  background-color: #005f8a;
+}
+
+
+ /* interest vs principal app.css  */
+
+  @media (min-width: 1200px) {
+    .css-15e01qk-MuiContainer-root {
+        max-width: 1230px!important;
+        font-weight: bold!important;
+        margin-top: 1%;
+    }
+}
+.css-1vc8oil {
+    margin-top: 24px;
+    padding: 16px;
+    background-color: #ffeed2!important;
+    border-radius: 16px;
+  }
+  /* interest vs principal app.css  */
+
+
+
+
+
+
+
+
+
+
+
+
+  /* emi calc index.css  */
+  
+    .css-1yuhvjn{
+        margin: -10px !important;
+    }
+    .MuiBox-root{
+      padding: 0px ;
+      /* margin-top: 7%; */
+    }
+    .css-mdw22z {
+      margin-top: 16px;
+      margin-bottom: 16px;
+      padding-left: 0px;
+      padding-right: 0px;
+      width: 22%;
+  }
+  .css-j5j15 {
+    margin-top: 7%;
+    padding-left: 0px;
+    padding-right: 16px;
+}
+.css-t7r9eg {
+  padding-left: 8px;
+  padding-right: 12px;
+  margin-top: 7%;
+}
+.css-1vc8oil {
+  margin-top: 24px;
+  padding: 16px;
+  background-color: #ffeed2!important;
+  border-radius: 16px;
+}
+
+    .css-alnuhg-MuiTypography-root,.css-1534noa-MuiTypography-root,.css-1rs44lj-MuiTypography-root,.css-1pwy8n0-MuiTypography-root,.MuiTypography-root{
+      font-family: "Poppins" !important
+
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif !important;
+        margin: 0;
+        /* padding: 0; */
+      }
+      
+      h1, h2, h3, h4, h5, h6 {
+        font-weight: 700; /* Bold */
+        font-family: 'Poppins', sans-serif !important;
+      }
+      
+      strong {
+        font-weight: 600; /* Semi-Bold */
+        font-family: 'Poppins', sans-serif !important;
+      }
+      
+      p {
+        font-weight: 400; /* Regular */
+        font-family: 'Poppins', sans-serif !important;
+      }
+
+.mobile-waitlist-btn {
+  position: fixed;
+  bottom: 37px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background-color: #007FAD;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.mobile-waitlist-btn:hover {
+  background-color: #005f8a;
+}      
+.css-51x56s{
+  z-index: 1000 !important;
+}
+.calculator-sub-title{
+color: #505050!important;
+font-size: 18px;
+}
+.calculator-subhead{
+  /* margin-top: 10%;
+  margin-left: -31px; */
+}
+
+.EventCardMobile{
+  overflow-x:scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow-x: hidden; /* hide horizontal scrollbar */
+  overflow-y: scroll; /* keep vertical scrollbar */
+}
+
+@media (max-width: 575px) {
+  .calculator-subhead {
+    margin-top: 35%;
+    margin-left: 2%;
+    color: #fff;
+}
+.calculator-subhead{
+  display: none;
+}
+
+
+.css-1cb6djm-MuiSlider-root .MuiSlider-valueLabel {
+    background-color: #DEDEDE;
+    color: black;
+    font-weight: 700;
+    top: -3px!important;
+    border-radius: 20px;
+    padding: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.css-1cb6djm-MuiSlider-root {
+  padding: 20px 0;
+  margin-top: 10%!important;
+
+
+}
+.css-l7bq8c-MuiButtonBase-root-MuiButton-root{
+  text-transform: inherit!important;
+  text-decoration: none!important;
+}
+
+
+*{
+  font-family: 'poppins' !important;
+}
+
+.assumed-val{
+display: flex;
+align-self: flex-end;
+}
+.css-mdw22z {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  padding-left: 0px;
+  padding-right: 0px;
+  width: 100%;
+}
+.css-7yi15n {
+  padding: 25px!important;
+}
+}
+
+.css-poupsu-MuiGrid-root>.MuiGrid-item {
+  padding-left: 0px!important;
+}
+
+.css-1cb6djm-MuiSlider-root .MuiSlider-valueLabel {
+  background-color: #DEDEDE;
+  color: black;
+  font-weight: 700;
+  top: -3px!important;
+  border-radius: 20px;
+  padding: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.css-1cb6djm-MuiSlider-root {
+  padding: 20px 0;
+  margin-top: 15%;
+
+
+}
+    .css-ifwt59-MuiContainer-root{
+      color: transparent!important;
+    }
+ /* emi calc index.css  */
+
+
+ 
+
+
+
+  /* interest-principal calc index.css  */
+    .css-1yuhvjn{
+        margin: -10px !important;
+    }
+    .MuiBox-root{
+      padding: 0px ;
+    }
+
+    .css-alnuhg-MuiTypography-root,.css-1534noa-MuiTypography-root,.css-1rs44lj-MuiTypography-root,.css-1pwy8n0-MuiTypography-root,.MuiTypography-root{
+      font-family: "Poppins" !important
+
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif !important;
+        margin: 0;
+        /* padding: 0; */
+      }
+      
+      h1, h2, h3, h4, h5, h6 {
+        font-weight: 700; /* Bold */
+        font-family: 'Poppins', sans-serif !important;
+      }
+      
+      strong {
+        font-weight: 600; /* Semi-Bold */
+        font-family: 'Poppins', sans-serif !important;
+      }
+      
+      p {
+        font-weight: 400; /* Regular */
+        font-family: 'Poppins', sans-serif !important;
+      }
+
+      
+.css-51x56s{
+  z-index: 1000 !important;
+}
+
+.EventCardMobile{
+  overflow-x:scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow-x: hidden; /* hide horizontal scrollbar */
+  overflow-y: scroll; /* keep vertical scrollbar */
+}
+@media (min-width: 1024px) {
+  body {
+    background-color: #ececec;
+  }
+}
+
+.calculator-sub-title{
+  color: #505050!important;
+  font-size: 18px;
+  text-transform: capitalize!important;
+  font-family: 'Poppins', sans-serif !important;
+
+  }
+
+  @media (min-width: 1024px) {
+    body {
+        background-color: #fff;
+    }
+}
+.assumed-val{
+  display: flex;
+  align-self: flex-end;
+  }
+  .css-mdw22z{
+    width: 22%;
+  }
+  .css-1cb6djm-MuiSlider-root .MuiSlider-valueLabel{
+    top: -3px!important;
+  }
+  .css-1cb6djm-MuiSlider-root{
+    margin-top: 15%;
+  }
+  .css-wr6kyc-MuiDialogActions-root{
+    position: absolute!important;
+    right: 0;
+    top: 0;
+
+  }
+  .css-1ygxhtn-MuiSlider-root{
+    margin-top: 7%;
+  }
+
+  @media (max-width: 575px) {
+  .css-mdw22z {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100%;
+  }
+.calculator-p{
+    font-size: 14px!important;
+  }
+  .css-wr6kyc-MuiDialogActions-root{
+    position: absolute;
+    right: -15px!important;
+
+
+  }
+  }
+  .css-1ntjmc-MuiGrid-root>.MuiGrid-item{
+    padding-top: 0px!important;
+    padding-left: 0px!important;
+  }
+
+  /* MobileWaitlistButton.css */
+/* .mobile-waitlist-btn {
+  position: fixed;
+  bottom: 37px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background-color: #007FAD;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.mobile-waitlist-btn:hover {
+  background-color: #005f8a;
+} */
+.css-1xplwhu{
+  margin-top: 20%!important;
+  text-align: center;
+  margin-bottom: 32px;
+}
+@media (min-width: 1200px) {
+    .css-15e01qk-MuiContainer-root {
+        max-width: 1260px !important;
+        margin-top: 6%;
+    }
+}
+.css-10d30g3-MuiPaper-root-MuiDialog-paper{
+  border-radius: 16px!important;
+}
+  /* interest-principal calc index.css  */
+
+
+
+
+
+
+ /* monthly-budget calc index.css  */
+  .css-1f7wvs0-MuiTypography-root{
+  font-family: 'Poppins', sans-serif !important;
+}
+    .css-1yuhvjn{
+        margin: -10px !important;
+    }
+    .MuiBox-root{
+      padding: 0px ;
+    }
+
+    .css-alnuhg-MuiTypography-root,.css-1534noa-MuiTypography-root,.css-1rs44lj-MuiTypography-root,.css-1pwy8n0-MuiTypography-root,.MuiTypography-root{
+      font-family: "Poppins" !important
+
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif !important;
+        margin: 0;
+        /* padding: 0; */
+      }
+      
+      h1, h2, h3, h4, h5, h6 {
+        font-weight: 700; /* Bold */
+        font-family: 'Poppins', sans-serif !important;
+      }
+      
+      strong {
+        font-weight: 600; /* Semi-Bold */
+        font-family: 'Poppins', sans-serif !important;
+      }
+      
+      p {
+        font-weight: 400; /* Regular */
+        font-family: 'Poppins', sans-serif !important;
+      }
+
+      
+.css-51x56s{
+  z-index: 1000 !important;
+}
+
+.EventCardMobile{
+  overflow-x:scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow-x: hidden; /* hide horizontal scrollbar */
+  overflow-y: scroll; /* keep vertical scrollbar */
+}
+@media (min-width: 1024px) {
+  body {
+    background-color: #ececec;
+  }
+}
+
+.calculator-sub-title{
+  color: #505050!important;
+  font-size: 18px;
+  text-transform: capitalize!important;
+  font-family: 'Poppins', sans-serif !important;
+
+  }
+  @media (min-width: 1024px) {
+    body {
+        background-color: #fff;
+    }
+}
+.assumed-val{
+  display: flex;
+  align-self: flex-end;
+  }
+  .css-mdw22z{
+    width: 22%;
+  }
+  .css-1cb6djm-MuiSlider-root .MuiSlider-valueLabel{
+    top: -3px!important;
+  }
+  .css-1cb6djm-MuiSlider-root{
+    margin-top: 15%;
+  }
+  .css-wr6kyc-MuiDialogActions-root{
+    position: absolute!important;
+    right: 0;
+    top: 0;
+
+  }
+  .css-1ygxhtn-MuiSlider-root{
+    margin-top: 7%;
+  }
+
+  @media (max-width: 575px) {
+  .css-mdw22z {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100%;
+  }
+.calculator-p{
+    font-size: 14px!important;
+  }
+  .css-wr6kyc-MuiDialogActions-root{
+    position: absolute;
+    right: -15px!important;
+
+
+  }
+  }
+  .css-1ntjmc-MuiGrid-root>.MuiGrid-item{
+    padding-top: 0px!important;
+    padding-left: 0px!important;
+  }
+
+  /* MobileWaitlistButton.css */
+/* .mobile-waitlist-btn {
+  position: fixed;
+  bottom: 37px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background-color: #007FAD;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.mobile-waitlist-btn:hover {
+  background-color: #005f8a;
+} */
+.css-1xplwhu{
+  margin-top: 20%!important;
+  text-align: center;
+  margin-bottom: 32px;
+}
+@media (min-width: 1200px) {
+    .css-15e01qk-MuiContainer-root {
+        max-width: 1230px !important;
+        margin-top: 7%;
+    }
+}
+.css-10d30g3-MuiPaper-root-MuiDialog-paper{
+  border-radius: 16px!important;
+}
+ /* monthly-budget calc index.css  */
