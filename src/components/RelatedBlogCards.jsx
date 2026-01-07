@@ -103,12 +103,12 @@ const fetchRelatedBlogs = async () => {
     <>
       {relatedBlogs.map((blog) => (
         <div key={blog._id} className="row related-blogs">
-          <div className="col-12 mt-2 mb-2">
-            <h6>
-              <b>{blog.title}</b>
-            </h6>
+          <div className="col-12">
+            <h4>
+              <>{blog.title}</>
+            </h4>
           </div>
-          <div className="col-6 pt-2 blog-time">{blog.date}</div>
+          <div className="col-6 pt-2 blog-time">{blog.readTime} min read</div>
           <div className="col-6 pt-2 text-end">
             <Link to={`/blog/${blog._id}`}>Read now</Link>
           </div>

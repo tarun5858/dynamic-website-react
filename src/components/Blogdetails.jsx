@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import React from "react";
 import RelatedBlogCards from "./RelatedBlogCards";
+import DownloadCta from "./DownloadCta";
 import {
   blogImage1,
   blogImage2,
@@ -65,6 +66,19 @@ import {
   blogImage26,
   blogImage27,
   blogImage28,
+  blogImage29,
+  blogImage30,
+  blogImage31,
+  blogDetail29,
+  blogDetail30,
+  blogDetail31,
+  blogDetail32,
+  blogDetail33,
+  blogDetail34,
+  blogImage32,
+  blogImage33,
+  blogImage34,
+// checkList34
 } from "../components/Imagepath";
 
 const imageSrc = {
@@ -130,6 +144,20 @@ const imageSrc = {
   blogImage26,
   blogImage27,
   blogImage28,
+  blogImage29,
+  blogImage30,
+  blogImage31,
+  blogDetail29,
+  blogDetail30,
+  blogDetail31,
+  blogDetail32,
+  blogDetail33,
+  blogDetail34,
+  blogImage32,
+  blogImage33,
+  blogImage34,
+// checkList34
+
 };
 
 // --- Component to Render Individual Content Blocks (NEW) ---
@@ -149,7 +177,7 @@ const ContentBlockRenderer = ({ block }) => {
       // Treat as a subsection title (like your old subheading)
       return (
         <h4 style={{ ...baseStyle, marginTop: "20px" }}>
-          <b>{block.text}</b>
+          {block.text}
         </h4>
       );
     case "subheading":
@@ -468,7 +496,7 @@ function Blogdetails() {
         <div className="row d-flex">
           <div
             className="blog-text col-sm-12 col-md-6 col-lg-8 "
-            style={{ paddingRight: "5%", marginBottom: "3%" }}
+            style={{ marginBottom: "3%" }}
           >
             {/* Hero Image (Preserved) */}
             {heroImageUrl && (
@@ -498,6 +526,8 @@ function Blogdetails() {
                 <h4>Next in Our Series:</h4> {blog.nextSeries}
               </p>
             )}
+
+            {id === "695e162dbc334f451a61e453" && <DownloadCta />}
           </div>
 
           {/* 4. Sidebar (Preserved) */}

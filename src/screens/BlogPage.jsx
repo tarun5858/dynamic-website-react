@@ -140,12 +140,18 @@ const BlogPage = () => {
 
       {/* Topic Filter Buttons */}
       <div className="row align-center d-flex mt-5">
-        <div className="col-12 pb-3 mt-3 mb-3">
+        <div className="col-12 pb-3 mt-3">
           <div className="case-cat-filter d-flex">
             <div className="icon-box">
               <i
                 className="fas fa-chevron-left scroll-left"
-                style={{ cursor: "pointer" }}
+                // style={{ cursor: "pointer" }}
+                style={{ 
+    cursor: "pointer", 
+    fontFamily: '"Font Awesome 7 Free"', // Match the version you installed
+    fontWeight: "900",
+    display: "inline-block"
+  }}
                 onClick={scrollLeft}
               ></i>{" "}
             </div>

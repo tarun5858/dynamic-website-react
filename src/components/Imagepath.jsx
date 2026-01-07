@@ -30,6 +30,12 @@ export { default as blogImage25 } from "../assets/img/blogsImage/24.png";
 export { default as blogImage26 } from "../assets/img/blogsImage/25.png";
 export { default as blogImage27 } from "../assets/img/blogsImage/26.png";
 export { default as blogImage28 } from "../assets/img/blogsImage/27.png";
+export { default as blogImage29 } from "../assets/img/blogsImage/28.png";
+export { default as blogImage30 } from "../assets/img/blogsImage/29.png";
+export { default as blogImage31 } from "../assets/img/blogsImage/30.png";
+export { default as blogImage32 } from "../assets/img/blogsImage/32.png";
+export { default as blogImage33 } from "../assets/img/blogsImage/33.png";
+export { default as blogImage34 } from "../assets/img/blogsImage/34.png";
 
 
 // blogDetail img
@@ -64,6 +70,13 @@ export { default as blogDetail25    } from "../assets/img/blogsImage/info24.png"
 export { default as blogDetail26    } from "../assets/img/blogsImage/info25.png";
 export { default as blogDetail27    } from "../assets/img/blogsImage/info26.png";
 export { default as blogDetail28    } from "../assets/img/blogsImage/info27.png";
+export { default as blogDetail29    } from "../assets/img/blogsImage/info28.png";
+export { default as blogDetail30    } from "../assets/img/blogsImage/info29.png";
+export { default as blogDetail31    } from "../assets/img/blogsImage/info30.png";
+export { default as blogDetail32    } from "../assets/img/blogsImage/info32.png";
+export { default as blogDetail33    } from "../assets/img/blogsImage/info33.png";
+export { default as blogDetail34    } from "../assets/img/blogsImage/info34.png";
+// export { default as checkList34    } from "../assets/img/blogsImage/checklist34.png";
 
 // homepage img
 export { default as benefitimg1 } from "../assets/img/benefit-icon-1.png";

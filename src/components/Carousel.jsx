@@ -26,10 +26,10 @@ const Carousel = () => {
           position: "absolute",
 
           // FIX: Locks vertical position 1.5rem from the bottom of the main container
-          bottom: "1.5rem",
+          bottom: "0rem",
 
           // FIX: Overrides Bootstrap's default centering transform
-          marginLeft: "2%",
+          marginLeft: "1%",
           // right: "auto",
           transform: "none",
           margin: 0,
@@ -84,6 +84,8 @@ const Carousel = () => {
                           borderRadius: "50% 50% 0 0",
                         }}
                       />
+                      <p style={{fontSize:"12px"}}>* Stock images used to protect the privacy of our customers</p>
+
                     </div>
                   </div>
                   <div className="col-xl-8 col-md-8 ps-xl-2">
