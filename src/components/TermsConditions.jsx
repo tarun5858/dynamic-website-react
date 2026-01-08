@@ -289,6 +289,7 @@ const TermsConditions = () => {
                   <br />
                   Thank you for visiting our site.
                 </p>
+                <br />
               </div>
             </div>
           </div>

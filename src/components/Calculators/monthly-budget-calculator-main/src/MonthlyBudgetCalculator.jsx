@@ -469,7 +469,7 @@ const MonthlyBudgetCalculator = () => {
         ) : (
           <>
             {/* Mobile View */}
-            <Box textAlign="center" my={1} sx={{ padding: { xs: "20px" } }}>
+            <Box textAlign="center"  sx={{ padding: { xs: "20px" } }}>
               <Typography
                 variant="h6"
                 fontWeight="bold"

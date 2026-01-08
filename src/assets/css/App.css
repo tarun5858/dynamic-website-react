@@ -684,6 +684,11 @@ a {
 .details-list a{
 color: #0086AD;
 }
+.blog-detail-link > b{
+color: #0086AD!important;
+
+}
+
 
 p {
 
@@ -708,8 +713,47 @@ p {
     font-size: 42px;
   }
 }
-
+.disclaimer-text{
+  font-size: 12px!important;
+}
 @media (max-width: 767px) {
+  .theme-btn-navbar-blog {
+    padding: 10px 15px!important;
+    font-size: 12px!important;
+    font-weight: bold;
+    line-height: 24px;
+    color: #FFFFFF !important;
+    background: #0086AD;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+    width: 215px;
+    text-align: center;
+    width: 300px!important;
+    height: 45px!important;
+    text-decoration: none;
+    margin-top: 2%;
+}
+  .disclaimer-text{
+  font-size: 10px!important;
+}
+  .carousel-indicators{
+    position: absolute;
+    bottom: -110px !important;
+  }
+  .carousel-indicators-mobile{
+    position: absolute;
+    bottom: 110px !important;
+  }
+  .list-style ul li {
+    background: url(/img/list.png) no-repeat left top;
+     padding: 0px 0px 0px 0px;
+    }
+
+  .list-style h3{
+    font-size: 18px;
+  }
   .accordion .accordion-item button.accordion-button{
   font-size: 16px!important;
 }
@@ -12435,6 +12479,7 @@ border-radius: 15px;
   top: 50%;
   transform: translateY(-50%); /* Vertically center */
   z-index: 9999999;
+  margin-bottom: 10%;
 }
   .container {
     /* padding: 3% !important; */

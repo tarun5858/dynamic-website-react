@@ -24,7 +24,7 @@ const SuccessCards = ({ data, src, reverse }) => {
                 borderRadius: "50% 50% 0 0",
               }}
             />
-          <p style={{fontSize:"12px",textAlign:"right"}}>* Stock images used to protect the privacy of our customers</p>
+          <p className="disclaimer-text" style={{textAlign:"right"}}>* Stock images used to protect the privacy of our customers</p>
           </div>
         </div>
         <div className="col-xl-8 col-md-8 ps-xl-3">

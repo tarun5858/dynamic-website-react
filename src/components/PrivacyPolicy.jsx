@@ -123,6 +123,7 @@ const PrivacyPolicy = () => {
                 are not liable for any loss or damage that may occur to you on
                 account of these third parties.
               </p>
+              <br />
             </div>
           </div>
         </div>

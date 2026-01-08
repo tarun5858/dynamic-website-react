@@ -6,7 +6,7 @@ import {
   carouselIcon,
 } from "../components/Imagepath";
 import CarouselData from "../data/CarouselData";
-
+import "../assets/css/App.css"
 const Carousel = () => {
   const data = CarouselData;
   const imageSrc = { carouselImage1, carouselImage2, carouselImage3 };
@@ -21,12 +21,12 @@ const Carousel = () => {
       style={{ position: "relative", minHeight: "410px" }}
     >
       <div
-        className="carousel-indicators "
+        className="carousel-indicators carousel-indicators-mobile"
         style={{
           position: "absolute",
 
           // FIX: Locks vertical position 1.5rem from the bottom of the main container
-          bottom: "0rem",
+          bottom: "-1rem",
 
           // FIX: Overrides Bootstrap's default centering transform
           marginLeft: "1%",
@@ -84,7 +84,7 @@ const Carousel = () => {
                           borderRadius: "50% 50% 0 0",
                         }}
                       />
-                      <p style={{fontSize:"12px"}}>* Stock images used to protect the privacy of our customers</p>
+                      <p className="disclaimer-text">* Stock images used to protect the privacy of our customers</p>
 
                     </div>
                   </div>

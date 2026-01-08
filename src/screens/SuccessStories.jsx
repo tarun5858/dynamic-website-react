@@ -48,10 +48,10 @@ const SuccessStories = () => {
           src={familyImageMobile}
           alt="family-image"
         />
-        <div className="container" style={{textAlign:"right"}}>
+        <p className="disclaimer-text" style={{textAlign:"right"}}>* Stock images used to protect the privacy of our customers</p>
+        {/* <div className="container" style={{textAlign:"right"}}>
 
-        <p style={{fontSize:"12px",textAlign:"right"}}>* Stock images used to protect the privacy of our customers</p>
-        </div>
+        </div> */}
       </section>
 
       <section className="about-wrapper1 container mb-0">

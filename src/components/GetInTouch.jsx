@@ -99,7 +99,7 @@ const trackButtonClick = (buttonName) => {
 };
 
     return (
-        <section className="speak-to-expert headertop-border">
+        <section className="speak-to-expert">
             <div className="container container-lg">
                 <div className="row"> 
                     {/* Left Side: Contact Info */}
