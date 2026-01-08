@@ -681,6 +681,9 @@ a {
   transition: all 0.35s ease-in-out;
   color: #0D0D0F;
 }
+.details-list a{
+color: #0086AD;
+}
 
 p {
 

@@ -6,7 +6,6 @@ const RelatedBlogCards = ({ currentBlog }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // 1. Initial Check: If currentBlog is null or the topic is missing, skip fetching.
     if (!currentBlog || !currentBlog.topic) {
       setIsLoading(false);
       return;

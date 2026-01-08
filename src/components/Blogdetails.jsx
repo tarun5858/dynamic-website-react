@@ -270,6 +270,7 @@ const ContentBlockRenderer = ({ block }) => {
   <dd
     style={{ marginLeft: "10px", paddingBottom: "0px" }}
     dangerouslySetInnerHTML={{ __html: pair.benefit }}
+    className="details-list"
   />
 </li>
                 {/* <li style={{ listStyle: "circle", marginBottom: '5px' }}>
