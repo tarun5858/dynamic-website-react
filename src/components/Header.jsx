@@ -115,6 +115,16 @@ const Header = () => {
                   Join our waitlist
                 </a>
               </div>
+              <div className="header-right-element">
+                <Link
+                  className="theme-btn-navbar btn-radius animated"
+                  to="https://prehome-prospect-dashboard-6cya.onrender.com/login"
+                  target="_blank"
+                  
+                >
+                  Sign Up
+                </Link>
+              </div>
             </div>
 
             {/* Mobile Menu */}
