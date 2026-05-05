@@ -36,6 +36,15 @@ export { default as blogImage31 } from "../assets/img/blogsImage/30.png";
 export { default as blogImage32 } from "../assets/img/blogsImage/32.png";
 export { default as blogImage33 } from "../assets/img/blogsImage/33.png";
 export { default as blogImage34 } from "../assets/img/blogsImage/34.png";
+export { default as blogImage35 } from "../assets/img/blogsImage/35.png";
+export { default as blogImage36 } from "../assets/img/blogsImage/36.png";
+export { default as blogImage37 } from "../assets/img/blogsImage/37.png";
+export { default as blogImage38 } from "../assets/img/blogsImage/38.png";
+export { default as blogImage39 } from "../assets/img/blogsImage/39.png";
+export { default as blogImage40 } from "../assets/img/blogsImage/40.png";
+export { default as blogImage41 } from "../assets/img/blogsImage/41.png";
+export { default as blogImage42 } from "../assets/img/blogsImage/42.png";
+export { default as blogImage43 } from "../assets/img/blogsImage/43.png";
 
 
 // blogDetail img
@@ -76,6 +85,15 @@ export { default as blogDetail31    } from "../assets/img/blogsImage/info30.png"
 export { default as blogDetail32    } from "../assets/img/blogsImage/info32.png";
 export { default as blogDetail33    } from "../assets/img/blogsImage/info33.png";
 export { default as blogDetail34    } from "../assets/img/blogsImage/info34.png";
+export { default as blogDetail35    } from "../assets/img/blogsImage/info35.png";
+export { default as blogDetail36    } from "../assets/img/blogsImage/info36.png";
+export { default as blogDetail37    } from "../assets/img/blogsImage/info37.png";
+export { default as blogDetail38    } from "../assets/img/blogsImage/info38.png";
+export { default as blogDetail39    } from "../assets/img/blogsImage/info39.png";
+export { default as blogDetail40    } from "../assets/img/blogsImage/info40.png";
+export { default as blogDetail41    } from "../assets/img/blogsImage/info41.png";
+export { default as blogDetail42    } from "../assets/img/blogsImage/info42.png";
+export { default as blogDetail43    } from "../assets/img/blogsImage/info43.png";
 // export { default as checkList34    } from "../assets/img/blogsImage/checklist34.png";
 
 // homepage img
