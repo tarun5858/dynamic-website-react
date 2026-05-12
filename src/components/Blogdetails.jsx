@@ -96,6 +96,12 @@ import {
   blogDetail41,
   blogDetail42,
   blogDetail43,
+  blogImage44,
+  blogImage45,
+  blogImage46,
+  blogDetail44,
+  blogDetail45,
+  blogDetail46,
 // checkList34
 } from "../components/Imagepath";
 
@@ -192,6 +198,12 @@ const imageSrc = {
   blogDetail41,
   blogDetail42,
   blogDetail43,
+  blogImage44,
+  blogImage45,
+  blogImage46,
+  blogDetail44,
+  blogDetail45,
+  blogDetail46,
 // checkList34
 
 };
