@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import React from "react";
 import RelatedBlogCards from "./RelatedBlogCards";
 import DownloadCta from "./DownloadCta";
+import ChurnCalculator from "./ChurnCalculator";
 import {
   blogImage1,
   blogImage2,
@@ -102,7 +103,7 @@ import {
   blogDetail44,
   blogDetail45,
   blogDetail46,
-// checkList34
+  // checkList34
 } from "../components/Imagepath";
 
 const imageSrc = {
@@ -204,14 +205,14 @@ const imageSrc = {
   blogDetail44,
   blogDetail45,
   blogDetail46,
-// checkList34
-
+  // checkList34
 };
 
 // --- Component to Render Individual Content Blocks (NEW) ---
 const ContentBlockRenderer = ({ block }) => {
   const baseStyle = { margin: "15px 0 6px 0 " };
   const baseStyle2 = { marginLeft: "0px" };
+  const { id } = useParams();
 
   switch (block.type) {
     case "heading":
@@ -223,11 +224,7 @@ const ContentBlockRenderer = ({ block }) => {
       );
     case "subheadingmain":
       // Treat as a subsection title (like your old subheading)
-      return (
-        <h4 style={{ ...baseStyle, marginTop: "20px" }}>
-          {block.text}
-        </h4>
-      );
+      return <h4 style={{ ...baseStyle, marginTop: "20px" }}>{block.text}</h4>;
     case "subheading":
       // Treat as a subsection title (like your old subheading)
       return (
@@ -237,7 +234,7 @@ const ContentBlockRenderer = ({ block }) => {
       );
     case "paragraph":
       // Standard paragraph text (like your old paragraph1, introduction, conclusion)
-  
+
       return (
         <p
           style={baseStyle}
@@ -249,7 +246,7 @@ const ContentBlockRenderer = ({ block }) => {
       return (
         <ul
           style={{ ...baseStyle, marginLeft: "20px", listStyleType: "circle" }}
-          dangerouslySetInnerHTML={{ __html: block.list }} 
+          dangerouslySetInnerHTML={{ __html: block.list }}
         >
           {block.listItems.map((item, i) => (
             <li
@@ -287,67 +284,45 @@ const ContentBlockRenderer = ({ block }) => {
       );
     }
     case "list-item-pair":
-      // Renders your custom Name/Benefit structure (like your old subttileHead)
-      return (
-        <div
-          className="blog-item-pair-section"
-          style={{ ...baseStyle, paddingLeft: "15px" }}
-        >
-          {/* {block.text && <p style={{ fontWeight: '', marginBottom: '10px' }}>{block.text}</p>} */}
-          {block.text && (
-            <p
-              style={{ fontWeight: "", marginBottom: "10px" }}
-              dangerouslySetInnerHTML={{ __html: block.text }} //  UPDATED
-            />
-          )}
-          <ul style={{ margin: 0 }}>
-            {block.itemPairs.map((pair, i) => (
-              <React.Fragment key={i}>
-                <li style={{ listStyle: "circle" }}>
-  <dt
-    style={{
-      fontWeight: "bold",
-      marginTop: "10px",
-      color: "#000",
-    }}
-    // Content is injected here...
-    dangerouslySetInnerHTML={{ __html: pair.name }} 
-  /> 
-  {/* ...so we leave the inside of the tag empty */}
-  
-  <dd
-    style={{ marginLeft: "10px", paddingBottom: "0px" }}
-    dangerouslySetInnerHTML={{ __html: pair.benefit }}
-    className="details-list"
-  />
-</li>
-                {/* <li style={{ listStyle: "circle", marginBottom: '5px' }}>
-                            <div style={{ display: 'flex' }}>
-                                
-                                <dt style={{ 
-                                    fontWeight: 'bold', 
-                                    color: '#333',
-                                    marginRight: '5px', // Adds a space before the colon/content
-                                }}>
-                                    {pair.name}
-                                </dt>
-                                
-                                <dd 
-                                    style={{ 
-                                        marginLeft: '0', // Reset default dd margin
-                                        paddingBottom: '0', 
-                                        flex: 1, // Allows the text to take up the remaining space
-                                    }}
-                                    dangerouslySetInnerHTML={{ __html: pair.benefit }}
-                                />
-                                
-                            </div>
-                        </li> */}
-              </React.Fragment>
-            ))}
-          </ul>
-        </div>
-      );
+  return (
+    <> 
+      <div
+        className="blog-item-pair-section"
+        style={{ ...baseStyle, paddingLeft: "15px" }}
+      >
+        {block.text && (
+          <p
+            style={{ fontWeight: "", marginBottom: "10px" }}
+            dangerouslySetInnerHTML={{ __html: block.text }}
+          />
+        )}
+        <ul style={{ margin: 0 }}>
+          {block.itemPairs.map((pair, i) => (
+            <React.Fragment key={i}>
+              <li style={{ listStyle: "circle" }}>
+                <dt
+                  style={{
+                    fontWeight: "bold",
+                    marginTop: "10px",
+                    color: "#000",
+                  }}
+                  dangerouslySetInnerHTML={{ __html: pair.name }} 
+                /> 
+                <dd
+                  style={{ marginLeft: "10px", paddingBottom: "0px" }}
+                  dangerouslySetInnerHTML={{ __html: pair.benefit }}
+                  className="details-list"
+                />
+              </li>
+            </React.Fragment>
+          ))}
+        </ul>
+      </div>
+
+     
+    </>
+  );
+
     default:
       return (
         <p style={{ color: "red" }}>
@@ -371,7 +346,7 @@ function Blogdetails() {
     (async () => {
       try {
         const res = await fetch(
-          `${import.meta.env.VITE_API_BASE_URL}/api/blogs/${id}`
+          `${import.meta.env.VITE_API_BASE_URL}/api/blogs/${id}`,
         );
         if (!res.ok) throw new Error("Failed to fetch blog");
 
@@ -446,7 +421,7 @@ function Blogdetails() {
 
     // Prepare helper array for index calculation
     const subheadingMainBlocks = blocks.filter(
-      (b) => b.type === "subheadingmain"
+      (b) => b.type === "subheadingmain",
     );
 
     // -------------------------------------------------------------------------
@@ -471,7 +446,7 @@ function Blogdetails() {
             insertionIndex = blocks.indexOf(targetBlock);
           } else {
             console.warn(
-              `[Infographic Skip] Key: ${key}. Target subheadingmain-${targetNumber} not found in content (only ${subheadingMainBlocks.length} available).`
+              `[Infographic Skip] Key: ${key}. Target subheadingmain-${targetNumber} not found in content (only ${subheadingMainBlocks.length} available).`,
             );
           }
         }
@@ -480,7 +455,7 @@ function Blogdetails() {
           switch (position) {
             case "after-introduction": {
               const firstParagraphIndex = blocks.findIndex(
-                (b) => b.type === "paragraph"
+                (b) => b.type === "paragraph",
               );
               if (firstParagraphIndex !== -1) {
                 insertionIndex = firstParagraphIndex + 1;
@@ -513,7 +488,7 @@ function Blogdetails() {
 
       blocks.splice(safeIndex, 0, infographicBlock);
       console.log(
-        `[Infographic Success] Inserted ${key} at index ${safeIndex}.`
+        `[Infographic Success] Inserted ${key} at index ${safeIndex}.`,
       );
     });
 
@@ -558,14 +533,22 @@ function Blogdetails() {
             )}
 
             {/*  2. THE DYNAMIC CONTENT BLOCK RENDERING  */}
+ 
             {Array.isArray(finalBlocksToRender) &&
               finalBlocksToRender.map((block, index) => (
                 // Use a key that is unlikely to change, or use the index if blocks are static
                 <ContentBlockRenderer
                   key={`block-${index}-${block.type}`}
                   block={block}
+                  id={id}
+                  index={index}
+                  totalBlocks={ContentBlockRenderer.length}
                 />
               ))}
+<div>
+ <br /> <p><b>To truly understand how churn destroys your yield, try adjusting the numbers in this calculator below.</b></p><br />
+        {id === "6a02dbba6f2f743060ff13e4" && <ChurnCalculator />}
+      </div>
             {/*  END OF DYNAMIC BLOCK RENDERING */}
 
             {/* 3. Legacy/Related Fields (Preserved for compatibility, but recommend moving them into contentBlocks) */}
