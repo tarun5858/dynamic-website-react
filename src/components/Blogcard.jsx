@@ -50,6 +50,10 @@ blogImage29,
   blogImage44,
   blogImage45,
   blogImage46,
+  blogImage47,
+  blogImage48,
+  blogImage49,
+  
 } from "./Imagepath";
 
 
@@ -106,6 +110,9 @@ blogImage29,
   blogImage44,
   blogImage45,
   blogImage46,
+  blogImage47,
+  blogImage48,
+  blogImage49,
 }
 
   const imageUrl = blog.imageKey && imageSrc[blog.imageKey] ? imageSrc[blog.imageKey] : blogImage1;
