@@ -238,6 +238,42 @@ const ContentBlockRenderer = ({ block }) => {
     case "subheadingmain":
       // Treat as a subsection title (like your old subheading)
       return <h4 style={{ ...baseStyle, marginTop: "20px" }}>{block.text}</h4>;
+    case "table":
+      return (
+        <div className="table-responsive my-3">
+          <table className="table table-bordered" style={{ border: "1px solid #dee2e6" }}>
+            <thead>
+              <tr>
+                <th style={{ border: "1px solid #ef9c00" }}>Feature</th>
+                <th style={{ border: "1px solid #ef9c00" }}>Joint holding (no specified split)</th>
+                <th style={{ border: "1px solid #ef9c00" }}>Tenants in common (specified shares)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style={{ backgroundColor: "#f8f9fa" }}>
+                <td style={{ border: "1px solid #ef9c00" }}><b>How ownership is recorded</b></td>
+                <td style={{ border: "1px solid #ef9c00" }}>Names listed together, share presumed equal for practical purposes</td>
+                <td style={{ border: "1px solid #ef9c00" }}>Each owner's exact percentage is stated on the deed</td>
+              </tr>
+              <tr>
+                <td style={{ border: "1px solid #ef9c00" }}><b>What happens if a co-owner dies</b></td>
+                <td style={{ border: "1px solid #ef9c00" }}>Their interest does not automatically transfer to the co-owner — it passes via their Will or succession law</td>
+                <td style={{ border: "1px solid #ef9c00" }}>Their specific share passes via their Will or succession law to their legal heirs</td>
+              </tr>
+              <tr>
+                <td style={{ border: "1px solid #ef9c00" }}><b>Best suited for</b></td>
+                <td style={{ border: "1px solid #ef9c00" }}>Married couples — but only when paired with a matching Will</td>
+                <td style={{ border: "1px solid #ef9c00" }}>Siblings, unmarried partners, business co-investors, unequal contributors</td>
+              </tr>
+              <tr>
+                <td style={{ border: "1px solid #ef9c00" }}><b>Biggest risk if done wrong</b></td>
+                <td style={{ border: "1px solid #ef9c00" }}>Assuming the deed alone guarantees the surviving spouse inherits everything, with no Will in place</td>
+                <td style={{ border: "1px solid #ef9c00" }}>No risk inherent to the structure itself — the risk is not documenting the split clearly at purchase</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      );
     case "subheading":
       // Treat as a subsection title (like your old subheading)
       return (
@@ -245,6 +281,7 @@ const ContentBlockRenderer = ({ block }) => {
           <b>{block.text}</b>
         </h4>
       );
+    
     case "paragraph":
       // Standard paragraph text (like your old paragraph1, introduction, conclusion)
 
@@ -328,6 +365,7 @@ const ContentBlockRenderer = ({ block }) => {
           ))}
         </ul>
       </div>
+
 
      
     </>
@@ -422,6 +460,17 @@ function Blogdetails() {
       insertions.push({
         key: blog.infographicImageKey2,
         position: blog.infographicPosition2,
+      });
+    }
+
+    // Dynamic Table Insertion (e.g. from backend flags or properties)
+    // Supports custom position like 'after-subheadingmain-3' or 'before-subheadingmain-3'
+    if (blog.tablePosition || blog.hasTableAfterSubtitle2) {
+      const tablePos = blog.tablePosition || "after-subheadingmain-3";
+      insertions.push({
+        block: { type: "table" },
+        position: tablePos,
+        identifier: "TableBlock",
       });
     }
 
