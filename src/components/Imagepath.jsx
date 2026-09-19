@@ -48,6 +48,9 @@ export { default as blogImage43 } from "../assets/img/blogsImage/43.png";
 export { default as blogImage44 } from "../assets/img/blogsImage/44.png";
 export { default as blogImage45 } from "../assets/img/blogsImage/45.png";
 export { default as blogImage46 } from "../assets/img/blogsImage/46.png";
+export { default as blogImage47 } from "../assets/img/blogsImage/47.png";
+export { default as blogImage48 } from "../assets/img/blogsImage/48.png";
+export { default as blogImage49 } from "../assets/img/blogsImage/49.png";
 
 
 // blogDetail img
@@ -100,6 +103,9 @@ export { default as blogDetail43    } from "../assets/img/blogsImage/info43.png"
 export { default as blogDetail44    } from "../assets/img/blogsImage/info44.png";
 export { default as blogDetail45    } from "../assets/img/blogsImage/info45.png";
 export { default as blogDetail46    } from "../assets/img/blogsImage/info46.png";
+export { default as blogDetail47    } from "../assets/img/blogsImage/info47.png";
+export { default as blogDetail48    } from "../assets/img/blogsImage/info48.png";
+export { default as blogDetail49    } from "../assets/img/blogsImage/info49.png";
 // export { default as checkList34    } from "../assets/img/blogsImage/checklist34.png";
 
 // homepage img

@@ -242,22 +242,18 @@ const ContentBlockRenderer = ({ block }) => {
         ></p>
       );
     case "list":
-      // Simple unordered bullet list
-      return (
-        <ul
-          style={{ ...baseStyle, marginLeft: "20px", listStyleType: "circle" }}
-          dangerouslySetInnerHTML={{ __html: block.list }}
-        >
-          {block.listItems.map((item, i) => (
-            <li
-              key={i}
-              style={{ marginBottom: "5px", listStyleType: "circle" }}
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
-      );
+  // Simple unordered bullet list
+  return (
+    <ul style={{ ...baseStyle, marginLeft: "20px", listStyleType: "circle" }}>
+      {block.listItems.map((item, i) => (
+        <li
+          key={i}
+          style={{ marginBottom: "5px", listStyleType: "circle" }}
+          dangerouslySetInnerHTML={{ __html: item }}
+        />
+      ))}
+    </ul>
+  );
     case "image": {
       //  ADD OPENING CURLY BRACE HERE
       const src = imageSrc[block.imageKey]; // This is now safely scoped
@@ -313,6 +309,7 @@ const ContentBlockRenderer = ({ block }) => {
                   dangerouslySetInnerHTML={{ __html: pair.benefit }}
                   className="details-list"
                 />
+             
               </li>
             </React.Fragment>
           ))}
@@ -545,10 +542,11 @@ function Blogdetails() {
                   totalBlocks={ContentBlockRenderer.length}
                 />
               ))}
-<div>
+              {id === "6a02dbba6f2f743060ff13e4" && <div>
  <br /> <p><b>To truly understand how churn destroys your yield, try adjusting the numbers in this calculator below.</b></p><br />
         {id === "6a02dbba6f2f743060ff13e4" && <ChurnCalculator />}
-      </div>
+      </div>}
+
             {/*  END OF DYNAMIC BLOCK RENDERING */}
 
             {/* 3. Legacy/Related Fields (Preserved for compatibility, but recommend moving them into contentBlocks) */}
