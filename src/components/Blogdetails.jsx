@@ -434,126 +434,252 @@ function Blogdetails() {
 
   // Blogdetails.jsx (Inside Blogdetails component, after the initial checks)
 
+  // const injectInfographic = () => {
+  //   // Safety check: Ensure contentBlocks exists before continuing
+  //   if (!blog.contentBlocks || blog.contentBlocks.length === 0) {
+  //     return blog.contentBlocks || [];
+  //   }
+
+  //   let blocks = [...blog.contentBlocks];
+  //   const insertions = [];
+
+  //   // -------------------------------------------------------------------------
+  //   // 1. COLLECT ALL INSERTIONS (Infographic 1 & 2)
+  //   // -------------------------------------------------------------------------
+
+  //   // Infographic 1
+  //   if (blog.infographicImageKey && blog.infographicPosition) {
+  //     insertions.push({
+  //       key: blog.infographicImageKey,
+  //       position: blog.infographicPosition,
+  //     });
+  //   }
+
+  //   // Infographic 2
+  //   if (blog.infographicImageKey2 && blog.infographicPosition2) {
+  //     insertions.push({
+  //       key: blog.infographicImageKey2,
+  //       position: blog.infographicPosition2,
+  //     });
+  //   }
+
+  //   // Dynamic Table Insertion (e.g. from backend flags or properties)
+  //   // Supports custom position like 'after-subheadingmain-3' or 'before-subheadingmain-3'
+  //   if (blog.tablePosition || blog.hasTableAfterSubtitle2) {
+  //     const tablePos = blog.tablePosition || "after-subheadingmain-3";
+  //     insertions.push({
+  //       block: { type: "table" },
+  //       position: tablePos,
+  //       identifier: "TableBlock",
+  //     });
+  //   }
+
+  //   if (insertions.length === 0) {
+  //     return blocks; // Nothing to insert
+  //   }
+
+  //   // Prepare helper array for index calculation
+  //   const subheadingMainBlocks = blocks.filter(
+  //     (b) => b.type === "subheadingmain",
+  //   );
+
+  //   // -------------------------------------------------------------------------
+  //   // 2. CALCULATE INDEX FOR EACH ITEM
+  //   // -------------------------------------------------------------------------
+
+  //   const indexedInsertions = insertions
+  //     .map((insertion) => {
+  //       const { position, key } = insertion;
+  //       let insertionIndex = -1;
+
+  //       // --- Dynamic Parsing for subheadingmain positions (e.g., 'before-subheadingmain-3') ---
+  //       const subheadingMatch = position.match(/^before-subheadingmain-(\d+)$/);
+
+  //       if (subheadingMatch) {
+  //         const targetNumber = parseInt(subheadingMatch[1], 10);
+  //         const targetIndex = targetNumber - 1;
+
+  //         // Check if the target exists in the filtered array
+  //         if (targetIndex >= 0 && targetIndex < subheadingMainBlocks.length) {
+  //           const targetBlock = subheadingMainBlocks[targetIndex];
+  //           insertionIndex = blocks.indexOf(targetBlock);
+  //         } else {
+  //           console.warn(
+  //             `[Infographic Skip] Key: ${key}. Target subheadingmain-${targetNumber} not found in content (only ${subheadingMainBlocks.length} available).`,
+  //           );
+  //         }
+  //       }
+  //       // --- Handle other specific positions ---
+  //       else {
+  //         switch (position) {
+  //           case "after-introduction": {
+  //             const firstParagraphIndex = blocks.findIndex(
+  //               (b) => b.type === "paragraph",
+  //             );
+  //             if (firstParagraphIndex !== -1) {
+  //               insertionIndex = firstParagraphIndex + 1;
+  //             }
+  //             break;
+  //           }
+  //           case "before-conclusion":
+  //             insertionIndex = blocks.length > 0 ? blocks.length - 1 : -1;
+  //             break;
+  //           case "bottom-of-blog":
+  //             insertionIndex = blocks.length;
+  //             break;
+  //         }
+  //       }
+
+  //       return { key, index: insertionIndex };
+  //     })
+  //     .filter((item) => item.index !== -1); // Filter out items that failed to find a spot
+
+  //   // -------------------------------------------------------------------------
+  //   // 3. SORT & PERFORM INSERTION (Highest Index First)
+  //   // -------------------------------------------------------------------------
+
+  //   // Sort descending by index: ensures inserting at index 10 doesn't affect an item targeted for index 5.
+  //   indexedInsertions.sort((a, b) => b.index - a.index);
+
+  //   indexedInsertions.forEach(({ key, index }) => {
+  //     const infographicBlock = { type: "image", imageKey: key };
+  //     const safeIndex = Math.min(Math.max(0, index), blocks.length);
+
+  //     blocks.splice(safeIndex, 0, infographicBlock);
+  //     console.log(
+  //       `[Infographic Success] Inserted ${key} at index ${safeIndex}.`,
+  //     );
+  //   });
+
+  //   return blocks;
+  // };
+
   const injectInfographic = () => {
-    // Safety check: Ensure contentBlocks exists before continuing
-    if (!blog.contentBlocks || blog.contentBlocks.length === 0) {
-      return blog.contentBlocks || [];
-    }
+  // Safety check: Ensure contentBlocks exists before continuing
+  if (!blog.contentBlocks || blog.contentBlocks.length === 0) {
+    return blog.contentBlocks || [];
+  }
 
-    let blocks = [...blog.contentBlocks];
-    const insertions = [];
+  let blocks = [...blog.contentBlocks];
+  const insertions = [];
 
-    // -------------------------------------------------------------------------
-    // 1. COLLECT ALL INSERTIONS (Infographic 1 & 2)
-    // -------------------------------------------------------------------------
+  // -------------------------------------------------------------------------
+  // 1. COLLECT ALL INSERTIONS (Infographic 1, 2 & Table)
+  // -------------------------------------------------------------------------
 
-    // Infographic 1
-    if (blog.infographicImageKey && blog.infographicPosition) {
-      insertions.push({
-        key: blog.infographicImageKey,
-        position: blog.infographicPosition,
-      });
-    }
-
-    // Infographic 2
-    if (blog.infographicImageKey2 && blog.infographicPosition2) {
-      insertions.push({
-        key: blog.infographicImageKey2,
-        position: blog.infographicPosition2,
-      });
-    }
-
-    // Dynamic Table Insertion (e.g. from backend flags or properties)
-    // Supports custom position like 'after-subheadingmain-3' or 'before-subheadingmain-3'
-    if (blog.tablePosition || blog.hasTableAfterSubtitle2) {
-      const tablePos = blog.tablePosition || "after-subheadingmain-3";
-      insertions.push({
-        block: { type: "table" },
-        position: tablePos,
-        identifier: "TableBlock",
-      });
-    }
-
-    if (insertions.length === 0) {
-      return blocks; // Nothing to insert
-    }
-
-    // Prepare helper array for index calculation
-    const subheadingMainBlocks = blocks.filter(
-      (b) => b.type === "subheadingmain",
-    );
-
-    // -------------------------------------------------------------------------
-    // 2. CALCULATE INDEX FOR EACH ITEM
-    // -------------------------------------------------------------------------
-
-    const indexedInsertions = insertions
-      .map((insertion) => {
-        const { position, key } = insertion;
-        let insertionIndex = -1;
-
-        // --- Dynamic Parsing for subheadingmain positions (e.g., 'before-subheadingmain-3') ---
-        const subheadingMatch = position.match(/^before-subheadingmain-(\d+)$/);
-
-        if (subheadingMatch) {
-          const targetNumber = parseInt(subheadingMatch[1], 10);
-          const targetIndex = targetNumber - 1;
-
-          // Check if the target exists in the filtered array
-          if (targetIndex >= 0 && targetIndex < subheadingMainBlocks.length) {
-            const targetBlock = subheadingMainBlocks[targetIndex];
-            insertionIndex = blocks.indexOf(targetBlock);
-          } else {
-            console.warn(
-              `[Infographic Skip] Key: ${key}. Target subheadingmain-${targetNumber} not found in content (only ${subheadingMainBlocks.length} available).`,
-            );
-          }
-        }
-        // --- Handle other specific positions ---
-        else {
-          switch (position) {
-            case "after-introduction": {
-              const firstParagraphIndex = blocks.findIndex(
-                (b) => b.type === "paragraph",
-              );
-              if (firstParagraphIndex !== -1) {
-                insertionIndex = firstParagraphIndex + 1;
-              }
-              break;
-            }
-            case "before-conclusion":
-              insertionIndex = blocks.length > 0 ? blocks.length - 1 : -1;
-              break;
-            case "bottom-of-blog":
-              insertionIndex = blocks.length;
-              break;
-          }
-        }
-
-        return { key, index: insertionIndex };
-      })
-      .filter((item) => item.index !== -1); // Filter out items that failed to find a spot
-
-    // -------------------------------------------------------------------------
-    // 3. SORT & PERFORM INSERTION (Highest Index First)
-    // -------------------------------------------------------------------------
-
-    // Sort descending by index: ensures inserting at index 10 doesn't affect an item targeted for index 5.
-    indexedInsertions.sort((a, b) => b.index - a.index);
-
-    indexedInsertions.forEach(({ key, index }) => {
-      const infographicBlock = { type: "image", imageKey: key };
-      const safeIndex = Math.min(Math.max(0, index), blocks.length);
-
-      blocks.splice(safeIndex, 0, infographicBlock);
-      console.log(
-        `[Infographic Success] Inserted ${key} at index ${safeIndex}.`,
-      );
+  // Infographic 1
+  if (blog.infographicImageKey && blog.infographicPosition) {
+    insertions.push({
+      blockToInsert: { type: "image", imageKey: blog.infographicImageKey },
+      position: blog.infographicPosition,
+      identifier: blog.infographicImageKey,
     });
+  }
 
-    return blocks;
-  };
+  // Infographic 2
+  if (blog.infographicImageKey2 && blog.infographicPosition2) {
+    insertions.push({
+      blockToInsert: { type: "image", imageKey: blog.infographicImageKey2 },
+      position: blog.infographicPosition2,
+      identifier: blog.infographicImageKey2,
+    });
+  }
 
+  console.log("DEBUG - Blog Object:", blog);
+  console.log("DEBUG - tablePosition:", blog.tablePosition);
+  console.log("DEBUG - hasTableAfterSubtitle2:", blog.hasTableAfterSubtitle2);
+  // Dynamic Table Insertion
+  if (blog.tablePosition || blog.hasTableAfterSubtitle2 || id === "6aae863aacd0d0db15ef7012") {
+    const tablePos = blog.tablePosition || "after-subheadingmain-5";
+    insertions.push({
+      blockToInsert: { type: "table" },
+      position: tablePos,
+      identifier: "TableBlock",
+    });
+  }
+
+  if (insertions.length === 0) {
+    return blocks; // Nothing to insert
+  }
+
+  // Prepare helper array for index calculation
+  const subheadingMainBlocks = blocks.filter(
+    (b) => b.type === "subheadingmain"
+  );
+
+  // -------------------------------------------------------------------------
+  // 2. CALCULATE INDEX FOR EACH ITEM
+  // -------------------------------------------------------------------------
+
+  const indexedInsertions = insertions
+    .map((insertion) => {
+      const { position, blockToInsert, identifier } = insertion;
+      let insertionIndex = -1;
+
+      // --- Dynamic Parsing for subheadingmain (matches both 'before' and 'after') ---
+      const subheadingMatch = position.match(/^(before|after)-subheadingmain-(\d+)$/);
+
+      if (subheadingMatch) {
+        const action = subheadingMatch[1]; // "before" or "after"
+        const targetNumber = parseInt(subheadingMatch[2], 10);
+        const targetIndex = targetNumber - 1;
+
+        // Check if the target exists in the filtered array
+        if (targetIndex >= 0 && targetIndex < subheadingMainBlocks.length) {
+          const targetBlock = subheadingMainBlocks[targetIndex];
+          const baseIndex = blocks.indexOf(targetBlock);
+
+          // If 'after', place it right past the target block (+1)
+          insertionIndex = action === "after" ? baseIndex + 1 : baseIndex;
+        } else {
+          console.warn(
+            `[Insertion Skip] ID: ${identifier}. Target subheadingmain-${targetNumber} not found in content (only ${subheadingMainBlocks.length} available).`
+          );
+        }
+      }
+      // --- Handle other specific positions ---
+      else {
+        switch (position) {
+          case "after-introduction": {
+            const firstParagraphIndex = blocks.findIndex(
+              (b) => b.type === "paragraph"
+            );
+            if (firstParagraphIndex !== -1) {
+              insertionIndex = firstParagraphIndex + 1;
+            }
+            break;
+          }
+          case "before-conclusion":
+            insertionIndex = blocks.length > 0 ? blocks.length - 1 : -1;
+            break;
+          case "bottom-of-blog":
+            insertionIndex = blocks.length;
+            break;
+        }
+      }
+
+      return { blockToInsert, index: insertionIndex, identifier };
+    })
+    .filter((item) => item.index !== -1); // Filter out items that failed to find a spot
+
+  // -------------------------------------------------------------------------
+  // 3. SORT & PERFORM INSERTION (Highest Index First)
+  // -------------------------------------------------------------------------
+
+  // Sort descending by index so lower insertions maintain accurate positions
+  indexedInsertions.sort((a, b) => b.index - a.index);
+
+  indexedInsertions.forEach(({ blockToInsert, index, identifier }) => {
+    const safeIndex = Math.min(Math.max(0, index), blocks.length);
+
+    blocks.splice(safeIndex, 0, blockToInsert);
+    console.log(
+      `[Insertion Success] Inserted ${identifier} (${blockToInsert.type}) at index ${safeIndex}.`
+    );
+  });
+
+  return blocks;
+};
   const finalBlocksToRender = injectInfographic();
 
   const heroImageUrl = imageSrc[blog.imageKey] || blog.imageUrl;

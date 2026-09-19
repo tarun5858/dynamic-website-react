@@ -11820,15 +11820,15 @@ thead {
 }
 
 /* Different styles for the columns */
-td:nth-child(1),
+/* td:nth-child(1),
 th:nth-child(1) {
   background-color: #f9c2c2;
   color: #000;
-  /* font-weight: bold; */
   font-size: 16px;
-}
+} */
+/* font-weight: bold; */
 
-td:nth-child(2),
+/* td:nth-child(2),
 th:nth-child(2) {
   background-color: #c2f9c2;
   color: #000;
@@ -11840,9 +11840,9 @@ th:nth-child(3) {
   background-color: #c2d1f9;
   color: #000;
   font-size: 16px;
-}
+} */
 
-th {
+/* th {
   background-color: #333333;
   color: white;
 }
@@ -11850,7 +11850,7 @@ th {
 tfoot {
   background-color: #f8f9fa;
   font-weight: bold;
-}
+} */
 
 /* monthly budget calc app.css  */
 
